@@ -1,0 +1,20 @@
+SITE GREMA88 - mode d'emploi
+
+Publier une appli, un livre ou une vidéo :
+1. Ouvrez admin.html (lien « Espace Grema · publier » en bas du site).
+2. Ajoutez ou modifiez vos publications, puis cliquez « Télécharger contenu.js ».
+3. Remplacez le fichier contenu.js de ce dossier par celui que vous venez de télécharger.
+4. Sur Netlify, ouvrez votre site > Deploys, et glissez ce dossier entier dans la zone de dépôt.
+
+Images : vous pouvez les ajouter directement depuis l'Espace Grema, ou mettre le fichier
+dans le dossier images/ et écrire images/nom-du-fichier.jpg dans le champ Image.
+Livres en PDF : mettez le PDF dans un dossier livres/ et écrivez livres/mon-livre.pdf dans le champ Lien.
+
+Boutique et vendeurs :
+- Les vendeurs remplissent le formulaire « Vendez sur Grema88 ». Leurs demandes arrivent sur Netlify,
+  onglet Forms, formulaire « vendeur » (seulement une fois le site en ligne sur Netlify).
+- Si vous acceptez un produit, ajoutez-le dans l'Espace Grema avec « + Produit » et le WhatsApp du vendeur.
+  Le bouton « Commander sur WhatsApp » ouvre la discussion avec ce vendeur.
+
+Langues : le site est en français, anglais, arabe et allemand (menu en haut à droite).
+Pour traduire le texte d'une publication, ouvrez « Traductions » dans sa fiche de l'Espace Grema.

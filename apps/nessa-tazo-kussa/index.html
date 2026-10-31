@@ -1,0 +1,1092 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Nessa Tazo Kussa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Figtree:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
+<style>
+/* Layout: one phone-width app column. Ebony header band woven with a kente/bogolan pattern, gold & silver finishes, ivory sheets, 4-role tab bar. */
+:root{
+  --bg:#f3eee4; --surface:#fffdf8; --surface-2:#f6efe1; --fg:#20160f; --muted:#6e5d4b;
+  --line:#e4d8c3; --indigo:#8a5d0c; --indigo-deep:#1c130d; --indigo-soft:#f6e6bd; --on-indigo:#fbf3e2;
+  --saffron:#d4a32b; --saffron-ink:#2a1b00; --sand:#ecdcb9; --road:#d2bb8c;
+  --gold-1:#f3d77f; --gold-2:#cf9d2b; --gold-3:#9b6c12; --silver-1:#f4f5f7; --silver-2:#cfd3da; --silver-ink:#2a2d33;
+  --k-green:#1f7a4a; --k-red:#b3342a;
+  --ok:#1f7a4a; --warn:#a8650a; --danger:#b3342a;
+  --wa:#1fa855; --ms:#1877f2; --sms:#6a4fd6; --mail:#c2410c; --tel:#475569;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Figtree","Noto Kufi Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#110c09; --surface:#1c1511; --surface-2:#261d17; --fg:#f6ecda; --muted:#bfa98c;
+  --line:#3a2d23; --indigo:#e6bd55; --indigo-deep:#0b0705; --indigo-soft:#3a2b12; --on-indigo:#fbf3e2;
+  --saffron:#e3b443; --saffron-ink:#1f1400; --sand:#2a2117; --road:#4d3f2a;
+  --silver-1:#4a4d55; --silver-2:#2c2e34; --silver-ink:#eef0f4;
+  --ok:#4cc07f; --warn:#f0a531; --danger:#f0675c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#110c09; --surface:#1c1511; --surface-2:#261d17; --fg:#f6ecda; --muted:#bfa98c;
+  --line:#3a2d23; --indigo:#e6bd55; --indigo-deep:#0b0705; --indigo-soft:#3a2b12; --on-indigo:#fbf3e2;
+  --saffron:#e3b443; --saffron-ink:#1f1400; --sand:#2a2117; --road:#4d3f2a;
+  --silver-1:#4a4d55; --silver-2:#2c2e34; --silver-ink:#eef0f4;
+  --ok:#4cc07f; --warn:#f0a531; --danger:#f0675c; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px 100px}
+.app{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.view{display:flex;flex-direction:column;gap:14px}
+
+/* header band */
+.band{background:var(--indigo-deep);color:var(--on-indigo);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.band{padding-bottom:28px;box-shadow:0 10px 30px -18px rgba(60,35,5,.7)}
+.band::before{content:"";position:absolute;inset:0;opacity:.22;pointer-events:none;background-size:44px 44px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%23d4a32b' stroke-width='1.6'%3E%3Cpath d='M22 4l9 9-9 9-9-9z'/%3E%3Cpath d='M0 26h44M0 30h44' stroke-dasharray='3 3'/%3E%3C/g%3E%3Cg fill='%23d4a32b'%3E%3Ccircle cx='22' cy='13' r='2'/%3E%3Ccircle cx='0' cy='40' r='1.6'/%3E%3Ccircle cx='11' cy='40' r='1.6'/%3E%3Ccircle cx='22' cy='40' r='1.6'/%3E%3Ccircle cx='33' cy='40' r='1.6'/%3E%3Ccircle cx='44' cy='40' r='1.6'/%3E%3C/g%3E%3C/svg%3E")}
+.band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;
+  background:repeating-linear-gradient(90deg,var(--gold-2) 0 22px,var(--indigo-deep) 22px 26px,var(--k-green) 26px 40px,var(--indigo-deep) 40px 44px,var(--k-red) 44px 52px,var(--indigo-deep) 52px 56px,var(--gold-1) 56px 64px,var(--indigo-deep) 64px 68px)}
+.kente{height:6px;border-radius:99px;background:repeating-linear-gradient(90deg,var(--gold-2) 0 18px,var(--k-green) 18px 28px,var(--k-red) 28px 34px,var(--gold-1) 34px 40px)}
+.brand h1{background:linear-gradient(180deg,var(--gold-1),var(--gold-2) 60%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.band > *{position:relative}
+.top{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.logo{width:48px;height:48px;border-radius:14px;flex:none;overflow:hidden;background:var(--indigo-deep);display:grid;place-items:center;box-shadow:0 0 0 2px var(--gold-2),0 0 0 4px var(--silver-2)}
+.logo img{width:100%;height:100%;object-fit:cover}
+.brand h1{font-family:var(--display);font-size:17px;line-height:1.1;margin:0}
+.brand small{opacity:.8;font-size:12px}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+.langs button{border:0;background:none;color:var(--on-indigo);opacity:.8;font:700 12px var(--body);padding:6px 9px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--saffron-ink);opacity:1}
+.band select{background:rgba(255,255,255,.12);color:var(--on-indigo);border-color:rgba(255,255,255,.25)}
+.band select option,.band select optgroup{color:#141935;background:#fff}
+.band .f{color:var(--on-indigo);opacity:.95}
+.wordmark{text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;padding-block:4px 2px}
+.wordmark h1{margin:0;font-family:"Cinzel Decorative","Cinzel",Georgia,serif;font-weight:900;font-size:clamp(30px,9.5vw,44px);line-height:1.02;letter-spacing:.01em;text-wrap:balance;
+  background:none;-webkit-background-clip:initial;background-clip:initial;color:inherit}
+.wm-gold,.wm-silver{-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.55)) drop-shadow(0 0 10px rgba(243,215,127,.25))}
+.wm-gold{background-image:linear-gradient(180deg,#fff3c4 0%,#f3d77f 28%,#cf9d2b 55%,#8a5d0c 78%,#f3d77f 100%)}
+.wm-silver{background-image:linear-gradient(180deg,#ffffff 0%,#e8ebf0 30%,#9aa1ad 58%,#5f6672 78%,#e8ebf0 100%)}
+.orn{display:flex;align-items:center;gap:8px;width:min(260px,80%);margin-top:4px}
+.orn i{flex:1;height:2px;background:linear-gradient(90deg,transparent,#cf9d2b,#cfd3da)}
+.orn i:last-child{background:linear-gradient(90deg,#cfd3da,#cf9d2b,transparent)}
+.orn b{width:10px;height:10px;transform:rotate(45deg);background:linear-gradient(135deg,#f3d77f,#9b6c12);box-shadow:0 0 0 2px #1c130d,0 0 0 3px #cfd3da}
+.agency{margin:0;font-family:"Great Vibes","Brush Script MT",cursive;font-size:clamp(26px,8vw,34px);line-height:1.1;
+  background-image:linear-gradient(180deg,#fff3c4,#f3d77f 40%,#cf9d2b 70%,#9b6c12);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.6))}
+.wordmark small{opacity:.8;font-size:12px}
+.mark{display:flex;flex-direction:column;align-items:center;gap:0;padding-block:18px 6px;text-align:center}
+.mark .orn i{background:linear-gradient(90deg,transparent,var(--gold-2),var(--silver-2))}
+.mark .orn i:last-child{background:linear-gradient(90deg,var(--silver-2),var(--gold-2),transparent)}
+.mark .orn b{box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--silver-2)}
+.mark-by{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.mark-name{font-family:"Great Vibes","Brush Script MT",cursive;font-size:40px;line-height:1.15;padding-inline:6px;
+  background-image:linear-gradient(180deg,var(--gold-1),var(--gold-2) 55%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
+.mark-tm{font-family:"Cinzel Decorative",Georgia,serif;font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.langwrap{position:relative}
+.langbtn{display:flex;align-items:center;gap:8px;border:0;cursor:pointer;padding:8px 12px 8px 10px;border-radius:14px;color:var(--saffron-ink);
+  background:linear-gradient(135deg,var(--gold-1),var(--gold-2) 60%,var(--gold-3));box-shadow:0 0 0 2px var(--silver-2),0 6px 14px -6px rgba(0,0,0,.6);font-family:var(--body)}
+.langbtn svg{width:24px;height:24px}
+.langbtn span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.langbtn small{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.langbtn b{font-size:15px}
+.langbtn i{font-style:normal;font-size:12px}
+.langmenu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);z-index:20;background:var(--surface);border:2px solid var(--gold-2);border-radius:14px;padding:6px;display:flex;flex-direction:column;gap:4px;min-width:170px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
+.langmenu button{border:0;background:none;text-align:start;padding:11px 12px;border-radius:10px;font:700 16px var(--body);color:var(--fg);cursor:pointer}
+.langmenu button[aria-checked="true"]{background:var(--indigo-soft);color:var(--indigo)}
+.langmenu button[aria-checked="true"]::after{content:" ✓"}
+.afslot{display:grid;place-items:center;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45)) drop-shadow(0 0 8px rgba(243,215,127,.3))}
+.mark .orn{width:min(320px,90%)}
+.mark-tm{font-size:15px!important;letter-spacing:.35em!important;font-weight:700;margin-top:2px;
+  background-image:linear-gradient(180deg,#ffffff,#cfd3da 45%,#8e95a1);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .mark-tm{background-image:linear-gradient(180deg,#9aa1ad,#5f6672)}}
+:root[data-theme="light"] .mark-tm{background-image:linear-gradient(180deg,#9aa1ad,#5f6672)}
+.rolehead{font-family:var(--display);font-size:20px;margin:0;text-wrap:balance}
+
+select,input[type="number"],input[type="text"],input[type="tel"],input[type="email"],input[type="datetime-local"],textarea{
+  font:500 15px var(--body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:90px;line-height:1.4}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;flex:1;min-width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row > label.f{flex:1 1 140px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px}
+h2{font-family:var(--display);font-size:15px;margin:0;text-wrap:balance;display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:9px;height:9px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-1),var(--gold-3));flex:none}
+.stepper{display:grid;grid-template-columns:48px 1fr 48px;gap:8px;align-items:center}
+.stepper output{text-align:center;font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+.check{display:flex;gap:8px;align-items:center;font-weight:600;font-size:14px;cursor:pointer}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted);font-size:13px}
+
+.map{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--sand);aspect-ratio:4/3;max-width:100%}
+.map svg{display:block;width:100%;height:100%}
+.map .tag{position:absolute;left:10px;top:10px;background:var(--surface);color:var(--fg);font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;border:1px solid var(--line)}
+.map .hint{position:absolute;right:10px;bottom:10px;background:var(--surface);color:var(--muted);font-size:11px;padding:4px 8px;border-radius:999px}
+
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:var(--surface-2);border-radius:12px;padding:4px}
+.seg button{border:0;background:none;padding:9px 6px;border-radius:9px;font:700 13px var(--body);color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.vehicles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.veh{border:1.5px solid var(--line);position:relative;background:var(--surface-2);border-radius:13px;padding:10px 9px;text-align:left;cursor:pointer;color:var(--fg);font-family:var(--body);display:flex;flex-direction:column;gap:1px;min-width:0}
+.veh[aria-pressed="true"]{border-color:var(--gold-2);background:var(--indigo-soft);box-shadow:0 0 0 1px var(--gold-2)}
+.veh b{font-size:14px}
+.veh span{font-size:12px;color:var(--muted)}
+.veh .p{font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums;font-size:14px}
+.veh svg{width:32px;height:22px;color:var(--indigo);margin-bottom:4px}
+
+.btn{border:0;border-radius:12px;padding:13px 16px;font:700 15px var(--body);cursor:pointer;width:100%;text-align:center;text-decoration:none;display:inline-block}
+.btn.main{background:linear-gradient(135deg,var(--gold-1) 0%,var(--gold-2) 55%,var(--gold-3) 100%);color:var(--saffron-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 6px 16px -8px var(--gold-3)}
+.btn.ink{background:var(--indigo-deep);color:var(--gold-1);box-shadow:inset 0 0 0 1px var(--gold-2)}
+.btn.alt{background:linear-gradient(180deg,var(--silver-1),var(--silver-2));color:var(--silver-ink);border:1px solid var(--silver-2)}
+.btn.danger{background:none;color:var(--danger);border:1px solid var(--danger)}
+.btn.sm{padding:8px 12px;font-size:13px;width:auto;border-radius:10px}
+.btn.sos{background:var(--danger);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible,label.btn:focus-within{outline:3px solid var(--saffron);outline-offset:2px}
+
+.pay{display:flex;gap:8px}
+.pay label{flex:1;display:flex;gap:7px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:11px;font-weight:700;font-size:14px;cursor:pointer;background:var(--surface-2)}
+.sum{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+.sum .big{font-family:var(--display);font-size:22px;white-space:nowrap}
+
+.channels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ch{border:1px solid var(--line);background:var(--surface-2);border-radius:13px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:5px;font:700 12px var(--body);color:var(--fg);cursor:pointer}
+.ch i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal}
+.ch i svg{width:18px;height:18px}
+.ch[aria-pressed="true"]{border-color:var(--indigo);background:var(--indigo-soft)}
+.srcdot{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;color:#fff;flex:none}
+.srcdot svg{width:12px;height:12px}
+.c-whatsapp{background:var(--wa)}.c-messenger{background:var(--ms)}.c-sms{background:var(--sms)}.c-email{background:var(--mail)}.c-phone{background:var(--tel)}.c-app{background:var(--indigo-deep)}
+.msgbox{background:var(--surface-2);border-radius:12px;padding:12px;font-size:14px;white-space:pre-wrap;border:1px dashed var(--line)}
+
+.driver{display:flex;gap:12px;align-items:center}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo);display:grid;place-items:center;font-weight:700;font-size:17px;flex:none}
+.pin{font-family:var(--display);font-size:20px;letter-spacing:.2em;background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--saffron-ink);padding:6px 10px;border-radius:8px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--indigo-soft);color:var(--indigo);white-space:nowrap;width:fit-content}
+.pill.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+.pill.warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.pill.bad{background:color-mix(in srgb,var(--danger) 14%,transparent);color:var(--danger)}
+.dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.spin{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--indigo);border-radius:50%;animation:sp .9s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin{animation-duration:3s}}
+
+.list{display:flex;flex-direction:column}
+.item{display:flex;gap:10px;padding:11px 0;border-top:1px solid var(--line);font-size:14px;align-items:flex-start}
+.list > .item:first-child{border-top:0;padding-top:0}
+.item .grow{flex:1;min-width:0}
+.item .r{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;text-align:right}
+.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.actions select{width:auto;padding:7px 10px;font-size:13px}
+.stars{display:flex;gap:4px}
+.stars button{border:0;background:none;font-size:30px;cursor:pointer;color:var(--line);padding:0 2px}
+.stars button.on{color:var(--saffron)}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.toggle{width:58px;height:32px;border-radius:999px;border:0;background:var(--line);position:relative;cursor:pointer;flex:none}
+.toggle::after{content:"";position:absolute;left:4px;top:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .2s}
+.toggle[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold-1),var(--gold-2))}
+.toggle[aria-pressed="true"]::after{left:30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stats > div{background:var(--surface-2);border-radius:12px;padding:10px;min-width:0}
+.stats b{display:block;font-family:var(--display);font-size:16px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.stats span{font-size:12px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;font-size:13px}
+.bar .tr{height:10px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-2),var(--gold-1));border-radius:99px}
+.bar b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.note{font-size:12px;color:var(--muted);background:var(--surface-2);border-radius:10px;padding:8px 10px}
+details.card summary{cursor:pointer;font-family:var(--display);font-size:15px;list-style:none;display:flex;justify-content:space-between}
+details.card summary::after{content:"+";color:var(--muted)}
+details[open].card summary::after{content:"–"}
+.trow{display:grid;grid-template-columns:70px 1fr 1fr 1fr;gap:6px;align-items:end}
+.trow b{font-size:13px;padding-bottom:10px}
+.adboard{position:relative;border-radius:var(--r);overflow:hidden;background:#1c130d;color:#fbf3e2;border:2px solid var(--gold-2);box-shadow:0 0 0 3px var(--silver-2)}
+.adboard .scene{display:block;width:100%;height:auto;aspect-ratio:400/150}
+.adboard .copy{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;min-height:96px}
+.adboard .ad-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#cfd3da}
+.adboard .ad-h{font-family:var(--display);font-size:18px;line-height:1.15;color:#f3d77f;text-wrap:balance}
+.adboard .ad-s{font-size:13.5px;opacity:.9}
+.adboard .cmap{display:block;width:100%;height:auto;aspect-ratio:400/230;border-top:1px solid #3a2a1a;background:radial-gradient(120% 90% at 30% 20%,#2a1d12,#140d08)}
+.adboard svg,.map svg{direction:ltr}
+.adboard .chips{display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 4px}
+.adboard .chips span{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid #4a3826;color:#cfd3da}
+.adboard .chips span.on{border-color:#cf9d2b;color:#f3d77f;background:#2e2112}
+@keyframes pulse{0%{r:5;opacity:.9}100%{r:16;opacity:0}}
+.pulse{animation:pulse 1.8s ease-out infinite}
+@media (prefers-reduced-motion: reduce){.pulse{animation:none}}
+.adboard .dots{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
+.adboard .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:#5a4a3a;cursor:pointer}
+.adboard .dots button[aria-current="true"]{background:#f3d77f}
+.adboard .copy > *{transition:opacity .35s}
+.adboard.fade .copy > *{opacity:0}
+@keyframes ride{from{transform:translateX(-140px)}to{transform:translateX(440px)}}
+@keyframes walk{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+.mv-moto{animation:ride 7s linear infinite}
+.mv-walk{animation:walk 2.4s ease-in-out infinite}
+.mv-bob{animation:bob .5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.mv-moto{animation:none;transform:translateX(120px)}.mv-walk,.mv-bob{animation:none}}
+.today{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.today .day{width:64px;border-radius:14px;overflow:hidden;text-align:center;border:1px solid var(--gold-2);background:var(--surface)}
+.today .day i{display:block;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 0;background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--saffron-ink)}
+.today .day b{display:block;font-family:var(--display);font-size:24px;padding:4px 0 6px;font-variant-numeric:tabular-nums}
+.season{display:flex;gap:10px;align-items:flex-start}
+.season svg{width:34px;height:34px;flex:none;color:var(--indigo)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal span{font-size:11px;font-weight:700;color:var(--muted);padding:4px 0}
+.cal button{border:1px solid var(--line);background:var(--surface-2);border-radius:9px;padding:7px 0 9px;font:600 13px var(--body);color:var(--fg);cursor:pointer;position:relative;font-variant-numeric:tabular-nums}
+.cal button:disabled{opacity:.35;cursor:default}
+.cal button.td{border-color:var(--gold-2);box-shadow:0 0 0 1px var(--gold-2)}
+.cal button.has::after{content:"";position:absolute;left:50%;bottom:3px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--gold-3)}
+.sponsor{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border:1px dashed var(--gold-2);background:var(--surface)}
+.sponsor .ph{width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--indigo-soft);display:grid;place-items:center;color:var(--indigo);font-family:var(--display);font-size:20px}
+.sponsor .ph img{width:100%;height:100%;object-fit:cover}
+.meter{background:#120c08;border:2px solid var(--gold-2);border-radius:14px;padding:12px;display:grid;grid-template-columns:1fr 0.8fr 1.4fr;gap:8px;color:#cfd3da;box-shadow:inset 0 0 18px rgba(0,0,0,.6)}
+.meter div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.meter span{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.meter b{font-family:"Courier New",ui-monospace,monospace;font-size:17px;color:#f3d77f;text-shadow:0 0 8px rgba(243,215,127,.55);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meter .p b{color:#ffe9a8;font-size:18px}
+.meter .lbl{grid-column:1/-1;display:flex;flex-direction:row;justify-content:space-between;align-items:center}
+.meter .lbl i{font-style:normal;font-family:var(--display);font-size:11px;color:#f3d77f;letter-spacing:.1em}
+.meter .led{width:8px;height:8px;border-radius:50%;background:#4cc07f;box-shadow:0 0 8px #4cc07f}
+@keyframes ping{0%{r:7;opacity:.8}100%{r:22;opacity:0}}
+.ping{animation:ping 1.6s ease-out infinite}
+@media (prefers-reduced-motion: reduce){.ping{animation:none;opacity:.3}}
+.livemap{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--sand);aspect-ratio:4/3;max-width:100%}
+.livemap svg{display:block;width:100%;height:100%;direction:ltr}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:5px;vertical-align:-1px}
+.req{border:1.5px solid var(--saffron);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:10px;background:color-mix(in srgb,var(--saffron) 8%,var(--surface))}
+
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:3px solid var(--gold-2);display:flex;justify-content:center;
+  padding:6px max(16px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));z-index:5}
+nav.tabs .in{display:grid;grid-template-columns:repeat(4,1fr);max-width:480px;width:100%}
+nav.tabs button{border:0;background:none;color:var(--muted);font:700 11px var(--body);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;cursor:pointer;border-radius:10px;position:relative}
+nav.tabs button svg{width:22px;height:22px}
+nav.tabs button[aria-current="page"]{color:var(--indigo)}
+nav.tabs .badge{position:absolute;top:2px;left:calc(50% + 6px);background:var(--danger);color:#fff;font-size:10px;min-width:17px;height:17px;border-radius:99px;display:grid;place-items:center;padding:0 4px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;z-index:9;max-width:calc(100% - 32px);text-align:center}
+</style>
+
+<div class="app">
+  <div class="band">
+    <div class="top">
+      <div class="logo" id="logoBox"></div>
+      <div class="langwrap">
+        <button class="langbtn" id="langBtn" aria-expanded="false" aria-controls="langMenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><span><small data-i="langBtn"></small><b id="langCur"></b></span><i aria-hidden="true">▾</i></button>
+        <div class="langmenu" id="langMenu" role="menu" hidden>
+          <button data-lang="fr" role="menuitemradio" lang="fr">Français</button><button data-lang="en" role="menuitemradio" lang="en">English</button><button data-lang="ha" role="menuitemradio" lang="ha">Hausa</button><button data-lang="ar" role="menuitemradio" lang="ar">العربية</button>
+        </div>
+      </div>
+    </div>
+    <div class="wordmark">
+      <h1><span class="wm-gold" id="wm1">Nessa Tazo</span> <span class="wm-silver" id="wm2">Kussa</span></h1>
+      <div class="orn" aria-hidden="true"><i></i><span class="afslot" data-af="22"></span><i></i></div>
+      <p class="agency" id="wmA">Grema Agence 88</p>
+      <small data-i="tagline"></small>
+    </div>
+    <div class="row" style="align-items:flex-end">
+      <div style="flex:1 1 160px;min-width:0"><div class="eyebrow" style="color:var(--saffron)" id="roleEyebrow"></div><p class="rolehead" id="roleHead"></p></div>
+      <label class="f" for="city" style="flex:0 1 170px"><span data-i="city"></span><select id="city"></select></label>
+    </div>
+  </div>
+
+  <section id="v-client" class="view"></section>
+  <section id="v-driver" class="view" hidden></section>
+  <section id="v-agent" class="view" hidden></section>
+  <section id="v-boss" class="view" hidden></section>
+  <footer class="mark" aria-label="Agence Grema 88">
+    <div class="orn" aria-hidden="true"><i></i><span class="afslot" data-af="58"></span><i></i></div>
+    <span class="mark-by" data-i="madeBy"></span>
+    <span class="mark-name">Agence Grema 88</span>
+    <span class="mark-tm" data-i="africa"></span>
+  </footer>
+</div>
+
+<nav class="tabs"><div class="in">
+  <button data-tab="client" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i="tClient"></span></button>
+  <button data-tab="driver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 3v7M5 16l5-3M19 16l-5-3"/></svg><span data-i="tDriver"></span></button>
+  <button data-tab="agent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg><span data-i="tAgent"></span><span class="badge" id="agentBadge" hidden></span></button>
+  <button data-tab="boss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i="tBoss"></span></button>
+</div></nav>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const I18N={
+fr:{tagline:"Taxi & moto · Afrique",city:"Ville",from:"Départ",to:"Destination",whereTo:"Où allez-vous ?",moto:"Moto",taxi:"Taxi",tricycle:"Tricycle",
+ min:"min",km:"km",cash:"Espèces",momo:"Mobile Money",order:"Commander",book:"Réserver",searching:"Recherche d'un chauffeur proche…",cancel:"Annuler",
+ coming:"Votre chauffeur arrive",eta:"Arrivée dans",pinLbl:"Code de sécurité à donner au chauffeur",start:"Le chauffeur est là, démarrer",
+ onTrip:"Course en cours",sos:"SOS urgence",share:"Partager le trajet",arrived:"Vous êtes arrivé",rate:"Notez votre chauffeur",done:"Terminer",
+ total:"Total à payer",tClient:"Client",tDriver:"Chauffeur",tAgent:"Agent",tBoss:"Patron",online:"En ligne",offline:"Hors ligne",
+ hClient:"Où allez-vous aujourd'hui ?",hDriver:"Prêt pour la route",hAgent:"Réservations à traiter",hBoss:"Votre agence en un coup d'œil",
+ eClient:"Espace client",eDriver:"Espace chauffeur",eAgent:"Espace agent",eBoss:"Espace patron",
+ goOnline:"Passez en ligne pour recevoir des courses",waiting:"En attente de courses…",newReq:"Nouvelle demande",agencyReq:"Course envoyée par l'agence",accept:"Accepter",refuse:"Refuser",
+ today:"Aujourd'hui",trips:"Courses",earn:"Gains nets",rating:"Note",commission:"Commission agence",tariffs:"Tarifs",base:"Prise en charge",perKm:"Par km",minFare:"Minimum",
+ logo:"Logo de l'agence",logoHint:"Chargez votre vrai logo : il remplace le logo provisoire partout.",upload:"Choisir une image",reset:"Logo provisoire",
+ history:"Mes courses",empty:"Aucune course pour l'instant.",
+ exNote:"Prototype : chauffeurs, messages et tarifs sont des exemples à remplacer par les vôtres.",sameErr:"Choisissez une destination différente du départ.",
+ shareMsg:"Trajet copié, collez-le à un proche",dropOff:"Déposer le passager",pickup:"Prise en charge",accepted:"Course acceptée",netAfter:"net après commission",
+ saved:"Enregistré",save:"Enregistrer",niger:"Niger · Franc CFA",nigeria:"Nigeria · Naira",ghana:"Ghana · Cedi",
+ now:"Maintenant",later:"Programmer",when:"Date et heure",viaApp:"Commander dans l'application",orVia:"Ou réservez par message",
+ whatsapp:"WhatsApp",sms:"SMS",email:"E-mail",messenger:"Messenger",phone:"Appel",app:"Application",
+ msgTitle:"Message prêt à envoyer",sendTo:"Envoyer à",copy:"Copier le message",copied:"Message copié",open:"Ouvrir",simulate:"Envoyer à l'agence (démo)",sent:"Message reçu par l'agent",
+ linkNote:"Si le bouton Ouvrir ne réagit pas dans l'aperçu, copiez le message et envoyez-le vous-même.",
+ inbox:"Messages reçus",inboxEmpty:"Aucun nouveau message.",treat:"Créer la réservation",newBooking:"Nouvelle réservation",name:"Nom du client",tel:"Téléphone",source:"Reçu par",
+ queue:"Réservations",queueEmpty:"Aucune réservation en attente.",assign:"Assigner",confirmMsg:"Copier la confirmation",finish:"Terminée",
+ st_pending:"En attente",st_assigned:"Chauffeur assigné",st_ongoing:"En route",st_done:"Terminée",st_cancelled:"Annulée",
+ scheduled:"Réservation enregistrée",bookedFor:"prévue le",created:"Réservation créée",assignedTo:"assignée à",
+ revenue:"Chiffre d'affaires",ourCut:"Commission",byChannel:"Réservations par canal",byCity:"Courses par ville",team:"Équipe",agents:"Agents",drivers:"Chauffeurs",
+ contacts:"Contacts de réservation",waNum:"Numéro WhatsApp",smsNum:"Numéro SMS",mail:"Adresse e-mail",msPage:"Page Messenger",resetDemo:"Remettre les données d'exemple",
+ doneTrips:"Courses terminées",activeNow:"En cours",payHint:"Opérateurs",exampleTag:"exemple",adTag:"Publicité",ads:"Panneau publicitaire",adTitle:"Titre",adSub:"Texte",adReset:"Textes d'origine",you:"Vous",colis:"Colis",vehicle:"Véhicule",offer:"Proposez votre prix",offerHint:"Les chauffeurs proches acceptent ou non votre offre.",forOther:"Commander pour un proche",oname:"Nom du passager",otel:"Téléphone du passager",clientOffer:"Prix proposé par le client",forWho:"Pour",rgNE:"8 régions",rgNG:"36 États + Abuja",rgGH:"16 régions",mapNote:"Carte simplifiée",weServe:"Nous roulons à",fixMode:"Mode de prix",meter:"Compteur",allCur:"Toutes les monnaies d'Afrique de l'Ouest",sub:"Abonnement",subHint:"Le premier mois est gratuit. Ensuite chacun paie le prix que vous fixez ici.",trialDays:"Jours gratuits",subPrice:"Prix par mois",whoPays:"Qui paie l'abonnement",subDrv:"Chauffeurs",subCli:"Clients",freeLeft:"Mois gratuit : {n} jours restants",paidLeft:"Abonnement payé : {n} jours restants",subDue:"Abonnement à renouveler",payNow:"Payer",perMonth:"par mois",subPaid:"Paiement reçu",markPaid:"Payé 1 mois",subBlock:"Renouvelez l'abonnement pour recevoir des courses.",subBlockCli:"Renouvelez l'abonnement pour commander.",subNote:"Paiement simulé dans l'aperçu.",thenPrice:"Ensuite",africa:"Afrique",allCities:"Toutes les villes",langBtn:"Langue",sosTxt:"Niger : police 17, pompiers 18 · Nigeria et Ghana : 112",mapOf:"Carte de",adPh:"Pub",madeBy:"Une marque de",brandT:"Nom de l'application",app1:"Nom (partie or)",app2:"Nom (partie argent)",agencyN:"Nom de l'agence",brandHint:"Chaque propriétaire peut mettre son propre nom : il s'affiche en haut et dans tous les messages.",brandReset:"Nom d'origine",ctrl:"Centre de contrôle",lock:"Verrouiller",unlock:"Déverrouiller",pinLbl2:"Code patron",pinWrong:"Code incorrect",pinDemo:"Code de démonstration : 8888",lockedMsg:"Espace réservé au patron. Entrez votre code.",active:"Actif",suspended:"Suspendu",pendingV:"À vérifier",activate:"Activer",suspend:"Suspendre",d_permis:"Permis",d_grise:"Carte grise",d_assur:"Assurance",d_cni:"Pièce d'identité",docsMissing:"Documents manquants : activation impossible.",addDriver:"Ajouter un chauffeur",plate:"Plaque",country:"Pays",addAgent:"Ajouter un agent",services:"Services et villes",svcHint:"Décochez pour fermer un service ou une ville aux clients.",closed:"fermé",cityClosed:"Le service est fermé dans cette ville pour le moment.",annonce:"Annonce à tous les clients",publish:"Publier",clear:"Effacer",newPin:"Nouveau code (4 chiffres)",journal:"Journal des actions",logEmpty:"Aucune action.",announceTag:"Annonce",removed:"retiré",card:"Carte bancaire",operator:"Opérateur",local:"Dans ce pays",waWide:"Partout en Afrique de l'Ouest",cardHint:"Visa, Mastercard, GIM-UEMOA, Verve.",payNote:"Dans l'application finale, ces paiements passent par un agrégateur ouest-africain (CinetPay, PayDunya, Flutterwave ou Paystack).",live:"Suivi en direct",liveHint:"Clients en bleu, chauffeurs en or. Mise à jour toutes les 2 secondes.",me:"Vous",useMyPos:"Partir de ma position",posSet:"Départ réglé au plus près de vous",gpsNote:"Position simulée dans l'aperçu. L'application finale utilisera le GPS du téléphone, avec l'accord du client.",clientPos:"Position du client en direct",away:"à",agreed:"Prix convenu",elapsed:"Durée",distLbl:"Distance",fareLbl:"Prix",meterHint:"Le prix monte avec les kilomètres parcourus.",byKm:"Au kilomètre",fixed:"Prix fixe",priceOverride:"Prix (vide = tarif)",seeCal:"Voir le calendrier",hideCal:"Masquer le calendrier",pickDay:"Touchez un jour pour programmer une course. Les points montrent vos réservations.",weatherNote:"Climat habituel du mois, pas une prévision en direct.",s_harm:"Harmattan : vent sec et poussière",s_hot:"Saison chaude",s_rain:"Saison des pluies",s_end:"Fin des pluies, chaleur",s_dry:"Petite saison sèche",tip_harm:"Moto : casque et lunettes conseillés.",tip_hot:"Buvez de l'eau, préférez le taxi aux heures chaudes.",tip_rain:"Routes glissantes : prévoyez plus de temps.",sponsors:"Espace annonceurs",sponsored:"Sponsorisé",yourAd:"Votre publicité ici",yourAdTxt:"Touchez les passagers de {city}. Contactez {agency} : {wa}",advName:"Annonceur",addSponsor:"Ajouter la publicité",remove:"Retirer",image:"Image (facultatif)",sponsorHint:"Vendez cet espace aux commerces : leur publicité s'affiche aux clients sous le panneau Grema.",tooBig:"Image trop lourde (max 1 Mo).",call:"Contact"},
+en:{tagline:"Taxi & moto · Africa",city:"City",from:"Pickup",to:"Destination",whereTo:"Where are you going?",moto:"Moto",taxi:"Taxi",tricycle:"Keke",
+ min:"min",km:"km",cash:"Cash",momo:"Mobile Money",order:"Book now",book:"Reserve",searching:"Finding a driver nearby…",cancel:"Cancel",
+ coming:"Your driver is on the way",eta:"Arriving in",pinLbl:"Safety code to give your driver",start:"Driver is here, start trip",
+ onTrip:"Trip in progress",sos:"SOS emergency",share:"Share trip",arrived:"You have arrived",rate:"Rate your driver",done:"Finish",
+ total:"Total to pay",tClient:"Rider",tDriver:"Driver",tAgent:"Agent",tBoss:"Owner",online:"Online",offline:"Offline",
+ hClient:"Where to today?",hDriver:"Ready to drive",hAgent:"Bookings to handle",hBoss:"Your agency at a glance",
+ eClient:"Rider",eDriver:"Driver",eAgent:"Booking agent",eBoss:"Owner",
+ goOnline:"Go online to receive trips",waiting:"Waiting for trips…",newReq:"New request",agencyReq:"Trip sent by the agency",accept:"Accept",refuse:"Decline",
+ today:"Today",trips:"Trips",earn:"Net earnings",rating:"Rating",commission:"Agency commission",tariffs:"Fares",base:"Base fare",perKm:"Per km",minFare:"Minimum",
+ logo:"Agency logo",logoHint:"Upload your real logo: it replaces the placeholder everywhere.",upload:"Choose an image",reset:"Placeholder logo",
+ history:"My trips",empty:"No trips yet.",
+ exNote:"Prototype: drivers, messages and fares are examples to replace with your own.",sameErr:"Pick a destination different from the pickup.",
+ shareMsg:"Trip copied, paste it to someone you trust",dropOff:"Drop off passenger",pickup:"Pickup",accepted:"Trip accepted",netAfter:"net after commission",
+ saved:"Saved",save:"Save",niger:"Niger · CFA franc",nigeria:"Nigeria · Naira",ghana:"Ghana · Cedi",
+ now:"Now",later:"Schedule",when:"Date and time",viaApp:"Book in the app",orVia:"Or book by message",
+ whatsapp:"WhatsApp",sms:"SMS",email:"Email",messenger:"Messenger",phone:"Call",app:"App",
+ msgTitle:"Message ready to send",sendTo:"Send to",copy:"Copy message",copied:"Message copied",open:"Open",simulate:"Send to agency (demo)",sent:"Message received by the agent",
+ linkNote:"If Open does nothing in the preview, copy the message and send it yourself.",
+ inbox:"Incoming messages",inboxEmpty:"No new messages.",treat:"Create booking",newBooking:"New booking",name:"Customer name",tel:"Phone",source:"Received via",
+ queue:"Bookings",queueEmpty:"No bookings waiting.",assign:"Assign",confirmMsg:"Copy confirmation",finish:"Completed",
+ st_pending:"Waiting",st_assigned:"Driver assigned",st_ongoing:"On the way",st_done:"Completed",st_cancelled:"Cancelled",
+ scheduled:"Booking saved",bookedFor:"for",created:"Booking created",assignedTo:"assigned to",
+ revenue:"Revenue",ourCut:"Commission",byChannel:"Bookings by channel",byCity:"Trips by city",team:"Team",agents:"Agents",drivers:"Drivers",
+ contacts:"Booking contacts",waNum:"WhatsApp number",smsNum:"SMS number",mail:"Email address",msPage:"Messenger page",resetDemo:"Restore example data",
+ doneTrips:"Completed trips",activeNow:"In progress",payHint:"Operators",exampleTag:"example",adTag:"Advert",ads:"Advertising board",adTitle:"Headline",adSub:"Text",adReset:"Original texts",you:"You",colis:"Parcel",vehicle:"Vehicle",offer:"Offer your price",offerHint:"Nearby drivers accept your offer or not.",forOther:"Book for someone else",oname:"Passenger name",otel:"Passenger phone",clientOffer:"Customer's price offer",forWho:"For",rgNE:"8 regions",rgNG:"36 states + Abuja",rgGH:"16 regions",mapNote:"Simplified map",weServe:"We drive in",fixMode:"Pricing mode",meter:"Meter",allCur:"All West African currencies",sub:"Subscription",subHint:"The first month is free. After that everyone pays the price you set here.",trialDays:"Free days",subPrice:"Price per month",whoPays:"Who pays the subscription",subDrv:"Drivers",subCli:"Riders",freeLeft:"Free month: {n} days left",paidLeft:"Subscription paid: {n} days left",subDue:"Subscription to renew",payNow:"Pay",perMonth:"per month",subPaid:"Payment received",markPaid:"Paid 1 month",subBlock:"Renew the subscription to receive trips.",subBlockCli:"Renew the subscription to order.",subNote:"Simulated payment in the preview.",thenPrice:"Then",africa:"Africa",allCities:"All cities",langBtn:"Language",sosTxt:"Niger: police 17, fire service 18 · Nigeria and Ghana: 112",mapOf:"Map of",adPh:"Ad",madeBy:"A brand of",brandT:"App name",app1:"Name (gold part)",app2:"Name (silver part)",agencyN:"Agency name",brandHint:"Each owner can set their own name: it shows at the top and in every message.",brandReset:"Original name",ctrl:"Control centre",lock:"Lock",unlock:"Unlock",pinLbl2:"Owner code",pinWrong:"Wrong code",pinDemo:"Demo code: 8888",lockedMsg:"Owner only. Enter your code.",active:"Active",suspended:"Suspended",pendingV:"To verify",activate:"Activate",suspend:"Suspend",d_permis:"Licence",d_grise:"Registration",d_assur:"Insurance",d_cni:"ID card",docsMissing:"Missing documents: cannot activate.",addDriver:"Add a driver",plate:"Plate",country:"Country",addAgent:"Add an agent",services:"Services and cities",svcHint:"Untick to close a service or a city to riders.",closed:"closed",cityClosed:"Service is closed in this city for now.",annonce:"Announcement to all riders",publish:"Publish",clear:"Clear",newPin:"New code (4 digits)",journal:"Action log",logEmpty:"No actions yet.",announceTag:"Announcement",removed:"removed",card:"Bank card",operator:"Operator",local:"In this country",waWide:"Across West Africa",cardHint:"Visa, Mastercard, GIM-UEMOA, Verve.",payNote:"In the final app these payments go through a West African payment provider (CinetPay, PayDunya, Flutterwave or Paystack).",live:"Live tracking",liveHint:"Riders in blue, drivers in gold. Updated every 2 seconds.",me:"You",useMyPos:"Start from my location",posSet:"Pickup set to the nearest point",gpsNote:"Simulated position in the preview. The final app will use the phone's GPS, with the rider's consent.",clientPos:"Rider's live location",away:"away",agreed:"Agreed price",elapsed:"Time",distLbl:"Distance",fareLbl:"Fare",meterHint:"The fare rises with the kilometres driven.",byKm:"Per kilometre",fixed:"Fixed price",priceOverride:"Price (empty = fare table)",seeCal:"Show calendar",hideCal:"Hide calendar",pickDay:"Tap a day to schedule a ride. Dots show your bookings.",weatherNote:"Usual climate for this month, not a live forecast.",s_harm:"Harmattan: dry, dusty wind",s_hot:"Hot season",s_rain:"Rainy season",s_end:"End of the rains, hot",s_dry:"Short dry season",tip_harm:"Moto: helmet and goggles advised.",tip_hot:"Drink water, take a taxi in the hottest hours.",tip_rain:"Slippery roads: allow extra time.",sponsors:"Advertiser space",sponsored:"Sponsored",yourAd:"Your advert here",yourAdTxt:"Reach riders in {city}. Contact {agency}: {wa}",advName:"Advertiser",addSponsor:"Add advert",remove:"Remove",image:"Image (optional)",sponsorHint:"Sell this space to businesses: their advert shows to riders under the Grema board.",tooBig:"Image too large (max 1 MB).",call:"Contact"},
+ha:{tagline:"Tasi da babur · Afirka",city:"Gari",from:"Daga",to:"Zuwa",whereTo:"Ina za ka je?",moto:"Babur",taxi:"Tasi",tricycle:"Keke",
+ min:"min",km:"km",cash:"Tsabar kuɗi",momo:"Kuɗin waya",order:"Yi oda",book:"Tsara oda",searching:"Ana neman direba a kusa…",cancel:"Soke",
+ coming:"Direba yana zuwa",eta:"Zai iso cikin",pinLbl:"Lambar tsaro da za ka ba direba",start:"Direba ya iso, a fara",
+ onTrip:"Ana tafiya",sos:"SOS taimako",share:"Raba hanya",arrived:"Ka iso",rate:"Ba direba maki",done:"Gama",
+ total:"Jimillar kuɗi",tClient:"Fasinja",tDriver:"Direba",tAgent:"Wakili",tBoss:"Shugaba",online:"Kan layi",offline:"Ba a kan layi",
+ hClient:"Ina za ka je yau?",hDriver:"A shirye don hanya",hAgent:"Odar da za a kula da su",hBoss:"Ofishinka a taƙaice",
+ eClient:"Fasinja",eDriver:"Direba",eAgent:"Wakili",eBoss:"Shugaba",
+ goOnline:"Shiga layi don karɓar fasinjoji",waiting:"Ana jiran fasinja…",newReq:"Sabuwar buƙata",agencyReq:"Ofis ne ya turo",accept:"Karɓa",refuse:"Ƙi",
+ today:"Yau",trips:"Tafiye-tafiye",earn:"Riba",rating:"Maki",commission:"Kason ofis",tariffs:"Farashi",base:"Farashin farko",perKm:"Kowane km",minFare:"Mafi ƙaranci",
+ logo:"Tambarin ofis",logoHint:"Saka ainihin tambarinka: zai maye gurbin na wucin gadi.",upload:"Zaɓi hoto",reset:"Tambarin wucin gadi",
+ history:"Tafiye-tafiyena",empty:"Babu tafiya tukuna.",
+ exNote:"Samfuri ne: direbobi, saƙonni da farashi misalai ne.",sameErr:"Zaɓi wuri daban da inda za a ɗauke ka.",
+ shareMsg:"An kwafi hanya",dropOff:"Sauke fasinja",pickup:"Ɗauka",accepted:"An karɓi tafiya",netAfter:"bayan kason ofis",
+ saved:"An adana",save:"Adana",niger:"Nijar · CFA",nigeria:"Najeriya · Naira",ghana:"Gana · Cedi",
+ now:"Yanzu",later:"Tsara lokaci",when:"Rana da lokaci",viaApp:"Yi oda a manhaja",orVia:"Ko yi oda ta saƙo",
+ whatsapp:"WhatsApp",sms:"SMS",email:"Imel",messenger:"Messenger",phone:"Kira",app:"Manhaja",
+ msgTitle:"Saƙon da za a aika",sendTo:"Aika zuwa",copy:"Kwafi saƙo",copied:"An kwafi saƙo",open:"Buɗe",simulate:"Aika wa ofis (gwaji)",sent:"Wakili ya karɓi saƙo",
+ linkNote:"Idan Buɗe bai yi aiki ba, kwafi saƙon ka aika da kanka.",
+ inbox:"Saƙonni",inboxEmpty:"Babu sabon saƙo.",treat:"Ƙirƙiri oda",newBooking:"Sabuwar oda",name:"Sunan fasinja",tel:"Lambar waya",source:"An karɓa ta",
+ queue:"Oda",queueEmpty:"Babu oda mai jira.",assign:"Ba direba",confirmMsg:"Kwafi tabbaci",finish:"An gama",
+ st_pending:"Ana jira",st_assigned:"An ba direba",st_ongoing:"Ana hanya",st_done:"An gama",st_cancelled:"An soke",
+ scheduled:"An adana oda",bookedFor:"a ranar",created:"An ƙirƙiri oda",assignedTo:"an ba",
+ revenue:"Kuɗin shiga",ourCut:"Kason ofis",byChannel:"Oda ta hanyoyi",byCity:"Tafiya ta gari",team:"Ma'aikata",agents:"Wakilai",drivers:"Direbobi",
+ contacts:"Lambobin tuntuɓa",waNum:"Lambar WhatsApp",smsNum:"Lambar SMS",mail:"Imel",msPage:"Shafin Messenger",resetDemo:"Mayar da misalai",
+ doneTrips:"Tafiyoyin da aka gama",activeNow:"Ana kai",payHint:"Kamfanoni",exampleTag:"misali",adTag:"Talla",ads:"Allon talla",adTitle:"Kanun labari",adSub:"Rubutu",adReset:"Rubutun asali",you:"Kai",colis:"Kaya",vehicle:"Abin hawa",offer:"Faɗi farashinka",offerHint:"Direbobi na kusa za su karɓa ko su ƙi.",forOther:"Yi oda don wani",oname:"Sunan fasinja",otel:"Lambar fasinja",clientOffer:"Farashin da fasinja ya faɗa",forWho:"Don",rgNE:"Yankuna 8",rgNG:"Jihohi 36 + Abuja",rgGH:"Yankuna 16",mapNote:"Taswira a taƙaice",weServe:"Muna aiki a",fixMode:"Yanayin farashi",meter:"Mita",allCur:"Duk kuɗaɗen Afirka ta Yamma",sub:"Biyan wata-wata",subHint:"Wata na farko kyauta ne. Bayan haka kowa zai biya farashin da ka saka a nan.",trialDays:"Kwanakin kyauta",subPrice:"Farashi a wata",whoPays:"Wa zai biya",subDrv:"Direbobi",subCli:"Fasinjoji",freeLeft:"Wata kyauta: saura kwana {n}",paidLeft:"An biya: saura kwana {n}",subDue:"Lokacin sabunta biya",payNow:"Biya",perMonth:"a wata",subPaid:"An karɓi kuɗi",markPaid:"An biya wata 1",subBlock:"Sabunta biya don karɓar tafiyoyi.",subBlockCli:"Sabunta biya don yin oda.",subNote:"Biyan gwaji ne a nan.",thenPrice:"Bayan haka",africa:"Afirka",allCities:"Duk garuruwa",langBtn:"Harshe",sosTxt:"Nijar: 'yan sanda 17, masu kashe gobara 18 · Najeriya da Gana: 112",mapOf:"Taswirar",adPh:"Talla",madeBy:"Alamar",brandT:"Sunan manhaja",app1:"Suna (sashin zinariya)",app2:"Suna (sashin azurfa)",agencyN:"Sunan ofis",brandHint:"Kowane mai shi zai iya saka sunansa: zai bayyana a sama da cikin saƙonni.",brandReset:"Sunan asali",ctrl:"Cibiyar sarrafawa",lock:"Kulle",unlock:"Buɗe",pinLbl2:"Lambar shugaba",pinWrong:"Lambar ba daidai ba",pinDemo:"Lambar gwaji: 8888",lockedMsg:"Na shugaba kawai. Saka lambarka.",active:"Yana aiki",suspended:"An dakatar",pendingV:"Ana tantancewa",activate:"Kunna",suspend:"Dakatar",d_permis:"Lasisi",d_grise:"Rajistar mota",d_assur:"Inshora",d_cni:"Katin shaida",docsMissing:"Akwai takardun da suka rage.",addDriver:"Ƙara direba",plate:"Lambar mota",country:"Ƙasa",addAgent:"Ƙara wakili",services:"Ayyuka da garuruwa",svcHint:"Cire alama don rufe sabis ko gari.",closed:"a rufe",cityClosed:"An rufe sabis a wannan gari yanzu.",annonce:"Sanarwa ga dukan fasinjoji",publish:"Wallafa",clear:"Share",newPin:"Sabuwar lamba (lambobi 4)",journal:"Rajistar ayyuka",logEmpty:"Babu aiki tukuna.",announceTag:"Sanarwa",removed:"an cire",card:"Katin banki",operator:"Kamfani",local:"A wannan ƙasa",waWide:"A duk Afirka ta Yamma",cardHint:"Visa, Mastercard, GIM-UEMOA, Verve.",payNote:"A manhajar ƙarshe, biyan zai bi ta kamfanin biyan kuɗi na Afirka ta Yamma.",live:"Bibiya kai tsaye",liveHint:"Fasinjoji shuɗi, direbobi zinariya. Ana sabuntawa kowane daƙiƙa 2.",me:"Kai",useMyPos:"Fara daga inda nake",posSet:"An saita wurin ɗauka kusa da kai",gpsNote:"Wurin gwaji ne. Manhajar ƙarshe za ta yi amfani da GPS na waya da izinin fasinja.",clientPos:"Wurin fasinja kai tsaye",away:"nisa",agreed:"Farashin da aka amince",elapsed:"Lokaci",distLbl:"Nisa",fareLbl:"Kuɗi",meterHint:"Kuɗi na ƙaruwa da kilomita.",byKm:"Ta kilomita",fixed:"Farashi tsayayye",priceOverride:"Farashi (babu = jadawali)",seeCal:"Duba kalanda",hideCal:"Ɓoye kalanda",pickDay:"Taɓa rana don tsara tafiya. Ɗigo na nuna odarka.",weatherNote:"Yanayin da aka saba a wannan wata, ba hasashe kai tsaye ba.",s_harm:"Hunturu: iska mai ƙura",s_hot:"Lokacin zafi",s_rain:"Damina",s_end:"Ƙarshen damina, zafi",s_dry:"Ɗan rani",tip_harm:"Babur: a sa hular kwano da tabarau.",tip_hot:"Sha ruwa, hau tasi lokacin zafi sosai.",tip_rain:"Hanyoyi suna santsi: ka ba da lokaci.",sponsors:"Wurin masu talla",sponsored:"Talla",yourAd:"Tallanka a nan",yourAdTxt:"Kai ga fasinjojin {city}. Tuntuɓi {agency}: {wa}",advName:"Mai talla",addSponsor:"Ƙara talla",remove:"Cire",image:"Hoto (zaɓi)",sponsorHint:"Sayar da wannan wuri ga 'yan kasuwa: tallansu zai bayyana ga fasinjoji.",tooBig:"Hoto ya yi nauyi (max 1 MB).",call:"Tuntuɓa"},
+ar:{"tagline": "تاكسي ودراجة نارية · أفريقيا", "city": "المدينة", "from": "الانطلاق", "to": "الوجهة", "whereTo": "إلى أين تذهب؟", "moto": "دراجة نارية", "taxi": "تاكسي", "tricycle": "دراجة ثلاثية", "min": "د", "km": "كم", "cash": "نقدًا", "momo": "الدفع بالهاتف", "order": "اطلب الآن", "book": "احجز", "searching": "جارٍ البحث عن سائق قريب…", "cancel": "إلغاء", "coming": "سائقك في الطريق", "eta": "يصل خلال", "pinLbl": "رمز الأمان الذي تعطيه للسائق", "start": "السائق وصل، ابدأ الرحلة", "onTrip": "الرحلة جارية", "sos": "نجدة SOS", "share": "مشاركة الرحلة", "arrived": "لقد وصلت", "rate": "قيّم سائقك", "done": "إنهاء", "total": "المبلغ المطلوب", "tClient": "الزبون", "tDriver": "السائق", "tAgent": "الوكيل", "tBoss": "المدير", "online": "متصل", "offline": "غير متصل", "hClient": "إلى أين اليوم؟", "hDriver": "جاهز للطريق", "hAgent": "حجوزات للمعالجة", "hBoss": "وكالتك في لمحة", "eClient": "فضاء الزبون", "eDriver": "فضاء السائق", "eAgent": "فضاء الوكيل", "eBoss": "فضاء المدير", "goOnline": "اتصل لتستقبل الرحلات", "waiting": "في انتظار الرحلات…", "newReq": "طلب جديد", "agencyReq": "رحلة أرسلتها الوكالة", "accept": "قبول", "refuse": "رفض", "today": "اليوم", "trips": "الرحلات", "earn": "الأرباح الصافية", "rating": "التقييم", "commission": "عمولة الوكالة", "tariffs": "الأسعار", "base": "سعر البداية", "perKm": "لكل كم", "minFare": "الحد الأدنى", "logo": "شعار الوكالة", "logoHint": "حمّل شعارك الحقيقي ليحل محل الشعار المؤقت في كل مكان.", "upload": "اختر صورة", "reset": "الشعار المؤقت", "history": "رحلاتي", "empty": "لا توجد رحلات بعد.", "exNote": "نموذج أولي: السائقون والرسائل والأسعار أمثلة يجب استبدالها ببياناتك.", "sameErr": "اختر وجهة مختلفة عن نقطة الانطلاق.", "shareMsg": "تم نسخ الرحلة، أرسلها لشخص تثق به", "dropOff": "إنزال الراكب", "pickup": "مكان الركوب", "accepted": "تم قبول الرحلة", "netAfter": "صافٍ بعد العمولة", "saved": "تم الحفظ", "save": "حفظ", "niger": "النيجر · فرنك CFA", "nigeria": "نيجيريا · نايرا", "ghana": "غانا · سيدي", "now": "الآن", "later": "جدولة", "when": "التاريخ والوقت", "viaApp": "اطلب من التطبيق", "orVia": "أو احجز برسالة", "whatsapp": "واتساب", "sms": "رسالة SMS", "email": "بريد إلكتروني", "messenger": "ماسنجر", "phone": "مكالمة", "app": "التطبيق", "msgTitle": "رسالة جاهزة للإرسال", "sendTo": "أرسل إلى", "copy": "انسخ الرسالة", "copied": "تم نسخ الرسالة", "open": "افتح", "simulate": "أرسل إلى الوكالة (تجربة)", "sent": "استلم الوكيل الرسالة", "linkNote": "إذا لم يعمل زر افتح في المعاينة، انسخ الرسالة وأرسلها بنفسك.", "inbox": "الرسائل الواردة", "inboxEmpty": "لا رسائل جديدة.", "treat": "إنشاء الحجز", "newBooking": "حجز جديد", "name": "اسم الزبون", "tel": "الهاتف", "source": "وصل عبر", "queue": "الحجوزات", "queueEmpty": "لا حجوزات في الانتظار.", "assign": "تعيين", "confirmMsg": "انسخ التأكيد", "finish": "منتهية", "st_pending": "في الانتظار", "st_assigned": "تم تعيين سائق", "st_ongoing": "في الطريق", "st_done": "منتهية", "st_cancelled": "ملغاة", "scheduled": "تم تسجيل الحجز", "bookedFor": "موعده", "created": "تم إنشاء الحجز", "assignedTo": "عُيّن إلى", "revenue": "رقم الأعمال", "ourCut": "العمولة", "byChannel": "الحجوزات حسب القناة", "byCity": "الرحلات حسب المدينة", "team": "الفريق", "agents": "الوكلاء", "drivers": "السائقون", "contacts": "أرقام الحجز", "waNum": "رقم واتساب", "smsNum": "رقم الرسائل", "mail": "البريد الإلكتروني", "msPage": "صفحة ماسنجر", "resetDemo": "استرجاع بيانات المثال", "doneTrips": "رحلات منتهية", "activeNow": "جارية", "payHint": "المشغلون", "exampleTag": "مثال", "adTag": "إعلان", "ads": "لوحة الإعلانات", "adTitle": "العنوان", "adSub": "النص", "adReset": "النصوص الأصلية", "you": "أنت", "colis": "طرد", "vehicle": "المركبة", "offer": "اقترح سعرك", "offerHint": "السائقون القريبون يقبلون عرضك أو يرفضونه.", "forOther": "اطلب لشخص آخر", "oname": "اسم الراكب", "otel": "هاتف الراكب", "clientOffer": "سعر اقترحه الزبون", "forWho": "لـ", "rgNE": "8 أقاليم", "rgNG": "36 ولاية + أبوجا", "rgGH": "16 إقليمًا", "mapNote": "خريطة مبسطة", "weServe": "نعمل في",fixMode:"طريقة التسعير",meter:"العداد",allCur:"كل عملات غرب أفريقيا",sub:"الاشتراك",subHint:"الشهر الأول مجاني. بعد ذلك يدفع الجميع السعر الذي تحدده هنا.",trialDays:"أيام مجانية",subPrice:"السعر الشهري",whoPays:"من يدفع الاشتراك",subDrv:"السائقون",subCli:"الزبائن",freeLeft:"الشهر المجاني: بقي {n} يومًا",paidLeft:"الاشتراك مدفوع: بقي {n} يومًا",subDue:"يجب تجديد الاشتراك",payNow:"ادفع",perMonth:"شهريًا",subPaid:"تم استلام الدفع",markPaid:"دُفع شهر واحد",subBlock:"جدّد الاشتراك لتستقبل الرحلات.",subBlockCli:"جدّد الاشتراك لتطلب.",subNote:"دفع محاكى في المعاينة.",thenPrice:"بعد ذلك",africa:"أفريقيا",allCities:"كل المدن",langBtn:"اللغة",sosTxt:"النيجر: الشرطة 17، الإطفاء 18 · نيجيريا وغانا: 112",mapOf:"خريطة",adPh:"إعلان",madeBy:"علامة من",brandT:"اسم التطبيق",app1:"الاسم (الجزء الذهبي)",app2:"الاسم (الجزء الفضي)",agencyN:"اسم الوكالة",brandHint:"يمكن لكل مالك وضع اسمه الخاص: يظهر في الأعلى وفي كل الرسائل.",brandReset:"الاسم الأصلي",ctrl:"مركز التحكم",lock:"قفل",unlock:"فتح",pinLbl2:"رمز المدير",pinWrong:"رمز خاطئ",pinDemo:"رمز التجربة: 8888",lockedMsg:"مخصص للمدير فقط. أدخل رمزك.",active:"نشط",suspended:"موقوف",pendingV:"قيد التحقق",activate:"تفعيل",suspend:"إيقاف",d_permis:"رخصة",d_grise:"البطاقة الرمادية",d_assur:"التأمين",d_cni:"بطاقة الهوية",docsMissing:"وثائق ناقصة: لا يمكن التفعيل.",addDriver:"إضافة سائق",plate:"اللوحة",country:"البلد",addAgent:"إضافة وكيل",services:"الخدمات والمدن",svcHint:"ألغِ التحديد لإغلاق خدمة أو مدينة.",closed:"مغلق",cityClosed:"الخدمة مغلقة في هذه المدينة حاليًا.",annonce:"إعلان لكل الزبائن",publish:"نشر",clear:"مسح",newPin:"رمز جديد (4 أرقام)",journal:"سجل الإجراءات",logEmpty:"لا إجراءات بعد.",announceTag:"إعلان",removed:"تمت الإزالة",card:"بطاقة بنكية",operator:"المشغّل",local:"في هذا البلد",waWide:"في كل غرب أفريقيا",cardHint:"فيزا، ماستركارد، GIM-UEMOA، Verve.",payNote:"في التطبيق النهائي تمر هذه المدفوعات عبر مزوّد دفع في غرب أفريقيا (CinetPay أو PayDunya أو Flutterwave أو Paystack).",live:"التتبع المباشر",liveHint:"الزبائن بالأزرق والسائقون بالذهبي. تحديث كل ثانيتين.",me:"أنت",useMyPos:"انطلق من موقعي",posSet:"تم ضبط الانطلاق على أقرب نقطة",gpsNote:"موقع محاكى في المعاينة. سيستخدم التطبيق النهائي GPS الهاتف بموافقة الزبون.",clientPos:"موقع الزبون المباشر",away:"على بعد",agreed:"السعر المتفق عليه",elapsed:"المدة",distLbl:"المسافة",fareLbl:"السعر",meterHint:"يرتفع السعر مع الكيلومترات المقطوعة.",byKm:"حسب الكيلومتر",fixed:"سعر ثابت",priceOverride:"السعر (فارغ = التعرفة)",seeCal:"عرض التقويم",hideCal:"إخفاء التقويم",pickDay:"اضغط على يوم لجدولة رحلة. النقاط تبيّن حجوزاتك.",weatherNote:"المناخ المعتاد لهذا الشهر وليس توقعًا مباشرًا.",s_harm:"الهرمتان: رياح جافة مغبرة",s_hot:"موسم الحر",s_rain:"موسم الأمطار",s_end:"نهاية الأمطار، حرارة",s_dry:"موسم جاف قصير",tip_harm:"الدراجة: يُنصح بالخوذة والنظارات.",tip_hot:"اشرب الماء وفضّل التاكسي في ساعات الحر.",tip_rain:"الطرق زلقة: خصص وقتًا إضافيًا.",sponsors:"مساحة المعلنين",sponsored:"إعلان ممول",yourAd:"إعلانك هنا",yourAdTxt:"صل إلى ركاب {city}. تواصل مع {agency}: {wa}",advName:"المعلن",addSponsor:"أضف الإعلان",remove:"إزالة",image:"صورة (اختياري)",sponsorHint:"بِع هذه المساحة للمحلات: يظهر إعلانها للزبائن تحت لوحة Grema.",tooBig:"الصورة كبيرة جدًا (الحد 1 ميغابايت).",call:"اتصال"}};
+
+// Places: name, x km, y km (schematic positions for the prototype, not survey data)
+const CITIES={
+ arlit:{name:"Arlit",c:"NE",p:[["Grand marché",3,3],["Gare routière",4.4,2.2],["Hôpital",2.2,4.2],["Mairie",3.4,3.9],["Stade",1.6,2.6],["Aéroport",6.6,5.6],["Akokan",9.4,0.8]]},
+ agadez:{name:"Agadez",c:"NE",p:[["Grande Mosquée",3,3],["Grand marché",3.5,3.6],["Gare routière",4.8,4.6],["Hôpital régional",2.2,4.4],["Aéroport",5.8,1.6]]},
+ niamey:{name:"Niamey",c:"NE",p:[["Grand Marché",4,4],["Plateau",3,5.2],["Pont Kennedy",4.6,6.4],["Université Abdou Moumouni",6,7.4],["Aéroport Diori Hamani",9,3.2],["Gare routière",5.6,3]]},
+ zinder:{name:"Zinder",c:"NE",p:[["Grand marché",3,3],["Birni",2.2,4.2],["Gare routière",4.2,2.4],["Hôpital",3.6,4.6],["Aéroport",6.2,1.4]]},
+ maradi:{name:"Maradi",c:"NE",p:[["Grand marché",3,3],["Gare routière",4.2,3.6],["Hôpital",2.2,4.2],["Aéroport",6,1.8]]},
+ tahoua:{name:"Tahoua",c:"NE",p:[["Grand marché",3,3],["Gare routière",4,2.2],["Hôpital",2.4,4.4],["Aéroport",6.4,4.8]]},
+ kano:{name:"Kano",c:"NG",p:[["Kurmi Market",3,4],["Sabon Gari",4.6,2.8],["Bayero University",1.4,6.4],["Aminu Kano Airport",6.8,1.4],["Motor Park",5.2,4.6]]},
+ katsina:{name:"Katsina",c:"NG",p:[["Central Market",3,3],["Motor Park",4.2,2.4],["General Hospital",2.2,4.2],["Airport",6.4,1.6]]},
+ sokoto:{name:"Sokoto",c:"NG",p:[["Central Market",3,3],["Sultan's Palace",2.4,3.8],["Motor Park",4.4,2.4],["Airport",6.6,4.8]]},
+ accra:{name:"Accra",c:"GH",p:[["Makola Market",3,3],["Circle",3.4,4.4],["Osu",5,2.6],["Kotoka Airport",6.4,6.2],["University of Ghana",4.6,8.4]]},
+ kumasi:{name:"Kumasi",c:"GH",p:[["Kejetia Market",3,3],["Adum",2.6,2.4],["KNUST",6.4,2.8],["Kumasi Airport",5.4,5.6]]},
+ tamale:{name:"Tamale",c:"GH",p:[["Central Market",3,3],["Lorry Station",4,2.4],["Teaching Hospital",2.2,4.4],["Tamale Airport",4.8,8.2]]}
+};
+const COUNTRY={NE:"Niger",NG:"Nigeria",GH:"Ghana"};
+const PAYHINT={NE:"Airtel Money, Moov Money, Zamani Cash",NG:"OPay, PalmPay, Moniepoint",GH:"MTN MoMo, Telecel Cash, AT Money"};
+const PAYOPS={NE:["Airtel Money","Moov Money","Zamani Cash"],NG:["OPay","PalmPay","Moniepoint","MTN MoMo PSB"],GH:["MTN MoMo","Telecel Cash","AT Money"]};
+const PAYWA=["Orange Money","Wave","MTN MoMo","Moov Money","Free Money","Airtel Money","T-Money"];
+const payLabel=()=>S.f.pay==="cash"?t("cash"):S.f.pay==="card"?t("card"):(S.f.op||t("momo"));
+const DEFAULT_TARIFFS={
+ NE:{cur:"FCFA",step:50,colis:{base:300,km:100,min:400},moto:{base:200,km:100,min:250},tricycle:{base:300,km:120,min:400},taxi:{base:500,km:200,min:700}},
+ NG:{cur:"₦",step:50,colis:{base:400,km:150,min:500},moto:{base:300,km:150,min:400},tricycle:{base:400,km:180,min:500},taxi:{base:800,km:300,min:1000}},
+ GH:{cur:"GH₵",step:1,colis:{base:6,km:3,min:10},moto:{base:5,km:3,min:8},tricycle:{base:6,km:3,min:10},taxi:{base:15,km:6,min:20}}};
+const SPEED={moto:24,tricycle:20,taxi:22,colis:24};
+const VEHS=["moto","tricycle","taxi","colis"];
+const OFFER_STEP={FCFA:50,"₦":100,"GH₵":1};
+const DRIVERS={NE:[["Abdou M.","AR 4512",4.9,"moto"],["Issa K.","AR 7730",4.8,"taxi"],["Moussa A.","NY 2096",4.7,"moto"],["Hamza I.","AG 5581",4.9,"tricycle"]],
+ NG:[["Musa B.","KN 318 XA",4.8,"moto"],["Aliyu S.","KN 902 KB",4.9,"taxi"],["Sani D.","KT 455 RT",4.7,"tricycle"]],
+ GH:[["Kwame A.","GR 2210-24",4.8,"taxi"],["Ibrahim Y.","NR 5521-23",4.9,"moto"]]};
+const ADS={
+ fr:[["Moto-taxi en 3 minutes","Rapide, sûr et au juste prix, à {city} et partout au {country}."],["Taxi confortable pour toute la famille","Chauffeurs vérifiés, prix connu d'avance, bagages bienvenus."],["{agency} vous emmène","Réservez par WhatsApp, SMS, e-mail ou Messenger, jour et nuit."]],
+ en:[["Moto-taxi in 3 minutes","Fast, safe and fairly priced, in {city} and across {country}."],["A comfortable taxi for the whole family","Verified drivers, price known upfront, luggage welcome."],["{agency} takes you there","Book by WhatsApp, SMS, email or Messenger, day and night."]],
+ ar:[["دراجة أجرة خلال 3 دقائق","سريعة وآمنة وبسعر عادل، في {city} وفي كل {country}."],["تاكسي مريح لكل العائلة","سائقون موثوقون، سعر معروف مسبقًا، والأمتعة مرحب بها."],["{agency} توصلك","احجز عبر واتساب أو SMS أو البريد أو ماسنجر، ليلًا ونهارًا."]],
+ ha:[["Babur cikin minti 3","Da sauri, lafiya, farashi mai kyau, a {city} da ko'ina a {country}."],["Tasi mai daɗi ga iyali","Direbobi amintattu, farashi a fili, ana ɗaukar kaya."],["{agency} za ta kai ka","Yi oda ta WhatsApp, SMS, imel ko Messenger, dare da rana."]]};
+const SCENE=`<svg class="scene" viewBox="0 0 400 150" role="img" aria-label="Moto-taxi et taxi prenant des passagers">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2410"/><stop offset="1" stop-color="#b8792a"/></linearGradient>
+<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d77f"/><stop offset=".6" stop-color="#cf9d2b"/><stop offset="1" stop-color="#9b6c12"/></linearGradient></defs>
+<rect width="400" height="150" fill="url(#sky)"/><circle cx="318" cy="52" r="26" fill="#f3d77f" opacity=".9"/>
+<path d="M0 96 Q60 80 120 92 T250 88 T400 92 V150 H0z" fill="#d9a85a" opacity=".55"/>
+<g fill="#2a1a0d"><rect x="58" y="70" width="4" height="28"/><path d="M30 72 Q60 56 92 72 Q60 66 30 72z"/><rect x="368" y="76" width="3" height="22"/><path d="M350 78 Q370 66 390 78 Q370 73 350 78z"/></g>
+<rect y="104" width="400" height="46" fill="#24180f"/><path d="M0 127h400" stroke="#cfd3da" stroke-width="2" stroke-dasharray="14 12"/>
+<g transform="translate(250 84)"><g class="mv-bob"><path d="M4 30 V20 l12-12 h44 l14 12 h12 v10z" fill="url(#gd)"/><path d="M20 10 h18 v10 h-26z M42 10 h16 l10 10 h-26z" fill="#2a3a4a"/>
+<rect x="30" y="2" width="22" height="7" rx="2" fill="#1c130d"/><text x="41" y="8" font-size="5.5" font-weight="700" fill="#f3d77f" text-anchor="middle" font-family="Arial">TAXI</text>
+<path d="M4 25 h82" stroke="#1c130d" stroke-width="1.5" stroke-dasharray="3 3"/></g>
+<circle cx="22" cy="31" r="7" fill="#111"/><circle cx="22" cy="31" r="3" fill="#cfd3da"/><circle cx="70" cy="31" r="7" fill="#111"/><circle cx="70" cy="31" r="3" fill="#cfd3da"/></g>
+<g transform="translate(222 82)"><g class="mv-walk"><circle cx="8" cy="4" r="4" fill="#5a3416"/><path d="M3 9 h10 l2 16 h-14z" fill="#1f7a4a"/><path d="M3 9 h10 l2 16 h-14z" fill="url(#gd)" opacity=".35"/><path d="M5 25 v10 M11 25 v10" stroke="#3a2410" stroke-width="2.5"/><rect x="14" y="16" width="7" height="8" rx="1" fill="#b3342a"/></g></g>
+<g class="mv-moto"><g transform="translate(0 92)"><g class="mv-bob">
+<path d="M10 22 l14-4 h18 l10 4" stroke="url(#gd)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M46 18 l6-10 h6" stroke="#cfd3da" stroke-width="2.5" fill="none"/>
+<circle cx="35" cy="0" r="4.5" fill="#5a3416"/><path d="M31 5 h8 l4 13 h-12z" fill="#b3342a"/><path d="M31 6 l-4 1 v12" stroke="#5a3416" stroke-width="2"/>
+<circle cx="24" cy="2" r="4.5" fill="#3a2410"/><path d="M20 7 h8 l2 11 h-11z" fill="#1f7a4a"/><path d="M19 10 h-6 l-2 6" stroke="#1f7a4a" stroke-width="2" fill="none"/></g>
+<circle cx="12" cy="26" r="8" fill="none" stroke="#111" stroke-width="3.5"/><circle cx="54" cy="26" r="8" fill="none" stroke="#111" stroke-width="3.5"/>
+<circle cx="12" cy="26" r="2" fill="#cfd3da"/><circle cx="54" cy="26" r="2" fill="#cfd3da"/></g></g>
+<path d="M0 4h400" stroke="#cf9d2b" stroke-width="8" stroke-dasharray="22 4 14 4 8 4" opacity=".9"/>
+</svg>`;
+// Simplified outlines (lon,lat) traced by hand, and real region capitals. Good enough for an advert, not for navigation.
+const GEO={
+ NE:{shape:[[3.6,11.7],[2.4,12.25],[2.1,12.7],[1,12.85],[0.98,13.05],[0.2,13.75],[0.17,14.5],[0.23,14.99],[1.3,15.3],[3.5,15.35],[3.9,15.7],[4.25,16.85],[4.24,19.15],[5.8,19.45],[7.5,20.85],[9,21.8],[11.99,23.52],[13.6,23],[14.2,22.6],[15,23],[15.99,23.45],[15.7,20],[15.5,16.9],[14.4,15.7],[13.6,14.4],[13.6,13.7],[12.3,13.1],[10.7,13.4],[9.6,12.8],[8.5,13],[7.4,13.1],[6.4,13.6],[5,13.8],[4.1,13.5]],
+  rg:[["Agadez",7.99,16.97],["Diffa",12.61,13.32],["Dosso",3.19,13.05],["Maradi",7.1,13.5],["Tahoua",5.27,14.89],["Tillabéri",1.45,14.21],["Zinder",8.99,13.8],["Niamey",2.11,13.51]]},
+ NG:{shape:[[2.7,6.37],[2.7,7.9],[2.8,9.1],[3.1,9.6],[3.6,10.5],[3.6,11.7],[4.1,13.5],[5,13.8],[6.4,13.6],[7.4,13.1],[8.5,13],[9.6,12.8],[10.7,13.4],[12.3,13.1],[13.6,13.7],[14.1,13.1],[14.6,12.1],[14.2,11.3],[13.8,10.6],[13.2,9.5],[12.8,8.8],[12.2,8.4],[11.8,7.1],[11,6.5],[10.6,7],[9.8,6.7],[8.9,5.8],[8.6,4.7],[8.3,4.6],[7,4.4],[6,4.3],[5.4,5.1],[4.5,6.2],[3.4,6.4]],
+  rg:[["Sokoto",5.24,13.06],["Zamfara",6.66,12.17],["Katsina",7.6,12.99],["Kano",8.52,12],["Jigawa",9.34,11.76],["Yobe",11.96,11.75],["Borno",13.15,11.83],["Kaduna",7.44,10.52],["Bauchi",9.84,10.31],["Adamawa",12.48,9.2],["Plateau",8.86,9.9],["Abuja FCT",7.49,9.06],["Kwara",4.55,8.5],["Oyo",3.94,7.38],["Lagos",3.38,6.52],["Edo",5.62,6.34],["Enugu",7.51,6.45],["Rivers",7.03,4.82]]},
+ GH:{shape:[[-3.1,5.1],[-2,4.75],[-1,5.1],[0,5.55],[1.2,6.1],[0.65,6.9],[0.5,7.5],[0.6,8.3],[0.4,9.5],[0.4,10.5],[0,11.1],[-1.5,11],[-2.8,11],[-2.9,10],[-2.6,8.2],[-3.25,6.6]],
+  rg:[["Greater Accra",-0.19,5.6],["Ashanti",-1.62,6.69],["Northern",-0.84,9.4],["Central",-1.25,5.11],["Western",-1.76,4.93],["Eastern",-0.26,6.09],["Volta",0.47,6.6],["Bono",-2.33,7.34],["Bono East",-1.94,7.59],["Ahafo",-2.52,6.8],["Western North",-2.49,6.21],["Upper East",-0.85,10.79],["Upper West",-2.5,10.06],["North East",-0.37,10.53],["Savannah",-1.82,9.08],["Oti",0.18,8.07]]}};
+const LL={arlit:[7.39,18.74],agadez:[7.99,16.97],niamey:[2.11,13.51],zinder:[8.99,13.8],maradi:[7.1,13.5],tahoua:[5.27,14.89],kano:[8.52,12],katsina:[7.6,12.99],sokoto:[5.24,13.06],accra:[-0.19,5.6],kumasi:[-1.62,6.69],tamale:[-0.84,9.4]};
+const CN={ar:{NE:"النيجر",NG:"نيجيريا",GH:"غانا"},ha:{NE:"Nijar",NG:"Najeriya",GH:"Gana"}};
+const cname=c=>(CN[S.lang]||{})[c]||COUNTRY[c];
+function countryMap(c){const G=GEO[c],pts=G.shape.concat(G.rg.map(r=>[r[1],r[2]]));
+ const lat0=pts.reduce((a,p)=>a+p[1],0)/pts.length,k=Math.cos(lat0*Math.PI/180);
+ const xs=pts.map(p=>p[0]*k),ys=pts.map(p=>p[1]),mnx=Math.min(...xs),mxx=Math.max(...xs),mny=Math.min(...ys),mxy=Math.max(...ys);
+ const W=400,H=230,top=44,bot=10,pad=20,sc=Math.min((W-2*pad)/(mxx-mnx),(H-top-bot)/(mxy-mny)),ox=(W-(mxx-mnx)*sc)/2,oy=bot+((H-top-bot)-(mxy-mny)*sc)/2;
+ const X=lon=>ox+(lon*k-mnx)*sc,Y=lat=>H-(oy+(lat-mny)*sc);
+ const d="M"+G.shape.map(p=>X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join("L")+"Z";
+ const served=Object.entries(CITIES).filter(([,x])=>x.c===c).map(([key,x])=>[key,x.name,...LL[key]]);
+ const labelRg=false;
+ let h=`<svg class="cmap" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(COUNTRY[c])}">
+ <defs><pattern id="bog" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M7 2l5 5-5 5-5-5z" fill="none" stroke="#cf9d2b" stroke-width=".8" opacity=".45"/></pattern>
+ <linearGradient id="cfill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a3c14"/><stop offset="1" stop-color="#2e1f0e"/></linearGradient></defs>
+ <path d="${d}" fill="url(#cfill)"/><path d="${d}" fill="url(#bog)"/><path d="${d}" fill="none" stroke="#cf9d2b" stroke-width="2.2" stroke-linejoin="round"/>
+ <path d="${d}" fill="none" stroke="#cfd3da" stroke-width=".7" stroke-dasharray="2 3" transform="translate(2 2)" opacity=".6"/>`;
+ G.rg.forEach(r=>{const x=X(r[1]),y=Y(r[2]);h+=`<circle cx="${x}" cy="${y}" r="2.6" fill="#cfd3da"/>`;
+  if(labelRg&&!served.some(v=>Math.hypot(v[2]-r[1],v[3]-r[2])<0.6))h+=`<text x="${x}" y="${y+11}" font-size="9" fill="#cfd3da" text-anchor="middle" font-family="Figtree,sans-serif">${esc(r[0])}</text>`});
+ served.forEach(([key,n,lon,lat])=>{const x=X(lon),y=Y(lat),on=key===S.city;
+  h+=`${on?`<circle class="pulse" cx="${x}" cy="${y}" r="5" fill="none" stroke="#f3d77f" stroke-width="2"/>`:""}<circle cx="${x}" cy="${y}" r="${on?5.5:4}" fill="#f3d77f" stroke="#1c130d" stroke-width="1.5"/>
+  ${on?`<text x="${x+(x>W-70?-9:9)}" y="${y-8}" font-size="14" font-weight="700" fill="#f3d77f" text-anchor="${x>W-60?"end":"start"}" font-family="Unbounded,Figtree,sans-serif" paint-order="stroke" stroke="#1c130d" stroke-width="3">${esc(n)}</text>`:""}`});
+ h+=`<text x="12" y="20" font-size="15" font-weight="700" fill="#f3d77f" font-family="Unbounded,sans-serif">${esc(cname(c))}</text>
+ <text x="12" y="36" font-size="11" fill="#cfd3da" font-family="Figtree,sans-serif">${esc(t("rg"+c))} · ${esc(t("mapNote"))}</text></svg>`;
+ const near=G.rg.slice().sort((a,b)=>Math.hypot(a[1]-LL[S.city][0],a[2]-LL[S.city][1])-Math.hypot(b[1]-LL[S.city][0],b[2]-LL[S.city][1]))[0][0];
+ return h+`<div class="chips">${G.rg.map(r=>`<span class="${r[0]===near?"on":""}">${esc(r[0])}</span>`).join("")}</div>`}
+const SAHEL=["NE"],COASTAL=["accra","kumasi"];
+function season(){const m=new Date().getMonth()+1;
+ if(COASTAL.includes(S.city))return m===12||m<=2?"harm":m<=7?"rain":m===8?"dry":"rain";
+ return m>=11||m<=2?"harm":m<=5?"hot":m<=9?"rain":"end"}
+const SICON={harm:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>',
+ hot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+ rain:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 9a3 3 0 0 1 0 6z"/><path d="M8 18l-1 3M12 18l-1 3M16 18l-1 3"/></svg>'};
+SICON.end=SICON.hot;SICON.dry=SICON.hot;
+function todayHTML(){const n=new Date(),L=locale(),se=season();
+ const hij=hijri(n);
+ const tip=se==="harm"?"tip_harm":se==="rain"?"tip_rain":"tip_hot";
+ let cal="";if(S.calOpen){const y=n.getFullYear(),mo=n.getMonth(),first=new Date(y,mo,1),days=new Date(y,mo+1,0).getDate(),off=(first.getDay()+6)%7;
+  const mine=new Set(S.bookings.filter(b=>b.mine&&b.when).map(b=>{const d=new Date(b.when);return d.getMonth()===mo&&d.getFullYear()===y?d.getDate():-1}));
+  const wd=[...Array(7)].map((_,i)=>D(new Date(2024,0,1+i),"wdNarrow"));
+  cal=`<div class="muted">${t("pickDay")}</div><div class="eyebrow">${D(n,"monYear")}</div><div class="cal">${wd.map(w=>`<span>${w}</span>`).join("")}${"<span></span>".repeat(off)}${[...Array(days)].map((_,i)=>{const d=i+1;return `<button data-day="${d}" class="${d===n.getDate()?"td":""} ${mine.has(d)?"has":""}" ${d<n.getDate()?"disabled":""}>${d}</button>`}).join("")}</div>`}
+ return `<div class="card"><div class="today"><div class="day"><i>${D(n,"monShort")}</i><b>${n.getDate()}</b></div>
+  <div style="min-width:0"><b>${D(n,"long")}</b>${hij?`<div class="muted">${esc(hij)}</div>`:""}</div></div>
+  <div class="season">${SICON[se]}<div style="min-width:0"><b>${city().name} · ${t("s_"+se)}</b><div class="muted">${t(tip)}</div><div class="muted" style="font-size:11px">${t("weatherNote")}</div></div></div>
+  ${cal}<button class="btn alt sm" data-act="toggleCal" style="align-self:flex-start">${S.calOpen?t("hideCal"):t("seeCal")}</button></div>`}
+function sponsorHTML(){const L=S.sponsors.filter(x=>!x.city||x.city===S.city);
+ const sp=L.length?L[S.spI%L.length]:{name:AG(),title:t("yourAd"),text:t("yourAdTxt").replace("{agency}",AG()).replace("{city}",city().name).replace("{wa}",S.contacts.wa),tel:"",img:null};
+ return `<div class="card sponsor"><div class="ph">${sp.img?`<img src="${sp.img}" alt="${esc(sp.name)}">`:t("adPh")}</div><div style="min-width:0"><div class="eyebrow">${t("sponsored")} · ${esc(sp.name)}</div><b>${esc(sp.title)}</b><div class="muted">${esc(sp.text)}</div>${sp.tel?`<div class="muted" style="user-select:all">${t("call")} : ${esc(sp.tel)}</div>`:""}</div></div>`}
+const AFRICA_D="M1.0 17.0 L2.0 12.0 L5.0 10.0 L8.5 8.0 L12.0 2.2 L17.0 2.5 L21.0 1.1 L28.0 0.8 L29.0 4.5 L33.0 5.7 L38.0 7.2 L43.0 6.2 L50.0 6.7 L52.5 10.0 L53.5 14.0 L55.5 19.5 L57.5 22.5 L61.3 25.5 L69.2 26.2 L69.0 27.5 L66.5 32.5 L60.5 38.5 L58.2 43.0 L57.5 48.0 L58.7 53.0 L53.5 59.5 L53.3 62.2 L50.6 66.8 L46.0 71.0 L40.5 72.0 L38.0 72.8 L36.4 72.0 L34.5 66.6 L32.5 60.5 L29.8 55.2 L31.6 49.0 L30.2 44.0 L27.4 39.5 L27.6 34.2 L26.5 33.5 L24.0 33.7 L22.5 31.7 L19.2 31.9 L16.0 33.2 L10.5 33.6 L6.5 31.1 L4.7 29.0 L3.0 27.2 L1.2 25.5 L0.5 23.3 L1.6 18.5Z M62.0 63.0 L65.1 63.0 L67.6 54.0 L67.3 50.0 L65.3 52.6 L62.3 55.5 L61.3 60.0Z";
+function africaSVG(sz,cls){const id="af"+Math.random().toString(36).slice(2,7);return `<svg class="${cls||""}" viewBox="-2 -2 75 77" width="${sz}" height="${sz*77/75}" aria-hidden="true"><defs><linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".35" stop-color="#f3d77f"/><stop offset=".7" stop-color="#cf9d2b"/><stop offset="1" stop-color="#8a5d0c"/></linearGradient>
+ <pattern id="${id}p" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M3 .6l2.4 2.4L3 5.4.6 3z" fill="none" stroke="#1c130d" stroke-width=".45" opacity=".35"/></pattern></defs>
+ <path d="${AFRICA_D}" fill="url(#${id}g)"/><path d="${AFRICA_D}" fill="url(#${id}p)"/><path d="${AFRICA_D}" fill="none" stroke="#e8ebf0" stroke-width="1.1" stroke-linejoin="round"/></svg>`}
+const AGENTS=[["Aïcha","Arlit"],["Fati","Niamey"],["Halima","Kano"],["Ama","Accra"]];
+const CHANNELS=["whatsapp","sms","email","messenger"];
+const DEFAULT_CONTACTS={wa:"+227 90 00 00 88",sms:"+227 90 00 00 88",mail:"reservation@grema88.example",ms:"grema.agence88"};
+
+const store={get(k,d){try{const v=localStorage.getItem("g88:"+k);return v?JSON.parse(v):d}catch(e){return d}},
+ set(k,v){try{localStorage.setItem("g88:"+k,JSON.stringify(v))}catch(e){}}};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const hrsAgo=h=>new Date(Date.now()-h*36e5).toISOString();
+function seedBookings(){return [
+ {id:"B101",src:"whatsapp",name:"Mariama S.",tel:"+227 96 12 34 56",city:"arlit",from:0,to:6,veh:"taxi",when:null,status:"done",drv:"Issa K.",at:hrsAgo(5),ex:1},
+ {id:"B102",src:"app",name:"Oumarou H.",tel:"+227 97 22 11 00",city:"arlit",from:1,to:2,veh:"moto",when:null,status:"done",drv:"Abdou M.",at:hrsAgo(4),ex:1},
+ {id:"B103",src:"sms",name:"Ibrahim D.",tel:"+227 99 45 67 01",city:"niamey",from:0,to:4,veh:"taxi",when:null,status:"done",drv:"Moussa A.",at:hrsAgo(3),ex:1},
+ {id:"B104",src:"messenger",name:"Zainab U.",tel:"+234 803 000 1122",city:"kano",from:0,to:3,veh:"taxi",when:null,status:"done",drv:"Aliyu S.",at:hrsAgo(3),ex:1},
+ {id:"B105",src:"email",name:"Kofi M.",tel:"+233 24 000 3344",city:"accra",from:0,to:3,veh:"taxi",when:null,status:"done",drv:"Kwame A.",at:hrsAgo(2),ex:1},
+ {id:"B106",src:"app",name:"Safiya A.",tel:"+234 806 000 5566",city:"kano",from:1,to:4,veh:"moto",when:null,status:"done",drv:"Musa B.",at:hrsAgo(2),ex:1},
+ {id:"B107",src:"whatsapp",name:"Rabi I.",tel:"+227 90 87 65 43",city:"arlit",from:0,to:5,veh:"taxi",when:new Date(Date.now()+18e5*5).toISOString(),status:"pending",drv:null,at:hrsAgo(.5),ex:1},
+ {id:"B108",src:"phone",name:"Adamou B.",tel:"+227 91 55 44 33",city:"agadez",from:0,to:4,veh:"tricycle",when:null,status:"assigned",drv:"Hamza I.",at:hrsAgo(.3),ex:1}]}
+function seedInbox(){return [
+ {id:"M1",src:"whatsapp",who:"+227 93 10 20 30",text:"Salam, une moto du Grand marché à l'Hôpital svp, maintenant. Fatouma",city:"arlit",from:0,to:2,veh:"moto",name:"Fatouma",at:hrsAgo(.15)},
+ {id:"M2",src:"sms",who:"+227 96 77 88 99",text:"Taxi gare routière vers Akokan demain 6h. Hassane",city:"arlit",from:1,to:6,veh:"taxi",name:"Hassane",at:hrsAgo(.4)},
+ {id:"M3",src:"messenger",who:"Abubakar Kano",text:"Keke from Sabon Gari to Kurmi Market please",city:"kano",from:1,to:0,veh:"tricycle",name:"Abubakar",at:hrsAgo(.6)}]}
+
+let S={lang:store.get("lang","fr"),city:store.get("city","arlit"),tab:"client",
+ f:{from:0,to:5,veh:"moto",pay:"cash",mode:"now",at:"",ch:null,offerOn:false,delta:0,other:false,oname:"",otel:""},
+ ride:{state:"idle"},
+ tariffs:(()=>{const st=store.get("tariffs",{}),o=clone(DEFAULT_TARIFFS);for(const c in o){o[c].mode="km";for(const v of ["moto","tricycle","taxi","colis"])o[c][v].fix=o[c][v].min}for(const c in o)if(st[c])for(const k in o[c])if(st[c][k]!==undefined)o[c][k]=typeof o[c][k]==="object"?Object.assign(o[c][k],st[c][k]):st[c][k];return o})(),commission:store.get("commission",10),
+ contacts:Object.assign({},DEFAULT_CONTACTS,store.get("contacts",{})),ads:store.get("ads",null),adI:0,calOpen:false,sponsors:store.get("sponsors",[]),spI:0,logo:store.get("logo",null),
+ bookings:store.get("bookings",null)||seedBookings(),inbox:store.get("inbox",null)||seedInbox(),
+ agentForm:null,drv:{online:false,req:null,active:null,trips:6,earn:null,timer:null}};
+if(!CITIES[S.city])S.city="arlit";
+const BRAND0={app1:"Nessa Tazo",app2:"Kussa",agency:"Grema Agence 88"};
+S.brand=Object.assign({},BRAND0,store.get("brand",{}));
+const AG=()=>S.brand.agency,APP=()=>(S.brand.app1+" "+S.brand.app2).trim();
+const DOCS=["permis","grise","assur","cni"];
+S.fleet=store.get("fleet",null)||Object.entries(DRIVERS).flatMap(([c,L])=>L.map((d,i)=>({name:d[0],plate:d[1],rating:d[2],veh:d[3],c,tel:"",status:"actif",docs:{permis:1,grise:1,assur:1,cni:1}})));
+S.agentsL=store.get("agents",null)||AGENTS.map(a=>[...a]);
+S.svc=store.get("svc",null)||{veh:Object.fromEntries(VEHS.map(v=>[v,1])),city:Object.fromEntries(Object.keys(CITIES).map(k=>[k,1]))};
+S.annonce=store.get("annonce","");S.sub=store.get("sub",null)||{trial:30,price:{},drv:1,cli:0};S.cliSub=store.get("cliSub",null)||{since:new Date().toISOString(),paid:null};
+S.fleet.forEach(d=>{if(!d.since)d.since=new Date().toISOString()});S.pin=store.get("pin","8888");S.unlocked=false;S.log=store.get("log",[]);
+function syncDrivers(){["NE","NG","GH"].forEach(c=>{const L=S.fleet.filter(d=>d.c===c&&d.status==="actif").map(d=>[d.name,d.plate,d.rating,d.veh]);DRIVERS[c]=L.length?L:[["—","—",5,"moto"]]})}
+syncDrivers();
+function logAct(m){S.log.unshift({at:new Date().toISOString(),m});S.log=S.log.slice(0,40);store.set("log",S.log)}
+const DAY=864e5;
+// Every West African currency, for the owner's subscription prices.
+const WA_CUR=[
+ {k:"XOF",sym:"FCFA",fr:"Franc CFA",en:"CFA franc",def:5000,cfr:"Niger, Bénin, Burkina Faso, Côte d'Ivoire, Guinée-Bissau, Mali, Sénégal, Togo",cen:"Niger, Benin, Burkina Faso, Côte d'Ivoire, Guinea-Bissau, Mali, Senegal, Togo"},
+ {k:"NGN",sym:"₦",fr:"Naira",en:"Naira",def:5000,cfr:"Nigeria",cen:"Nigeria"},
+ {k:"GHS",sym:"GH₵",fr:"Cedi",en:"Cedi",def:50,cfr:"Ghana",cen:"Ghana"},
+ {k:"GNF",sym:"FG",fr:"Franc guinéen",en:"Guinean franc",def:75000,cfr:"Guinée",cen:"Guinea"},
+ {k:"GMD",sym:"D",fr:"Dalasi",en:"Dalasi",def:500,cfr:"Gambie",cen:"The Gambia"},
+ {k:"SLE",sym:"Le",fr:"Leone",en:"Leone",def:200,cfr:"Sierra Leone",cen:"Sierra Leone"},
+ {k:"LRD",sym:"L$",fr:"Dollar libérien",en:"Liberian dollar",def:1500,cfr:"Liberia",cen:"Liberia"},
+ {k:"CVE",sym:"Esc",fr:"Escudo",en:"Escudo",def:900,cfr:"Cap-Vert",cen:"Cape Verde"},
+ {k:"MRU",sym:"UM",fr:"Ouguiya",en:"Ouguiya",def:350,cfr:"Mauritanie",cen:"Mauritania"}];
+const CUR_OF={NE:"XOF",NG:"NGN",GH:"GHS"};
+{const P=S.sub.price,old={NE:"XOF",NG:"NGN",GH:"GHS"};Object.entries(old).forEach(([c,k])=>{if(c in P){P[k]=P[c];delete P[c]}});WA_CUR.forEach(x=>{if(!(x.k in P))P[x.k]=x.def})}
+const curMoney=(n,k)=>{const x=WA_CUR.find(c=>c.k===k);return x.k==="XOF"?money(n,"FCFA"):x.k==="NGN"?money(n,"₦"):x.k==="GHS"?money(n,"GH₵"):x.sym+" "+group(n,",")};
+const curName=x=>S.lang==="fr"?x.fr:x.en,curLand=x=>S.lang==="fr"?x.cfr:x.cen;
+// Subscription state of one account: free trial first, then paid months set from the owner's price.
+function subOf(a){const now=Date.now(),paid=a.paid?Date.parse(a.paid):0,free=Date.parse(a.since)+S.sub.trial*DAY;
+ if(paid>now)return {k:"paid",n:Math.ceil((paid-now)/DAY)};if(free>now)return {k:"trial",n:Math.ceil((free-now)/DAY)};return {k:"due",n:0}}
+const payMonth=a=>{a.paid=new Date(Math.max(Date.now(),a.paid?Date.parse(a.paid):0)+30*DAY).toISOString()};
+const subPill=st=>`<span class="pill ${st.k==="due"?"bad":st.k==="paid"?"ok":"warn"}"><span class="dot"></span>${st.k==="due"?t("subDue"):t(st.k==="paid"?"paidLeft":"freeLeft").replace("{n}",st.n)}</span>`;
+const subPrice=c=>curMoney(S.sub.price[CUR_OF[c]],CUR_OF[c]);
+function subCard(a,c,act){const st=subOf(a);return `<div class="card"><div class="row" style="justify-content:space-between"><h2>${t("sub")}</h2>${subPill(st)}</div>
+ <div class="muted">${st.k==="trial"?t("thenPrice")+" : ":""}<b>${subPrice(c)}</b> ${t("perMonth")}</div>
+ ${st.k!=="paid"||st.n<5?`<button class="btn ${st.k==="due"?"main":"alt"}" data-act="${act}">${t("payNow")} · ${subPrice(c)}</button>`:""}<div class="muted" style="font-size:12px">${t("subNote")}</div></div>`}
+const myFleet=()=>S.fleet.find(d=>d.name===myDriver()[0]&&d.c===city().c);
+const saveFleet=()=>{store.set("fleet",S.fleet);syncDrivers()};
+const save=()=>{store.set("bookings",S.bookings);store.set("inbox",S.inbox)};
+
+const $=s=>document.querySelector(s);
+const t=k=>(I18N[S.lang]&&I18N[S.lang][k])||I18N.fr[k]||k;
+const city=(k=S.city)=>CITIES[k];
+const tarOf=k=>S.tariffs[city(k).c];
+const group=(n,sep)=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);
+const money=(n,cur)=>cur==="₦"?"₦"+group(n,","):cur==="GH₵"?"GH₵ "+group(n,","):group(n," ")+" FCFA";
+const fmt=(n,k=S.city)=>money(n,tarOf(k).cur);
+const dist=(a,b,k=S.city)=>{const P=city(k).p,A=P[a],B=P[b];return Math.hypot(A[1]-B[1],A[2]-B[2])*1.25}; // 1.25 = road detour factor
+function fare(v,d,k=S.city){const T=tarOf(k),V=T[v];if(T.mode==="fixe")return V.fix??V.min;return Math.round(Math.max(V.min,V.base+V.km*d)/T.step)*T.step}
+const fareOf=b=>b.price??fare(b.veh,dist(b.from,b.to,b.city),b.city);
+function price(){const F=S.f,base=fare(F.veh,dist(F.from,F.to));if(!F.offerOn)return base;const st=OFFER_STEP[tarOf(S.city).cur];return Math.max(Math.round(base*.7/st)*st,base+F.delta*st)}
+const mins=(v,d)=>Math.max(3,Math.round(d/SPEED[v]*60+2));
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const locale=()=>S.lang==="en"?"en-GB":S.lang==="ar"?"ar-u-nu-latn":"fr-FR";
+const HA_D=["Lahadi","Litinin","Talata","Laraba","Alhamis","Juma'a","Asabar"],HA_M=["Janairu","Faburairu","Maris","Afirilu","Mayu","Yuni","Yuli","Agusta","Satumba","Oktoba","Nuwamba","Disamba"];
+const p2=x=>String(x).padStart(2,"0");
+// One place for every visible date, so Hausa gets Hausa names instead of French ones
+function D(d,kind){d=new Date(d);const L=locale();
+ if(S.lang==="ha"){const wd=HA_D[d.getDay()],mo=HA_M[d.getMonth()];
+  return {short:`${wd.slice(0,3)} ${d.getDate()} ${mo.slice(0,3)}, ${p2(d.getHours())}:${p2(d.getMinutes())}`,long:`${wd}, ${d.getDate()} ${mo} ${d.getFullYear()}`,
+   dayLong:`${wd}, ${d.getDate()} ${mo}`,monShort:mo.slice(0,3),monYear:`${mo} ${d.getFullYear()}`,wdNarrow:wd[0]}[kind]}
+ const o={short:{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"},long:{weekday:"long",day:"numeric",month:"long",year:"numeric"},
+  dayLong:{weekday:"long",day:"numeric",month:"long"},monShort:{month:"short"},monYear:{month:"long",year:"numeric"},wdNarrow:{weekday:"narrow"}}[kind];
+ return d.toLocaleString(L,o)}
+const dt=iso=>D(iso,"short");
+// Hijri date: day/month/year numbers from the Umm al-Qura calendar, month names written by us (browsers mislabel them in French)
+const HIJ={fr:["Mouharram","Safar","Rabi al-Awal","Rabi al-Thani","Joumada al-Oula","Joumada al-Thania","Rajab","Chaabane","Ramadan","Chawwal","Dhou al-Qi'da","Dhou al-Hijja"],
+ en:["Muharram","Safar","Rabi al-Awwal","Rabi al-Thani","Jumada al-Ula","Jumada al-Akhirah","Rajab","Sha'ban","Ramadan","Shawwal","Dhu al-Qa'dah","Dhu al-Hijjah"],
+ ha:["Muharram","Safar","Rabi'ul Awwal","Rabi'ul Akhir","Jimada Ula","Jimada Akhir","Rajab","Sha'aban","Ramadan","Shawwal","Zul Ki'ida","Zul Hijja"],
+ ar:["محرم","صفر","ربيع الأول","ربيع الآخر","جمادى الأولى","جمادى الآخرة","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"]};
+function hijriParts(d){try{const f=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn",{day:"numeric",month:"numeric",year:"numeric"}).formatToParts(d);
+  const g=k=>+(f.find(x=>x.type===k)||{}).value;const r={d:g("day"),m:g("month"),y:g("year")};if(r.d&&r.m&&r.y&&r.y>1300)return r}catch(e){}
+ // Fallback: tabular (Kuwaiti) algorithm, can differ by one day from the official calendar
+ const jd=Math.floor((d.getTime()-d.getTimezoneOffset()*6e4)/864e5)+2440588,l0=jd-1948440+10632,n=Math.floor((l0-1)/10631),l1=l0-10631*n+354,
+  j=Math.floor((10985-l1)/5316)*Math.floor(50*l1/17719)+Math.floor(l1/5670)*Math.floor(43*l1/15238),l2=l1-Math.floor((30-j)/15)*Math.floor(17719*j/50)-Math.floor(j/16)*Math.floor(15238*j/43)+29,
+  m=Math.floor(24*l2/709);return {d:l2-Math.floor(709*m/24),m,y:30*n+j-30}}
+function hijri(d){const h=hijriParts(d),mn=HIJ[S.lang][h.m-1];return S.lang==="ar"?`${h.d} ${mn} ${h.y} هـ`:S.lang==="en"?`${h.d} ${mn} ${h.y} AH`:`${h.d} ${mn} ${h.y} H`}
+const place=(b,i)=>city(b.city).p[i][0];
+let toastT;function toast(m){const e=$("#toast");e.textContent=m;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,2600)}
+function copy(txt,msg){const ok=()=>toast(msg);try{navigator.clipboard.writeText(txt).then(ok,()=>toast(txt))}catch(e){toast(txt)}}
+const newId=()=>"B"+(100+S.bookings.length+1+Math.floor(Math.random()*900));
+
+const ICON={
+ moto:'<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="16" r="4.5"/><circle cx="24" cy="16" r="4.5"/><path d="M6 16l6-7h6l6 7M15 9l-2-4h-3M18 9l2-3h3"/></svg>',
+ tricycle:'<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="17" r="3.5"/><circle cx="24" cy="17" r="3.5"/><path d="M3 13V6h13l5 7H3zM21 13h6v4"/></svg>',
+ colis:'<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 4l7-2 7 2v12l-7 2-7-2z"/><path d="M8 4l7 2 7-2M15 6v12"/></svg>',
+ taxi:'<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 15v-4l3-5h18l3 5v4z"/><circle cx="8" cy="16" r="2.5"/><circle cx="22" cy="16" r="2.5"/><path d="M12 6V3h6v3"/></svg>',
+ whatsapp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 20l1.3-3.8A8 8 0 1 1 8 19z"/><path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1-1.5"/></svg>',
+ sms:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>',
+ email:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+ messenger:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3a9 8.5 0 0 0-5 15.6V21l3-1.6A9 8.5 0 1 0 12 3z"/><path d="M7.5 13.5l3-3 2.5 2 3.5-3"/></svg>',
+ phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+ app:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>'};
+const srcDot=s=>`<span class="srcdot c-${s}" title="${t(s)}">${ICON[s]}</span>`;
+const stPill=s=>`<span class="pill ${s==="done"?"ok":s==="pending"?"warn":s==="cancelled"?"bad":""}"><span class="dot"></span>${t("st_"+s)}</span>`;
+
+function logoHTML(size=48){return S.logo?`<img src="${S.logo}" alt="Logo ${AG()}">`:
+ `<svg viewBox="0 0 48 48" width="${size}" height="${size}" role="img" aria-label="Logo provisoire ${APP()}, ${AG()}"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d77f"/><stop offset=".55" stop-color="#cf9d2b"/><stop offset="1" stop-color="#9b6c12"/></linearGradient></defs><rect width="48" height="48" fill="#1c130d"/><circle cx="24" cy="21" r="13" fill="none" stroke="url(#lg)" stroke-width="3.2"/><circle cx="24" cy="21" r="16.5" fill="none" stroke="#cfd3da" stroke-width="1" stroke-dasharray="2 2.4"/><circle cx="24" cy="21" r="3" fill="url(#lg)"/><path d="M24 8v10M13 28l8.5-5M35 28l-8.5-5" stroke="url(#lg)" stroke-width="2.5"/><text x="24" y="46" font-family="Unbounded,Arial Black,sans-serif" font-size="7.5" font-weight="700" fill="#cfd3da" text-anchor="middle">G·88</text></svg>`}
+function paintLogo(){$("#logoBox").innerHTML=logoHTML()}
+
+// ---------- MAP ----------
+function frame(P){const xs=P.map(p=>p[1]),ys=P.map(p=>p[2]);
+ const mnx=Math.min(...xs)-1.2,mxx=Math.max(...xs)+1.2,mny=Math.min(...ys)-1,mxy=Math.max(...ys)+1;
+ const sc=Math.min(400/(mxx-mnx),300/(mxy-mny)),ox=(400-(mxx-mnx)*sc)/2,oy=(300-(mxy-mny)*sc)/2;
+ return {X:x=>ox+(x-mnx)*sc,Y:y=>300-(oy+(y-mny)*sc)}}
+const BLUE="#2563eb";
+function pinMe(x,y,label,col=BLUE){return `<circle class="ping" cx="${x}" cy="${y}" r="7" fill="none" stroke="${col}" stroke-width="2"/><circle cx="${x}" cy="${y}" r="7" fill="${col}" stroke="#fff" stroke-width="2.5"/>${label?`<text x="${x}" y="${y+21}" font-family="Figtree,sans-serif" font-size="11.5" font-weight="700" fill="${col}" text-anchor="middle" paint-order="stroke" stroke="var(--sand)" stroke-width="4">${esc(label)}</text>`:""}`}
+function pinCar(x,y,label,veh){return `<g transform="translate(${x-13},${y-9})"><rect x="-2" y="-2" width="30" height="22" rx="7" fill="var(--saffron)" stroke="#1c130d" stroke-width="1"/><g style="color:#2a1b00">${(ICON[veh]||ICON.taxi).replace("<svg ",'<svg width="26" height="18" ')}</g></g>${label?`<text x="${x}" y="${y-14}" font-family="Figtree,sans-serif" font-size="10.5" font-weight="700" fill="var(--fg)" text-anchor="middle" paint-order="stroke" stroke="var(--sand)" stroke-width="4">${esc(label)}</text>`:""}`}
+// ---- simulated live positions (km coords of the current city)
+const LIVE={me:null,jit:{},drv:{},key:null};
+function liveInit(){if(LIVE.key===S.city)return;const P=city().p;LIVE.key=S.city;LIVE.jit={};LIVE.drv={};
+ LIVE.me={x:P[0][1]+.35,y:P[0][2]-.25,ax:P[0][1],ay:P[0][2]};
+ DRIVERS[city().c].forEach((d,i)=>{const a=P[i%P.length],b=P[(i+2)%P.length];LIVE.drv[d[0]]={x:a[1],y:a[2],t:(i+2)%P.length,veh:d[3]}})}
+function liveTick(){liveInit();const P=city().p,rw=o=>{o.x+=(Math.random()-.5)*.12;o.y+=(Math.random()-.5)*.12;const dx=o.x-o.ax,dy=o.y-o.ay,r=Math.hypot(dx,dy);if(r>.6){o.x=o.ax+dx*.6/r;o.y=o.ay+dy*.6/r}};
+ rw(LIVE.me);
+ S.bookings.forEach(b=>{if(b.city!==S.city||!["pending","assigned","ongoing"].includes(b.status))return;const a=P[b.from];const j=LIVE.jit[b.id]||(LIVE.jit[b.id]={x:a[1]+.2,y:a[2]+.15,ax:a[1],ay:a[2]});rw(j)});
+ Object.values(LIVE.drv).forEach(d=>{const tg=P[d.t],dx=tg[1]-d.x,dy=tg[2]-d.y,r=Math.hypot(dx,dy);if(r<.2){d.t=Math.floor(Math.random()*P.length);return}d.x+=dx/r*.18;d.y+=dy/r*.18})}
+function liveSVG(focus){liveInit();const P=city().p,{X,Y}=frame(P);let h=`<rect width="400" height="300" fill="var(--sand)"/>`;
+ for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++)if(Math.hypot(P[i][1]-P[j][1],P[i][2]-P[j][2])<3.3)h+=`<line x1="${X(P[i][1])}" y1="${Y(P[i][2])}" x2="${X(P[j][1])}" y2="${Y(P[j][2])}" stroke="var(--road)" stroke-width="6" stroke-linecap="round"/>`;
+ P.forEach(p=>{h+=`<circle cx="${X(p[1])}" cy="${Y(p[2])}" r="4" fill="var(--muted)"/><text x="${X(p[1])}" y="${Y(p[2])+14}" font-family="Figtree,sans-serif" font-size="10" fill="var(--muted)" text-anchor="middle">${esc(p[0])}</text>`});
+ if(focus){const c=focus.client,d=LIVE.drv[focus.drv];if(d)h+=`<line x1="${X(d.x)}" y1="${Y(d.y)}" x2="${X(c.x)}" y2="${Y(c.y)}" stroke="${BLUE}" stroke-width="2.5" stroke-dasharray="5 5"/>`+pinCar(X(d.x),Y(d.y),"",d.veh);h+=pinMe(X(c.x),Y(c.y),focus.name);return h}
+ Object.entries(LIVE.drv).forEach(([n,d])=>h+=pinCar(X(d.x),Y(d.y),n,d.veh));
+ S.bookings.forEach(b=>{const j=LIVE.jit[b.id];if(j&&b.city===S.city&&["pending","assigned","ongoing"].includes(b.status))h+=pinMe(X(j.x),Y(j.y),b.name)});
+ return h}
+setInterval(()=>{if(document.hidden)return;liveTick();
+ if(S.tab==="client"&&["idle","searching","assigned"].includes(S.ride.state))drawMap();
+ const ls=$("#liveSvg");if(ls)ls.innerHTML=liveSVG(ls.dataset.focus?JSON.parse(ls.dataset.focus):null);
+ const ds=$("#drvLive");if(ds&&S.drv.active){const f=driverFocus();if(f){ds.innerHTML=liveSVG(f);const el=$("#drvAway");if(el){const d=LIVE.drv[f.drv];el.textContent=(Math.hypot(d.x-f.client.x,d.y-f.client.y)*1.25).toFixed(1)+" km"}}}},2000);
+function driverFocus(){const r=S.drv.active,P=city().p;if(r.fromI==null)return null;
+ const j=r.bid&&LIVE.jit[r.bid]?LIVE.jit[r.bid]:(LIVE.jit["job"]||(LIVE.jit["job"]={x:P[r.fromI][1]+.2,y:P[r.fromI][2]+.1,ax:P[r.fromI][1],ay:P[r.fromI][2]}));
+ return {client:j,drv:myDriver()[0],name:r.name||t("tClient")}}
+function mapSVG(from,to,progress){
+ const P=city().p;const xs=P.map(p=>p[1]),ys=P.map(p=>p[2]);
+ const mnx=Math.min(...xs)-1.2,mxx=Math.max(...xs)+1.2,mny=Math.min(...ys)-1,mxy=Math.max(...ys)+1;
+ const sc=Math.min(400/(mxx-mnx),300/(mxy-mny)),ox=(400-(mxx-mnx)*sc)/2,oy=(300-(mxy-mny)*sc)/2;
+ const X=x=>ox+(x-mnx)*sc,Y=y=>300-(oy+(y-mny)*sc);
+ let h=`<rect width="400" height="300" fill="var(--sand)"/>`;
+ for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++)if(Math.hypot(P[i][1]-P[j][1],P[i][2]-P[j][2])<3.3)
+  h+=`<line x1="${X(P[i][1])}" y1="${Y(P[i][2])}" x2="${X(P[j][1])}" y2="${Y(P[j][2])}" stroke="var(--road)" stroke-width="6" stroke-linecap="round"/>`;
+ const a=P[from],b=P[to];
+ h+=`<line x1="${X(a[1])}" y1="${Y(a[2])}" x2="${X(b[1])}" y2="${Y(b[2])}" stroke="var(--indigo)" stroke-width="4" stroke-dasharray="8 6" stroke-linecap="round"/>`;
+ P.forEach((p,i)=>{const on=i===from||i===to,col=i===from?"var(--ok)":i===to?"var(--danger)":"var(--muted)";
+  const lx=X(p[1]),ly=Y(p[2]),anchor=lx>290?"end":lx<110?"start":"middle";
+  h+=`<g style="cursor:pointer" data-pt="${i}"><circle cx="${lx}" cy="${ly}" r="16" fill="transparent"/><circle cx="${lx}" cy="${ly}" r="${on?9:6}" fill="${col}" stroke="var(--surface)" stroke-width="3"/>
+  <text x="${lx}" y="${ly-14}" font-family="Figtree,sans-serif" font-size="12.5" font-weight="${on?700:500}" fill="var(--fg)" text-anchor="${anchor}" paint-order="stroke" stroke="var(--sand)" stroke-width="4">${esc(p[0])}</text></g>`});
+ liveInit();if(LIVE.me&&S.ride.state!=="trip"){const {X:FX,Y:FY}=frame(P);h+=pinMe(FX(LIVE.me.x),FY(LIVE.me.y),t("me"))}
+ const st=S.ride.state;
+ if(st==="assigned"||st==="trip"){const k=st==="trip"?progress||0:0;
+  const vx=st==="trip"?X(a[1]+(b[1]-a[1])*k):X(a[1])+26,vy=st==="trip"?Y(a[2]+(b[2]-a[2])*k):Y(a[2])+24;
+  h+=`<g transform="translate(${vx-16},${vy-11})"><rect x="-3" y="-3" width="38" height="28" rx="9" fill="var(--saffron)"/><g style="color:var(--saffron-ink)">${ICON[S.ride.veh].replace("<svg ",'<svg width="32" height="22" ')}</g></g>`}
+ return h}
+function drawMap(progress){const svg=$("#mapSvg");if(!svg)return;svg.innerHTML=mapSVG(S.f.from,S.f.to,progress);
+ svg.querySelectorAll("[data-pt]").forEach(g=>g.addEventListener("click",()=>{if(S.ride.state!=="idle")return;const i=+g.dataset.pt;if(i===S.f.from)return;S.f.to=i;renderClient()}))}
+
+// ---------- CLIENT ----------
+function channelMsg(){const P=city().p,d=dist(S.f.from,S.f.to);
+ const when=S.f.mode==="later"&&S.f.at?dt(S.f.at):t("now");
+ const L={fr:`Bonjour ${AG()},\nje veux réserver : ${t(S.f.veh)}\nVille : ${city().name}\nDépart : ${P[S.f.from][0]}\nDestination : ${P[S.f.to][0]}\nQuand : ${when}\nPrix estimé : ${fmt(price())}${S.f.offerOn?" ("+t("offer").toLowerCase()+")":""}${S.f.other&&S.f.oname?"\n"+t("forWho")+" : "+S.f.oname+" "+S.f.otel:""}\nMerci.`,
+  en:`Hello ${AG()},\nI would like to book: ${t(S.f.veh)}\nCity: ${city().name}\nPickup: ${P[S.f.from][0]}\nDestination: ${P[S.f.to][0]}\nWhen: ${when}\nEstimated fare: ${fmt(price())}${S.f.offerOn?" ("+t("offer").toLowerCase()+")":""}${S.f.other&&S.f.oname?"\n"+t("forWho")+" : "+S.f.oname+" "+S.f.otel:""}\nThank you.`,
+  ar:`السلام عليكم ${AG()}،\nأريد حجز: ${t(S.f.veh)}\nالمدينة: ${city().name}\nالانطلاق: ${P[S.f.from][0]}\nالوجهة: ${P[S.f.to][0]}\nالوقت: ${when}\nالسعر التقديري: ${fmt(price())}${S.f.offerOn?" ("+t("offer")+")":""}${S.f.other&&S.f.oname?"\n"+t("forWho")+" : "+S.f.oname+" "+S.f.otel:""}\nشكرًا.`,
+  ha:`Sannu ${AG()},\nina son oda: ${t(S.f.veh)}\nGari: ${city().name}\nDaga: ${P[S.f.from][0]}\nZuwa: ${P[S.f.to][0]}\nLokaci: ${when}\nKuɗi: ${fmt(price())}${S.f.offerOn?" ("+t("offer").toLowerCase()+")":""}${S.f.other&&S.f.oname?"\n"+t("forWho")+" : "+S.f.oname+" "+S.f.otel:""}\nNagode.`};
+ return L[S.lang]}
+function channelLink(ch,msg){const C=S.contacts,digits=s=>s.replace(/[^\d]/g,""),enc=encodeURIComponent(msg);
+ return {whatsapp:`https://wa.me/${digits(C.wa)}?text=${enc}`,sms:`sms:${C.sms.replace(/\s/g,"")}?body=${enc}`,
+  email:`mailto:${C.mail}?subject=${encodeURIComponent("Réservation "+AG())}&body=${enc}`,messenger:`https://m.me/${C.ms}`}[ch]}
+const contactOf=ch=>({whatsapp:S.contacts.wa,sms:S.contacts.sms,email:S.contacts.mail,messenger:"m.me/"+S.contacts.ms}[ch]);
+
+function renderClient(){
+ const v=$("#v-client"),P=city().p,st=S.ride.state,d=dist(S.f.from,S.f.to),F=S.f;
+ let panel="";
+ if(st==="idle"){
+  const opts=sel=>P.map((p,i)=>`<option value="${i}" ${i===sel?"selected":""}>${esc(p[0])}</option>`).join("");
+  if(!S.svc.veh[F.veh])F.veh=VEHS.find(k=>S.svc.veh[k])||"moto";
+  const vehs=VEHS.filter(k=>S.svc.veh[k]).map(k=>`<button class="veh" data-veh="${k}" aria-pressed="${F.veh===k}">${ICON[k]}<b>${t(k)}</b><span class="p">${fmt(fare(k,d))}</span><span>${mins(k,d)} ${t("min")}</span></button>`).join("");
+  let chPanel="";
+  if(F.ch){const m=channelMsg();chPanel=`<div class="card" id="chPanel"><div class="row" style="justify-content:space-between">${srcDot(F.ch)}<h2 style="flex:1">${t("msgTitle")} · ${t(F.ch)}</h2></div>
+   <div class="muted">${t("sendTo")} : <b style="color:var(--fg);user-select:all">${esc(contactOf(F.ch))}</b></div>
+   <div class="msgbox">${esc(m)}</div>
+   <div class="grid2"><button class="btn alt" data-act="copyMsg">${t("copy")}</button><a class="btn ink" href="${esc(channelLink(F.ch,m))}" target="_blank" rel="noopener">${t("open")} ${t(F.ch)}</a></div>
+   <button class="btn main" data-act="simSend">${t("simulate")}</button><div class="note">${t("linkNote")}</div></div>`}
+  panel=`<div class="card">
+   <button class="btn alt sm" data-act="useMyPos" style="align-self:flex-start"><span style="color:${BLUE}">●</span> ${t("useMyPos")}</button>
+   <div class="row"><label class="f" for="from">${t("from")}<select id="from">${opts(F.from)}</select></label>
+   <label class="f" for="to">${t("to")}<select id="to">${opts(F.to)}</select></label></div>
+   <div class="seg"><button data-mode="now" aria-pressed="${F.mode==="now"}">${t("now")}</button><button data-mode="later" aria-pressed="${F.mode==="later"}">${t("later")}</button></div>
+   ${F.mode==="later"?`<label class="f" for="at">${t("when")}<input type="datetime-local" id="at" value="${esc(F.at)}"></label>`:""}
+   <div class="vehicles">${vehs}</div>
+   <div class="pay" style="flex-wrap:wrap"><label><input type="radio" name="pay" id="pay-cash" value="cash" ${F.pay==="cash"?"checked":""}>${t("cash")}</label>
+   <label><input type="radio" name="pay" id="pay-momo" value="momo" ${F.pay==="momo"?"checked":""}>${t("momo")}</label>
+   <label><input type="radio" name="pay" id="pay-card" value="card" ${F.pay==="card"?"checked":""}>${t("card")}</label></div>
+   ${F.pay==="momo"?(()=>{const loc=PAYOPS[city().c],wa=PAYWA.filter(o=>!loc.includes(o));if(!F.op||![...loc,...wa].includes(F.op))F.op=loc[0];
+     const chip=o=>`<button class="btn ${o===F.op?"ink":"alt"} sm" data-op="${esc(o)}" aria-pressed="${o===F.op}">${esc(o)}</button>`;
+     return `<div class="eyebrow">${t("local")} · ${cname(city().c)}</div><div class="actions" style="margin:0">${loc.map(chip).join("")}</div>
+     <div class="eyebrow">${t("waWide")}</div><div class="actions" style="margin:0">${wa.map(chip).join("")}</div><div class="muted" style="font-size:12px">${t("payNote")}</div>`})():""}
+   ${F.pay==="card"?`<div class="muted">${t("cardHint")}</div><div class="muted" style="font-size:12px">${t("payNote")}</div>`:""}
+   <label class="check" for="offerOn"><input type="checkbox" id="offerOn" ${F.offerOn?"checked":""}>${t("offer")}</label>
+   ${F.offerOn?`<div class="stepper"><button class="btn alt" data-act="offDown" aria-label="−">−</button><output id="offerOut">${fmt(price())}</output><button class="btn alt" data-act="offUp" aria-label="+">+</button></div><div class="muted">${t("offerHint")}</div>`:""}
+   <label class="check" for="other"><input type="checkbox" id="other" ${F.other?"checked":""}>${t("forOther")}</label>
+   ${F.other?`<div class="row"><label class="f" for="oname">${t("oname")}<input type="text" id="oname" value="${esc(F.oname)}"></label><label class="f" for="otel">${t("otel")}<input type="tel" id="otel" value="${esc(F.otel)}"></label></div>`:""}
+   <div id="err" class="muted" style="color:var(--danger)" hidden>${t("sameErr")}</div>
+   <button class="btn main" data-act="order">${F.mode==="later"?t("book"):t("order")} · ${fmt(price())}</button>
+   <div class="eyebrow" style="margin-top:4px">${t("orVia")}</div>
+   <div class="channels">${CHANNELS.map(c=>`<button class="ch" data-ch="${c}" aria-pressed="${F.ch===c}"><i class="c-${c}">${ICON[c]}</i>${t(c)}</button>`).join("")}</div>
+  </div>${chPanel}`;
+ }
+ else if(st==="searching"){
+  panel=`<div class="card"><div class="row"><div class="spin" aria-hidden="true"></div><b>${t("searching")}</b></div>
+  <div class="muted">${esc(P[F.from][0])} → ${esc(P[F.to][0])} · ${t(S.ride.veh)} · ${fmt(S.ride.fare)}</div>
+  <button class="btn alt" data-act="rideCancel">${t("cancel")}</button></div>`}
+ else if(st==="assigned"){const [n,pl,r]=S.ride.drv;
+  panel=`<div class="card"><span class="pill ok"><span class="dot"></span>${t("coming")}</span>
+   <div class="driver"><div class="avatar">${esc(n[0])}</div><div style="flex:1;min-width:0"><b>${esc(n)}</b> · ★ ${r}<div class="muted">${t(S.ride.veh)} · ${esc(pl)}</div></div>
+   <div style="text-align:right"><div class="muted">${t("eta")}</div><b>${S.ride.eta} ${t("min")}</b></div></div>
+   <div class="row" style="justify-content:space-between"><span class="muted" style="max-width:62%">${t("pinLbl")}</span><span class="pin">${S.ride.pin}</span></div>
+   <div class="sum"><span>${t("total")} · ${payLabel()}</span><span class="big">${fmt(S.ride.fare)}</span></div>
+   <button class="btn main" data-act="rideStart">${t("start")}</button>
+   <div class="grid2"><button class="btn alt" data-act="rideShare">${t("share")}</button><button class="btn danger" data-act="rideCancel">${t("cancel")}</button></div></div>`}
+ else if(st==="trip"){const [n,pl]=S.ride.drv;
+  panel=`<div class="card"><span class="pill"><span class="dot"></span>${t("onTrip")}</span>
+   <div class="muted">${esc(P[F.from][0])} → ${esc(P[F.to][0])} · ${esc(n)} · ${esc(pl)}</div>
+   <div class="meter" aria-live="polite"><div class="lbl"><i>${t("meter").toUpperCase()} · G88</i><span class="led" aria-hidden="true"></span></div>
+    <div><span>${t("distLbl")}</span><b id="mKm">0.00 km</b></div><div><span>${t("elapsed")}</span><b id="mT">00:00</b></div>
+    <div class="p"><span>${S.ride.metered?t("fareLbl"):t("agreed")}</span><b id="mP">${fmt(S.ride.metered?tarOf(S.city)[S.ride.veh].base:S.ride.fare)}</b></div></div>
+   <div class="muted">${S.ride.metered?t("meterHint"):""}</div>
+   <div class="grid2"><button class="btn alt" data-act="rideShare">${t("share")}</button><button class="btn sos" data-act="sos">${t("sos")}</button></div>
+   <div id="sosBox" class="note" hidden>${t("sosTxt")} · ${AG()} : ${esc(S.contacts.wa)}</div></div>`}
+ else if(st==="arrived"){
+  panel=`<div class="card"><h2>${t("arrived")}</h2>
+   <div class="sum"><span>${t("total")} · ${payLabel()}</span><span class="big">${fmt(S.ride.fare)}</span></div>
+   <div><div class="muted">${t("rate")}</div><div class="stars">${[1,2,3,4,5].map(i=>`<button data-star="${i}" class="${i<=(S.ride.stars||5)?"on":""}" aria-label="${i}/5">★</button>`).join("")}</div></div>
+   <button class="btn main" data-act="rideDone">${t("done")}</button></div>`}
+ const mine=S.bookings.filter(b=>b.mine);
+ const hist=`<div class="card"><h2>${t("history")}</h2>${mine.length?`<div class="list">${mine.map(b=>`<div class="item">${srcDot(b.src)}<div class="grow"><b>${esc(place(b,b.from))} → ${esc(place(b,b.to))}</b><div class="muted">${dt(b.when||b.at)} · ${city(b.city).name} · ${t(b.veh)}${b.drv?" · "+esc(b.drv):""}</div><div style="margin-top:4px">${stPill(b.status)}</div></div><div class="r">${fmt(fareOf(b),b.city)}</div></div>`).join("")}</div>`:`<div class="muted">${t("empty")}</div>`}</div>`;
+ if(!S.svc.city[S.city]&&st==="idle")panel=`<div class="card"><span class="pill bad"><span class="dot"></span>${city().name} · ${t("closed")}</span><div>${t("cityClosed")}</div></div>`;
+ v.innerHTML=`${S.annonce?`<div class="card" style="border-color:var(--gold-2);background:var(--indigo-soft)"><div class="eyebrow">${t("announceTag")} · ${APP()}</div><div style="white-space:pre-line">${esc(S.annonce)}</div></div>`:""}${adHTML()}${sponsorHTML()}${S.sub.cli?subCard(S.cliSub,city().c,"subPayCli"):""}${todayHTML()}<div class="map"><span class="tag">${city().name} · ${cname(city().c)}</span><svg id="mapSvg" viewBox="0 0 400 300" role="img" aria-label="${t("mapOf")} ${city().name}"></svg></div><div class="muted" style="font-size:12px;margin-top:-6px"><span style="color:${BLUE}">●</span> ${t("gpsNote")}</div>${panel}${hist}<div class="kente"></div><div class="note">${t("exNote")}</div>`;
+ if(st!=="trip")drawMap();
+ const fr=$("#from"),to=$("#to"),at=$("#at");
+ if(fr)fr.onchange=e=>{S.f.from=+e.target.value;renderClient()};
+ if(to)to.onchange=e=>{S.f.to=+e.target.value;renderClient()};
+ if(at)at.onchange=e=>{S.f.at=e.target.value;if(S.f.ch)renderClient()};
+ v.querySelectorAll("[name=pay]").forEach(r=>r.onchange=()=>{S.f.pay=r.value;renderClient()});
+ const oo=$("#offerOn"),ot=$("#other"),on=$("#oname"),otl=$("#otel");
+ if(oo)oo.onchange=e=>{S.f.offerOn=e.target.checked;S.f.delta=0;renderClient()};
+ if(ot)ot.onchange=e=>{S.f.other=e.target.checked;renderClient()};
+ if(on)on.oninput=e=>S.f.oname=e.target.value;
+ if(otl)otl.oninput=e=>S.f.otel=e.target.value;
+}
+function clientOrder(){const F=S.f;if(F.from===F.to){$("#err").hidden=false;return}
+ const fr=price(),nm=F.other&&F.oname?F.oname:t("you"),tl=F.other?F.otel:"";
+ if(F.mode==="later"){const when=F.at?new Date(F.at).toISOString():new Date(Date.now()+36e5).toISOString();
+  S.bookings.unshift({id:newId(),src:"app",name:nm,tel:tl,price:F.offerOn?fr:undefined,offer:F.offerOn?1:0,city:S.city,from:F.from,to:F.to,veh:F.veh,when,status:"pending",drv:null,at:new Date().toISOString(),mine:1});save();
+  toast(`${t("scheduled")} ${t("bookedFor")} ${dt(when)}`);renderClient();updateBadge();return}
+ const dd=dist(F.from,F.to);S.ride={state:"searching",fare:fr,veh:F.veh,d:dd,mins:mins(F.veh,dd),metered:!F.offerOn&&tarOf(S.city).mode!=="fixe"};renderClient();
+ S.ride.timer=setTimeout(()=>{const L=DRIVERS[city().c];const dr=L[Math.floor(Math.random()*L.length)];
+  S.ride={...S.ride,state:"assigned",drv:dr,pin:String(1000+Math.floor(Math.random()*9000)),eta:2+Math.floor(Math.random()*5)};renderClient()},2200)}
+function rideStart(){S.ride.state="trip";renderClient();const t0=performance.now(),D=6000;
+ const step=now=>{const k=Math.min(1,(now-t0)/D);if(S.tab==="client")drawMap(k);
+  const R=S.ride,T=tarOf(S.city),V=T[R.veh],km=R.d*k,sec=Math.round(R.mins*60*k),p=x=>String(x).padStart(2,"0");
+  const mk=$("#mKm"),mt=$("#mT"),mp=$("#mP");
+  if(mk){mk.textContent=km.toFixed(2)+" km";mt.textContent=p(Math.floor(sec/60))+":"+p(sec%60);
+   if(R.metered)mp.textContent=fmt(k>=1?R.fare:Math.round((V.base+V.km*km)/T.step)*T.step)}
+  if(k<1&&S.ride.state==="trip")requestAnimationFrame(step);else if(S.ride.state==="trip"){S.ride.state="arrived";renderClient()}};
+ requestAnimationFrame(step)}
+function rideDone(){S.bookings.unshift({id:newId(),src:"app",name:S.f.other&&S.f.oname?S.f.oname:t("you"),tel:"",price:S.ride.fare,city:S.city,from:S.f.from,to:S.f.to,veh:S.ride.veh,when:null,status:"done",drv:S.ride.drv[0],stars:S.ride.stars||5,at:new Date().toISOString(),mine:1});
+ save();S.ride={state:"idle"};renderClient()}
+function simSend(){const F=S.f;const who={whatsapp:"+227 9x xx xx xx",sms:"+227 9x xx xx xx",email:"client@example.com",messenger:"Client Messenger"}[F.ch];
+ S.inbox.unshift({id:"M"+Date.now(),src:F.ch,who,text:channelMsg(),city:S.city,from:F.from,to:F.to,veh:F.veh,name:t("you"),
+  when:F.mode==="later"&&F.at?new Date(F.at).toISOString():null,at:new Date().toISOString(),mine:1});
+ save();S.f.ch=null;toast(t("sent"));renderClient();updateBadge()}
+
+function ads(){const c=city().c;return (S.ads||ADS[S.lang]).map(a=>a.map(x=>x.replace("{city}",city().name).replace("{country}",cname(c)).replace("{agency}",AG())))}
+function adHTML(){const A=ads(),a=A[S.adI%A.length];return `<div class="adboard" id="adboard">${SCENE}${countryMap(city().c)}<div class="copy"><span class="ad-tag">${t("adTag")} · ${AG()}</span><span class="ad-h" id="adH">${esc(a[0])}</span><span class="ad-s" id="adS">${esc(a[1])}</span></div>
+ <div class="dots">${A.map((_,i)=>`<button data-ad="${i}" aria-label="${i+1}" aria-current="${i===S.adI%A.length}"></button>`).join("")}</div></div>`}
+function setAd(i){const b=$("#adboard");if(!b)return;const A=ads();S.adI=i%A.length;b.classList.add("fade");
+ setTimeout(()=>{$("#adH").textContent=A[S.adI][0];$("#adS").textContent=A[S.adI][1];b.querySelectorAll("[data-ad]").forEach(d=>d.setAttribute("aria-current",+d.dataset.ad===S.adI));b.classList.remove("fade")},350)}
+setInterval(()=>{if(S.tab==="client"&&!document.hidden)setAd(S.adI+1)},4500);
+
+// ---------- DRIVER ----------
+function myDriver(){return DRIVERS[city().c][0]}
+function renderDriver(){
+ const D=S.drv,v=$("#v-driver"),me=myDriver();
+ if(D.earn===null)D.earn={NE:5400,NG:8100,GH:120}[city().c];
+ const agencyJob=S.bookings.find(b=>b.status==="assigned"&&b.drv===me[0]);
+ let body="";
+ if(!D.online)body=`<div class="muted">${t("goOnline")}</div>`;
+ else if(D.active){const r=D.active;
+  body=`<div class="req"><span class="pill ok"><span class="dot"></span>${t("accepted")}</span>
+  <div><b>${t("pickup")} :</b> ${esc(r.fromN)}<br><b>${t("to")} :</b> ${esc(r.toN)}${r.name?`<br><span class="muted">${esc(r.name)} ${esc(r.tel||"")}</span>`:""}</div>
+  <div class="sum"><span class="big">${fmt(r.fare)}</span><span class="muted">${fmt(r.net)} ${t("netAfter")}</span></div>
+  ${r.fromI!=null?`<div class="eyebrow">${t("clientPos")} · <span id="drvAway"></span></div><div class="livemap"><svg id="drvLive" viewBox="0 0 400 300" role="img" aria-label="${t("clientPos")}">${liveSVG(driverFocus())}</svg></div>`:""}
+  <button class="btn main" data-act="drvDrop">${t("dropOff")}</button></div>`}
+ else{const r=agencyJob?jobFromBooking(agencyJob):D.req;
+  if(r)body=`<div class="req"><span class="pill ${agencyJob?"warn":""}"><span class="dot"></span>${agencyJob?t("agencyReq"):t("newReq")} · ${t(r.veh)}</span>
+  <div><b>${t("from")} :</b> ${esc(r.fromN)}<br><b>${t("to")} :</b> ${esc(r.toN)}<br><span class="muted">${r.d.toFixed(1)} ${t("km")}${r.when?" · "+dt(r.when):""}</span></div>
+  ${r.offer?`<span class="pill warn"><span class="dot"></span>${t("clientOffer")}</span>`:""}<div class="sum"><span class="big">${fmt(r.fare)}</span><span class="muted">${fmt(r.net)} ${t("netAfter")}</span></div>
+  <div class="grid2"><button class="btn alt" data-act="drvRefuse">${t("refuse")}</button><button class="btn main" data-act="drvAccept">${t("accept")}</button></div></div>`;
+  else body=`<div class="row"><div class="spin" aria-hidden="true"></div><span>${t("waiting")}</span></div>`}
+ v.innerHTML=`<div class="card"><div class="driver"><div class="avatar">${esc(me[0][0])}</div><div style="flex:1;min-width:0"><b>${esc(me[0])}</b> · ★ ${me[2]}<div class="muted">${t(me[3])} · ${esc(me[1])} · ${city().name}</div></div>
+  <button class="toggle" data-act="drvToggle" aria-pressed="${D.online}" aria-label="${t("online")}"></button></div>
+  <span class="pill ${D.online?"ok":""}"><span class="dot"></span>${D.online?t("online"):t("offline")}</span>${body}</div>
+  ${S.sub.drv&&myFleet()?subCard(myFleet(),city().c,"subPayDrv"):""}<div class="card"><h2>${t("today")}</h2><div class="stats"><div><b>${D.trips}</b><span>${t("trips")}</span></div>
+  <div><b>${fmt(D.earn)}</b><span>${t("earn")}</span></div><div><b>${me[2]}</b><span>${t("rating")}</span></div></div></div>
+  <div class="kente"></div><div class="note">${t("exNote")}</div>`;
+}
+function jobFromBooking(b){const f=fareOf(b);return {fromI:b.city===S.city?b.from:null,offer:b.offer,bid:b.id,fromN:place(b,b.from),toN:place(b,b.to),veh:b.veh,d:dist(b.from,b.to,b.city),fare:f,net:Math.round(f*(1-S.commission/100)),when:b.when,name:b.name,tel:b.tel}}
+function queueReq(){const D=S.drv;clearTimeout(D.timer);D.timer=setTimeout(()=>{if(!D.online||D.active)return;const P=city().p;
+ let i=Math.floor(Math.random()*P.length),j;do{j=Math.floor(Math.random()*P.length)}while(j===i);
+ const veh=["moto","moto","tricycle","taxi"][Math.floor(Math.random()*4)],d=dist(i,j),f=fare(veh,d);
+ const off=Math.random()<.4,ff=off?Math.round(f*.9/OFFER_STEP[tarOf(S.city).cur])*OFFER_STEP[tarOf(S.city).cur]:f;
+ D.req={fromI:i,offer:off,fromN:P[i][0],toN:P[j][0],veh,d,fare:ff,net:Math.round(ff*(1-S.commission/100))};if(S.tab==="driver")renderDriver()},2500)}
+
+// ---------- AGENT ----------
+function agentFormHTML(){const A=S.agentForm;const P=city(A.city).p;
+ const opts=(sel)=>P.map((p,i)=>`<option value="${i}" ${i===sel?"selected":""}>${esc(p[0])}</option>`).join("");
+ const cityOpts=Object.entries(CITIES).map(([k,c])=>`<option value="${k}" ${k===A.city?"selected":""}>${c.name} (${COUNTRY[c.c]})</option>`).join("");
+ const f=A.from!==A.to?fare(A.veh,dist(A.from,A.to,A.city),A.city):0;
+ return `<div class="card" id="agForm"><h2>${t("newBooking")}</h2>
+  <div class="row"><label class="f" for="ag-name">${t("name")}<input type="text" id="ag-name" value="${esc(A.name)}"></label>
+  <label class="f" for="ag-tel">${t("tel")}<input type="tel" id="ag-tel" value="${esc(A.tel)}"></label></div>
+  <div class="row"><label class="f" for="ag-src">${t("source")}<select id="ag-src">${["phone",...CHANNELS,"app"].map(s=>`<option value="${s}" ${s===A.src?"selected":""}>${t(s)}</option>`).join("")}</select></label>
+  <label class="f" for="ag-city">${t("city")}<select id="ag-city">${cityOpts}</select></label></div>
+  <div class="row"><label class="f" for="ag-from">${t("from")}<select id="ag-from">${opts(A.from)}</select></label>
+  <label class="f" for="ag-to">${t("to")}<select id="ag-to">${opts(A.to)}</select></label></div>
+  <div class="row"><label class="f" for="ag-veh">${t("vehicle")}<select id="ag-veh">${VEHS.map(k=>`<option value="${k}" ${k===A.veh?"selected":""}>${t(k)}</option>`).join("")}</select></label>
+  <label class="f" for="ag-at">${t("when")}<input type="datetime-local" id="ag-at" value="${esc(A.at||"")}"></label></div>
+  <label class="f" for="ag-price">${t("priceOverride")} (${tarOf(A.city).cur})<input type="number" id="ag-price" min="0" value="${A.price??""}" placeholder="${f}"></label>
+  <div class="sum"><span class="muted">${t("total")}</span><span class="big" id="ag-total">${fmt(A.price||f,A.city)}</span></div>
+  <div class="grid2"><button class="btn alt" data-act="agClose">${t("cancel")}</button><button class="btn main" data-act="agSave">${t("save")}</button></div></div>`}
+function renderAgent(){
+ const v=$("#v-agent");
+ const inbox=S.inbox.length?`<div class="list">${S.inbox.map(m=>`<div class="item">${srcDot(m.src)}<div class="grow"><div class="row" style="justify-content:space-between;gap:6px"><b>${esc(m.who)}</b><span class="muted">${new Date(m.at).toLocaleTimeString(locale(),{hour:"2-digit",minute:"2-digit"})}</span></div>
+   <div class="muted" style="white-space:pre-line;max-height:4.4em;overflow:hidden">${esc(m.text)}</div>
+   <div class="actions"><button class="btn ink sm" data-act="treat" data-id="${m.id}">${t("treat")}</button></div></div></div>`).join("")}</div>`:`<div class="muted">${t("inboxEmpty")}</div>`;
+ const open=S.bookings.filter(b=>b.status==="pending"||b.status==="assigned"||b.status==="ongoing");
+ const queue=open.length?`<div class="list">${open.map(b=>{const c=city(b.city).c;
+  return `<div class="item">${srcDot(b.src)}<div class="grow"><div class="row" style="justify-content:space-between;gap:6px"><b>${esc(b.name)}</b>${stPill(b.status)}</div>
+  <div class="muted">${esc(place(b,b.from))} → ${esc(place(b,b.to))} · ${city(b.city).name} · ${t(b.veh)}</div>
+  <div class="muted">${b.when?dt(b.when):t("now")}${b.tel?" · "+esc(b.tel):""}${b.drv?" · "+esc(b.drv):""} · <b style="color:var(--fg)">${fmt(fareOf(b),b.city)}</b></div>
+  <div class="actions">${b.status==="pending"?`<label for="drv-${b.id}" hidden>${t("drivers")}</label><select id="drv-${b.id}">${DRIVERS[c].map(d=>`<option ${d[3]===b.veh?"selected":""}>${esc(d[0])}</option>`).join("")}</select><button class="btn ink sm" data-act="assign" data-id="${b.id}">${t("assign")}</button>`:
+   `<button class="btn alt sm" data-act="confirm" data-id="${b.id}">${t("confirmMsg")}</button><button class="btn ink sm" data-act="finish" data-id="${b.id}">${t("finish")}</button>`}
+   <button class="btn danger sm" data-act="bCancel" data-id="${b.id}">${t("cancel")}</button></div></div></div>`}).join("")}</div>`:`<div class="muted">${t("queueEmpty")}</div>`;
+ v.innerHTML=`${S.agentForm?agentFormHTML():`<button class="btn main" data-act="agNew">+ ${t("newBooking")}</button>`}
+  <div class="card"><div class="row" style="justify-content:space-between"><h2>${t("live")} · ${city().name}</h2><span class="pill ok"><span class="dot"></span>LIVE</span></div>
+  <div class="livemap"><svg id="liveSvg" viewBox="0 0 400 300" role="img" aria-label="${t("live")}">${liveSVG()}</svg></div>
+  <div class="legend"><span><i style="background:${BLUE}"></i>${t("tClient")}</span><span><i style="background:var(--saffron)"></i>${t("drivers")}</span></div><div class="muted">${t("liveHint")}</div></div>
+  <div class="card"><div class="row" style="justify-content:space-between"><h2>${t("inbox")}</h2><span class="pill">${S.inbox.length}</span></div>${inbox}</div>
+  <div class="card"><div class="row" style="justify-content:space-between"><h2>${t("queue")}</h2><span class="pill warn">${open.length}</span></div>${queue}</div>
+  <div class="kente"></div><div class="note">${t("exNote")}</div>`;
+ if(S.agentForm){const A=S.agentForm;
+  ["name","tel"].forEach(k=>$("#ag-"+k).oninput=e=>A[k]=e.target.value);
+  $("#ag-src").onchange=e=>A.src=e.target.value;
+  $("#ag-at").onchange=e=>A.at=e.target.value;
+  $("#ag-price").oninput=e=>{A.price=e.target.value===""?null:+e.target.value;$("#ag-total").textContent=fmt(A.price||(A.from!==A.to?fare(A.veh,dist(A.from,A.to,A.city),A.city):0),A.city)};
+  $("#ag-city").onchange=e=>{A.city=e.target.value;A.from=0;A.to=1;renderAgent()};
+  ["from","to"].forEach(k=>$("#ag-"+k).onchange=e=>{A[k]=+e.target.value;renderAgent()});
+  $("#ag-veh").onchange=e=>{A.veh=e.target.value;renderAgent()};}
+}
+function confirmText(b){const L={fr:`${AG()} : réservation ${b.id} confirmée. ${t(b.veh)} de ${place(b,b.from)} à ${place(b,b.to)} (${city(b.city).name})${b.when?", "+dt(b.when):""}. Chauffeur : ${b.drv}. Prix : ${fmt(fareOf(b),b.city)}. Merci !`,
+ en:`${AG()}: booking ${b.id} confirmed. ${t(b.veh)} from ${place(b,b.from)} to ${place(b,b.to)} (${city(b.city).name})${b.when?", "+dt(b.when):""}. Driver: ${b.drv}. Fare: ${fmt(fareOf(b),b.city)}. Thank you!`,
+ ar:`${AG()}: تم تأكيد الحجز ${b.id}. ${t(b.veh)} من ${place(b,b.from)} إلى ${place(b,b.to)} (${city(b.city).name})${b.when?"، "+dt(b.when):""}. السائق: ${b.drv}. السعر: ${fmt(fareOf(b),b.city)}. شكرًا!`,
+ ha:`${AG()}: an tabbatar da oda ${b.id}. ${t(b.veh)} daga ${place(b,b.from)} zuwa ${place(b,b.to)} (${city(b.city).name})${b.when?", "+dt(b.when):""}. Direba: ${b.drv}. Kuɗi: ${fmt(fareOf(b),b.city)}. Nagode!`};return L[S.lang]}
+
+// ---------- BOSS ----------
+function renderBoss(){
+ const was=[...document.querySelectorAll("#v-boss details")].map(d=>d.open);renderBoss2();document.querySelectorAll("#v-boss details").forEach((d,i)=>{if(was[i])d.open=true})}
+function lockHTML(){return `<div class="card" style="align-items:center;text-align:center"><div class="logo" style="width:64px;height:64px">${logoHTML(64)}</div><h2>${t("ctrl")}</h2><div class="muted">${t("lockedMsg")}</div>
+ <label class="f" for="pinIn" style="width:200px">${t("pinLbl2")}<input type="password" id="pinIn" inputmode="numeric" maxlength="8" autocomplete="off" style="text-align:center;font-size:22px;letter-spacing:.3em"></label>
+ <button class="btn main" data-act="unlock" style="width:200px">${t("unlock")}</button><div class="muted" id="pinErr" hidden style="color:var(--danger)">${t("pinWrong")}</div><div class="note">${t("pinDemo")}</div></div>`}
+function controlHTML(){const F=S.fleet,cnt=k=>F.filter(d=>d.status===k).length;
+ const stP=st=>`<span class="pill ${st==="actif"?"ok":st==="suspendu"?"bad":"warn"}"><span class="dot"></span>${t(st==="actif"?"active":st==="suspendu"?"suspended":"pendingV")}</span>`;
+ const vehOpt=VEHS.map(k=>`<option value="${k}">${t(k)}</option>`).join(""),cOpt=["NE","NG","GH"].map(c=>`<option value="${c}">${COUNTRY[c]}</option>`).join("");
+ return `<div class="card" style="border:2px solid var(--gold-2)"><div class="row" style="justify-content:space-between"><h2>${t("ctrl")}</h2><button class="btn alt sm" data-act="lock">${t("lock")}</button></div>
+ <div class="stats"><div><b>${cnt("actif")}</b><span>${t("active")}</span></div><div><b>${cnt("suspendu")}</b><span>${t("suspended")}</span></div><div><b>${cnt("attente")}</b><span>${t("pendingV")}</span></div></div>
+ <details class="card"><summary>${t("brandT")}</summary><div class="muted">${t("brandHint")}</div>
+   <div class="row"><label class="f" for="br-1">${t("app1")}<input type="text" id="br-1" maxlength="24" value="${esc(S.brand.app1)}"></label><label class="f" for="br-2">${t("app2")}<input type="text" id="br-2" maxlength="24" value="${esc(S.brand.app2)}"></label></div>
+   <label class="f" for="br-a">${t("agencyN")}<input type="text" id="br-a" maxlength="40" value="${esc(S.brand.agency)}"></label>
+   <div class="grid2"><button class="btn alt" data-act="brandReset">${t("brandReset")}</button><button class="btn ink" data-act="brandSave">${t("save")}</button></div></details>
+ <details class="card"><summary>${t("sub")}</summary><div class="muted">${t("subHint")}</div>
+   <label class="f" for="sub-trial">${t("trialDays")}<input type="number" id="sub-trial" min="0" max="365" value="${S.sub.trial}"></label>
+   <div class="eyebrow">${t("subPrice")} · ${t("allCur")}</div><div class="list">${WA_CUR.map(x=>`<div class="item"><div class="grow"><b>${x.sym} · ${curName(x)}</b><div class="muted" style="font-size:12px">${curLand(x)}</div></div><input type="number" id="sub-${x.k}" min="0" value="${S.sub.price[x.k]}" aria-label="${t("subPrice")} ${curName(x)}" style="width:7.5em;flex:none"></div>`).join("")}</div>
+   <div class="eyebrow">${t("whoPays")}</div><div class="actions" style="margin:0"><label class="check" for="sub-drv" style="margin-inline-end:10px"><input type="checkbox" id="sub-drv" ${S.sub.drv?"checked":""}>${t("subDrv")}</label><label class="check" for="sub-cli"><input type="checkbox" id="sub-cli" ${S.sub.cli?"checked":""}>${t("subCli")}</label></div>
+   <button class="btn ink" data-act="subSave">${t("save")}</button></details>
+ <details class="card"><summary>${t("drivers")} (${F.length})</summary><div class="list">${F.map((d,i)=>`<div class="item"><div class="avatar" style="width:34px;height:34px;font-size:14px">${esc(d.name[0])}</div><div class="grow">
+   <div class="row" style="justify-content:space-between;gap:6px"><b>${esc(d.name)}</b>${stP(d.status)}</div><div class="muted">${t(d.veh)} · ${esc(d.plate)} · ${COUNTRY[d.c]}${d.tel?" · "+esc(d.tel):""}</div>${S.sub.drv?`<div class="actions">${subPill(subOf(d))}<button class="btn alt sm" data-act="subMark" data-i="${i}">${t("markPaid")}</button></div>`:""}
+   <div class="actions">${DOCS.map(k=>`<button class="btn ${d.docs[k]?"ink":"alt"} sm" data-act="docT" data-i="${i}" data-k="${k}" aria-pressed="${!!d.docs[k]}">${d.docs[k]?"✓ ":""}${t("d_"+k)}</button>`).join("")}</div>
+   <div class="actions">${d.status==="actif"?`<button class="btn danger sm" data-act="fleetSt" data-i="${i}" data-s="suspendu">${t("suspend")}</button>`:`<button class="btn main sm" data-act="fleetSt" data-i="${i}" data-s="actif">${t("activate")}</button>`}<button class="btn alt sm" data-act="fleetDel" data-i="${i}">${t("remove")}</button></div></div></div>`).join("")}</div>
+   <div class="eyebrow">${t("addDriver")}</div>
+   <div class="row"><label class="f" for="nd-name">${t("name").replace(/ du client| client|Customer |Sunan |اسم /,"")}<input type="text" id="nd-name"></label><label class="f" for="nd-plate">${t("plate")}<input type="text" id="nd-plate"></label></div>
+   <div class="row"><label class="f" for="nd-tel">${t("tel")}<input type="tel" id="nd-tel"></label><label class="f" for="nd-veh">${t("vehicle")}<select id="nd-veh">${vehOpt}</select></label><label class="f" for="nd-c">${t("country")}<select id="nd-c">${cOpt}</select></label></div>
+   <button class="btn ink" data-act="fleetAdd">${t("addDriver")}</button></details>
+ <details class="card"><summary>${t("agents")} (${S.agentsL.length})</summary><div class="list">${S.agentsL.map((a,i)=>`<div class="item"><div class="grow"><b>${esc(a[0])}</b><div class="muted">${esc(a[1])}</div></div><button class="btn alt sm" data-act="agDel" data-i="${i}">${t("remove")}</button></div>`).join("")}</div>
+   <div class="row"><label class="f" for="na-name">${t("agents")}<input type="text" id="na-name"></label><label class="f" for="na-city">${t("city")}<select id="na-city">${Object.values(CITIES).map(c=>`<option>${c.name}</option>`).join("")}</select></label></div>
+   <button class="btn ink" data-act="agAdd">${t("addAgent")}</button></details>
+ <details class="card"><summary>${t("services")}</summary><div class="muted">${t("svcHint")}</div>
+   <div class="actions" style="margin:0">${VEHS.map(k=>`<label class="check" for="sv-${k}" style="margin-inline-end:10px"><input type="checkbox" id="sv-${k}" data-svc-veh="${k}" ${S.svc.veh[k]?"checked":""}>${t(k)}</label>`).join("")}</div>
+   ${["NE","NG","GH"].map(c=>`<div class="eyebrow">${COUNTRY[c]}</div><div class="actions" style="margin:0">${Object.entries(CITIES).filter(([,x])=>x.c===c).map(([k,x])=>`<label class="check" for="sc-${k}" style="margin-inline-end:10px"><input type="checkbox" id="sc-${k}" data-svc-city="${k}" ${S.svc.city[k]?"checked":""}>${x.name}</label>`).join("")}</div>`).join("")}</details>
+ <details class="card"><summary>${t("annonce")}</summary><label class="f" for="ann">${t("annonce")}<textarea id="ann">${esc(S.annonce)}</textarea></label>
+   <div class="grid2"><button class="btn alt" data-act="annClear">${t("clear")}</button><button class="btn ink" data-act="annPub">${t("publish")}</button></div></details>
+ <details class="card"><summary>${t("pinLbl2")}</summary><label class="f" for="newPin">${t("newPin")}<input type="password" id="newPin" inputmode="numeric" maxlength="4" autocomplete="off"></label><button class="btn ink" data-act="pinSave">${t("save")}</button></details>
+ <details class="card"><summary>${t("journal")}</summary>${S.log.length?`<div class="list">${S.log.map(l=>`<div class="item"><div class="grow">${esc(l.m)}</div><span class="muted">${dt(l.at)}</span></div>`).join("")}</div>`:`<div class="muted">${t("logEmpty")}</div>`}</details>
+ </div>`}
+function renderBoss2(){
+ if(!S.unlocked){$("#v-boss").innerHTML=lockHTML();return}
+ const v=$("#v-boss"),B=S.bookings,done=B.filter(b=>b.status==="done");
+ const rev={NE:0,NG:0,GH:0};done.forEach(b=>rev[city(b.city).c]+=fareOf(b));
+ const active=B.filter(b=>["pending","assigned","ongoing"].includes(b.status)).length;
+ const srcs=["app","phone",...CHANNELS],sc={};srcs.forEach(s=>sc[s]=0);B.forEach(b=>sc[b.src]=(sc[b.src]||0)+1);
+ const maxS=Math.max(1,...Object.values(sc));
+ const cc={};done.forEach(b=>cc[b.city]=(cc[b.city]||0)+1);const maxC=Math.max(1,...Object.values(cc));
+ const tblock=c=>{const T=S.tariffs[c],fx=T.mode==="fixe";return `<div><div class="row" style="justify-content:space-between;margin-bottom:6px"><div class="eyebrow">${t({NE:"niger",NG:"nigeria",GH:"ghana"}[c])} (${T.cur})</div>
+  <label for="${c}-mode" hidden>${t("fixMode")}</label><select id="${c}-mode" data-mode-c="${c}" style="width:auto;padding:6px 10px;font-size:13px"><option value="km" ${fx?"":"selected"}>${t("byKm")}</option><option value="fixe" ${fx?"selected":""}>${t("fixed")}</option></select></div>
+  <div style="display:flex;flex-direction:column;gap:6px">${VEHS.map(k=>fx?`<div class="trow" style="grid-template-columns:70px 1fr"><b>${t(k)}</b>
+   <label class="f" for="${c}-${k}-fix">${t("fixed")}<input type="number" id="${c}-${k}-fix" value="${T[k].fix??T[k].min}" min="0"></label></div>`:`<div class="trow"><b>${t(k)}</b>
+   <label class="f" for="${c}-${k}-base">${t("base")}<input type="number" id="${c}-${k}-base" value="${T[k].base}" min="0"></label>
+   <label class="f" for="${c}-${k}-km">${t("perKm")}<input type="number" id="${c}-${k}-km" value="${T[k].km}" min="0"></label>
+   <label class="f" for="${c}-${k}-min">${t("minFare")}<input type="number" id="${c}-${k}-min" value="${T[k].min}" min="0"></label></div>`).join("")}</div></div>`};
+ const allDrivers=Object.entries(DRIVERS).flatMap(([c,L])=>L.map(d=>[...d,c]));
+ v.innerHTML=`${controlHTML()}<div class="card"><div class="row" style="justify-content:space-between"><h2>${t("today")}</h2><span class="muted">${D(new Date(),"dayLong")}</span></div>
+  <div class="stats"><div><b>${done.length}</b><span>${t("doneTrips")}</span></div><div><b>${active}</b><span>${t("activeNow")}</span></div><div><b>${S.inbox.length}</b><span>${t("inbox")}</span></div></div>
+  <div class="list">${["NE","NG","GH"].map(c=>`<div class="item"><div class="grow"><b>${t({NE:"niger",NG:"nigeria",GH:"ghana"}[c])}</b><div class="muted">${t("ourCut")} ${S.commission} % · ${money(Math.round(rev[c]*S.commission/100),S.tariffs[c].cur)}</div></div><div class="r">${money(rev[c],S.tariffs[c].cur)}</div></div>`).join("")}</div></div>
+  <div class="card"><h2>${t("byChannel")}</h2><div class="bars">${srcs.map(s=>`<div class="bar"><span class="row" style="gap:6px;flex-wrap:nowrap">${srcDot(s)}${t(s)}</span><span class="tr"><i style="width:${sc[s]/maxS*100}%"></i></span><b>${sc[s]}</b></div>`).join("")}</div></div>
+  <div class="card"><h2>${t("byCity")}</h2>${Object.keys(cc).length?`<div class="bars">${Object.entries(cc).sort((a,b)=>b[1]-a[1]).map(([k,n])=>`<div class="bar"><span>${city(k).name}</span><span class="tr"><i style="width:${n/maxC*100}%;background:var(--saffron)"></i></span><b>${n}</b></div>`).join("")}</div>`:`<div class="muted">${t("empty")}</div>`}</div>
+  <div class="card"><h2>${t("team")}</h2><div class="eyebrow">${t("agents")}</div>
+   <div class="list">${S.agentsL.map(a=>`<div class="item"><div class="avatar" style="width:34px;height:34px;font-size:14px">${esc(a[0][0])}</div><div class="grow"><b>${esc(a[0])}</b><div class="muted">${esc(a[1])}</div></div><span class="pill ok"><span class="dot"></span>${t("online")}</span></div>`).join("")}</div>
+   <div class="eyebrow">${t("drivers")}</div>
+   <div class="list">${allDrivers.map((d,i)=>`<div class="item"><div class="avatar" style="width:34px;height:34px;font-size:14px">${esc(d[0][0])}</div><div class="grow"><b>${esc(d[0])}</b> · ★ ${d[2]}<div class="muted">${t(d[3])} · ${esc(d[1])} · ${COUNTRY[d[4]]}</div></div><span class="pill ${i%3?"ok":""}"><span class="dot"></span>${i%3?t("online"):t("offline")}</span></div>`).join("")}</div></div>
+  <details class="card"><summary>${t("logo")}</summary><div class="row"><div class="logo" style="width:64px;height:64px">${logoHTML(64)}</div><div style="flex:1;min-width:0" class="muted">${t("logoHint")}</div></div>
+   <div class="grid2"><label class="btn alt" for="logoIn">${t("upload")}</label><button class="btn alt" data-act="logoReset">${t("reset")}</button></div><input type="file" id="logoIn" accept="image/*" hidden></details>
+  <details class="card"><summary>${t("ads")}</summary>${ads().map((a,i)=>`<div class="row"><label class="f" for="ad-h${i}">${t("adTitle")} ${i+1}<input type="text" id="ad-h${i}" value="${esc(a[0])}"></label><label class="f" for="ad-s${i}">${t("adSub")} ${i+1}<input type="text" id="ad-s${i}" value="${esc(a[1])}"></label></div>`).join("")}
+   <div class="grid2"><button class="btn alt" data-act="adReset">${t("adReset")}</button><button class="btn ink" data-act="saveAds">${t("save")}</button></div></details>
+  <details class="card" ${S.spOpen?"open":""}><summary>${t("sponsors")}</summary><div class="muted">${t("sponsorHint")}</div>
+   ${S.sponsors.length?`<div class="list">${S.sponsors.map((x,i)=>`<div class="item"><div class="grow"><b>${esc(x.title)}</b><div class="muted">${esc(x.name)}${x.city?" · "+city(x.city).name:""}</div></div><button class="btn danger sm" data-act="spDel" data-i="${i}">${t("remove")}</button></div>`).join("")}</div>`:""}
+   <div class="row"><label class="f" for="sp-name">${t("advName")}<input type="text" id="sp-name"></label><label class="f" for="sp-tel">${t("tel")}<input type="tel" id="sp-tel"></label></div>
+   <label class="f" for="sp-title">${t("adTitle")}<input type="text" id="sp-title"></label>
+   <label class="f" for="sp-text">${t("adSub")}<input type="text" id="sp-text"></label>
+   <div class="row"><label class="f" for="sp-city">${t("city")}<select id="sp-city"><option value="">${t("allCities")}</option>${Object.entries(CITIES).map(([k,c])=>`<option value="${k}">${c.name}</option>`).join("")}</select></label>
+   <label class="f" for="sp-img">${t("image")}<input type="file" id="sp-img" accept="image/*"></label></div>
+   <button class="btn ink" data-act="spAdd">${t("addSponsor")}</button></details>
+  <details class="card"><summary>${t("contacts")}</summary>
+   <label class="f" for="ct-wa">${t("waNum")}<input type="tel" id="ct-wa" value="${esc(S.contacts.wa)}"></label>
+   <label class="f" for="ct-sms">${t("smsNum")}<input type="tel" id="ct-sms" value="${esc(S.contacts.sms)}"></label>
+   <label class="f" for="ct-mail">${t("mail")}<input type="email" id="ct-mail" value="${esc(S.contacts.mail)}"></label>
+   <label class="f" for="ct-ms">${t("msPage")}<input type="text" id="ct-ms" value="${esc(S.contacts.ms)}"></label>
+   <button class="btn ink" data-act="saveContacts">${t("save")}</button></details>
+  <details class="card"><summary>${t("tariffs")}</summary>${tblock("NE")}${tblock("NG")}${tblock("GH")}
+   <label class="f" for="comm">${t("commission")} (%)<input type="number" id="comm" value="${S.commission}" min="0" max="50"></label>
+   <button class="btn ink" data-act="saveTariffs">${t("save")}</button></details>
+  <button class="btn alt" data-act="resetDemo">${t("resetDemo")}</button>
+  <div class="kente"></div><div class="note">${t("exNote")}</div>`;
+ $("#logoIn").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{S.logo=rd.result;store.set("logo",S.logo);paintLogo();renderBoss();toast(t("saved"))};rd.readAsDataURL(f)};
+}
+
+// ---------- ACTIONS ----------
+const ACT={
+ order(){if(S.sub.cli&&subOf(S.cliSub).k==="due"){toast(t("subBlockCli"));return}clientOrder()},rideStart,rideDone,simSend,
+ rideCancel(){clearTimeout(S.ride.timer);S.ride={state:"idle"};renderClient()},
+ rideShare(){copy(`${AG()} · ${city().name} · ${city().p[S.f.from][0]} → ${city().p[S.f.to][0]} · ${S.ride.drv[0]} ${S.ride.drv[1]} · PIN ${S.ride.pin}`,t("shareMsg"))},
+ sos(){$("#sosBox").hidden=false},
+ offUp(){S.f.delta++;renderClient()},
+ offDown(){const b=fare(S.f.veh,dist(S.f.from,S.f.to)),st=OFFER_STEP[tarOf(S.city).cur];if(b+(S.f.delta-1)*st>=Math.round(b*.7/st)*st)S.f.delta--;renderClient()},
+ copyMsg(){copy(channelMsg(),t("copied"))},
+ subSave(){const tr=+$("#sub-trial").value;if(tr>=0&&tr<=365)S.sub.trial=Math.round(tr);WA_CUR.forEach(x=>{const v=+$("#sub-"+x.k).value;if(v>=0)S.sub.price[x.k]=v});
+  S.sub.drv=$("#sub-drv").checked?1:0;S.sub.cli=$("#sub-cli").checked?1:0;store.set("sub",S.sub);logAct(`${t("sub")} : ${S.sub.trial} ${t("trialDays").toLowerCase()} · ${["NE","NG","GH"].map(subPrice).join(" / ")}`);toast(t("saved"));renderBoss();$("#sub-trial").closest("details").open=true},
+ subMark(el){const d=S.fleet[+el.dataset.i];payMonth(d);saveFleet();logAct(`${t("sub")} · ${d.name} : ${t("subPaid")}`);toast(t("subPaid"));renderBoss()},
+ subPayDrv(){const d=myFleet();payMonth(d);saveFleet();logAct(`${t("sub")} · ${d.name} : ${t("subPaid")}`);toast(t("subPaid"));renderDriver()},
+ subPayCli(){payMonth(S.cliSub);store.set("cliSub",S.cliSub);toast(t("subPaid"));renderClient()},
+ drvToggle(){const D=S.drv;if(!D.online&&S.sub.drv&&myFleet()&&subOf(myFleet()).k==="due"){toast(t("subBlock"));return}D.online=!D.online;D.req=null;clearTimeout(D.timer);if(D.online)queueReq();renderDriver()},
+ drvAccept(){const D=S.drv,me=myDriver()[0],b=S.bookings.find(x=>x.status==="assigned"&&x.drv===me);
+  if(b){D.active=jobFromBooking(b);b.status="ongoing";save()}else{D.active=D.req;D.req=null}renderDriver()},
+ drvRefuse(){const D=S.drv,me=myDriver()[0],b=S.bookings.find(x=>x.status==="assigned"&&x.drv===me);
+  if(b){b.status="pending";b.drv=null;save();updateBadge()}else D.req=null;queueReq();renderDriver()},
+ drvDrop(){const D=S.drv;D.earn+=D.active.net;D.trips++;if(D.active.bid){const b=S.bookings.find(x=>x.id===D.active.bid);if(b)b.status="done";save()}D.active=null;queueReq();renderDriver()},
+ agNew(){S.agentForm={name:"",tel:"",src:"phone",city:S.city,from:0,to:1,veh:"moto",at:""};renderAgent()},
+ agClose(){S.agentForm=null;renderAgent()},
+ agSave(){const A=S.agentForm;if(A.from===A.to){toast(t("sameErr"));return}
+  S.bookings.unshift({id:newId(),src:A.src,name:A.name||t("tClient"),tel:A.tel,price:A.price||undefined,city:A.city,from:A.from,to:A.to,veh:A.veh,when:A.at?new Date(A.at).toISOString():null,status:"pending",drv:null,at:new Date().toISOString(),mine:A.mine||0});
+  if(A.msg)S.inbox=S.inbox.filter(m=>m.id!==A.msg);S.agentForm=null;save();updateBadge();toast(t("created"));renderAgent()},
+ treat(el){const m=S.inbox.find(x=>x.id===el.dataset.id);if(!m)return;
+  S.agentForm={name:m.name||"",tel:m.src==="messenger"||m.src==="email"?"":m.who,src:m.src,city:m.city,from:m.from,to:m.to,veh:m.veh,at:m.when?m.when.slice(0,16):"",msg:m.id,mine:m.mine||0};
+  renderAgent();window.scrollTo({top:0,behavior:"smooth"})},
+ assign(el){const b=S.bookings.find(x=>x.id===el.dataset.id);b.drv=$("#drv-"+b.id).value;b.status="assigned";save();updateBadge();toast(`${b.id} ${t("assignedTo")} ${b.drv}`);renderAgent()},
+ confirm(el){const b=S.bookings.find(x=>x.id===el.dataset.id);copy(confirmText(b),t("copied"))},
+ finish(el){const b=S.bookings.find(x=>x.id===el.dataset.id);b.status="done";save();renderAgent()},
+ bCancel(el){const b=S.bookings.find(x=>x.id===el.dataset.id);b.status="cancelled";save();updateBadge();renderAgent()},
+ logoReset(){S.logo=null;store.set("logo",null);paintLogo();renderBoss()},
+ saveAds(){S.ads=ads().map((_,i)=>[$("#ad-h"+i).value.trim(),$("#ad-s"+i).value.trim()]);store.set("ads",S.ads);toast(t("saved"))},
+ adReset(){S.ads=null;store.set("ads",null);renderBoss()},
+ useMyPos(){liveInit();const P=city().p;let bi=0,bd=1e9;P.forEach((p,i)=>{const d=Math.hypot(p[1]-LIVE.me.x,p[2]-LIVE.me.y);if(d<bd){bd=d;bi=i}});
+  S.f.from=bi;if(S.f.to===bi)S.f.to=(bi+1)%P.length;toast(t("posSet")+" : "+P[bi][0]);renderClient()},
+ brandSave(){const a=$("#br-1").value.trim(),b=$("#br-2").value.trim(),c=$("#br-a").value.trim();if(!a&&!b){$("#br-1").focus();return}
+  S.brand={app1:a,app2:b,agency:c||BRAND0.agency};store.set("brand",S.brand);logAct(`${t("brandT")} : ${APP()} · ${AG()}`);toast(t("saved"));applyLang();renderBoss()},
+ brandReset(){S.brand={...BRAND0};store.set("brand",S.brand);logAct(`${t("brandT")} : ${APP()}`);applyLang();renderBoss()},
+ unlock(){if($("#pinIn").value===S.pin){S.unlocked=true;logAct(t("unlock"));renderBoss()}else{$("#pinErr").hidden=false;$("#pinIn").value=""}},
+ lock(){S.unlocked=false;renderBoss()},
+ docT(el){const d=S.fleet[+el.dataset.i],k=el.dataset.k;d.docs[k]=d.docs[k]?0:1;if(!DOCS.every(x=>d.docs[x])&&d.status==="actif"){d.status="attente";logAct(`${t("pendingV")} : ${d.name}`)}saveFleet();renderBoss()},
+ fleetSt(el){const d=S.fleet[+el.dataset.i],s=el.dataset.s;if(s==="actif"&&!DOCS.every(x=>d.docs[x])){toast(t("docsMissing"));return}d.status=s;saveFleet();logAct(`${t(s==="actif"?"activate":"suspend")} : ${d.name}`);toast(t("saved"));renderBoss()},
+ fleetDel(el){const d=S.fleet.splice(+el.dataset.i,1)[0];saveFleet();logAct(`${d.name} ${t("removed")}`);renderBoss()},
+ fleetAdd(){const g=id=>$("#"+id).value.trim(),n=g("nd-name");if(!n){$("#nd-name").focus();return}
+  S.fleet.push({name:n,plate:g("nd-plate")||"—",tel:g("nd-tel"),veh:$("#nd-veh").value,c:$("#nd-c").value,rating:5,status:"attente",docs:{permis:0,grise:0,assur:0,cni:0}});saveFleet();logAct(`${t("addDriver")} : ${n}`);renderBoss()},
+ agDel(el){const a=S.agentsL.splice(+el.dataset.i,1)[0];store.set("agents",S.agentsL);logAct(`${a[0]} ${t("removed")}`);renderBoss()},
+ agAdd(){const n=$("#na-name").value.trim();if(!n)return;S.agentsL.push([n,$("#na-city").value]);store.set("agents",S.agentsL);logAct(`${t("addAgent")} : ${n}`);renderBoss()},
+ annPub(){S.annonce=$("#ann").value.trim();store.set("annonce",S.annonce);logAct(`${t("annonce")} : ${S.annonce.slice(0,40)}`);toast(t("saved"));renderBoss()},
+ annClear(){S.annonce="";store.set("annonce","");logAct(`${t("annonce")} : ${t("clear")}`);renderBoss()},
+ pinSave(){const p=$("#newPin").value.trim();if(!/^\d{4}$/.test(p)){toast(t("newPin"));return}S.pin=p;store.set("pin",p);logAct(t("pinLbl2")+" ✓");toast(t("saved"));$("#newPin").value=""},
+ toggleCal(){S.calOpen=!S.calOpen;renderClient()},
+ async spAdd(){const g=id=>$("#"+id).value.trim(),title=g("sp-title");if(!title){$("#sp-title").focus();return}
+  const fi=$("#sp-img").files[0];let img=null;
+  if(fi){if(fi.size>1048576){toast(t("tooBig"));return}img=await new Promise(r=>{const rd=new FileReader();rd.onload=()=>r(rd.result);rd.readAsDataURL(fi)})}
+  S.sponsors.push({name:g("sp-name")||"—",tel:g("sp-tel"),title,text:g("sp-text"),city:$("#sp-city").value,img});store.set("sponsors",S.sponsors);S.spOpen=true;toast(t("saved"));renderBoss()},
+ spDel(el){S.sponsors.splice(+el.dataset.i,1);store.set("sponsors",S.sponsors);S.spOpen=true;renderBoss()},
+ saveContacts(){S.contacts={wa:$("#ct-wa").value.trim(),sms:$("#ct-sms").value.trim(),mail:$("#ct-mail").value.trim(),ms:$("#ct-ms").value.trim()};store.set("contacts",S.contacts);toast(t("saved"))},
+ saveTariffs(){["NE","NG","GH"].forEach(c=>VEHS.forEach(k=>["base","km","min","fix"].forEach(f=>{const el=$(`#${c}-${k}-${f}`);if(!el)return;const n=+el.value;if(el.value!==""&&n>=0)S.tariffs[c][k][f]=n})));
+  const cm=+$("#comm").value;if(cm>=0&&cm<=50)S.commission=cm;store.set("tariffs",S.tariffs);store.set("commission",S.commission);toast(t("saved"));renderBoss()},
+ resetDemo(){S.bookings=seedBookings();S.inbox=seedInbox();save();updateBadge();renderBoss()}
+};
+document.addEventListener("change",e=>{
+ const sv=e.target.closest("[data-svc-veh]");if(sv){if(!e.target.checked&&VEHS.filter(k=>S.svc.veh[k]).length<=1){e.target.checked=true;return}S.svc.veh[sv.dataset.svcVeh]=e.target.checked?1:0;store.set("svc",S.svc);logAct(`${t(sv.dataset.svcVeh)} : ${e.target.checked?t("active"):t("closed")}`);return}
+ const sc=e.target.closest("[data-svc-city]");if(sc){S.svc.city[sc.dataset.svcCity]=e.target.checked?1:0;store.set("svc",S.svc);fillCities();logAct(`${city(sc.dataset.svcCity).name} : ${e.target.checked?t("active"):t("closed")}`);return}
+ const m=e.target.closest("[data-mode-c]");if(m){S.tariffs[m.dataset.modeC].mode=m.value;store.set("tariffs",S.tariffs);renderBoss();$(`#${m.dataset.modeC}-mode`).closest("details").open=true}});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="pinIn")ACT.unlock()});
+document.addEventListener("click",e=>{
+ const a=e.target.closest("[data-act]");if(a&&ACT[a.dataset.act]){ACT[a.dataset.act](a);return}
+ const veh=e.target.closest("[data-veh]");if(veh){S.f.veh=veh.dataset.veh;renderClient();return}
+ const md=e.target.closest("[data-mode]");if(md){S.f.mode=md.dataset.mode;renderClient();return}
+ const ch=e.target.closest("[data-ch]");if(ch){S.f.ch=S.f.ch===ch.dataset.ch?null:ch.dataset.ch;renderClient();if(S.f.ch)setTimeout(()=>$("#chPanel")?.scrollIntoView({behavior:"smooth",block:"start"}),30);return}
+ const op=e.target.closest("[data-op]");if(op){S.f.op=op.dataset.op;renderClient();return}
+ const dy=e.target.closest("[data-day]");if(dy){const n=new Date(),d=new Date(n.getFullYear(),n.getMonth(),+dy.dataset.day,8,0);if(d<n)d.setTime(n.getTime()+36e5);
+  const p=x=>String(x).padStart(2,"0");S.f.mode="later";S.f.at=`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;renderClient();setTimeout(()=>$("#at")?.scrollIntoView({behavior:"smooth",block:"center"}),30);return}
+ const ad=e.target.closest("[data-ad]");if(ad){setAd(+ad.dataset.ad);return}
+ const sr=e.target.closest("[data-star]");if(sr){S.ride.stars=+sr.dataset.star;renderClient();return}
+});
+
+// ---------- SHELL ----------
+const HEAD={client:["eClient","hClient"],driver:["eDriver","hDriver"],agent:["eAgent","hAgent"],boss:["eBoss","hBoss"]};
+function updateBadge(){const n=S.inbox.length+S.bookings.filter(b=>b.status==="pending").length,e=$("#agentBadge");e.textContent=n;e.hidden=!n}
+function applyLang(){$("#wm1").textContent=S.brand.app1;$("#wm2").textContent=S.brand.app2;$("#wmA").textContent=S.brand.agency;document.title=APP();document.documentElement.lang=S.lang;document.documentElement.dir=S.lang==="ar"?"rtl":"ltr";document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+ document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-checked",b.dataset.lang===S.lang));$("#langCur").textContent={fr:"Français",en:"English",ha:"Hausa",ar:"العربية"}[S.lang];
+ $("#roleEyebrow").textContent=t(HEAD[S.tab][0]);$("#roleHead").textContent=t(HEAD[S.tab][1])}
+function renderAll(){applyLang();({client:renderClient,driver:renderDriver,agent:renderAgent,boss:renderBoss})[S.tab]();updateBadge()}
+function show(tab){S.tab=tab;["client","driver","agent","boss"].forEach(x=>$("#v-"+x).hidden=x!==tab);
+ document.querySelectorAll("[data-tab]").forEach(b=>b.removeAttribute("aria-current"));
+ document.querySelector(`[data-tab="${tab}"]`).setAttribute("aria-current","page");renderAll();window.scrollTo(0,0)}
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>show(b.dataset.tab));
+const langMenu=(open)=>{$("#langMenu").hidden=!open;$("#langBtn").setAttribute("aria-expanded",open)};
+$("#langBtn").onclick=e=>{e.stopPropagation();langMenu($("#langMenu").hidden)};
+document.addEventListener("click",e=>{if(!e.target.closest(".langwrap"))langMenu(false)});
+document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{S.lang=b.dataset.lang;store.set("lang",S.lang);langMenu(false);fillCities();renderAll()});
+const cs=$("#city");
+function fillCities(){cs.innerHTML=["NE","NG","GH"].map(c=>`<optgroup label="${COUNTRY[c]}">${Object.entries(CITIES).filter(([,x])=>x.c===c).map(([k,x])=>`<option value="${k}">${x.name}${S.svc.city[k]?"":" ("+t("closed")+")"}</option>`).join("")}</optgroup>`).join("");cs.value=S.city}
+fillCities();
+cs.onchange=()=>{if(S.ride.state!=="idle"||S.drv.active){cs.value=S.city;return}S.city=cs.value;store.set("city",S.city);
+ const n=city().p.length;S.f.from=0;S.f.to=Math.min(n-1,5);S.f.ch=null;S.drv.earn=null;S.drv.req=null;if(S.drv.online)queueReq();renderAll()};
+document.querySelectorAll(".afslot").forEach(e=>e.innerHTML=africaSVG(+e.dataset.af));
+paintLogo();renderAll();
+</script>
+
+</body></html>

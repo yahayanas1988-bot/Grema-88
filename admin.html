@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Espace Grema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a two-pane workbench. Left, the list of everything published; right, the form for the selected item. Same indigo + gold as the public site. */
+:root{
+  --bg:#f6f3ec; --surface:#fffdf8; --sand:#ece2cd; --line:#ddd2bc; --fg:#1c1d33; --muted:#6a6455;
+  --indigo:#1f2257; --on-indigo:#f6efdf; --gold:#e3a72f; --gold-ink:#2a1a00; --clay:#b34a2c; --malachite:#13785a;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1024; --surface:#181a36; --sand:#20223f; --line:#2f3157; --fg:#f1ecdf; --muted:#aaa6b8;
+  --indigo:#14163d; --gold:#f0b845; --gold-ink:#241600; --clay:#e06d4c; --malachite:#3cc095; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1024; --surface:#181a36; --sand:#20223f; --line:#2f3157; --fg:#f1ecdf; --muted:#aaa6b8;
+  --indigo:#14163d; --gold:#f0b845; --gold-ink:#241600; --clay:#e06d4c; --malachite:#3cc095; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--body)}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{background:var(--indigo);color:var(--on-indigo)}
+header .wrap{display:flex;align-items:center;gap:14px;padding-block:14px;flex-wrap:wrap}
+header h1{font:800 18px var(--display);margin:0}
+header h1 b{color:var(--gold)}
+header a{color:var(--on-indigo);font-weight:600;margin-left:auto}
+h2{font:600 17px var(--display);margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;gap:12px}
+.step b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-family:var(--display);font-size:13px}
+.step p{margin:0;font-size:14px;color:var(--muted)}
+.step strong{color:var(--fg);display:block}
+.layout{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:20px;align-items:start;padding-bottom:40px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.list{display:flex;flex-direction:column;gap:6px;margin:12px 0}
+.item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;background:transparent;color:inherit;font:inherit;text-align:left;width:100%}
+.item:hover{background:var(--sand)}
+.item[aria-current="true"]{border-color:var(--gold);background:var(--sand)}
+.item .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:999px;color:#fff;flex:none}
+.b-produit{background:#1fa855} .b-application{background:var(--malachite)} .b-livre{background:var(--clay)} .b-autre{background:#8a6a1c}
+.add{display:flex;gap:6px;flex-wrap:wrap}
+button,.btn{font:600 14px var(--body);border-radius:999px;border:0;cursor:pointer;min-height:40px;padding:0 16px;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.b-gold{background:var(--gold);color:var(--gold-ink)}
+.b-ink{background:var(--fg);color:var(--bg)}
+.b-line{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+.b-danger{background:var(--clay);color:#fff}
+.mini{min-height:32px;padding:0 10px;font-size:13px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+label small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=url],input[type=email],input[type=tel],select,textarea{font:15px var(--body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.check{flex-direction:row;align-items:center;gap:10px}
+.img-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.thumb{width:96px;height:96px;border-radius:12px;background:var(--sand);display:grid;place-items:center;overflow:hidden;color:var(--muted);font-size:12px;text-align:center;flex:none}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button[aria-pressed="true"]{background:var(--indigo);color:var(--on-indigo)}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:600;z-index:10}
+.export{margin-top:16px}
+.export textarea{font:12px ui-monospace,Menlo,monospace;min-height:160px}
+details.tr-box{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 14px}
+details.tr-box summary{font-weight:700;cursor:pointer}
+.tr-lang{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.tr-lang h3{grid-column:1/-1;margin:0;font:600 14px var(--display)}
+.tr-lang .full{grid-column:1/-1}
+@media (max-width:820px){.tr-lang{grid-template-columns:1fr}}
+.confirm{background:var(--sand);border-radius:10px;padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media (max-width:820px){.layout{grid-template-columns:1fr}.steps{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Espace <b>Grema</b></h1><a href="index.html#apercu">Voir l'aperçu du site →</a></div></header>
+
+<main class="wrap">
+  <div class="steps">
+    <div class="step"><b>1</b><p><strong>Ajoutez ou modifiez</strong>Produits, applis, livres, actus, événements. Tout se garde dans ce navigateur.</p></div>
+    <div class="step"><b>2</b><p><strong>Téléchargez contenu.js</strong>Remplacez l'ancien fichier dans le dossier du site.</p></div>
+    <div class="step"><b>3</b><p><strong>Mettez en ligne</strong>Glissez le dossier du site sur Netlify (onglet Deploys).</p></div>
+  </div>
+
+  <div class="layout">
+    <aside class="panel">
+      <div class="tabs">
+        <button type="button" id="t-oeuvres" aria-pressed="true">Catalogue</button>
+        <button type="button" id="t-actus" aria-pressed="false" class="b-line">Actus</button>
+        <button type="button" id="t-agenda" aria-pressed="false" class="b-line">Agenda</button>
+        <button type="button" id="t-agence" aria-pressed="false" class="b-line">Agence</button>
+      </div>
+      <div id="side-oeuvres">
+        <h2>Vos publications</h2>
+        <div class="list" id="list"></div>
+        <div class="add">
+          <button type="button" class="b-gold mini" data-add="produit">+ Produit</button>
+          <button type="button" class="b-gold mini" data-add="application">+ Appli</button>
+          <button type="button" class="b-gold mini" data-add="livre">+ Livre</button>
+          <button type="button" class="b-gold mini" data-add="autre">+ Vidéo / autre</button>
+        </div>
+      </div>
+      <div id="side-actus" hidden>
+        <h2>Actualités</h2>
+        <p class="note">Les nouvelles de l'agence, affichées dans la rubrique « Actualités ».</p>
+        <div class="list" id="list-actus"></div>
+        <div class="add"><button type="button" class="b-gold mini" id="add-actus">+ Actualité</button></div>
+      </div>
+      <div id="side-agenda" hidden>
+        <h2>Agenda</h2>
+        <p class="note">Vos événements, affichés dans le calendrier du site.</p>
+        <div class="list" id="list-agenda"></div>
+        <div class="add"><button type="button" class="b-gold mini" id="add-agenda">+ Événement</button></div>
+      </div>
+      <div id="side-agence" hidden>
+        <h2>Infos de l'agence</h2>
+        <p class="note">Nom, slogan, WhatsApp, email et réseaux sociaux affichés sur le site.</p>
+      </div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <h2>Publier</h2>
+      <div class="bar">
+        <button type="button" class="b-ink" id="dl">Télécharger contenu.js</button>
+        <button type="button" class="b-line" id="show-code">Voir le code</button>
+      </div>
+      <p class="note" id="saved">Brouillon enregistré dans ce navigateur.</p>
+      <p class="note"><strong>Demandes des vendeurs :</strong> une fois le site en ligne, elles arrivent sur Netlify, onglet « Forms », formulaire « vendeur ». Ajoutez ici les produits que vous acceptez.</p>
+      <div class="bar"><button type="button" class="b-line mini" id="reset">Revenir au contenu en ligne</button></div>
+      <div id="reset-confirm" class="confirm" hidden><span>Effacer le brouillon ?</span><button type="button" class="b-danger mini" id="reset-yes">Oui, effacer</button><button type="button" class="b-line mini" id="reset-no">Annuler</button></div>
+    </aside>
+
+    <section class="panel">
+      <div id="edit-oeuvre">
+        <form id="f" autocomplete="off">
+          <label>Type
+            <select id="f-type" name="type"><option value="produit">Produit (boutique)</option><option value="application">Application</option><option value="livre">Livre</option><option value="autre">Vidéo ou autre</option></select>
+          </label>
+          <label>Statut
+            <select id="f-statut" name="statut"><option value="disponible">Disponible</option><option value="bientot">Bientôt</option></select>
+          </label>
+          <label class="full">Titre<input type="text" id="f-titre" name="titre" required></label>
+          <label class="full">Accroche <small>Une phrase courte sous le titre</small><input type="text" id="f-accroche" name="accroche"></label>
+          <label class="full">Description<textarea id="f-description" name="description"></textarea></label>
+          <div class="full">
+            <label>Image <small>Icône de l'appli, couverture du livre ou photo. Sans image, une couverture est dessinée automatiquement.</small></label>
+            <div class="img-row" style="margin-top:6px">
+              <div class="thumb" id="thumb">Pas d'image</div>
+              <div style="display:flex;flex-direction:column;gap:8px;flex:1;min-width:200px">
+                <input type="file" id="f-file" accept="image/*">
+                <input type="text" id="f-image" name="image" placeholder="ou une adresse : https://… ou images/ma-photo.jpg">
+                <div><button type="button" class="b-line mini" id="img-clear">Retirer l'image</button></div>
+              </div>
+            </div>
+          </div>
+          <label class="full">Lien <small>Adresse de l'appli, page d'achat, fichier PDF ou vidéo</small><input type="text" id="f-lien" name="lien" placeholder="https://…"></label>
+          <label>Texte du bouton<input type="text" id="f-bouton" name="bouton" placeholder="Ouvrir, Acheter, Lire…"></label>
+          <label>Prix <small>Laisser vide si gratuit</small><input type="text" id="f-prix" name="prix" placeholder="2 500 FCFA"></label>
+          <label>Auteur <small>Pour les livres</small><input type="text" id="f-auteur" name="auteur"></label>
+          <label>Vendeur <small>Nom de la boutique, pour les produits</small><input type="text" id="f-vendeur" name="vendeur"></label>
+          <label>WhatsApp du vendeur <small>Les clients commandent à ce numéro. Vide = votre numéro.</small><input type="tel" id="f-whatsapp" name="whatsapp" placeholder="+227 …"></label>
+          <label>Ville<input type="text" id="f-ville" name="ville"></label>
+          <label>Mots-clés <small>Séparés par des virgules</small><input type="text" id="f-tags" name="tags" placeholder="Taxi, Moto"></label>
+          <details class="full tr-box">
+            <summary>Traductions (anglais, arabe, allemand)</summary>
+            <p class="note">Laissez vide pour garder le texte français dans cette langue. Les boutons et menus du site sont déjà traduits.</p>
+            <div id="tr-fields"></div>
+          </details>
+          <label class="check full"><input type="checkbox" id="f-vedette" name="vedette"> Mettre à la une (en grand en haut du site)</label>
+          <div class="full bar">
+            <button type="button" class="b-line mini" id="up">↑ Monter</button>
+            <button type="button" class="b-line mini" id="down">↓ Descendre</button>
+            <button type="button" class="b-line mini" id="del" style="margin-left:auto">Supprimer</button>
+          </div>
+          <div class="full confirm" id="del-confirm" hidden><span>Supprimer cette publication ?</span><button type="button" class="b-danger mini" id="del-yes">Oui, supprimer</button><button type="button" class="b-line mini" id="del-no">Annuler</button></div>
+        </form>
+      </div>
+
+      <div id="edit-actus" hidden><form id="form-actus" autocomplete="off"></form></div>
+      <div id="edit-agenda" hidden><form id="form-agenda" autocomplete="off"></form></div>
+      <div id="edit-agence" hidden>
+        <form id="fa" autocomplete="off">
+          <label>Nom court<input type="text" id="a-nom" name="nom"></label>
+          <label>Nom complet<input type="text" id="a-nomComplet" name="nomComplet"></label>
+          <label class="full">Slogan<textarea id="a-slogan" name="slogan" style="min-height:70px"></textarea></label>
+          <label>WhatsApp <small>Avec l'indicatif, ex. 227 90 00 00 00</small><input type="tel" id="a-whatsapp" name="whatsapp"></label>
+          <label>Email<input type="email" id="a-email" name="email"></label>
+          <label>Facebook<input type="text" id="a-facebook" name="facebook" placeholder="https://facebook.com/…"></label>
+          <label>TikTok<input type="text" id="a-tiktok" name="tiktok" placeholder="https://tiktok.com/@…"></label>
+          <label>Instagram<input type="text" id="a-instagram" name="instagram"></label>
+          <label>YouTube<input type="text" id="a-youtube" name="youtube"></label>
+          <label>Ville de la météo<select id="a-villeMeteo" name="villeMeteo"><option value="">Niamey (par défaut)</option><option>Niamey</option><option>Zinder</option><option>Maradi</option><option>Agadez</option><option>Tahoua</option><option>Dosso</option><option>Diffa</option><option>Tillabéri</option><option>Kano</option><option>Lagos</option><option>Accra</option></select></label>
+        </form>
+      </div>
+
+      <div class="export" id="export" hidden>
+        <h2>Code de contenu.js</h2>
+        <p class="note">Si le téléchargement ne marche pas, copiez tout ce texte et collez-le à la place du contenu de contenu.js.</p>
+        <textarea id="code" readonly></textarea>
+        <div class="bar"><button type="button" class="b-ink mini" id="copy">Copier le code</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script src="contenu.js"></script>
+<script>
+(function(){
+  "use strict";
+  var KEY="grema88-brouillon";
+  var base = JSON.parse(JSON.stringify(window.GREMA88 || {agence:{},oeuvres:[]}));
+  var D = null;
+  try{ D = JSON.parse(localStorage.getItem(KEY) || "null"); }catch(e){}
+  if(!D || !D.oeuvres) D = JSON.parse(JSON.stringify(base));
+  D.agence = D.agence || {};
+  var sel = D.oeuvres.length ? 0 : -1;
+  var $ = function(id){ return document.getElementById(id); };
+  var FIELDS=["type","statut","titre","accroche","description","image","lien","bouton","prix","auteur","vendeur","whatsapp","ville"];
+  var TRL=[["en","Anglais"],["ar","Arabe"],["de","Allemand"]], TRF=[["titre","Titre"],["accroche","Accroche"],["bouton","Texte du bouton"],["description","Description"]];
+  document.getElementById("tr-fields").innerHTML = TRL.map(function(l){
+    return '<div class="tr-lang"><h3>'+l[1]+'</h3>'+TRF.map(function(f){
+      var id="tr-"+l[0]+"-"+f[0], dir=l[0]==="ar"?' dir="rtl"':"";
+      return f[0]==="description" ? '<label class="full">'+f[1]+'<textarea id="'+id+'" name="'+id+'"'+dir+' style="min-height:80px"></textarea></label>' : '<label>'+f[1]+'<input type="text" id="'+id+'" name="'+id+'"'+dir+'></label>';
+    }).join("")+'</div>';
+  }).join("");
+  var AFIELDS=["nom","nomComplet","slogan","whatsapp","email","facebook","tiktok","instagram","youtube","villeMeteo"];
+
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  function toast(m){ var t=$("toast"); t.textContent=m; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(function(){t.hidden=true;},2200); }
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(D)); $("saved").textContent="Brouillon enregistré dans ce navigateur."; }
+    catch(e){ $("saved").textContent="Impossible d'enregistrer le brouillon ici (images trop lourdes ?). Téléchargez contenu.js pour ne rien perdre."; }
+    if(!$("export").hidden) $("code").value = fileText();
+  }
+  function slug(t){ return String(t||"oeuvre").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40) || "oeuvre"; }
+  function uniqueId(t, self){
+    var b=slug(t), id=b, n=2;
+    while(D.oeuvres.some(function(o){ return o!==self && o.id===id; })) id=b+"-"+(n++);
+    return id;
+  }
+  var LABEL={produit:"Produit",application:"Appli",livre:"Livre",autre:"Autre"};
+  function drawList(){
+    $("list").innerHTML = D.oeuvres.length ? D.oeuvres.map(function(o,i){
+      return '<button type="button" class="item" data-i="'+i+'" aria-current="'+(i===sel)+'"><span class="badge b-'+esc(o.type||"autre")+'">'+(LABEL[o.type]||"Autre")+'</span><span class="t">'+esc(o.titre||"Sans titre")+'</span>'+(o.vedette?'<span title="À la une">★</span>':'')+'</button>';
+    }).join("") : '<p class="note">Aucune publication. Ajoutez votre première appli ou votre premier livre.</p>';
+  }
+  function thumb(src){ $("thumb").innerHTML = src ? '<img src="'+esc(src)+'" alt="">' : "Pas d'image"; }
+  function fillForm(){
+    var o=D.oeuvres[sel]; $("f").hidden = !o; $("del-confirm").hidden=true;
+    if(!o) return;
+    FIELDS.forEach(function(k){ $("f-"+k).value = o[k]==null ? "" : o[k]; });
+    if(String(o.image||"").indexOf("data:")===0) $("f-image").value="(image ajoutée depuis votre appareil)";
+    $("f-tags").value = (o.tags||[]).join(", ");
+    TRL.forEach(function(l){ TRF.forEach(function(f){ var x=o.traductions&&o.traductions[l[0]]; $("tr-"+l[0]+"-"+f[0]).value = (x&&x[f[0]])||""; }); });
+    $("f-vedette").checked = !!o.vedette;
+    $("f-file").value="";
+    thumb(o.image);
+  }
+  function fillAgence(){ AFIELDS.forEach(function(k){ $("a-"+k).value = D.agence[k]||""; }); }
+
+  $("list").addEventListener("click",function(e){ var b=e.target.closest(".item"); if(!b) return; sel=+b.getAttribute("data-i"); drawList(); fillForm(); });
+  document.querySelectorAll("[data-add]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var t=b.getAttribute("data-add");
+      var o={id:"",type:t,titre:t==="livre"?"Nouveau livre":t==="application"?"Nouvelle application":t==="produit"?"Nouveau produit":"Nouvelle vidéo",accroche:"",description:"",image:"",lien:"",bouton:t==="livre"?"Acheter":t==="application"?"Ouvrir l'appli":t==="produit"?"":"Regarder",prix:"",auteur:"",vendeur:"",whatsapp:"",ville:"",tags:[],statut:"disponible",vedette:false,traductions:{}};
+      o.id=uniqueId(o.titre,o);
+      D.oeuvres.unshift(o); sel=0; save(); drawList(); fillForm(); $("f-titre").focus(); $("f-titre").select();
+    });
+  });
+  $("f").addEventListener("input",function(e){
+    var o=D.oeuvres[sel]; if(!o) return; var k=e.target.name;
+    if(k==="tags") o.tags=e.target.value.split(",").map(function(s){return s.trim();}).filter(Boolean);
+    else if(k==="vedette"){ D.oeuvres.forEach(function(x){ x.vedette=false; }); o.vedette=e.target.checked; }
+    else if(k==="image"){ if(e.target.value.indexOf("(image ajoutée")===0) return; o.image=e.target.value.trim(); thumb(o.image); }
+    else if(/^tr-/.test(k)){ var p=k.split("-"); o.traductions=o.traductions||{}; o.traductions[p[1]]=o.traductions[p[1]]||{}; if(e.target.value.trim()) o.traductions[p[1]][p[2]]=e.target.value; else delete o.traductions[p[1]][p[2]]; }
+    else if(FIELDS.indexOf(k)!==-1){ o[k]=e.target.value; }
+    if(k==="titre" && /^(nouveau|nouvelle)-/.test(o.id)) o.id=uniqueId(o.titre,o);
+    save(); if(k==="titre"||k==="type"||k==="vedette") drawList();
+  });
+  $("f").addEventListener("submit",function(e){ e.preventDefault(); });
+  $("fa").addEventListener("submit",function(e){ e.preventDefault(); });
+  $("f-file").addEventListener("change",function(e){
+    var file=e.target.files&&e.target.files[0]; if(!file) return;
+    var r=new FileReader();
+    r.onload=function(){
+      var img=new Image();
+      img.onload=function(){
+        var max=900, s=Math.min(1,max/Math.max(img.width,img.height));
+        var c=document.createElement("canvas"); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s);
+        c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+        var url=c.toDataURL("image/jpeg",.82);
+        D.oeuvres[sel].image=url; $("f-image").value="(image ajoutée depuis votre appareil)"; thumb(url); save(); toast("Image ajoutée");
+      };
+      img.onerror=function(){ toast("Ce fichier n'est pas une image lisible"); };
+      img.src=r.result;
+    };
+    r.readAsDataURL(file);
+  });
+  $("img-clear").addEventListener("click",function(){ var o=D.oeuvres[sel]; if(!o) return; o.image=""; $("f-image").value=""; thumb(""); save(); });
+  function move(d){ var j=sel+d; if(sel<0||j<0||j>=D.oeuvres.length) return; var t=D.oeuvres[sel]; D.oeuvres[sel]=D.oeuvres[j]; D.oeuvres[j]=t; sel=j; save(); drawList(); }
+  $("up").addEventListener("click",function(){move(-1);});
+  $("down").addEventListener("click",function(){move(1);});
+  $("del").addEventListener("click",function(){ $("del-confirm").hidden=false; });
+  $("del-no").addEventListener("click",function(){ $("del-confirm").hidden=true; });
+  $("del-yes").addEventListener("click",function(){ D.oeuvres.splice(sel,1); sel=Math.min(sel,D.oeuvres.length-1); save(); drawList(); fillForm(); toast("Publication supprimée"); });
+  $("fa").addEventListener("input",function(e){ D.agence[e.target.name]=e.target.value.trim(); save(); });
+
+  function tab(which){
+    ["oeuvres","actus","agenda","agence"].forEach(function(k){
+      var on = k===which;
+      $("t-"+k).setAttribute("aria-pressed",on); $("t-"+k).className = on?"":"b-line";
+      $("side-"+k).hidden=!on; $("edit-"+(k==="oeuvres"?"oeuvre":k)).hidden=!on;
+    });
+  }
+  ["oeuvres","actus","agenda","agence"].forEach(function(k){ $("t-"+k).addEventListener("click",function(){tab(k);}); });
+
+  // Éditeur simple pour les actualités et l'agenda
+  function today(){ var d=new Date(); return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function editor(key, name, fields, trFields, blank){
+    D[key]=D[key]||[];
+    var cur = D[key].length?0:-1, form=$("form-"+name), list=$("list-"+name);
+    form.innerHTML = fields.map(function(f){
+      var id=name+"-"+f[0], lab=f[1]+(f[3]?' <small>'+f[3]+'</small>':'');
+      if(f[2]==="textarea") return '<label class="full">'+lab+'<textarea id="'+id+'" name="'+f[0]+'"></textarea></label>';
+      return '<label'+(f[4]?' class="full"':'')+'>'+lab+'<input type="'+f[2]+'" id="'+id+'" name="'+f[0]+'"></label>';
+    }).join("")+
+      '<details class="full tr-box"><summary>Traductions (anglais, arabe, allemand)</summary><p class="note">Laissez vide pour garder le texte français.</p>'+
+      TRL.map(function(l){ return '<div class="tr-lang"><h3>'+l[1]+'</h3>'+trFields.map(function(f){
+        var id=name+"-tr-"+l[0]+"-"+f[0], dir=l[0]==="ar"?' dir="rtl"':"";
+        return f[2]==="textarea" ? '<label class="full">'+f[1]+'<textarea id="'+id+'" name="tr-'+l[0]+'-'+f[0]+'"'+dir+' style="min-height:70px"></textarea></label>' : '<label class="full">'+f[1]+'<input type="text" id="'+id+'" name="tr-'+l[0]+'-'+f[0]+'"'+dir+'></label>';
+      }).join("")+'</div>'; }).join("")+'</details>'+
+      '<div class="full bar"><button type="button" class="b-line mini" data-del>Supprimer</button></div>'+
+      '<div class="full confirm" data-confirm hidden><span>Supprimer ?</span><button type="button" class="b-danger mini" data-yes>Oui, supprimer</button><button type="button" class="b-line mini" data-no>Annuler</button></div>';
+    function drawItems(){
+      list.innerHTML = D[key].length ? D[key].map(function(o,i){
+        return '<button type="button" class="item" data-i="'+i+'" aria-current="'+(i===cur)+'"><span class="badge b-autre">'+esc(o.date||"?")+'</span><span class="t">'+esc(o.titre||"Sans titre")+'</span></button>';
+      }).join("") : '<p class="note">Rien pour l\'instant.</p>';
+    }
+    function draw(){
+      drawItems();
+      var o=D[key][cur]; form.hidden=!o; if(!o) return;
+      form.querySelector("[data-confirm]").hidden=true;
+      fields.forEach(function(f){ $(name+"-"+f[0]).value=o[f[0]]||""; });
+      TRL.forEach(function(l){ trFields.forEach(function(f){ var x=o.traductions&&o.traductions[l[0]]; $(name+"-tr-"+l[0]+"-"+f[0]).value=(x&&x[f[0]])||""; }); });
+    }
+    list.addEventListener("click",function(e){ var b=e.target.closest(".item"); if(!b) return; cur=+b.getAttribute("data-i"); draw(); });
+    $("add-"+name).addEventListener("click",function(){
+      var o=blank(); o.id=name+"-"+Date.now().toString(36); o.date=today(); o.traductions={};
+      D[key].unshift(o); cur=0; save(); draw(); $(name+"-titre").focus(); $(name+"-titre").select();
+    });
+    form.addEventListener("input",function(e){
+      var o=D[key][cur]; if(!o) return; var k=e.target.name;
+      if(/^tr-/.test(k)){ var p=k.split("-"); o.traductions=o.traductions||{}; o.traductions[p[1]]=o.traductions[p[1]]||{}; if(e.target.value.trim()) o.traductions[p[1]][p[2]]=e.target.value; else delete o.traductions[p[1]][p[2]]; }
+      else o[k]=e.target.value;
+      save(); if(k==="titre"||k==="date") drawItems();
+    });
+    form.addEventListener("submit",function(e){ e.preventDefault(); });
+    form.addEventListener("click",function(e){
+      if(e.target.closest("[data-del]")) form.querySelector("[data-confirm]").hidden=false;
+      if(e.target.closest("[data-no]")) form.querySelector("[data-confirm]").hidden=true;
+      if(e.target.closest("[data-yes]")){ D[key].splice(cur,1); cur=Math.min(cur,D[key].length-1); save(); draw(); toast("Supprimé"); }
+    });
+    draw();
+    return { reset:function(){ D[key]=D[key]||[]; cur=D[key].length?0:-1; draw(); } };
+  }
+  var edActus = editor("actualites","actus",
+    [["date","Date","date"],["titre","Titre","text","",1],["texte","Texte","textarea"],["image","Image","text","Adresse, ex. images/photo.jpg",1],["lien","Lien","text","Pour en savoir plus (facultatif)",1]],
+    [["titre","Titre","text"],["texte","Texte","textarea"]],
+    function(){ return {titre:"Nouvelle actualité",texte:"",image:"",lien:""}; });
+  var edAgenda = editor("evenements","agenda",
+    [["date","Date","date"],["heure","Heure","text","ex. 15h00"],["titre","Titre","text","",1],["lieu","Lieu","text","",1],["description","Description","textarea"],["lien","Lien","text","Inscription ou détails (facultatif)",1]],
+    [["titre","Titre","text"],["lieu","Lieu","text"],["description","Description","textarea"]],
+    function(){ return {heure:"",titre:"Nouvel événement",lieu:"",description:"",lien:""}; });
+
+  function fileText(){
+    return "/*\n  Contenu du site Grema88.\n  Le plus simple : ouvrez admin.html (« Espace Grema »), faites vos changements,\n  puis téléchargez le nouveau contenu.js et remplacez ce fichier.\n*/\nwindow.GREMA88 = "+JSON.stringify(D,null,2)+";\n";
+  }
+  $("dl").addEventListener("click",function(){
+    try{
+      var blob=new Blob([fileText()],{type:"text/javascript"}), a=document.createElement("a");
+      a.href=URL.createObjectURL(blob); a.download="contenu.js"; document.body.appendChild(a); a.click(); a.remove();
+      toast("contenu.js téléchargé");
+    }catch(e){ showCode(); }
+    showCode();
+  });
+  function showCode(){ $("export").hidden=false; $("code").value=fileText(); }
+  $("show-code").addEventListener("click",function(){ showCode(); $("export").scrollIntoView({behavior:"smooth"}); });
+  $("copy").addEventListener("click",function(){
+    var ta=$("code");
+    try{ navigator.clipboard.writeText(ta.value).then(function(){toast("Code copié");},function(){ ta.select(); toast("Texte sélectionné : copiez-le"); }); }
+    catch(e){ ta.select(); toast("Texte sélectionné : copiez-le"); }
+  });
+  $("reset").addEventListener("click",function(){ $("reset-confirm").hidden=false; });
+  $("reset-no").addEventListener("click",function(){ $("reset-confirm").hidden=true; });
+  $("reset-yes").addEventListener("click",function(){
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    D=JSON.parse(JSON.stringify(base)); D.agence=D.agence||{}; sel=D.oeuvres.length?0:-1;
+    $("reset-confirm").hidden=true; drawList(); fillForm(); fillAgence(); edActus.reset(); edAgenda.reset(); toast("Brouillon effacé");
+  });
+
+  drawList(); fillForm(); fillAgence();
+})();
+</script>
+</body>
+</html>
