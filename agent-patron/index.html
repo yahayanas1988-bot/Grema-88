@@ -75,6 +75,8 @@ main{padding-block:28px 56px}
 .agent h3{font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 .agent p{margin:8px 0 10px;color:var(--muted);font-size:14px}
 .agent .n{font-size:13px;font-weight:600}
+.mission{font-size:14px;background:color-mix(in srgb,var(--c) 10%,transparent);border-radius:10px;padding:8px 10px;margin-bottom:10px}
+.mission b{color:var(--c)}
 .pill{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--body);padding:3px 9px;border-radius:999px;white-space:nowrap}
 .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .s-ok{color:var(--malachite);background:color-mix(in srgb,var(--malachite) 14%,transparent)}
@@ -208,6 +210,8 @@ main{padding-block:28px 56px}
     var c = el("article",{"class":"agent",style:"--c:"+a.couleur},box);
     var h = el("h3",{},c); el("span",{},h,a.nom); h.appendChild(pill(a.etat));
     el("p",{},c,a.role);
+    var t = D.taches.filter(function(x){ return x.agent === a.id; })[0];
+    if (t){ var m = el("div",{"class":"mission"},c); el("b",{},m,"Tâche : "); m.appendChild(document.createTextNode(t.titre)); }
     el("div",{"class":"n"},c,a.taches + (a.taches>1?" tâches aujourd'hui":" tâche aujourd'hui"));
   });
 
