@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /agent-patron/
 
 Sitemap: https://grema88.netlify.app/sitemap.xml

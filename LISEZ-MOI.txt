@@ -18,3 +18,9 @@ Boutique et vendeurs :
 
 Langues : le site est en français, anglais, arabe et allemand (menu en haut à droite).
 Pour traduire le texte d'une publication, ouvrez « Traductions » dans sa fiche de l'Espace Grema.
+
+Espace Agent Patron :
+- Page agent-patron/index.html (lien « Agent Patron » en bas du site) : le tableau de bord des agents IA.
+- Les chiffres viennent de agent-patron/agents.js. Pour l'instant ce sont des exemples ;
+  modifiez ce fichier (agents, tâches, journal, canaux) puis redéposez le dossier sur Netlify.
+- La page n'est pas référencée par Google, mais toute personne qui a le lien peut la voir.
