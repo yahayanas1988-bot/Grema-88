@@ -1179,5 +1179,22 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
   if(!still) requestAnimationFrame(loop);
 })();
 </script>
+<!-- Veronica, vendeuse IA de Grema 88 (MyChatBot) -->
+<link rel="stylesheet" href="https://storage.googleapis.com/mychatbot-widget-assets/v1/style.css" />
+<script src="https://storage.googleapis.com/mychatbot-widget-assets/v1/widget.js"></script>
+<div id="my-chat-widget-container"></div>
+<script>
+  MyChatBot.mount('#my-chat-widget-container', {
+    account_id: "90b3ab98-d976-4cbc-868e-7a7376b33b89",
+    widget_id: "grema88-site",
+    api_url: 'https://api.mychatbot.app',
+    assistant_name: "Veronica",
+    color: "#2E3192",
+    lang: 'en',
+    ad_widget_title: 'Veronica, vendeuse Grema 88',
+    ad_widget_description: 'Une question ? Je réponds tout de suite.',
+    ad_popup_messages: ['Bonjour 👋 Un salon, une boutique, un produit ? Je vous aide à choisir.']
+  });
+</script>
 </body>
 </html>
