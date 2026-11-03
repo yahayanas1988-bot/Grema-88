@@ -2,7 +2,7 @@
    Modifiez ce fichier pour mettre à jour la page (agent-patron/index.html).
    Ce sont des données d'exemple tant que les agents ne sont pas branchés. */
 window.AGENT_PATRON = {
-  majLe: "2026-10-31T14:45:00Z",
+  majLe: "2026-11-03T21:37:00Z",
   exemple: true,
 
   // Le premier agent est le Patron : il répartit le travail entre les autres.
@@ -12,7 +12,8 @@ window.AGENT_PATRON = {
     { id: "reseaux",  nom: "Agent Réseaux",   role: "Prépare et programme les publications Facebook, TikTok, Instagram", etat: "actif", taches: 4,  couleur: "#b34a2c" },
     { id: "ventes",   nom: "Agent Ventes",    role: "Suit la boutique Grema 88 et les demandes des vendeurs",           etat: "actif", taches: 5,  couleur: "#2c3077" },
     { id: "recherche",nom: "Agent Recherche", role: "Cherche des idées, des prix et des nouvelles du Sahel",            etat: "actif", taches: 4,  couleur: "#7a5bd1" },
-    { id: "rapports", nom: "Agent Rapports",  role: "Écrit le résumé du jour pour GREMA",                               etat: "actif", taches: 3,  couleur: "#b8740c" }
+    { id: "rapports", nom: "Agent Rapports",  role: "Écrit le résumé du jour pour GREMA",                               etat: "actif", taches: 3,  couleur: "#b8740c" },
+    { id: "serveur",  nom: "Agent Serveur",   role: "Relié à Claude : reçoit les demandes du Patron et les traite avec Claude", etat: "a-brancher", taches: 1, couleur: "#1d7fa8" }
   ],
 
   // Tâches faites par jour (les 7 derniers jours).
@@ -34,11 +35,13 @@ window.AGENT_PATRON = {
     { agent: "reseaux",   titre: "Écrire les textes de la semaine pour la vidéo « Le conseil de la savane »", etat: "en-cours", note: "publication quand les réseaux seront reliés" },
     { agent: "ventes",    titre: "Vérifier les nouveaux produits proposés par les vendeurs", etat: "en-cours" },
     { agent: "recherche", titre: "Relever les prix du marché de Niamey", etat: "en-cours" },
-    { agent: "rapports",  titre: "Préparer le résumé de ce soir pour GREMA", etat: "en-attente" }
+    { agent: "rapports",  titre: "Préparer le résumé de ce soir pour GREMA", etat: "en-attente" },
+    { agent: "serveur",   titre: "Recevoir les demandes du Patron et y répondre avec Claude", etat: "en-attente", note: "branchement à Claude à faire (compte Claude à relier)" }
   ],
 
   // Journal : le plus récent en premier.
   journal: [
+    { heure: "2026-11-03T21:37:00Z", agent: "serveur",   texte: "Agent Serveur ajouté, prévu pour être relié à Claude." },
     { heure: "2026-10-31T14:45:00Z", agent: "patron",    texte: "A donné une tâche à chacun des 6 agents." },
     { heure: "2026-10-31T14:30:00Z", agent: "patron",    texte: "A confié 3 tâches à l'Agent Ventes." },
     { heure: "2026-10-31T13:05:00Z", agent: "rapports",  texte: "Résumé du matin envoyé à GREMA." },
@@ -52,6 +55,7 @@ window.AGENT_PATRON = {
     { nom: "WhatsApp",          connecte: false, note: "À connecter (MyChatBot ou Sent)" },
     { nom: "Facebook / Instagram", connecte: false, note: "À connecter (Metricool)" },
     { nom: "TikTok",            connecte: false, note: "À connecter (Metricool)" },
-    { nom: "Site Grema 88",     connecte: true,  note: "Boutique et formulaire vendeurs" }
+    { nom: "Site Grema 88",     connecte: true,  note: "Boutique et formulaire vendeurs" },
+    { nom: "Claude (Anthropic)", connecte: false, note: "À relier : compte Claude à connecter pour l'Agent Serveur" }
   ]
 };
