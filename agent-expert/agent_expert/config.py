@@ -20,6 +20,9 @@ class Settings:
     max_history_messages: int = 40
     # Domaine imposé (ex. "droit") ; None = routage automatique.
     forced_domain: str | None = None
+    # Travail en équipe : nombre maximal de spécialistes consultés en parallèle.
+    max_specialistes: int = 4
+    planner_max_tokens: int = 600
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -30,4 +33,5 @@ class Settings:
             max_tokens=int(env.get("AGENT_MAX_TOKENS", cls.max_tokens)),
             max_history_messages=int(env.get("AGENT_HISTORIQUE", cls.max_history_messages)),
             forced_domain=env.get("AGENT_DOMAINE") or None,
+            max_specialistes=int(env.get("AGENT_SPECIALISTES", cls.max_specialistes)),
         )

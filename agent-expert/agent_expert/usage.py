@@ -24,6 +24,14 @@ class Usage:
         self.tokens_lus_en_cache += getattr(u, "cache_read_input_tokens", 0) or 0
         self.tokens_ecrits_en_cache += getattr(u, "cache_creation_input_tokens", 0) or 0
 
+    def fusionner(self, autre: Usage) -> None:
+        """Ajoute la consommation d'un autre compteur (ex. celle d'un spécialiste)."""
+        self.requetes += autre.requetes
+        self.tokens_entree += autre.tokens_entree
+        self.tokens_sortie += autre.tokens_sortie
+        self.tokens_lus_en_cache += autre.tokens_lus_en_cache
+        self.tokens_ecrits_en_cache += autre.tokens_ecrits_en_cache
+
     def resume(self) -> str:
         return (
             f"{self.requetes} requête(s) · {self.tokens_entree} tokens d'entrée "
