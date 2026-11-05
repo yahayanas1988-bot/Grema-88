@@ -24,6 +24,11 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1f2257">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Grema 88">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Grema Agence 88","alternateName":"Grema88","url":"https://grema88.netlify.app/","logo":"https://grema88.netlify.app/images/logo.jpg","description":"Agence du Sahel : applications, livres, vidéos et boutique en ligne pour vendeurs.","knowsLanguage":["fr","en","ar","de"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -409,6 +414,36 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
 .foot-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(246,239,223,.15);opacity:.75}
 .foot-bottom a{color:var(--on-indigo)}
 @media (max-width:860px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
+
+/* Choisir une photo */
+#fondateur,.hero{overflow-x:clip}
+.sell-form > *{min-width:0}
+.drop{min-width:0}
+.f-lab{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.drop{position:relative;display:flex!important;flex-direction:row!important;align-items:center;gap:14px!important;padding:14px;border:2px dashed var(--line);border-radius:14px;background:var(--bg);cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over,.drop:focus-within{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 8%,var(--bg))}
+.drop input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;padding:0;border:0}
+.drop-ico{flex:none;width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:var(--gold);color:var(--gold-ink)}
+.drop img{flex:none;width:52px;height:52px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
+.drop-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.drop-txt b{font-size:15px}
+.drop-txt small{font-weight:500;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drop.err{border-color:var(--clay)}
+.drop.err small{color:var(--clay)}
+.drop-x{position:relative;z-index:2;flex:none;border:0;background:var(--sand);color:var(--fg);border-radius:999px;padding:7px 12px;font:600 13px var(--body);cursor:pointer}
+.drop-x:hover{background:var(--line)}
+/* Listes déroulantes */
+.w-head select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-inline:12px 28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center}
+html[dir="rtl"] .w-head select{background-position:left 11px center}
+button,.btn,select,.drop{-webkit-tap-highlight-color:transparent}
+button:focus-visible,.btn:focus-visible,a:focus-visible,select:focus-visible,.drop:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+.btn:active,.card:active,.drop-x:active,.cal button:active{transform:scale(.97)}
+button:disabled{opacity:.6;cursor:wait}
+.inst{flex:none;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;background:var(--gold);color:var(--gold-ink);font:700 13px var(--body);padding:7px 12px;cursor:pointer}
+.inst:hover{background:#f0b845}
+@media (max-width:520px){.inst span{display:none}.inst{padding:8px}}
+.install-help{max-width:440px}
+.install-help ol{margin:10px 0 0;padding-inline-start:20px;display:flex;flex-direction:column;gap:8px}
 </style>
 </head>
 <body>
@@ -429,6 +464,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
       <a href="#vendre" data-i18n="navSell"></a>
       <a class="opt" href="#contact" data-i18n="navContact"></a>
     </nav>
+    <button type="button" class="inst" id="install" hidden><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg><span data-i18n="install"></span></button>
     <label class="lang"><span class="sr" hidden>Langue</span>
       <select id="lang" aria-label="Langue / Language / اللغة / Sprache">
         <option value="fr">FR</option>
@@ -583,7 +619,14 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
         <label><span data-i18n="fPrice"></span><input id="sf-prix" name="prix" placeholder="5 000 FCFA"></label>
         <label><span data-i18n="fCity"></span><input id="sf-ville" name="ville"></label>
         <label class="full"><span data-i18n="fDesc"></span><textarea id="sf-desc" name="description"></textarea></label>
-        <label class="full"><span data-i18n="fPhoto"></span><input id="sf-photo" name="photo" type="file" accept="image/*"></label>
+        <div class="full"><span class="f-lab" data-i18n="fPhoto"></span>
+          <label class="drop" id="sf-drop">
+            <input id="sf-photo" name="photo" type="file" accept="image/*">
+            <span class="drop-ico" id="sf-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4a2 2 0 0 1 3 0l5 5"/><path d="M14 14l1-1a2 2 0 0 1 3 0l2 2"/><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9" r="1.5"/></svg></span>
+            <img id="sf-prev" alt="" hidden>
+            <span class="drop-txt"><b id="sf-pick" data-i18n="fPick"></b><small id="sf-fname"></small></span>
+            <button type="button" class="drop-x" id="sf-clear" hidden></button>
+          </label></div>
         <p class="fine" data-i18n="fFine"></p>
         <div class="full"><button class="btn btn-ink" type="submit" id="sf-send" data-i18n="fSend"></button></div>
         <p class="form-msg" id="sf-msg" role="status" hidden></p>
@@ -675,6 +718,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
         <li><button type="button" data-lang="de">Deutsch</button></li>
       </ul></div>
       <div><h4 data-i18n="footSpaces"></h4><ul>
+        <li><button type="button" id="install2" data-i18n="installHow"></button></li>
         <li><a href="admin.html" data-i18n="footAdmin"></a></li>
         <li><a href="agent-patron/index.html" data-i18n="footPatron"></a></li>
       </ul></div>
@@ -725,7 +769,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
       sellS2:"Grema 88 vérifie", sellS2t:"Nous relisons chaque produit avant de le mettre en ligne.",
       sellS3:"Les clients vous écrivent", sellS3t:"Le bouton « Commander » ouvre WhatsApp directement avec vous.",
       fName:"Votre nom ou votre boutique", fWa:"Votre WhatsApp", fProduct:"Nom du produit", fPrice:"Prix", fCity:"Ville",
-      fDesc:"Description", fPhoto:"Photo du produit", fSend:"Envoyer mon produit",
+      fPick:"Choisir une photo", fPickHint:"Touchez ici ou glissez une image (8 Mo maximum)", fPickRemove:"Retirer", fPickBig:"Photo trop lourde : 8 Mo maximum.", install:"Installer", installHow:"Installer sur mon ordinateur", installTitle:"Installer Grema 88", installDone:"Grema 88 est installé. Vous le trouverez avec vos applications.", installSteps:["Ouvrez le site dans Chrome ou Edge.","Cliquez sur l'icône d'installation à droite de la barre d'adresse (un écran avec une flèche).","Choisissez « Installer ». Grema 88 s'ouvre alors comme une application, même sans connexion."], fDesc:"Description", fPhoto:"Photo du produit", fSend:"Envoyer mon produit",
       fFine:"Vos informations servent seulement à publier votre produit et à vous mettre en contact avec vos clients.",
       fOk:"Merci ! Votre produit est bien reçu. Grema 88 vous contacte sur WhatsApp avant de le publier.",
       fErr:"L'envoi n'a pas marché. Vérifiez votre connexion et réessayez, ou écrivez-nous sur WhatsApp.",
@@ -773,7 +817,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
       sellS2:"Grema 88 checks it", sellS2t:"We review every product before it goes online.",
       sellS3:"Customers message you", sellS3t:"The \"Order\" button opens WhatsApp straight to you.",
       fName:"Your name or shop", fWa:"Your WhatsApp", fProduct:"Product name", fPrice:"Price", fCity:"City",
-      fDesc:"Description", fPhoto:"Product photo", fSend:"Send my product",
+      fPick:"Choose a photo", fPickHint:"Tap here or drop an image (8 MB max)", fPickRemove:"Remove", fPickBig:"Photo too large: 8 MB max.", install:"Install", installHow:"Install on my computer", installTitle:"Install Grema 88", installDone:"Grema 88 is installed. You will find it with your apps.", installSteps:["Open the site in Chrome or Edge.","Click the install icon on the right of the address bar (a screen with an arrow).","Choose \"Install\". Grema 88 then opens like an app, even offline."], fDesc:"Description", fPhoto:"Product photo", fSend:"Send my product",
       fFine:"Your details are only used to publish your product and connect you with customers.",
       fOk:"Thank you! Your product has been received. Grema 88 will contact you on WhatsApp before publishing it.",
       fErr:"Sending failed. Check your connection and try again, or message us on WhatsApp.",
@@ -821,7 +865,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
       sellS2:"غريما 88 تراجع", sellS2t:"نراجع كل منتج قبل نشره على الموقع.",
       sellS3:"الزبائن يراسلونك", sellS3t:"زر «اطلب» يفتح واتساب مباشرة معك.",
       fName:"اسمك أو اسم متجرك", fWa:"رقم واتساب", fProduct:"اسم المنتج", fPrice:"السعر", fCity:"المدينة",
-      fDesc:"الوصف", fPhoto:"صورة المنتج", fSend:"أرسل منتجي",
+      fPick:"اختر صورة", fPickHint:"المس هنا أو اسحب صورة (8 ميغابايت كحدّ أقصى)", fPickRemove:"إزالة", fPickBig:"الصورة كبيرة جداً: 8 ميغابايت كحدّ أقصى.", install:"تثبيت", installHow:"التثبيت على حاسوبي", installTitle:"تثبيت غريما 88", installDone:"تمّ تثبيت غريما 88. ستجده مع تطبيقاتك.", installSteps:["افتح الموقع في كروم أو إيدج.","انقر على أيقونة التثبيت يمين شريط العنوان (شاشة عليها سهم).","اختر «تثبيت». يفتح غريما 88 كتطبيق، حتى بدون اتصال."], fDesc:"الوصف", fPhoto:"صورة المنتج", fSend:"أرسل منتجي",
       fFine:"تُستخدم معلوماتك فقط لنشر منتجك وربطك بالزبائن.",
       fOk:"شكراً! وصلنا منتجك. ستتواصل معك غريما 88 عبر واتساب قبل نشره.",
       fErr:"تعذّر الإرسال. تحقّق من الاتصال وأعد المحاولة، أو راسلنا عبر واتساب.",
@@ -869,7 +913,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
       sellS2:"Grema 88 prüft", sellS2t:"Wir prüfen jedes Produkt, bevor es online geht.",
       sellS3:"Kunden schreiben Ihnen", sellS3t:"Der Button „Bestellen“ öffnet WhatsApp direkt mit Ihnen.",
       fName:"Ihr Name oder Ihr Geschäft", fWa:"Ihre WhatsApp-Nummer", fProduct:"Produktname", fPrice:"Preis", fCity:"Stadt",
-      fDesc:"Beschreibung", fPhoto:"Produktfoto", fSend:"Produkt senden",
+      fPick:"Foto auswählen", fPickHint:"Hier tippen oder Bild hineinziehen (max. 8 MB)", fPickRemove:"Entfernen", fPickBig:"Foto zu groß: maximal 8 MB.", install:"Installieren", installHow:"Auf meinem Computer installieren", installTitle:"Grema 88 installieren", installDone:"Grema 88 ist installiert. Sie finden es bei Ihren Apps.", installSteps:["Öffnen Sie die Website in Chrome oder Edge.","Klicken Sie rechts in der Adressleiste auf das Installationssymbol (ein Bildschirm mit Pfeil).","Wählen Sie „Installieren“. Grema 88 öffnet sich dann wie eine App, auch offline."], fDesc:"Beschreibung", fPhoto:"Produktfoto", fSend:"Produkt senden",
       fFine:"Ihre Angaben dienen nur dazu, Ihr Produkt zu veröffentlichen und Sie mit Kunden zu verbinden.",
       fOk:"Danke! Ihr Produkt ist angekommen. Grema 88 meldet sich per WhatsApp, bevor es veröffentlicht wird.",
       fErr:"Senden fehlgeschlagen. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut, oder schreiben Sie uns per WhatsApp.",
@@ -1087,6 +1131,44 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
 
   // Formulaire vendeur (reçu dans Netlify > Forms une fois le site en ligne)
   var sf=document.getElementById("sell-form"), sfMsg=document.getElementById("sf-msg"), sfBtn=document.getElementById("sf-send");
+
+
+  // Installer le site comme une application (ordinateur et téléphone)
+  var instBtn=document.getElementById("install"), instBtn2=document.getElementById("install2"), instEvt=null;
+  var standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if(standalone) instBtn2.parentNode.hidden=true;
+  addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); instEvt=e; instBtn.hidden=false; });
+  addEventListener("appinstalled",function(){ instEvt=null; instBtn.hidden=true; instBtn2.parentNode.hidden=true; toastMsg(t("installDone")); });
+  function doInstall(){
+    if(instEvt){ instEvt.prompt(); instEvt.userChoice.then(function(){ instEvt=null; instBtn.hidden=true; }); return; }
+    dlg.innerHTML='<button class="close" type="button" aria-label="'+esc(t("close"))+'">×</button><div class="dlg-news install-help"><h3>'+esc(t("installTitle"))+'</h3><ol>'+t("installSteps").map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ol></div>';
+    dlg.showModal();
+  }
+  instBtn.addEventListener("click",doInstall); instBtn2.addEventListener("click",doInstall);
+  function toastMsg(m){ var d=document.createElement("div"); d.className="form-msg ok"; d.style.cssText="position:fixed;inset-inline:16px;bottom:16px;z-index:99;max-width:480px;margin:auto"; d.textContent=m; document.body.appendChild(d); setTimeout(function(){ d.remove(); },5000); }
+  if("serviceWorker" in navigator && /^https?:$/.test(location.protocol) && !/claude|anthropic/.test(location.hostname) && window.top===window){
+    addEventListener("load",function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+  }
+  // Choix de la photo du produit
+  var sfPhoto=document.getElementById("sf-photo"), sfDrop=document.getElementById("sf-drop"), sfPrev=document.getElementById("sf-prev"),
+      sfIco=document.getElementById("sf-ico"), sfName=document.getElementById("sf-fname"), sfClear=document.getElementById("sf-clear"), sfUrl=null;
+  function photoUi(msg){
+    var f=sfPhoto.files&&sfPhoto.files[0];
+    if(sfUrl){ URL.revokeObjectURL(sfUrl); sfUrl=null; }
+    sfDrop.classList.toggle("err",!!msg);
+    if(f){ sfUrl=URL.createObjectURL(f); sfPrev.src=sfUrl; sfPrev.hidden=false; sfIco.hidden=true; var u=lang==="fr"?["Ko","Mo"]:["KB","MB"]; sfName.textContent=f.name+" · "+(f.size<1048576?Math.max(1,Math.round(f.size/1024))+" "+u[0]:(f.size/1048576).toFixed(1)+" "+u[1]); }
+    else { sfPrev.hidden=true; sfIco.hidden=false; sfName.textContent=msg||t("fPickHint"); }
+    sfClear.hidden=!f; sfClear.textContent=t("fPickRemove");
+  }
+  photoUi();
+  sfPhoto.addEventListener("change",function(){
+    var f=sfPhoto.files[0];
+    if(f && f.size>8*1048576){ sfPhoto.value=""; photoUi(t("fPickBig")); return; }
+    photoUi();
+  });
+  sfClear.addEventListener("click",function(e){ e.preventDefault(); e.stopPropagation(); sfPhoto.value=""; photoUi(); });
+  ["dragenter","dragover"].forEach(function(n){ sfDrop.addEventListener(n,function(){ sfDrop.classList.add("over"); }); });
+  ["dragleave","drop"].forEach(function(n){ sfDrop.addEventListener(n,function(){ sfDrop.classList.remove("over"); }); });
   sf.addEventListener("submit",function(e){
     e.preventDefault();
     document.getElementById("sf-langue").value = lang;
@@ -1094,7 +1176,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
     var fd=new FormData(sf);
     fetch("/", {method:"POST", body:fd}).then(function(r){
       if(!r.ok) throw new Error(r.status);
-      sf.reset(); sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk");
+      sf.reset(); photoUi(); sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk");
     }).catch(function(){
       sfMsg.className="form-msg err"; sfMsg.textContent=t("fErr");
     }).then(function(){ sfMsg.hidden=false; sfBtn.disabled=false; sfBtn.textContent=t("fSend"); });
@@ -1272,6 +1354,7 @@ html[lang="ar"] .foot-grid h4{letter-spacing:0}
     document.getElementById("foot-slogan").textContent = document.getElementById("slogan").textContent;
     document.querySelectorAll("#foot-langs [data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang")===lang); });
     document.getElementById("copy").textContent = "© "+new Date().getFullYear()+" "+(A.nomComplet||A.nom||"Grema88")+". "+t("footMade");
+    if(sfPhoto) photoUi();
     drawStar(); drawTabs(); drawGrid(); drawLinks(); drawToday(); drawWeather(); drawCal(); drawNews();
   }
   document.getElementById("foot-langs").addEventListener("click",function(e){
