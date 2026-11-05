@@ -1,8 +1,9 @@
 /* Données de l'espace Agent Patron.
    Modifiez ce fichier pour mettre à jour la page (agent-patron/index.html).
-   Ce sont des données d'exemple tant que les agents ne sont pas branchés. */
+   Les tâches, le journal et les chiffres sont des exemples.
+   L'état des canaux est réel : vérifié le 5 novembre 2026 dans MyChatBot et Metricool. */
 window.AGENT_PATRON = {
-  majLe: "2026-10-31T14:45:00Z",
+  majLe: "2026-11-05T15:52:00Z",
   exemple: true,
 
   // Le premier agent est le Patron : il répartit le travail entre les autres.
@@ -30,8 +31,8 @@ window.AGENT_PATRON = {
   // Une tâche par agent : elle s'affiche aussi sur la fiche de l'agent.
   taches: [
     { agent: "patron",    titre: "Répartir les demandes du jour entre les agents", etat: "en-cours" },
-    { agent: "whatsapp",  titre: "Préparer les réponses aux questions fréquentes des clients", etat: "en-cours", note: "envoi réel quand WhatsApp sera relié" },
-    { agent: "reseaux",   titre: "Écrire les textes de la semaine pour la vidéo « Le conseil de la savane »", etat: "en-cours", note: "publication quand les réseaux seront reliés" },
+    { agent: "whatsapp",  titre: "Préparer les réponses aux questions fréquentes des clients", etat: "en-cours", note: "WhatsApp relié via MyChatBot (assistant Veronica)" },
+    { agent: "reseaux",   titre: "Écrire les textes de la semaine pour la vidéo « Le conseil de la savane »", etat: "en-cours", note: "TikTok relié à Metricool ; publications Facebook et Instagram encore à relier" },
     { agent: "ventes",    titre: "Vérifier les nouveaux produits proposés par les vendeurs", etat: "en-cours" },
     { agent: "recherche", titre: "Relever les prix du marché de Niamey", etat: "en-cours" },
     { agent: "rapports",  titre: "Préparer le résumé de ce soir pour GREMA", etat: "en-attente" }
@@ -46,12 +47,15 @@ window.AGENT_PATRON = {
     { heure: "2026-10-31T09:00:00Z", agent: "patron",    texte: "Démarrage de la journée, 6 agents prêts." }
   ],
 
-  // Canaux : connecte = true quand le compte est vraiment relié.
+  // Canaux : connecte = true seulement quand le compte est vraiment relié.
   canaux: [
-    { nom: "Zapier",            connecte: true,  note: "Connecté" },
-    { nom: "WhatsApp",          connecte: false, note: "À connecter (MyChatBot ou Sent)" },
-    { nom: "Facebook / Instagram", connecte: false, note: "À connecter (Metricool)" },
-    { nom: "TikTok",            connecte: false, note: "À connecter (Metricool)" },
-    { nom: "Site Grema 88",     connecte: true,  note: "Boutique et formulaire vendeurs" }
+    { nom: "Zapier",                      connecte: true,  note: "Connecté" },
+    { nom: "WhatsApp",                    connecte: true,  note: "Relié via MyChatBot : l'assistante Veronica répond aux clients" },
+    { nom: "Facebook Messenger",          connecte: true,  note: "Relié via MyChatBot : Veronica répond aux messages de la page" },
+    { nom: "Publications Facebook / Instagram", connecte: false, note: "À relier dans Metricool (marque grema.11)" },
+    { nom: "TikTok",                      connecte: true,  note: "Relié à Metricool (grema.11)" },
+    { nom: "YouTube",                     connecte: true,  note: "Relié à Metricool" },
+    { nom: "E-mail",                      connecte: true,  note: "Relié via MyChatBot" },
+    { nom: "Site Grema 88",               connecte: true,  note: "Boutique, formulaire vendeurs et chat Veronica" }
   ]
 };
