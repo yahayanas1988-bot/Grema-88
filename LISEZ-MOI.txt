@@ -21,6 +21,9 @@ Pour traduire le texte d'une publication, ouvrez « Traductions » dans sa fiche
 
 Espace Agent Patron :
 - Page agent-patron/index.html (lien « Agent Patron » en bas du site) : le tableau de bord des agents IA.
-- Les chiffres viennent de agent-patron/agents.js. Pour l'instant ce sont des exemples ;
-  modifiez ce fichier (agents, tâches, journal, canaux) puis redéposez le dossier sur Netlify.
+- Les chiffres viennent de agent-patron/agents.js. Ce sont les vraies données, relevées
+  dans MyChatBot et Metricool (la date du relevé s'affiche en haut de la page).
+  La mise à jour n'est pas encore automatique : modifiez ce fichier ou demandez à Claude
+  de le mettre à jour, puis redéposez le dossier sur Netlify.
+- N'y mettez aucun numéro de téléphone ni nom de client.
 - La page n'est pas référencée par Google, mais toute personne qui a le lien peut la voir.
