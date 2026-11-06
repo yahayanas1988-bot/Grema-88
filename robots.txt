@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /agent-patron/
 
-Sitemap: https://grema88.netlify.app/sitemap.xml
+Sitemap: https://yahayanas1988-bot.github.io/Grema-88/sitemap.xml

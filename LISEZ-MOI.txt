@@ -1,18 +1,25 @@
 SITE GREMA88 - mode d'emploi
 
+Adresse du site : https://yahayanas1988-bot.github.io/Grema-88/
+Le site est publié gratuitement par GitHub Pages. À chaque changement sur la branche
+main du dépôt GitHub, il se met à jour tout seul en une minute environ.
+
 Publier une appli, un livre ou une vidéo :
 1. Ouvrez admin.html (lien « Espace Grema · publier » en bas du site).
 2. Ajoutez ou modifiez vos publications, puis cliquez « Télécharger contenu.js ».
-3. Remplacez le fichier contenu.js de ce dossier par celui que vous venez de télécharger.
-4. Sur Netlify, ouvrez votre site > Deploys, et glissez ce dossier entier dans la zone de dépôt.
+3. Sur github.com/yahayanas1988-bot/Grema-88, choisissez « Add file » puis « Upload files »,
+   déposez le contenu.js téléchargé et validez (« Commit changes »).
+4. Attendez une minute : le site est à jour. L'onglet « Actions » du dépôt montre la publication.
 
-Images : vous pouvez les ajouter directement depuis l'Espace Grema, ou mettre le fichier
-dans le dossier images/ et écrire images/nom-du-fichier.jpg dans le champ Image.
-Livres en PDF : mettez le PDF dans un dossier livres/ et écrivez livres/mon-livre.pdf dans le champ Lien.
+Images : vous pouvez les ajouter directement depuis l'Espace Grema, ou envoyer le fichier
+dans le dossier images/ sur GitHub et écrire images/nom-du-fichier.jpg dans le champ Image.
+Livres en PDF : envoyez le PDF dans un dossier livres/ et écrivez livres/mon-livre.pdf dans le champ Lien.
 
 Boutique et vendeurs :
-- Les vendeurs remplissent le formulaire « Vendez sur Grema88 ». Leurs demandes arrivent sur Netlify,
-  onglet Forms, formulaire « vendeur » (seulement une fois le site en ligne sur Netlify).
+- Les vendeurs remplissent le formulaire « Vendez sur Grema88 ». En cliquant « Envoyer », leur
+  messagerie s'ouvre avec la fiche du produit, adressée au WhatsApp de l'agence, ou à son e-mail
+  si le WhatsApp est vide. Ils y joignent la photo et envoient.
+- Le WhatsApp et l'e-mail de l'agence se règlent dans l'Espace Grema (fiche « Agence »).
 - Si vous acceptez un produit, ajoutez-le dans l'Espace Grema avec « + Produit » et le WhatsApp du vendeur.
   Le bouton « Commander sur WhatsApp » ouvre la discussion avec ce vendeur.
 
@@ -21,6 +28,13 @@ Pour traduire le texte d'une publication, ouvrez « Traductions » dans sa fiche
 
 Espace Agent Patron :
 - Page agent-patron/index.html (lien « Agent Patron » en bas du site) : le tableau de bord des agents IA.
-- Les chiffres viennent de agent-patron/agents.js. Pour l'instant ce sont des exemples ;
-  modifiez ce fichier (agents, tâches, journal, canaux) puis redéposez le dossier sur Netlify.
+- Les chiffres viennent de agent-patron/agents.js. Ce sont les vraies données, relevées
+  dans MyChatBot et Metricool (la date du relevé s'affiche en haut de la page).
+  La mise à jour n'est pas encore automatique : modifiez ce fichier ou demandez à Claude
+  de le mettre à jour.
+- N'y mettez aucun numéro de téléphone ni nom de client.
 - La page n'est pas référencée par Google, mais toute personne qui a le lien peut la voir.
+
+Publication (pour information) :
+- Le fichier .github/workflows/pages.yml publie le site. Il n'envoie pas le dossier
+  agent-expert/ (code de l'agent IA), qui reste seulement sur GitHub.
