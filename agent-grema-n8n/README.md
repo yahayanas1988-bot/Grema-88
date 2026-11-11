@@ -32,6 +32,7 @@ Tout tient dans **un seul workflow** (un seul écran dans n8n) et **un seul tabl
 - **Tout passe par Claude** : le même compte Claude (API Anthropic) fait réfléchir les 8 agents et fait aussi la recherche Internet (outil « Recherche Internet (Claude) »).
 - **Les clients** qui écrivent sur WhatsApp parlent seulement à l'Agent WhatsApp (ils ne voient rien d'interne).
 - **7 h** : « ☀️ Ma journée » ; **20 h** : résumé du soir. Les deux arrivent sur le WhatsApp de GREMA.
+- **Solide** : si Claude ne répond pas, l'agent envoie « 😔 Petit souci technique… » au lieu de rester muet ; si le tri échoue, c'est le Patron qui répond ; un échec d'envoi WhatsApp ne bloque pas le reste.
 - **Une mémoire par conversation** (20 derniers messages), partagée par tous les agents.
 - **Règle d'or** écrite dans chaque agent : ils préparent, ils ne publient, ne paient et n'envoient rien à un tiers sans ton « oui ».
 
@@ -90,6 +91,7 @@ Le workflow a été importé et activé dans un vrai n8n (version 2.47), avec un
 - l'Agent Recherche utilise bien la recherche Internet via Claude et reprend le résultat dans sa réponse ;
 - un client WhatsApp va seulement à l'Agent WhatsApp, et la réponse part vers son numéro ;
 - les accusés de lecture WhatsApp sont ignorés ;
+- quand Claude est en panne (simulée), l'agent répond quand même avec un message d'excuse ;
 - le journal se remplit et la page tient sur un écran de téléphone.
 
 Pas encore testé pour de vrai : l'envoi chez Meta (WhatsApp) et les réponses de Claude, car il faut tes propres clés.

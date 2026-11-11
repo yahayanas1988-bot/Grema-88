@@ -167,6 +167,10 @@ BASE = (
     "- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n"
 )
 AGENTS = [
+    ("patron", "👑 Agent Patron", "Discussion, conseils, tout le reste",
+     "Tu es l'Agent Patron, chef d'orchestre de l'équipe (WhatsApp, Réseaux, Ventes, Recherche, Rapports, Créatif, Finances). Tu réponds "
+     "toi-même aux discussions, aux questions générales sur tous les sujets, aux conseils et aux demandes qui touchent "
+     "plusieurs agents (fais alors un plan court : qui fait quoi). Si tu n'es pas sûr d'un fait, cherche sur Internet. Quand GREMA veut juste parler, discute sans ramener le travail."),
     ("whatsapp", "💬 Agent WhatsApp", "Clients et commandes sur WhatsApp",
      "Tu es l'Agent WhatsApp, le vendeur et service client de la boutique Grema 88. Tu réponds aux CLIENTS : produits, "
      "prix connus, commande, livraison, paiement mobile money. Pour une commande, récapitule (produit, quantité, prix si connu, "
@@ -195,10 +199,6 @@ AGENTS = [
      "conversions FCFA / euro (1 € = 655,957 FCFA, taux fixe), les coûts des outils (Claude, n8n, WhatsApp) et tu conseilles "
      "le paiement sécurisé par mobile money (Airtel Money, Moov Money, Orange Money, Wave). Rappelle si besoin que tout revenu "
      "de GREMA doit être déclaré à l'Agentur für Arbeit. Tu ne fais jamais de paiement."),
-    ("patron", "👑 Agent Patron", "Discussion, conseils, tout le reste",
-     "Tu es l'Agent Patron, chef d'orchestre de l'équipe (WhatsApp, Réseaux, Ventes, Recherche, Rapports, Créatif, Finances). Tu réponds "
-     "toi-même aux discussions, aux questions générales sur tous les sujets, aux conseils et aux demandes qui touchent "
-     "plusieurs agents (fais alors un plan court : qui fait quoi). Si tu n'es pas sûr d'un fait, cherche sur Internet. Quand GREMA veut juste parler, discute sans ramener le travail."),
 ]
 
 CLASS = "🧭 Agent Patron : à qui confier ?"
@@ -210,7 +210,7 @@ node(CLASS, "@n8n/n8n-nodes-langchain.textClassifier", V["classifier"], (1000, 1
     "options": {"fallback": "other", "systemPromptTemplate":
         "Tu es l'Agent Patron de Grema 88. Classe la demande de GREMA dans la catégorie de l'agent le plus adapté. "
         "Si le message commence par « [Demande pour l'agent X] », choisis X. Une discussion, une salutation ou une question "
-        "générale va à « patron »."}})
+        "générale va à « patron »."}}, onError="continueRegularOutput")
 lien("C'est GREMA ?", CLASS, 0)
 
 MODELE = "🧠 Claude (le cerveau)"
@@ -253,7 +253,8 @@ for i, (aid, nom, role, consigne) in enumerate(AGENTS):
         "options": {"systemMessage": "=" + BASE + "\nTon rôle : " + consigne +
                     "\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). "
                     "Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
-                    "maxIterations": 6}})
+                    "maxIterations": 6}},
+        onError="continueRegularOutput")
     lien(MODELE, nom, 0, "ai_languageModel")
     lien(MEMO, nom, 0, "ai_memory")
     if aid in ("ventes", "recherche", "finances", "patron"):
@@ -272,7 +273,8 @@ lien("C'est GREMA ?", "💬 Agent WhatsApp", 1)
 PREP = "📝 Préparer la réponse"
 ids = {a[1]: a[0] for a in AGENTS}
 sset(PREP, (2240, 300), [
-    ("reponse", "={{ $json.output }}", "string"),
+    ("reponse", "={{ $json.output || '😔 Petit souci technique de mon côté, je n’ai pas pu répondre. Réessaie dans une minute s’il te plaît.' }}", "string"),
+    ("erreur", "={{ $json.error ? String($json.error.message || $json.error) : '' }}", "string"),
     ("agent", "={{ $prevNode.name.replace(/^\\S+\\s/, '') }}", "string"),
     ("agentId", "={{ (" + json.dumps(ids, ensure_ascii=False) + ")[$prevNode.name] || 'patron' }}", "string"),
     ("question", "={{ $('⚙️ Réglages').item.json.texte }}", "string"),
@@ -293,7 +295,7 @@ node(JOUR, "n8n-nodes-base.code", V["code"], (2460, 300), {"jsCode": (
     "for (const item of $input.all()) {\n"
     "  const j = item.json;\n"
     "  memo.journal.push({ heure: j.heure, agent: j.agent, agentId: j.agentId, canal: j.canal, nom: j.nom,\n"
-    "    estGrema: j.estGrema, question: String(j.question || '').slice(0, 300), reponse: String(j.reponse || '').slice(0, 600) });\n"
+    "    estGrema: j.estGrema, erreur: j.erreur || '', question: String(j.question || '').slice(0, 300), reponse: String(j.reponse || '').slice(0, 600) });\n"
     "}\n"
     "memo.journal = memo.journal.slice(-200);\n"
     "return $input.all();")})
@@ -312,7 +314,7 @@ node("📤 Répondre sur WhatsApp", "n8n-nodes-base.whatsApp", V["wa"], (2940, 1
     "phoneNumberId": "={{ $('⚙️ Réglages').item.json.idNumeroWhatsApp }}",
     "recipientPhoneNumber": "={{ $json.destinataire }}",
     "textBody": "={{ $json.reponse.slice(0, 4000) }}",
-    "additionalFields": {}})
+    "additionalFields": {}}, retryOnFail=True, maxTries=2, onError="continueRegularOutput")
 lien(SW, "📤 Répondre sur WhatsApp", 0)
 node("↩️ Répondre au tableau de bord", "n8n-nodes-base.respondToWebhook", V["respond"], (2940, 300), {
     "respondWith": "json",

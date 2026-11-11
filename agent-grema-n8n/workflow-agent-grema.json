@@ -8,7 +8,7 @@
         "width": 760,
         "color": 4
       },
-      "id": "1d2d153c-06e3-43e2-84a4-041c845d434b",
+      "id": "3c00a049-32a7-480c-af51-daee94fc6d04",
       "name": "Note 0",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -24,7 +24,7 @@
         "width": 760,
         "color": 7
       },
-      "id": "9ba89029-7baf-4601-8b33-92dd9be41264",
+      "id": "4e474f34-06ac-4efc-80fe-159da839005d",
       "name": "Note 1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -40,7 +40,7 @@
         "width": 820,
         "color": 6
       },
-      "id": "13f963bf-de9b-41b0-a567-01d8be4963e6",
+      "id": "f05de34c-3c1f-4d40-baca-2c1d7f0e0018",
       "name": "Note 2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -56,7 +56,7 @@
         "width": 1200,
         "color": 5
       },
-      "id": "bb20da1d-f83c-4682-9755-f5f29847b368",
+      "id": "13335769-5e86-445d-b7fa-8af91b50f1e6",
       "name": "Note 3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -72,7 +72,7 @@
         "width": 1000,
         "color": 7
       },
-      "id": "a23e4b88-faff-48f9-b954-56219e4a4abf",
+      "id": "debcd908-e9db-4c61-a532-498c1bd4279b",
       "name": "Note 4",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -87,7 +87,7 @@
           "messages"
         ]
       },
-      "id": "d8cc845c-2349-4cf5-bc2d-e275aa97dbca",
+      "id": "79e4ce69-e865-4540-9792-84624b1f7742",
       "name": "📱 WhatsApp : message reçu",
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
@@ -95,7 +95,7 @@
         -660,
         -60
       ],
-      "webhookId": "eb7d7035-d13e-45bc-9f76-69e9a4e8e8c2"
+      "webhookId": "aa75aac9-c406-4ab8-bebd-9d3f56fd74dd"
     },
     {
       "parameters": {
@@ -103,31 +103,31 @@
         "assignments": {
           "assignments": [
             {
-              "id": "578b499e-34fa-4ff2-a203-b3796f87d810",
+              "id": "646b4b66-c6d7-4bcc-905c-17011eefc1e9",
               "name": "texte",
               "value": "={{ $json.messages?.[0]?.text?.body ?? $json.messages?.[0]?.button?.text ?? '' }}",
               "type": "string"
             },
             {
-              "id": "b0a83d3f-a2ec-4444-98c9-67ef600ce042",
+              "id": "5068b0cc-9e62-4575-8833-9077d98e7bd6",
               "name": "canal",
               "value": "whatsapp",
               "type": "string"
             },
             {
-              "id": "85adf7fb-06e9-4a32-a453-7c0672ffb44a",
+              "id": "b5c18224-da8c-46c8-a2dc-ea3a348104d1",
               "name": "expediteur",
               "value": "={{ $json.messages?.[0]?.from ?? '' }}",
               "type": "string"
             },
             {
-              "id": "b0db791a-ce1c-43de-a53f-25ae9ddb2ddf",
+              "id": "f5189509-7320-4ec4-8a3f-e9214189a1fd",
               "name": "nom",
               "value": "={{ $json.contacts?.[0]?.profile?.name ?? '' }}",
               "type": "string"
             },
             {
-              "id": "3f7b3a5a-8b27-43b6-bf03-0daec2c0b77e",
+              "id": "39554915-7dff-4a6e-8bfa-37515064a5a4",
               "name": "sessionId",
               "value": "={{ 'wa-' + ($json.messages?.[0]?.from ?? 'inconnu') }}",
               "type": "string"
@@ -136,7 +136,7 @@
         },
         "options": {}
       },
-      "id": "b66e8ea3-a770-4612-81e6-b04e23454ad5",
+      "id": "54d3b202-b21e-4398-9c05-c54b26dd8ff0",
       "name": "Lire le message WhatsApp",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -155,7 +155,7 @@
           "allowedOrigins": "*"
         }
       },
-      "id": "9d1be7dc-0e23-4438-bade-50006bc502ac",
+      "id": "1e16cc11-6475-4b84-b425-1a6e0b42c87d",
       "name": "🌐 Tableau de bord : demande",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -163,7 +163,7 @@
         -660,
         200
       ],
-      "webhookId": "27fbf955-99df-448b-b3f4-e5b5ed013bd5"
+      "webhookId": "d204d165-6f3b-4441-92f4-a219ecc433a7"
     },
     {
       "parameters": {
@@ -176,7 +176,7 @@
           },
           "conditions": [
             {
-              "id": "e3af74f3-41ef-4038-8925-ea2398158ca5",
+              "id": "ddaf2395-c0e3-40cc-b13d-b6f4264da70e",
               "leftValue": "={{ $json.body?.action }}",
               "rightValue": "journal",
               "operator": {
@@ -189,7 +189,7 @@
         },
         "options": {}
       },
-      "id": "1fede126-d2e6-4c63-b16e-f51856ac7222",
+      "id": "06f6d273-405c-49bb-ae97-2440c7a52855",
       "name": "Journal demandé ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
@@ -202,7 +202,7 @@
       "parameters": {
         "jsCode": "const memo = $getWorkflowStaticData('global');\nreturn [{ json: { journal: memo.journal || [] } }];"
       },
-      "id": "ad5f41f8-64f8-4199-8902-fd526a07b83a",
+      "id": "16072895-8efd-49df-a8c6-c13986f5aa75",
       "name": "Lire le journal",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -217,7 +217,7 @@
         "responseBody": "={{ $json }}",
         "options": {}
       },
-      "id": "18693911-1066-42be-b1fa-5e78b15ff656",
+      "id": "aedf3ae7-4e5c-4c98-a433-b2f97dabd53a",
       "name": "↩️ Envoyer le journal",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
@@ -232,31 +232,31 @@
         "assignments": {
           "assignments": [
             {
-              "id": "c3d248bb-77ee-4bbc-a514-4d997e782884",
+              "id": "46fa937e-b750-46ad-a729-356a501d51c8",
               "name": "texte",
               "value": "={{ ($json.body?.agent ? '[Demande pour l\\'agent ' + $json.body.agent + '] ' : '') + ($json.body?.message ?? '') }}",
               "type": "string"
             },
             {
-              "id": "160d7b62-ceaa-41b2-96eb-a00355bf3cde",
+              "id": "c1c210bd-8156-4d60-9565-cae0da60cf9b",
               "name": "canal",
               "value": "tableau",
               "type": "string"
             },
             {
-              "id": "5f02be89-8d8e-4424-bda7-c2a258a9747a",
+              "id": "d054b923-1228-40c6-a2eb-2b15b7d91a57",
               "name": "expediteur",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "03246639-187f-4bf1-872a-086c5e64dd6e",
+              "id": "e039c81d-4f4b-4fd0-8fc5-67832b9fda6c",
               "name": "nom",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "9bcc5d33-0bab-439d-a165-c1c7d445d1c6",
+              "id": "921c96c3-1cfc-4479-a209-6fdb84cab36d",
               "name": "sessionId",
               "value": "={{ $json.body?.session || 'tableau-grema' }}",
               "type": "string"
@@ -265,7 +265,7 @@
         },
         "options": {}
       },
-      "id": "5d3b3524-ba02-49ab-8495-41676c4f4eef",
+      "id": "ad0f4a16-caf5-4be6-972e-616b5c3c82a9",
       "name": "Lire la demande du tableau",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -280,7 +280,7 @@
         "responseMode": "responseNode",
         "options": {}
       },
-      "id": "1270f96c-0722-4b0b-8847-c777839b9be9",
+      "id": "8ff38040-da60-4c39-9864-7a9cdbd6ba2b",
       "name": "🖥️ Ouvrir le tableau de bord",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
@@ -288,12 +288,12 @@
         -660,
         480
       ],
-      "webhookId": "5ed9e94a-4edb-40c5-b487-4e880fd188ee"
+      "webhookId": "3cf1451c-b27c-4643-85ea-321e2fe8bf2b"
     },
     {
       "parameters": {
         "respondWith": "text",
-        "responseBody": "<!doctype html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Agent Grema</title>\n<style>\n:root{--fond:#0f1330;--carte:#181d45;--ligne:#2a3170;--texte:#eef0ff;--doux:#a9aedb;--or:#e3a72f;--indigo:#3b44a8;--ok:#2fb37f;--err:#e0604a}\n*{box-sizing:border-box}\nhtml,body{margin:0;background:var(--fond);color:var(--texte);font:15px/1.45 system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif}\nbody{min-height:100vh;display:flex;flex-direction:column}\nheader{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--ligne)}\nheader h1{font-size:18px;margin:0;flex:1;min-width:0}\nheader h1 b{color:var(--or)}\n.pastille{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--ligne);color:var(--doux)}\n.pastille.ok{background:rgba(47,179,127,.18);color:var(--ok)}\n.pastille.err{background:rgba(224,96,74,.18);color:var(--err)}\nbutton{font:inherit;cursor:pointer;border:0;border-radius:10px}\n.icone{background:var(--carte);color:var(--texte);padding:6px 10px}\nmain{flex:1;display:grid;grid-template-columns:260px 1fr 300px;gap:12px;padding:12px 16px;min-height:0}\nsection{background:var(--carte);border:1px solid var(--ligne);border-radius:14px;padding:12px;min-height:0;display:flex;flex-direction:column}\nsection h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--doux);margin:0 0 10px}\n.agents{display:flex;flex-direction:column;gap:8px;overflow:auto}\n.agent{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;background:transparent;color:var(--texte);text-align:left;border:1px solid transparent;width:100%}\n.agent:hover{background:rgba(255,255,255,.04)}\n.agent.actif{border-color:var(--or);background:rgba(227,167,47,.08)}\n.agent .rond{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:15px}\n.agent .nom{font-weight:600;font-size:14px}\n.agent .role{font-size:12px;color:var(--doux)}\n.agent .nb{margin-left:auto;font-size:12px;color:var(--doux)}\n.chat{flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}\n.msg{max-width:85%;padding:9px 12px;border-radius:14px;white-space:pre-wrap;word-wrap:break-word}\n.msg.moi{align-self:flex-end;background:var(--indigo)}\n.msg.agent-r{align-self:flex-start;background:#222866}\n.msg .qui{display:block;font-size:11px;color:var(--or);margin-bottom:3px;font-weight:600}\n.msg.attente{opacity:.7;font-style:italic}\n.vide{color:var(--doux);text-align:center;margin:auto;padding:20px}\n.raccourcis{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}\n.raccourcis button{background:transparent;border:1px solid var(--ligne);color:var(--doux);padding:5px 10px;border-radius:99px;font-size:13px}\n.raccourcis button:hover{color:var(--texte);border-color:var(--or)}\nform.saisie{display:flex;gap:8px}\nform.saisie textarea{flex:1;resize:none;height:46px;border-radius:12px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);padding:11px 12px;font:inherit}\nform.saisie button{background:var(--or);color:#1a1300;font-weight:700;padding:0 18px}\n.journal{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px}\n.ligne{border-left:3px solid var(--ligne);padding:4px 0 4px 9px;font-size:13px}\n.ligne .t{color:var(--doux);font-size:11px}\n.ligne .q{color:var(--texte)}\n.ligne .r{color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}\n.chiffre{background:var(--fond);border-radius:10px;padding:8px;text-align:center}\n.chiffre b{display:block;font-size:20px;color:var(--or)}\n.chiffre span{font-size:11px;color:var(--doux)}\ndialog{background:var(--carte);color:var(--texte);border:1px solid var(--ligne);border-radius:14px;max-width:420px;width:calc(100% - 32px)}\ndialog input{width:100%;padding:10px;border-radius:10px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);font:inherit;margin:6px 0 12px}\ndialog .actions{display:flex;gap:8px;justify-content:flex-end}\ndialog .actions button{padding:8px 14px}\n.principal{background:var(--or);color:#1a1300;font-weight:700}\n.second{background:var(--ligne);color:var(--texte)}\n@media (max-width:980px){\n  main{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto}\n  section{min-width:0}\n  .agents{flex-direction:row;overflow-x:auto;padding-bottom:4px}\n  .agent{flex:none;width:auto}\n  .agent .role,.agent .nb{display:none}\n  #zone-chat{min-height:60vh}\n  #zone-journal{max-height:50vh}\n}\n</style>\n</head>\n<body>\n<header>\n  <h1>Agent <b>Grema</b> · tableau de bord</h1>\n  <span id=\"etat\" class=\"pastille\">…</span>\n  <button class=\"icone\" id=\"btn-cle\" title=\"Clé d'accès\">🔑</button>\n</header>\n<main>\n  <section>\n    <h2>Les agents</h2>\n    <div class=\"agents\" id=\"agents\"></div>\n  </section>\n  <section id=\"zone-chat\">\n    <h2 id=\"titre-chat\">Parler à l'Agent Patron</h2>\n    <div class=\"chat\" id=\"chat\"><div class=\"vide\">Salam aleykoum GREMA 👋<br>Écris ta demande : le Patron la confie au bon agent.</div></div>\n    <div class=\"raccourcis\" id=\"raccourcis\"></div>\n    <form class=\"saisie\" id=\"form\">\n      <textarea id=\"texte\" placeholder=\"Écris ici…\" aria-label=\"Message\"></textarea>\n      <button type=\"submit\">Envoyer</button>\n    </form>\n  </section>\n  <section id=\"zone-journal\">\n    <h2>Journal du jour</h2>\n    <div class=\"chiffres\">\n      <div class=\"chiffre\"><b id=\"n-total\">0</b><span>échanges</span></div>\n      <div class=\"chiffre\"><b id=\"n-wa\">0</b><span>WhatsApp</span></div>\n      <div class=\"chiffre\"><b id=\"n-clients\">0</b><span>clients</span></div>\n    </div>\n    <div class=\"journal\" id=\"journal\"><div class=\"vide\">Rien pour l'instant.</div></div>\n  </section>\n</main>\n\n<dialog id=\"dlg\">\n  <form method=\"dialog\">\n    <h3 style=\"margin-top:0\">Clé d'accès</h3>\n    <p style=\"color:var(--doux);font-size:14px\">C'est la valeur de l'identifiant « Clé tableau de bord Grema » que tu as créé dans n8n.</p>\n    <input id=\"cle\" type=\"password\" autocomplete=\"off\" placeholder=\"Ta clé secrète\">\n    <div class=\"actions\"><button class=\"second\" value=\"annuler\">Annuler</button><button class=\"principal\" value=\"ok\" id=\"cle-ok\">Enregistrer</button></div>\n  </form>\n</dialog>\n\n<script>\n(function(){\n  // L'adresse du workflow est déduite de l'adresse de cette page :\n  //   .../webhook/grema-tableau  ->  .../webhook/agent-grema\n  var ici = (document.referrer && document.referrer.indexOf('/webhook') > -1) ? document.referrer : location.href;\n  var API = (window.API_GREMA) || ici.split(/[?#]/)[0].replace(/\\/grema-tableau\\/?$/, '/agent-grema');\n\n  var AGENTS = [\n    { id:'auto',      nom:'Agent Patron',    role:'Répartit chaque demande',          icone:'👑', couleur:'#e3a72f' },\n    { id:'whatsapp',  nom:'Agent WhatsApp',  role:'Clients et commandes',             icone:'💬', couleur:'#13785a' },\n    { id:'reseaux',   nom:'Agent Réseaux',   role:'TikTok, YouTube, Facebook',        icone:'📣', couleur:'#b34a2c' },\n    { id:'ventes',    nom:'Agent Ventes',    role:'Boutique, caisse, vendeurs',       icone:'🛍️', couleur:'#5b6be8' },\n    { id:'recherche', nom:'Agent Recherche', role:'Internet, prix, concurrents',  icone:'🔎', couleur:'#7a5bd1' },\n    { id:'rapports',  nom:'Agent Rapports',  role:'Ma journée, résumé du soir',       icone:'📋', couleur:'#b8740c' },\n    { id:'creatif',   nom:'Agent Créatif',   role:'Vidéos, livres, affiches',         icone:'🎬', couleur:'#c2408a' },\n    { id:'finances',  nom:'Agent Finances',  role:'Caisse, marges, mobile money',     icone:'💰', couleur:'#2f9e8f' }\n  ];\n  var RACCOURCIS = ['☀️ Ma journée', '📣 Plan réseaux de la semaine', '🔎 Prix du marché à Niamey aujourd\\'hui', '🎬 Idée de vidéo TikTok de 20 s', '💰 Calcule ma marge'];\n\n  var choisi = 'auto', compte = {}, envoiEnCours = false;\n\n  function lire(k){ try { return localStorage.getItem(k) || ''; } catch(e){ return window['_'+k] || ''; } }\n  function ecrire(k,v){ try { localStorage.setItem(k,v); } catch(e){ window['_'+k] = v; } }\n  function el(t,c,txt){ var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e; }\n  function etat(txt, cls){ var p=document.getElementById('etat'); p.textContent=txt; p.className='pastille '+(cls||''); }\n  function nomAgent(id){ for (var i=0;i<AGENTS.length;i++) if (AGENTS[i].id===id) return AGENTS[i].nom; return id || 'Agent'; }\n\n  function dessinerAgents(){\n    var box=document.getElementById('agents'); box.innerHTML='';\n    AGENTS.forEach(function(a){\n      var b=el('button','agent'+(a.id===choisi?' actif':''));\n      var r=el('span','rond',a.icone); r.style.background=a.couleur+'33';\n      var t=el('span'); t.appendChild(el('div','nom',a.nom)); t.appendChild(el('div','role',a.role));\n      b.appendChild(r); b.appendChild(t);\n      if (a.id!=='auto') b.appendChild(el('span','nb', String(compte[a.id]||0)));\n      b.onclick=function(){ choisi=a.id; dessinerAgents();\n        document.getElementById('titre-chat').textContent = a.id==='auto' ? \"Parler à l'Agent Patron\" : 'Parler à ' + a.nom; };\n      box.appendChild(b);\n    });\n  }\n\n  function dessinerRaccourcis(){\n    var box=document.getElementById('raccourcis');\n    RACCOURCIS.forEach(function(r){ var b=el('button',null,r); b.type='button'; b.onclick=function(){ envoyer(r); }; box.appendChild(b); });\n  }\n\n  function bulle(texte, moi, qui, attente){\n    var chat=document.getElementById('chat'); var v=chat.querySelector('.vide'); if(v) v.remove();\n    var m=el('div','msg '+(moi?'moi':'agent-r')+(attente?' attente':''));\n    if(!moi && qui) m.appendChild(el('span','qui',qui));\n    m.appendChild(document.createTextNode(texte));\n    chat.appendChild(m); chat.scrollTop=chat.scrollHeight; return m;\n  }\n\n  function appel(corps){\n    var cle=lire('cleGrema');\n    return fetch(API,{ method:'POST', headers:{'Content-Type':'application/json','X-Grema-Cle':cle}, body:JSON.stringify(corps) })\n      .then(function(r){ if(r.status===401||r.status===403) throw new Error('cle'); if(!r.ok) throw new Error('http '+r.status); return r.json(); });\n  }\n\n  function envoyer(texte){\n    texte=(texte||'').trim(); if(!texte||envoiEnCours) return;\n    if(!lire('cleGrema')){ demanderCle(); return; }\n    envoiEnCours=true; bulle(texte,true);\n    var attente=bulle('…', false, nomAgent(choisi), true);\n    appel({ action:'message', message:texte, agent: choisi==='auto' ? '' : choisi, session:'tableau-grema' })\n      .then(function(d){ attente.remove(); bulle(d.reponse||'(pas de réponse)', false, d.agent||'Agent'); etat('en ligne','ok'); chargerJournal(); })\n      .catch(function(e){ attente.remove(); bulle(e.message==='cle' ? \"Clé refusée : touche 🔑 pour la corriger.\" : \"Je n'arrive pas à joindre n8n. Vérifie que le workflow est activé.\", false, 'Système'); etat(e.message==='cle'?'clé refusée':'hors ligne','err'); })\n      .then(function(){ envoiEnCours=false; });\n  }\n\n  function chargerJournal(){\n    if(!lire('cleGrema')) { etat('clé manquante','err'); return; }\n    appel({ action:'journal' }).then(function(d){\n      etat('en ligne','ok');\n      var liste=(d.journal||[]).slice().reverse(), box=document.getElementById('journal');\n      box.innerHTML=''; compte={};\n      var auj=new Date().toISOString().slice(0,10), total=0, wa=0, clients=0;\n      (d.journal||[]).forEach(function(x){ compte[x.agentId]=(compte[x.agentId]||0)+1;\n        if((x.heure||'').slice(0,10)===auj){ total++; if(x.canal==='whatsapp') wa++; if(!x.estGrema) clients++; } });\n      document.getElementById('n-total').textContent=total;\n      document.getElementById('n-wa').textContent=wa;\n      document.getElementById('n-clients').textContent=clients;\n      if(!liste.length){ box.appendChild(el('div','vide',\"Rien pour l'instant.\")); }\n      liste.slice(0,40).forEach(function(x){\n        var l=el('div','ligne'); var a=AGENTS.filter(function(g){return g.id===x.agentId;})[0];\n        if(a) l.style.borderLeftColor=a.couleur;\n        var h=new Date(x.heure); var hh=isNaN(h)?'':h.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});\n        l.appendChild(el('div','t', hh+' · '+(x.agent||'')+' · '+(x.canal||'')+(x.estGrema?'':' · client '+(x.nom||''))));\n        l.appendChild(el('div','q', String(x.question||'').replace(/^\\[Demande pour l'agent \\w+\\]\\s*/,'')));\n        l.appendChild(el('div','r', x.reponse||''));\n        box.appendChild(l);\n      });\n      dessinerAgents();\n    }).catch(function(e){ etat(e.message==='cle'?'clé refusée':'hors ligne','err'); });\n  }\n\n  function demanderCle(){ var d=document.getElementById('dlg'); document.getElementById('cle').value=lire('cleGrema');\n    if(d.showModal) d.showModal(); else { var v=prompt('Clé d\\'accès'); if(v!=null){ ecrire('cleGrema',v.trim()); chargerJournal(); } } }\n  document.getElementById('dlg').addEventListener('close',function(){\n    if(this.returnValue==='ok'){ ecrire('cleGrema',document.getElementById('cle').value.trim()); chargerJournal(); } });\n  document.getElementById('btn-cle').onclick=demanderCle;\n  document.getElementById('form').onsubmit=function(e){ e.preventDefault(); var t=document.getElementById('texte'); envoyer(t.value); t.value=''; };\n  document.getElementById('texte').addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); document.getElementById('form').requestSubmit(); } });\n\n  // Lien avec la clé : .../grema-tableau#cle=TA_CLE (à garder en favori, la page ne peut pas toujours mémoriser la clé)\n  var m=(location.hash||'').match(/cle=([^&]+)/); if(m) ecrire('cleGrema', decodeURIComponent(m[1]));\n  dessinerAgents(); dessinerRaccourcis();\n  if(lire('cleGrema')) chargerJournal(); else { etat('clé manquante','err'); demanderCle(); }\n  setInterval(chargerJournal, 30000);\n})();\n</script>\n</body>\n</html>\n",
+        "responseBody": "<!doctype html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<meta name=\"theme-color\" content=\"#0d1029\">\n<title>Agent Grema</title>\n<style>\n:root{\n  --fond:#0d1029; --fond2:#11153a; --carte:#161b47; --carte2:#1c2257; --ligne:#272e6e;\n  --texte:#f1f2ff; --doux:#a7acd9; --pale:#7c82b8;\n  --or:#e3a72f; --or2:#f4c86a; --indigo:#3d47b5; --ok:#35c58c; --err:#ef6a52;\n  --rayon:16px; --ombre:0 10px 30px rgba(0,0,0,.25);\n}\n*{box-sizing:border-box}\nhtml,body{margin:0;background:var(--fond);color:var(--texte);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,\"Segoe UI\",Roboto,\"Noto Sans\",sans-serif;-webkit-font-smoothing:antialiased}\nbody{min-height:100vh;display:flex;flex-direction:column;\n  background:radial-gradient(1200px 500px at 85% -10%,rgba(227,167,47,.10),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(61,71,181,.25),transparent 60%),var(--fond)}\nbutton{font:inherit;cursor:pointer;border:0;border-radius:12px;color:inherit}\nbutton:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--or);outline-offset:2px}\n\n/* En-tête */\nheader{position:relative;display:flex;align-items:center;gap:12px;padding:14px 20px 18px}\nheader::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:6px;opacity:.9;\n  background:linear-gradient(135deg,var(--or) 25%,transparent 25%) -6px 0/12px 12px,linear-gradient(225deg,var(--or) 25%,transparent 25%) -6px 0/12px 12px,linear-gradient(315deg,var(--indigo) 25%,transparent 25%) 0 0/12px 12px,linear-gradient(45deg,var(--indigo) 25%,transparent 25%) 0 0/12px 12px}\n.logo{width:40px;height:40px;flex:none;display:grid;place-items:center;transform:rotate(45deg);border-radius:9px;\n  background:linear-gradient(135deg,var(--or2),var(--or));box-shadow:0 6px 18px rgba(227,167,47,.35)}\n.logo span{transform:rotate(-45deg);font-weight:800;font-size:13px;color:#2a1c00;letter-spacing:-.02em}\n.titre{flex:1;min-width:0}\n.titre h1{font-size:19px;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.01em}\n.titre h1 b{color:var(--or)}\n.titre p{margin:2px 0 0;color:var(--doux);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n.pastille{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:5px 10px;border-radius:99px;background:var(--carte);color:var(--doux);border:1px solid var(--ligne);white-space:nowrap}\n.pastille::before{content:\"\";width:7px;height:7px;border-radius:50%;background:var(--pale)}\n.pastille.ok{color:var(--ok)} .pastille.ok::before{background:var(--ok);box-shadow:0 0 0 3px rgba(53,197,140,.2)}\n.pastille.err{color:var(--err)} .pastille.err::before{background:var(--err)}\n.icone{background:var(--carte);border:1px solid var(--ligne);width:38px;height:38px;display:grid;place-items:center;font-size:16px}\n.icone:hover{border-color:var(--or)}\n\n/* Grille */\nbody{height:100vh;overflow:hidden}\nmain{flex:1;display:grid;grid-template-columns:270px minmax(0,1fr) 310px;grid-template-rows:minmax(0,1fr);gap:14px;padding:14px 20px 20px;min-height:0}\nsection{background:linear-gradient(180deg,var(--carte),var(--fond2));border:1px solid var(--ligne);border-radius:var(--rayon);padding:14px;min-height:0;min-width:0;display:flex;flex-direction:column;box-shadow:var(--ombre)}\nsection h2{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);margin:2px 2px 12px;font-weight:650}\n\n/* Agents */\n.agents{display:flex;flex-direction:column;gap:6px;overflow:auto;margin:0 -4px;padding:0 4px}\n.agent{display:flex;align-items:center;gap:11px;padding:9px 10px;background:transparent;text-align:left;border:1px solid transparent;width:100%;transition:background .15s,border-color .15s}\n.agent:hover{background:rgba(255,255,255,.04)}\n.agent.actif{border-color:rgba(227,167,47,.6);background:rgba(227,167,47,.09)}\n.rond{position:relative;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;font-size:17px}\n.rond::after{content:\"\";position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--carte)}\n.agent .nom{font-weight:650;font-size:14px;line-height:1.2}\n.agent .role{font-size:12px;color:var(--doux);line-height:1.3;margin-top:2px}\n.agent .nb{margin-left:auto;font-size:12px;font-weight:650;min-width:24px;text-align:center;padding:2px 7px;border-radius:99px;background:var(--fond);color:var(--doux)}\n.agent .nb.plein{background:rgba(227,167,47,.15);color:var(--or2)}\n\n/* Chat */\n#zone-chat h2 .qui-parle{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--texte);font-weight:650}\n.chat{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:4px 6px 8px 2px;scroll-behavior:smooth}\n.msg{max-width:min(78ch,86%);padding:10px 14px;border-radius:16px;word-wrap:break-word;animation:entre .2s ease-out}\n.msg p{margin:0 0 6px} .msg p:last-child{margin:0}\n.msg ul{margin:4px 0;padding-left:18px}\n.msg a{color:var(--or2)}\n.msg.moi{align-self:flex-end;background:linear-gradient(135deg,#4b55c9,var(--indigo));border-bottom-right-radius:5px}\n.msg.agent-r{align-self:flex-start;background:var(--carte2);border:1px solid var(--ligne);border-bottom-left-radius:5px}\n.msg .entete{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--or2);margin-bottom:4px;font-weight:650}\n.msg .heure{font-size:11px;color:var(--pale);margin-top:4px;text-align:right}\n.msg.systeme{border-color:rgba(239,106,82,.5)}\n.points{display:inline-flex;gap:4px;padding:4px 0}\n.points i{width:7px;height:7px;border-radius:50%;background:var(--doux);animation:saute 1s infinite}\n.points i:nth-child(2){animation-delay:.15s}.points i:nth-child(3){animation-delay:.3s}\n@keyframes saute{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}\n@keyframes entre{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}\n.accueil{margin:auto;text-align:center;max-width:420px;padding:24px 10px}\n.accueil .grand{font-size:22px;font-weight:750;margin-bottom:6px}\n.accueil p{color:var(--doux);margin:0}\n.raccourcis{display:flex;gap:8px;overflow-x:auto;margin:10px 0;padding-bottom:2px;scrollbar-width:none}\n.raccourcis::-webkit-scrollbar{display:none}\n.raccourcis button{flex:none;background:var(--fond);border:1px solid var(--ligne);color:var(--doux);padding:7px 12px;border-radius:99px;font-size:13px;transition:color .15s,border-color .15s}\n.raccourcis button:hover{color:var(--texte);border-color:var(--or)}\nform.saisie{display:flex;gap:8px;align-items:flex-end;background:var(--fond);border:1px solid var(--ligne);border-radius:16px;padding:6px}\nform.saisie:focus-within{border-color:var(--or)}\nform.saisie textarea{flex:1;resize:none;min-height:42px;max-height:140px;border:0;background:transparent;color:var(--texte);padding:10px;font:inherit;outline:none}\nform.saisie button{background:linear-gradient(135deg,var(--or2),var(--or));color:#2a1c00;font-weight:750;height:42px;padding:0 18px}\nform.saisie button:disabled{opacity:.5;cursor:default}\n\n/* Journal */\n.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}\n.chiffre{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:10px 6px;text-align:center}\n.chiffre b{display:block;font-size:22px;line-height:1.1;color:var(--or2);font-variant-numeric:tabular-nums}\n.chiffre span{font-size:11px;color:var(--doux)}\n.filtres{display:flex;gap:6px;margin-bottom:10px}\n.filtres button{background:transparent;border:1px solid var(--ligne);color:var(--doux);font-size:12px;padding:4px 10px;border-radius:99px}\n.filtres button.on{background:var(--or);border-color:var(--or);color:#2a1c00;font-weight:650}\n.journal{flex:1;overflow:auto;display:flex;flex-direction:column;gap:6px;margin:0 -4px;padding:0 4px}\n.ligne{border-left:3px solid var(--ligne);padding:6px 4px 6px 10px;font-size:13px;border-radius:0 8px 8px 0;cursor:pointer}\n.ligne:hover{background:rgba(255,255,255,.03)}\n.ligne .t{color:var(--pale);font-size:11px}\n.ligne .q{color:var(--texte);font-weight:550}\n.ligne .r{color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n.ligne.ouverte .r{-webkit-line-clamp:unset;white-space:pre-wrap}\n.vide{color:var(--pale);text-align:center;margin:auto;padding:20px;font-size:14px}\n\n/* Fenêtre clé */\ndialog{background:var(--carte);color:var(--texte);border:1px solid var(--ligne);border-radius:18px;max-width:420px;width:calc(100% - 32px);box-shadow:var(--ombre)}\ndialog::backdrop{background:rgba(5,7,25,.7);backdrop-filter:blur(3px)}\ndialog input{width:100%;padding:11px;border-radius:12px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);font:inherit;margin:6px 0 14px}\ndialog .actions{display:flex;gap:8px;justify-content:flex-end}\ndialog .actions button{padding:9px 16px}\n.principal{background:linear-gradient(135deg,var(--or2),var(--or));color:#2a1c00;font-weight:750}\n.second{background:var(--ligne)}\n\n@media (max-width:1100px){ main{grid-template-columns:230px minmax(0,1fr) 270px} }\n@media (max-width:900px){\n  body{height:auto;overflow:auto}\n  main{grid-template-columns:minmax(0,1fr);grid-template-rows:none;padding:10px 12px 16px;gap:10px}\n  header{padding:12px 14px 16px}\n  .titre p{display:none}\n  section{padding:12px}\n  .agents{flex-direction:row;overflow-x:auto;scrollbar-width:none}\n  .agents::-webkit-scrollbar{display:none}\n  .agent{flex:none;width:auto;padding:7px 10px}\n  .agent .role{display:none}\n  .agent .nb{margin-left:4px}\n  #zone-chat{height:72vh}\n  #zone-journal{max-height:60vh}\n}\n@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}\n</style>\n</head>\n<body>\n<header>\n  <div class=\"logo\" aria-hidden=\"true\"><span>G88</span></div>\n  <div class=\"titre\">\n    <h1>Agent <b>Grema</b></h1>\n    <p>Le Patron et ses 7 agents, propulsés par Claude</p>\n  </div>\n  <span id=\"etat\" class=\"pastille\">connexion…</span>\n  <button class=\"icone\" id=\"btn-cle\" title=\"Clé d'accès\" aria-label=\"Clé d'accès\">🔑</button>\n</header>\n<main>\n  <section>\n    <h2>L'équipe <span id=\"nb-agents\"></span></h2>\n    <div class=\"agents\" id=\"agents\"></div>\n  </section>\n  <section id=\"zone-chat\">\n    <h2><span class=\"qui-parle\" id=\"titre-chat\"></span><button class=\"icone\" id=\"btn-effacer\" title=\"Nouvelle discussion\" aria-label=\"Nouvelle discussion\" style=\"width:32px;height:32px;font-size:14px\">🗑️</button></h2>\n    <div class=\"chat\" id=\"chat\" aria-live=\"polite\"></div>\n    <div class=\"raccourcis\" id=\"raccourcis\"></div>\n    <form class=\"saisie\" id=\"form\">\n      <textarea id=\"texte\" rows=\"1\" placeholder=\"Écris ta demande…\" aria-label=\"Message\"></textarea>\n      <button type=\"submit\" id=\"btn-envoyer\">Envoyer</button>\n    </form>\n  </section>\n  <section id=\"zone-journal\">\n    <h2>Journal du jour <span id=\"maj\" style=\"text-transform:none;letter-spacing:0;color:var(--pale)\"></span></h2>\n    <div class=\"chiffres\">\n      <div class=\"chiffre\"><b id=\"n-total\">0</b><span>échanges</span></div>\n      <div class=\"chiffre\"><b id=\"n-wa\">0</b><span>WhatsApp</span></div>\n      <div class=\"chiffre\"><b id=\"n-clients\">0</b><span>clients</span></div>\n    </div>\n    <div class=\"filtres\" id=\"filtres\">\n      <button data-f=\"tout\" class=\"on\">Tout</button><button data-f=\"clients\">Clients</button><button data-f=\"grema\">Mes demandes</button>\n    </div>\n    <div class=\"journal\" id=\"journal\"><div class=\"vide\">Rien pour l'instant.</div></div>\n  </section>\n</main>\n\n<dialog id=\"dlg\">\n  <form method=\"dialog\">\n    <h3 style=\"margin:0 0 6px\">🔑 Clé d'accès</h3>\n    <p style=\"color:var(--doux);font-size:14px;margin:0\">La valeur de l'identifiant « Clé tableau de bord Grema » créé dans n8n.</p>\n    <input id=\"cle\" type=\"password\" autocomplete=\"off\" placeholder=\"Ta clé secrète\">\n    <div class=\"actions\"><button class=\"second\" value=\"annuler\">Annuler</button><button class=\"principal\" value=\"ok\" id=\"cle-ok\">Enregistrer</button></div>\n  </form>\n</dialog>\n\n<script>\n(function(){\n  // Adresse du workflow déduite de cette page : .../webhook/grema-tableau -> .../webhook/agent-grema\n  var API = window.API_GREMA || location.href.split(/[?#]/)[0].replace(/\\/grema-tableau\\/?$/, '/agent-grema');\n\n  var AGENTS = [\n    { id:'auto',      nom:'Agent Patron',    role:'Choisit le bon agent pour chaque demande', icone:'👑', couleur:'#e3a72f' },\n    { id:'whatsapp',  nom:'Agent WhatsApp',  role:'Clients et commandes',                     icone:'💬', couleur:'#1aa37a' },\n    { id:'reseaux',   nom:'Agent Réseaux',   role:'TikTok, YouTube, Facebook',                icone:'📣', couleur:'#d0583a' },\n    { id:'ventes',    nom:'Agent Ventes',    role:'Boutique, vendeurs, offres',               icone:'🛍️', couleur:'#6b7bff' },\n    { id:'recherche', nom:'Agent Recherche', role:'Internet, prix, concurrents',              icone:'🔎', couleur:'#8f6bea' },\n    { id:'rapports',  nom:'Agent Rapports',  role:'Ma journée, résumé du soir',               icone:'📋', couleur:'#d39220' },\n    { id:'creatif',   nom:'Agent Créatif',   role:'Vidéos, livres, affiches',                 icone:'🎬', couleur:'#d24d98' },\n    { id:'finances',  nom:'Agent Finances',  role:'Caisse, marges, mobile money',             icone:'💰', couleur:'#2fb3a1' }\n  ];\n  var RACCOURCIS = {\n    auto:      ['☀️ Ma journée', '🔥 Une idée surprenante pour Grema 88', '🤝 Qui fait quoi cette semaine ?'],\n    whatsapp:  ['💬 Réponse type pour un prix', '📦 Message de confirmation de commande'],\n    reseaux:   ['📣 Plan réseaux de la semaine', '✍️ 3 légendes TikTok pour RDV Pro'],\n    ventes:    ['🛍️ Point sur les ventes', '💡 Idée pour vendre plus ce week-end'],\n    recherche: ['🔎 Prix du marché à Niamey aujourd\\'hui', '🕵️ Mes concurrents en ligne'],\n    rapports:  ['☀️ Ma journée', '🌙 Résumé du jour'],\n    creatif:   ['🎬 Scénario TikTok de 20 s', '📖 Idée de livre pour enfants'],\n    finances:  ['💰 Calcule ma marge', '💶 Convertis 50 000 FCFA en euros']\n  };\n\n  var choisi = 'auto', compte = {}, journalBrut = [], filtre = 'tout', envoiEnCours = false;\n  var $ = function(id){ return document.getElementById(id); };\n\n  function lire(k){ try { return localStorage.getItem(k) || window['_'+k] || ''; } catch(e){ return window['_'+k] || ''; } }\n  function ecrire(k,v){ window['_'+k] = v; try { localStorage.setItem(k,v); } catch(e){} }\n  function el(t,c,txt){ var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e; }\n  function agent(id){ for (var i=0;i<AGENTS.length;i++) if (AGENTS[i].id===id) return AGENTS[i]; return AGENTS[0]; }\n  function etat(txt, cls){ var p=$('etat'); p.textContent=txt; p.className='pastille '+(cls||''); }\n  function heureCourte(d){ return d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}); }\n\n  // Mise en forme sûre : **gras**, listes \"- \", liens, retours à la ligne.\n  function riche(texte){\n    var box=document.createDocumentFragment(), liste=null;\n    String(texte||'').split('\\n').forEach(function(ligne){\n      var puce=/^\\s*[-•]\\s+/.test(ligne);\n      var cible;\n      if(puce){ if(!liste){ liste=el('ul'); box.appendChild(liste); } cible=el('li'); liste.appendChild(cible); ligne=ligne.replace(/^\\s*[-•]\\s+/,''); }\n      else { liste=null; if(!ligne.trim()) return; cible=el('p'); box.appendChild(cible); }\n      ligne.split(/(\\*\\*[^*]+\\*\\*|https?:\\/\\/[^\\s)]+)/).forEach(function(m){\n        if(/^\\*\\*[^*]+\\*\\*$/.test(m)) cible.appendChild(el('strong',null,m.slice(2,-2)));\n        else if(/^https?:\\/\\//.test(m)){ var a=el('a',null,m); a.href=m; a.target='_blank'; a.rel='noopener'; cible.appendChild(a); }\n        else if(m) cible.appendChild(document.createTextNode(m));\n      });\n    });\n    return box;\n  }\n\n  function dessinerAgents(){\n    var box=$('agents'); box.innerHTML='';\n    $('nb-agents').textContent = (AGENTS.length) + ' agents';\n    AGENTS.forEach(function(a){\n      var b=el('button','agent'+(a.id===choisi?' actif':'')); b.type='button';\n      var r=el('span','rond',a.icone); r.style.background=a.couleur+'2e';\n      var t=el('span'); t.appendChild(el('div','nom',a.nom)); t.appendChild(el('div','role',a.role));\n      b.appendChild(r); b.appendChild(t);\n      var n=compte[a.id==='auto'?'patron':a.id]||0; var nb=el('span','nb'+(n?' plein':''), String(n)); nb.title='échanges aujourd\\'hui'; b.appendChild(nb);\n      b.onclick=function(){ choisi=a.id; dessinerAgents(); dessinerTitre(); dessinerRaccourcis(); $('texte').focus(); };\n      box.appendChild(b);\n    });\n  }\n  function dessinerTitre(){\n    var a=agent(choisi), t=$('titre-chat'); t.innerHTML='';\n    t.appendChild(el('span',null,a.icone)); t.appendChild(el('span',null, choisi==='auto' ? 'Agent Patron (choix automatique)' : a.nom));\n  }\n  function dessinerRaccourcis(){\n    var box=$('raccourcis'); box.innerHTML='';\n    (RACCOURCIS[choisi]||RACCOURCIS.auto).forEach(function(r){ var b=el('button',null,r); b.type='button'; b.onclick=function(){ envoyer(r); }; box.appendChild(b); });\n  }\n  function accueil(){\n    var chat=$('chat'); chat.innerHTML='';\n    var h=new Date().getHours(), salut = h<5 ? 'Bonne nuit' : h<12 ? 'Bonjour' : h<18 ? 'Bon après-midi' : 'Bonsoir';\n    var a=el('div','accueil'); a.appendChild(el('div','grand', salut+' GREMA 👋'));\n    a.appendChild(el('p',null,\"Écris ta demande ou touche un raccourci. Le Patron la confie au bon agent, ou choisis toi-même un agent dans l'équipe.\"));\n    chat.appendChild(a);\n  }\n\n  function bulle(texte, moi, qui, cls){\n    var chat=$('chat'); var acc=chat.querySelector('.accueil'); if(acc) acc.remove();\n    var m=el('div','msg '+(moi?'moi':'agent-r')+(cls?' '+cls:''));\n    if(!moi && qui){ var e=el('div','entete'); e.appendChild(el('span',null,qui.icone||'')); e.appendChild(el('span',null,qui.nom||qui)); m.appendChild(e); }\n    if(cls==='attente'){ var p=el('span','points'); p.innerHTML='<i></i><i></i><i></i>'; m.appendChild(p); }\n    else { m.appendChild(riche(texte)); m.appendChild(el('div','heure',heureCourte(new Date()))); }\n    chat.appendChild(m); chat.scrollTop=chat.scrollHeight; return m;\n  }\n\n  function appel(corps){\n    return fetch(API,{ method:'POST', headers:{'Content-Type':'application/json','X-Grema-Cle':lire('cleGrema')}, body:JSON.stringify(corps) })\n      .then(function(r){ if(r.status===401||r.status===403) throw new Error('cle'); if(!r.ok) throw new Error('http '+r.status); return r.json(); });\n  }\n\n  function envoyer(texte){\n    texte=(texte||'').trim(); if(!texte||envoiEnCours) return;\n    if(!lire('cleGrema')){ demanderCle(); return; }\n    envoiEnCours=true; $('btn-envoyer').disabled=true;\n    bulle(texte,true);\n    var attente=bulle('', false, agent(choisi), 'attente');\n    appel({ action:'message', message:texte, agent: choisi==='auto' ? '' : choisi, session: lire('sessionGrema') || 'tableau-grema' })\n      .then(function(d){ attente.remove(); var a=agent(d.agentId==='patron'?'auto':d.agentId); bulle(d.reponse||'(pas de réponse)', false, {icone:a.icone, nom:d.agent||a.nom}); etat('en ligne','ok'); chargerJournal(); })\n      .catch(function(e){ attente.remove();\n        bulle(e.message==='cle' ? \"Clé refusée. Touche 🔑 pour la corriger.\" : \"Je n'arrive pas à joindre n8n. Vérifie que le workflow est bien activé.\", false, {icone:'⚠️', nom:'Système'}, 'systeme');\n        etat(e.message==='cle'?'clé refusée':'hors ligne','err'); })\n      .then(function(){ envoiEnCours=false; $('btn-envoyer').disabled=false; });\n  }\n\n  function dessinerJournal(){\n    var box=$('journal'); box.innerHTML='';\n    var liste=journalBrut.slice().reverse().filter(function(x){ return filtre==='tout' || (filtre==='clients' ? !x.estGrema : x.estGrema); });\n    if(!liste.length){ box.appendChild(el('div','vide', filtre==='clients' ? 'Aucun message client.' : \"Rien pour l'instant.\")); return; }\n    liste.slice(0,60).forEach(function(x){\n      var l=el('div','ligne'); var a=AGENTS.filter(function(g){return g.id===x.agentId;})[0] || AGENTS[0];\n      l.style.borderLeftColor=a.couleur;\n      var h=new Date(x.heure); var hh=isNaN(h)?'':h.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});\n      l.appendChild(el('div','t', hh+' · '+a.icone+' '+(x.agent||'')+' · '+(x.canal||'')+(x.estGrema?'':' · '+(x.nom||'client'))));\n      l.appendChild(el('div','q', String(x.question||'').replace(/^\\[Demande pour l'agent \\w+\\]\\s*/,'')));\n      l.appendChild(el('div','r', x.reponse||''));\n      l.onclick=function(){ l.classList.toggle('ouverte'); };\n      box.appendChild(l);\n    });\n  }\n\n  function chargerJournal(){\n    if(!lire('cleGrema')) { etat('clé manquante','err'); return; }\n    appel({ action:'journal' }).then(function(d){\n      etat('en ligne','ok'); journalBrut=d.journal||[]; compte={};\n      var auj=new Date().toDateString(), total=0, wa=0, clients=0;\n      journalBrut.forEach(function(x){ if(new Date(x.heure).toDateString()!==auj) return;\n        compte[x.agentId]=(compte[x.agentId]||0)+1; total++; if(x.canal==='whatsapp') wa++; if(!x.estGrema) clients++; });\n      $('n-total').textContent=total; $('n-wa').textContent=wa; $('n-clients').textContent=clients;\n      $('maj').textContent='mis à jour '+heureCourte(new Date());\n      dessinerJournal(); dessinerAgents();\n    }).catch(function(e){ etat(e.message==='cle'?'clé refusée':'hors ligne','err'); });\n  }\n\n  function demanderCle(){ var d=$('dlg'); $('cle').value=lire('cleGrema');\n    if(d.showModal) d.showModal(); else { var v=prompt(\"Clé d'accès\"); if(v!=null){ ecrire('cleGrema',v.trim()); chargerJournal(); } } }\n  $('dlg').addEventListener('close',function(){ if(this.returnValue==='ok'){ ecrire('cleGrema',$('cle').value.trim()); chargerJournal(); } });\n  $('btn-cle').onclick=demanderCle;\n  $('btn-effacer').onclick=function(){ ecrire('sessionGrema','tableau-'+Date.now()); accueil(); };\n  $('filtres').onclick=function(e){ var f=e.target.getAttribute('data-f'); if(!f) return; filtre=f;\n    [].forEach.call(this.children,function(b){ b.classList.toggle('on', b===e.target); }); dessinerJournal(); };\n  $('form').onsubmit=function(e){ e.preventDefault(); var t=$('texte'); envoyer(t.value); t.value=''; t.style.height=''; };\n  $('texte').addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); $('form').requestSubmit(); } });\n  $('texte').addEventListener('input',function(){ this.style.height='auto'; this.style.height=Math.min(this.scrollHeight,140)+'px'; });\n\n  // Lien avec la clé : .../grema-tableau#cle=TA_CLE (à garder en favori)\n  var m=(location.hash||'').match(/cle=([^&]+)/); if(m) ecrire('cleGrema', decodeURIComponent(m[1]));\n  dessinerAgents(); dessinerTitre(); dessinerRaccourcis(); accueil();\n  if(lire('cleGrema')) chargerJournal(); else { etat('clé manquante','err'); demanderCle(); }\n  setInterval(chargerJournal, 30000);\n})();\n</script>\n</body>\n</html>\n",
         "options": {
           "responseHeaders": {
             "entries": [
@@ -305,7 +305,7 @@
           }
         }
       },
-      "id": "a718d1b0-ab2d-4412-a000-9a90c44a7e37",
+      "id": "1db211f3-3962-4927-a13c-b4a45483f02b",
       "name": "Afficher le tableau de bord",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
@@ -318,7 +318,7 @@
       "parameters": {
         "options": {}
       },
-      "id": "bec641b6-1c0b-428b-993b-e7f0a2b1548e",
+      "id": "16e41a32-1cfb-4302-9256-e312d423cd15",
       "name": "💬 Chat de test",
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
@@ -326,7 +326,7 @@
         -660,
         660
       ],
-      "webhookId": "4b18dfa2-71c0-4fe2-9bd7-056284ef92d4"
+      "webhookId": "0a60d4b5-392f-4614-9532-6898fca65324"
     },
     {
       "parameters": {
@@ -334,31 +334,31 @@
         "assignments": {
           "assignments": [
             {
-              "id": "362a92ad-c55f-4689-92d0-55ffcd9fac80",
+              "id": "ca2da31b-6d9d-461e-a4d5-3edc80094284",
               "name": "texte",
               "value": "={{ $json.chatInput }}",
               "type": "string"
             },
             {
-              "id": "8a41bb90-42e1-4ba9-ac02-095bbfe318b4",
+              "id": "389509e0-6110-4d7c-86a9-1028411a6476",
               "name": "canal",
               "value": "chat",
               "type": "string"
             },
             {
-              "id": "4b29fe5c-9d58-4b6f-8532-9b52251cdd3e",
+              "id": "750ce42e-f3a0-432b-81b1-bcb707220c20",
               "name": "expediteur",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "3fca8bed-a06f-406b-b5ae-e542f97c7505",
+              "id": "2a618760-78bd-4a73-8178-55f358a9d22c",
               "name": "nom",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "00ec986c-c1b3-45fa-bfd3-18e02f599889",
+              "id": "34338adc-9932-43bf-88c7-fbb3384126bb",
               "name": "sessionId",
               "value": "={{ $json.sessionId }}",
               "type": "string"
@@ -367,7 +367,7 @@
         },
         "options": {}
       },
-      "id": "895c58dc-171f-41f4-9d61-b0bbf47e7ebb",
+      "id": "5def7e35-2183-451d-b4de-ff29574b1eed",
       "name": "Lire le chat",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -387,7 +387,7 @@
           ]
         }
       },
-      "id": "fc4eac7b-24e3-406d-9cde-1df7b333979e",
+      "id": "47ed4875-9f18-494c-a7f0-767e03fe55e4",
       "name": "⏰ Réveil 7 h et 20 h",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
@@ -402,31 +402,31 @@
         "assignments": {
           "assignments": [
             {
-              "id": "d2d34a1e-ab6e-42ab-9572-089a9289d092",
+              "id": "03feb6eb-d4b5-43a2-8d9f-df395d2a7f8d",
               "name": "texte",
               "value": "={{ $now.hour < 12 ? '[Demande pour l\\'agent rapports] ☀️ Ma journée : prépare le plan du jour de GREMA en 5 points courts (priorités, une idée réseaux, une action ventes).' : '[Demande pour l\\'agent rapports] 🌙 Fais le résumé du jour pour GREMA en 5 points courts et propose 1 priorité pour demain.' }}",
               "type": "string"
             },
             {
-              "id": "237977ea-6b19-4df6-b566-bbdf751633cd",
+              "id": "d0dd9067-c3ff-4468-8cba-9c7254e28da1",
               "name": "canal",
               "value": "whatsapp",
               "type": "string"
             },
             {
-              "id": "631ff71e-ee24-46cd-8878-560438a7655d",
+              "id": "2acc3076-fbe8-4865-9cda-1f59eb19c9c3",
               "name": "expediteur",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "ca1dd3de-a22c-4668-abb1-8771afbb2fdb",
+              "id": "dd1e34f6-6abe-4efe-96ab-7ff910bac1e0",
               "name": "nom",
               "value": "GREMA",
               "type": "string"
             },
             {
-              "id": "0807a47f-9585-4228-9ab2-c33e68fe626d",
+              "id": "637b75a2-1c6b-4084-90cd-9de546e5faac",
               "name": "sessionId",
               "value": "grema-rapports",
               "type": "string"
@@ -435,7 +435,7 @@
         },
         "options": {}
       },
-      "id": "7802dbb5-8e1b-45f7-89f8-6e86d13de6fd",
+      "id": "bce75cd8-0a99-4558-a2e4-11e254565b2a",
       "name": "Ma journée / résumé du soir",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -450,13 +450,13 @@
         "assignments": {
           "assignments": [
             {
-              "id": "d889a5eb-7b0b-48fb-86dd-fe0b79390674",
+              "id": "1ba65ea5-566c-4323-95d6-d44e3c233b9d",
               "name": "numeroGrema",
               "value": "49XXXXXXXXXXX",
               "type": "string"
             },
             {
-              "id": "101b5ff0-7d33-4009-b1b3-d63e6b8335e0",
+              "id": "44e10ad2-53fe-4171-9541-9b9bc59d542a",
               "name": "idNumeroWhatsApp",
               "value": "XXXXXXXXXXXXXXX",
               "type": "string"
@@ -466,7 +466,7 @@
         "options": {},
         "includeOtherFields": true
       },
-      "id": "3395b68b-3283-4e6c-8110-f87e883b78a0",
+      "id": "129ed2c5-843e-4afa-ad5b-8ab089b1b76c",
       "name": "⚙️ Réglages",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -486,7 +486,7 @@
           },
           "conditions": [
             {
-              "id": "83807325-5906-483d-bbe8-a0be004e79b2",
+              "id": "f5cfd2b4-f40c-4dae-b2c2-1e799de85132",
               "leftValue": "={{ $json.texte }}",
               "operator": {
                 "type": "string",
@@ -499,7 +499,7 @@
         },
         "options": {}
       },
-      "id": "4fca6c08-aa8d-49f6-8bc0-36b4c4b69555",
+      "id": "d17e21b6-5443-47ee-a467-8e799868dc8f",
       "name": "Message vide ?",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
@@ -519,7 +519,7 @@
           },
           "conditions": [
             {
-              "id": "7e089bd3-55b1-4d99-93ee-d410f0cd6020",
+              "id": "3a9b9f4c-36ee-4af1-8766-a0e888d71421",
               "leftValue": "={{ $json.expediteur }}",
               "rightValue": "GREMA",
               "operator": {
@@ -528,7 +528,7 @@
               }
             },
             {
-              "id": "2fbf88e2-c0dd-46ad-8b54-ee18a08be01b",
+              "id": "ea72d301-44c0-4b3a-8cac-2ed920c9391a",
               "leftValue": "={{ $json.expediteur }}",
               "rightValue": "={{ $json.numeroGrema }}",
               "operator": {
@@ -541,7 +541,7 @@
         },
         "options": {}
       },
-      "id": "a71eef4e-94a2-4e64-9502-b30e54d4a629",
+      "id": "87b213d6-1290-4996-a2eb-a0fdbb85e12d",
       "name": "C'est GREMA ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
@@ -555,6 +555,10 @@
         "inputText": "={{ $json.texte }}",
         "categories": {
           "categories": [
+            {
+              "category": "patron",
+              "description": "Discussion, conseils, tout le reste. Si le message commence par « [Demande pour l'agent patron] », c'est cette catégorie."
+            },
             {
               "category": "whatsapp",
               "description": "Clients et commandes sur WhatsApp. Si le message commence par « [Demande pour l'agent whatsapp] », c'est cette catégorie."
@@ -582,10 +586,6 @@
             {
               "category": "finances",
               "description": "Caisse, prix, marges, devis, mobile money, coûts. Si le message commence par « [Demande pour l'agent finances] », c'est cette catégorie."
-            },
-            {
-              "category": "patron",
-              "description": "Discussion, conseils, tout le reste. Si le message commence par « [Demande pour l'agent patron] », c'est cette catégorie."
             }
           ]
         },
@@ -594,14 +594,15 @@
           "systemPromptTemplate": "Tu es l'Agent Patron de Grema 88. Classe la demande de GREMA dans la catégorie de l'agent le plus adapté. Si le message commence par « [Demande pour l'agent X] », choisis X. Une discussion, une salutation ou une question générale va à « patron »."
         }
       },
-      "id": "1e59f63e-de15-4e87-b3b2-54bc745234fa",
+      "id": "1cbd0c1e-03b7-4fd1-91a6-35534eb0b09c",
       "name": "🧭 Agent Patron : à qui confier ?",
       "type": "@n8n/n8n-nodes-langchain.textClassifier",
       "typeVersion": 1.1,
       "position": [
         1000,
         140
-      ]
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -615,7 +616,7 @@
           "temperature": 0.6
         }
       },
-      "id": "7f73b978-79df-4fa5-8b43-c857814bae6d",
+      "id": "03c321e0-8abc-44f2-b341-44025ef8f6a8",
       "name": "🧠 Claude (le cerveau)",
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
@@ -630,7 +631,7 @@
         "sessionKey": "={{ $('⚙️ Réglages').item.json.sessionId }}",
         "contextWindowLength": 20
       },
-      "id": "e4bc2e7b-95ec-45d7-8a9e-78b002467597",
+      "id": "966cc5a6-e998-423b-810f-1dacca64b649",
       "name": "🗂️ Mémoire des conversations",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
@@ -641,7 +642,7 @@
     },
     {
       "parameters": {},
-      "id": "7b172b7c-e0f4-4d20-8022-167a6f2bb7b3",
+      "id": "d9765df8-9205-4303-adf2-db1fa54b6dd5",
       "name": "Calculatrice",
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
@@ -652,7 +653,7 @@
     },
     {
       "parameters": {},
-      "id": "5da0d843-6f1e-4081-bbc9-c7c6f840b252",
+      "id": "8f1f8f99-6c88-4523-8f7c-a0fa6e37b4f0",
       "name": "Wikipedia",
       "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
       "typeVersion": 1,
@@ -682,7 +683,7 @@
         "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 1200, tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 3 }], messages: [{ role: 'user', content: 'Cherche sur Internet puis réponds en français, en 5 lignes maximum, avec les liens des sources : ' + $fromAI('question', 'La question précise à chercher sur Internet', 'string') }] }) }}",
         "options": {}
       },
-      "id": "24aceeac-a863-432e-a753-a0312679e3b4",
+      "id": "d872f35c-4f27-47d1-a8d4-8c65b4fd9728",
       "name": "Recherche Internet (Claude)",
       "type": "n8n-nodes-base.httpRequestTool",
       "typeVersion": 4.2,
@@ -696,18 +697,38 @@
         "promptType": "define",
         "text": "={{ $('⚙️ Réglages').item.json.texte }}",
         "options": {
-          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent WhatsApp, le vendeur et service client de la boutique Grema 88. Tu réponds aux CLIENTS : produits, prix connus, commande, livraison, paiement mobile money. Pour une commande, récapitule (produit, quantité, prix si connu, ville, paiement) et dis qu'un vendeur va confirmer. Ne donne jamais d'information interne sur GREMA, l'agence ou les autres clients. Si le client est fâché ou si la demande dépasse la boutique, propose qu'un humain le rappelle.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Patron, chef d'orchestre de l'équipe (WhatsApp, Réseaux, Ventes, Recherche, Rapports, Créatif, Finances). Tu réponds toi-même aux discussions, aux questions générales sur tous les sujets, aux conseils et aux demandes qui touchent plusieurs agents (fais alors un plan court : qui fait quoi). Si tu n'es pas sûr d'un fait, cherche sur Internet. Quand GREMA veut juste parler, discute sans ramener le travail.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
           "maxIterations": 6
         }
       },
-      "id": "dcce7be7-8aab-4006-b0c1-9b0e3e25a1ad",
-      "name": "💬 Agent WhatsApp",
+      "id": "2a34f60b-5df6-4a41-b791-a3520ae21ac1",
+      "name": "👑 Agent Patron",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
         -300
-      ]
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent WhatsApp, le vendeur et service client de la boutique Grema 88. Tu réponds aux CLIENTS : produits, prix connus, commande, livraison, paiement mobile money. Pour une commande, récapitule (produit, quantité, prix si connu, ville, paiement) et dis qu'un vendeur va confirmer. Ne donne jamais d'information interne sur GREMA, l'agence ou les autres clients. Si le client est fâché ou si la demande dépasse la boutique, propose qu'un humain le rappelle.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "7586f7d7-4e00-4890-81e5-f9f38c46568b",
+      "name": "💬 Agent WhatsApp",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        -135
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -718,14 +739,15 @@
           "maxIterations": 6
         }
       },
-      "id": "e839d277-ddf3-4762-be60-a7f3812d80ea",
+      "id": "72d5b4f1-619a-4fdc-bd5a-8887c292d83d",
       "name": "📣 Agent Réseaux",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        -135
-      ]
+        30
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -736,14 +758,15 @@
           "maxIterations": 6
         }
       },
-      "id": "71b3b059-6753-471e-ab52-f772886ef5cc",
+      "id": "f07d0123-5ab9-4b13-8b44-fddc78e4fe28",
       "name": "🛍️ Agent Ventes",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        30
-      ]
+        195
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -754,14 +777,15 @@
           "maxIterations": 6
         }
       },
-      "id": "e20b9cd0-912c-4dc8-a383-ad40d567b80f",
+      "id": "5e96f024-1281-4a3a-81de-24e50def9cd9",
       "name": "🔎 Agent Recherche",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        195
-      ]
+        360
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -772,14 +796,15 @@
           "maxIterations": 6
         }
       },
-      "id": "771a41ae-feba-49a2-8399-0d432a6a306a",
+      "id": "7ef8e854-3de5-45b7-a0ec-a134dc17f485",
       "name": "📋 Agent Rapports",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        360
-      ]
+        525
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -790,14 +815,15 @@
           "maxIterations": 6
         }
       },
-      "id": "4bc66f86-fd69-48ee-941e-b702ae0c067b",
+      "id": "5c747085-4758-413c-a2c8-a10e47e66739",
       "name": "🎬 Agent Créatif",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        525
-      ]
+        690
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -808,32 +834,15 @@
           "maxIterations": 6
         }
       },
-      "id": "8ad0d534-002c-46af-9df7-e1c9fc28418b",
+      "id": "ab9ca026-136a-4c8c-a2e9-839aacfd2005",
       "name": "💰 Agent Finances",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.2,
       "position": [
         1460,
-        690
-      ]
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
-        "options": {
-          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Patron, chef d'orchestre de l'équipe (WhatsApp, Réseaux, Ventes, Recherche, Rapports, Créatif, Finances). Tu réponds toi-même aux discussions, aux questions générales sur tous les sujets, aux conseils et aux demandes qui touchent plusieurs agents (fais alors un plan court : qui fait quoi). Si tu n'es pas sûr d'un fait, cherche sur Internet. Quand GREMA veut juste parler, discute sans ramener le travail.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
-          "maxIterations": 6
-        }
-      },
-      "id": "5719ab41-3ce6-40ea-a90f-b997c1e2ddb1",
-      "name": "👑 Agent Patron",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2.2,
-      "position": [
-        1460,
         855
-      ]
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -841,55 +850,61 @@
         "assignments": {
           "assignments": [
             {
-              "id": "00130ba1-61a9-471d-8ed2-5635a6e11d87",
+              "id": "aa1b5f8c-6e7f-4dad-bf2f-0c8a47c5064d",
               "name": "reponse",
-              "value": "={{ $json.output }}",
+              "value": "={{ $json.output || '😔 Petit souci technique de mon côté, je n’ai pas pu répondre. Réessaie dans une minute s’il te plaît.' }}",
               "type": "string"
             },
             {
-              "id": "e539be86-afd3-4295-a842-1f53b2779d3b",
+              "id": "2f851e96-4975-4b61-80e0-9c2eeeaef6da",
+              "name": "erreur",
+              "value": "={{ $json.error ? String($json.error.message || $json.error) : '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f8f2e28a-148e-4ac4-bac4-3ed95d4c949d",
               "name": "agent",
               "value": "={{ $prevNode.name.replace(/^\\S+\\s/, '') }}",
               "type": "string"
             },
             {
-              "id": "add724c8-9b37-4860-9152-7b496791bd6f",
+              "id": "7616ebdd-74d8-4450-a3ec-a56ef2113158",
               "name": "agentId",
-              "value": "={{ ({\"💬 Agent WhatsApp\": \"whatsapp\", \"📣 Agent Réseaux\": \"reseaux\", \"🛍️ Agent Ventes\": \"ventes\", \"🔎 Agent Recherche\": \"recherche\", \"📋 Agent Rapports\": \"rapports\", \"🎬 Agent Créatif\": \"creatif\", \"💰 Agent Finances\": \"finances\", \"👑 Agent Patron\": \"patron\"})[$prevNode.name] || 'patron' }}",
+              "value": "={{ ({\"👑 Agent Patron\": \"patron\", \"💬 Agent WhatsApp\": \"whatsapp\", \"📣 Agent Réseaux\": \"reseaux\", \"🛍️ Agent Ventes\": \"ventes\", \"🔎 Agent Recherche\": \"recherche\", \"📋 Agent Rapports\": \"rapports\", \"🎬 Agent Créatif\": \"creatif\", \"💰 Agent Finances\": \"finances\"})[$prevNode.name] || 'patron' }}",
               "type": "string"
             },
             {
-              "id": "b7b255d5-f462-4671-a101-f0951d2c00f9",
+              "id": "71288ec3-3336-42c3-b901-f711f7a21f57",
               "name": "question",
               "value": "={{ $('⚙️ Réglages').item.json.texte }}",
               "type": "string"
             },
             {
-              "id": "e833a7ae-10f8-40ea-8e06-fcbbad9208ac",
+              "id": "d26fbb8e-67b8-4bbc-b285-8b30cea2be8a",
               "name": "canal",
               "value": "={{ $('⚙️ Réglages').item.json.canal }}",
               "type": "string"
             },
             {
-              "id": "fcda1265-695e-4043-8fe0-fdcffb41ce84",
+              "id": "ed107641-54ee-4245-a556-d0d69425a04c",
               "name": "nom",
               "value": "={{ $('⚙️ Réglages').item.json.nom }}",
               "type": "string"
             },
             {
-              "id": "c3cbf141-dad1-4406-a42d-698f8c61f77b",
+              "id": "54dd478a-7e3e-408f-b643-4446db3964b7",
               "name": "estGrema",
               "value": "={{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema }}",
               "type": "boolean"
             },
             {
-              "id": "4e1d2037-ede1-4520-8cc4-af6efd4522ec",
+              "id": "938d5a72-ee4c-4404-bad1-7a00d86b31a7",
               "name": "destinataire",
               "value": "={{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' ? $('⚙️ Réglages').item.json.numeroGrema : $('⚙️ Réglages').item.json.expediteur }}",
               "type": "string"
             },
             {
-              "id": "460296b6-2dad-4724-9814-190c0199e6e0",
+              "id": "e3331bb0-8576-44bb-b3dd-0c085b925e9d",
               "name": "heure",
               "value": "={{ $now.toISO() }}",
               "type": "string"
@@ -898,7 +913,7 @@
         },
         "options": {}
       },
-      "id": "ff2b5b8d-d22e-4624-ac03-adbf5001f8db",
+      "id": "a6177951-8c5d-4e78-81ad-7ed2dc3247b2",
       "name": "📝 Préparer la réponse",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -909,9 +924,9 @@
     },
     {
       "parameters": {
-        "jsCode": "// Garde les 200 derniers échanges pour le tableau de bord (fonctionne quand le workflow est activé).\nconst memo = $getWorkflowStaticData('global');\nmemo.journal = memo.journal || [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  memo.journal.push({ heure: j.heure, agent: j.agent, agentId: j.agentId, canal: j.canal, nom: j.nom,\n    estGrema: j.estGrema, question: String(j.question || '').slice(0, 300), reponse: String(j.reponse || '').slice(0, 600) });\n}\nmemo.journal = memo.journal.slice(-200);\nreturn $input.all();"
+        "jsCode": "// Garde les 200 derniers échanges pour le tableau de bord (fonctionne quand le workflow est activé).\nconst memo = $getWorkflowStaticData('global');\nmemo.journal = memo.journal || [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  memo.journal.push({ heure: j.heure, agent: j.agent, agentId: j.agentId, canal: j.canal, nom: j.nom,\n    estGrema: j.estGrema, erreur: j.erreur || '', question: String(j.question || '').slice(0, 300), reponse: String(j.reponse || '').slice(0, 600) });\n}\nmemo.journal = memo.journal.slice(-200);\nreturn $input.all();"
       },
-      "id": "21fb8436-370c-4913-b263-106284e46284",
+      "id": "8d530dd3-f3c3-4697-bcd9-88c7d3bf0096",
       "name": "🗒️ Noter dans le journal",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -934,7 +949,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "20755907-ea6d-4699-8450-8fe0f97157ca",
+                    "id": "4055aa5d-2f42-49eb-9bf3-bd0df11285e8",
                     "leftValue": "={{ $json.canal }}",
                     "rightValue": "whatsapp",
                     "operator": {
@@ -958,7 +973,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "976ae644-7004-4d18-a1ce-47b5a29e4c86",
+                    "id": "5db04dec-acc8-463e-bb1a-ff1db1125ac1",
                     "leftValue": "={{ $json.canal }}",
                     "rightValue": "tableau",
                     "operator": {
@@ -982,7 +997,7 @@
                 },
                 "conditions": [
                   {
-                    "id": "c8866d2f-9672-4201-8a89-2a6688a1226c",
+                    "id": "9412096c-62e0-421a-a8de-861cdb7e08ff",
                     "leftValue": "={{ $json.canal }}",
                     "rightValue": "chat",
                     "operator": {
@@ -1000,7 +1015,7 @@
         },
         "options": {}
       },
-      "id": "4d940bf7-3038-40cb-be17-a928e0bbba09",
+      "id": "9e3c3694-0fd7-479a-9522-f9e6fa372480",
       "name": "🔀 Par où répondre ?",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
@@ -1017,14 +1032,17 @@
         "textBody": "={{ $json.reponse.slice(0, 4000) }}",
         "additionalFields": {}
       },
-      "id": "967e9302-1172-4214-96c9-2282310ae679",
+      "id": "0538cee1-0f46-4429-bbad-b735c41c6385",
       "name": "📤 Répondre sur WhatsApp",
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
         2940,
         120
-      ]
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -1032,7 +1050,7 @@
         "responseBody": "={{ { reponse: $json.reponse, agent: $json.agent, agentId: $json.agentId } }}",
         "options": {}
       },
-      "id": "493021cb-02ce-4685-93a3-f810f27211f5",
+      "id": "41796cee-1790-4c13-a820-77b4962c5407",
       "name": "↩️ Répondre au tableau de bord",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
@@ -1047,7 +1065,7 @@
         "assignments": {
           "assignments": [
             {
-              "id": "afce4d13-8f71-45a0-8d1d-15fdd214be55",
+              "id": "e7973de3-c0c2-474c-a103-cf32c8384d7f",
               "name": "output",
               "value": "={{ $json.agent + ' : ' + $json.reponse }}",
               "type": "string"
@@ -1056,7 +1074,7 @@
         },
         "options": {}
       },
-      "id": "4048ba11-2ec3-43c4-9ac3-6331bacb12d2",
+      "id": "46abbc02-10d3-4301-a156-30a36a46d290",
       "name": "💬 Réponse du chat",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -1244,6 +1262,11 @@
             "index": 0
           },
           {
+            "node": "👑 Agent Patron",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
             "node": "💬 Agent WhatsApp",
             "type": "ai_languageModel",
             "index": 0
@@ -1275,11 +1298,6 @@
           },
           {
             "node": "💰 Agent Finances",
-            "type": "ai_languageModel",
-            "index": 0
-          },
-          {
-            "node": "👑 Agent Patron",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -1290,6 +1308,11 @@
       "ai_memory": [
         [
           {
+            "node": "👑 Agent Patron",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
             "node": "💬 Agent WhatsApp",
             "type": "ai_memory",
             "index": 0
@@ -1322,104 +1345,6 @@
           {
             "node": "💰 Agent Finances",
             "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "👑 Agent Patron",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🧭 Agent Patron : à qui confier ?": {
-      "main": [
-        [
-          {
-            "node": "💬 Agent WhatsApp",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "📣 Agent Réseaux",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "🛍️ Agent Ventes",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "🔎 Agent Recherche",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "📋 Agent Rapports",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "🎬 Agent Créatif",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "💰 Agent Finances",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "👑 Agent Patron",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "👑 Agent Patron",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Recherche Internet (Claude)": {
-      "ai_tool": [
-        [
-          {
-            "node": "📣 Agent Réseaux",
-            "type": "ai_tool",
-            "index": 0
-          },
-          {
-            "node": "🔎 Agent Recherche",
-            "type": "ai_tool",
-            "index": 0
-          },
-          {
-            "node": "💰 Agent Finances",
-            "type": "ai_tool",
-            "index": 0
-          },
-          {
-            "node": "👑 Agent Patron",
-            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -1429,6 +1354,11 @@
       "ai_tool": [
         [
           {
+            "node": "👑 Agent Patron",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
             "node": "🛍️ Agent Ventes",
             "type": "ai_tool",
             "index": 0
@@ -1440,11 +1370,6 @@
           },
           {
             "node": "💰 Agent Finances",
-            "type": "ai_tool",
-            "index": 0
-          },
-          {
-            "node": "👑 Agent Patron",
             "type": "ai_tool",
             "index": 0
           }
@@ -1455,6 +1380,11 @@
       "ai_tool": [
         [
           {
+            "node": "👑 Agent Patron",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
             "node": "🔎 Agent Recherche",
             "type": "ai_tool",
             "index": 0
@@ -1463,10 +1393,109 @@
             "node": "🎬 Agent Créatif",
             "type": "ai_tool",
             "index": 0
-          },
+          }
+        ]
+      ]
+    },
+    "Recherche Internet (Claude)": {
+      "ai_tool": [
+        [
           {
             "node": "👑 Agent Patron",
             "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "💰 Agent Finances",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧭 Agent Patron : à qui confier ?": {
+      "main": [
+        [
+          {
+            "node": "👑 Agent Patron",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "💬 Agent WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🛍️ Agent Ventes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "📋 Agent Rapports",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🎬 Agent Créatif",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "💰 Agent Finances",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "👑 Agent Patron",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "👑 Agent Patron": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
             "index": 0
           }
         ]
@@ -1539,17 +1568,6 @@
       ]
     },
     "💰 Agent Finances": {
-      "main": [
-        [
-          {
-            "node": "📝 Préparer la réponse",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "👑 Agent Patron": {
       "main": [
         [
           {
