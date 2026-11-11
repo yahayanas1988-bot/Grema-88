@@ -1,0 +1,1622 @@
+{
+  "name": "Agent Grema : Patron + 7 agents (un seul écran)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## 👑 Agent Grema — tout sur un seul écran\n**Entrées** à gauche (WhatsApp, tableau de bord, chat de test, réveil 7 h / 20 h) → **Agent Patron** au centre qui confie la demande au bon agent → **réponse** à droite, renvoyée par le même chemin et notée dans le journal du tableau de bord.\n\nAvant d'activer : remplir **⚙️ Réglages** et créer 3 identifiants (Claude, WhatsApp, clé du tableau de bord). Voir le guide.\n\nRègle d'or : les agents **préparent** ; rien n'est publié, payé ou envoyé à un tiers sans le « oui » de GREMA.",
+        "height": 300,
+        "width": 760,
+        "color": 4
+      },
+      "id": "1d2d153c-06e3-43e2-84a4-041c845d434b",
+      "name": "Note 0",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 1. Entrées",
+        "height": 1060,
+        "width": 760,
+        "color": 7
+      },
+      "id": "9ba89029-7baf-4601-8b33-92dd9be41264",
+      "name": "Note 1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 2. Tri et sécurité\nLes clients WhatsApp parlent seulement à l'Agent WhatsApp. GREMA (son numéro, le tableau de bord, le chat, les réveils) passe par le Patron.",
+        "height": 1060,
+        "width": 820,
+        "color": 6
+      },
+      "id": "13f963bf-de9b-41b0-a567-01d8be4963e6",
+      "name": "Note 2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 3. Agent Patron et ses 7 agents\nUn seul cerveau Claude et une mémoire partagée par conversation : les agents forment une famille.",
+        "height": 1680,
+        "width": 1200,
+        "color": 5
+      },
+      "id": "bb20da1d-f83c-4682-9755-f5f29847b368",
+      "name": "Note 3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        940,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 4. Réponse et journal",
+        "height": 1060,
+        "width": 1000,
+        "color": 7
+      },
+      "id": "a23e4b88-faff-48f9-b954-56219e4a4abf",
+      "name": "Note 4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ]
+      },
+      "id": "d8cc845c-2349-4cf5-bc2d-e275aa97dbca",
+      "name": "📱 WhatsApp : message reçu",
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        -60
+      ],
+      "webhookId": "eb7d7035-d13e-45bc-9f76-69e9a4e8e8c2"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "578b499e-34fa-4ff2-a203-b3796f87d810",
+              "name": "texte",
+              "value": "={{ $json.messages?.[0]?.text?.body ?? $json.messages?.[0]?.button?.text ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "b0a83d3f-a2ec-4444-98c9-67ef600ce042",
+              "name": "canal",
+              "value": "whatsapp",
+              "type": "string"
+            },
+            {
+              "id": "85adf7fb-06e9-4a32-a453-7c0672ffb44a",
+              "name": "expediteur",
+              "value": "={{ $json.messages?.[0]?.from ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "b0db791a-ce1c-43de-a53f-25ae9ddb2ddf",
+              "name": "nom",
+              "value": "={{ $json.contacts?.[0]?.profile?.name ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "3f7b3a5a-8b27-43b6-bf03-0daec2c0b77e",
+              "name": "sessionId",
+              "value": "={{ 'wa-' + ($json.messages?.[0]?.from ?? 'inconnu') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b66e8ea3-a770-4612-81e6-b04e23454ad5",
+      "name": "Lire le message WhatsApp",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -360,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "agent-grema",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "9d1be7dc-0e23-4438-bade-50006bc502ac",
+      "name": "🌐 Tableau de bord : demande",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        200
+      ],
+      "webhookId": "27fbf955-99df-448b-b3f4-e5b5ed013bd5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e3af74f3-41ef-4038-8925-ea2398158ca5",
+              "leftValue": "={{ $json.body?.action }}",
+              "rightValue": "journal",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1fede126-d2e6-4c63-b16e-f51856ac7222",
+      "name": "Journal demandé ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const memo = $getWorkflowStaticData('global');\nreturn [{ json: { journal: memo.journal || [] } }];"
+      },
+      "id": "ad5f41f8-64f8-4199-8902-fd526a07b83a",
+      "name": "Lire le journal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "18693911-1066-42be-b1fa-5e78b15ff656",
+      "name": "↩️ Envoyer le journal",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c3d248bb-77ee-4bbc-a514-4d997e782884",
+              "name": "texte",
+              "value": "={{ ($json.body?.agent ? '[Demande pour l\\'agent ' + $json.body.agent + '] ' : '') + ($json.body?.message ?? '') }}",
+              "type": "string"
+            },
+            {
+              "id": "160d7b62-ceaa-41b2-96eb-a00355bf3cde",
+              "name": "canal",
+              "value": "tableau",
+              "type": "string"
+            },
+            {
+              "id": "5f02be89-8d8e-4424-bda7-c2a258a9747a",
+              "name": "expediteur",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "03246639-187f-4bf1-872a-086c5e64dd6e",
+              "name": "nom",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "9bcc5d33-0bab-439d-a165-c1c7d445d1c6",
+              "name": "sessionId",
+              "value": "={{ $json.body?.session || 'tableau-grema' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5d3b3524-ba02-49ab-8495-41676c4f4eef",
+      "name": "Lire la demande du tableau",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "grema-tableau",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1270f96c-0722-4b0b-8847-c777839b9be9",
+      "name": "🖥️ Ouvrir le tableau de bord",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        480
+      ],
+      "webhookId": "5ed9e94a-4edb-40c5-b487-4e880fd188ee"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "<!doctype html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>Agent Grema</title>\n<style>\n:root{--fond:#0f1330;--carte:#181d45;--ligne:#2a3170;--texte:#eef0ff;--doux:#a9aedb;--or:#e3a72f;--indigo:#3b44a8;--ok:#2fb37f;--err:#e0604a}\n*{box-sizing:border-box}\nhtml,body{margin:0;background:var(--fond);color:var(--texte);font:15px/1.45 system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif}\nbody{min-height:100vh;display:flex;flex-direction:column}\nheader{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--ligne)}\nheader h1{font-size:18px;margin:0;flex:1;min-width:0}\nheader h1 b{color:var(--or)}\n.pastille{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--ligne);color:var(--doux)}\n.pastille.ok{background:rgba(47,179,127,.18);color:var(--ok)}\n.pastille.err{background:rgba(224,96,74,.18);color:var(--err)}\nbutton{font:inherit;cursor:pointer;border:0;border-radius:10px}\n.icone{background:var(--carte);color:var(--texte);padding:6px 10px}\nmain{flex:1;display:grid;grid-template-columns:260px 1fr 300px;gap:12px;padding:12px 16px;min-height:0}\nsection{background:var(--carte);border:1px solid var(--ligne);border-radius:14px;padding:12px;min-height:0;display:flex;flex-direction:column}\nsection h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--doux);margin:0 0 10px}\n.agents{display:flex;flex-direction:column;gap:8px;overflow:auto}\n.agent{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;background:transparent;color:var(--texte);text-align:left;border:1px solid transparent;width:100%}\n.agent:hover{background:rgba(255,255,255,.04)}\n.agent.actif{border-color:var(--or);background:rgba(227,167,47,.08)}\n.agent .rond{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:15px}\n.agent .nom{font-weight:600;font-size:14px}\n.agent .role{font-size:12px;color:var(--doux)}\n.agent .nb{margin-left:auto;font-size:12px;color:var(--doux)}\n.chat{flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}\n.msg{max-width:85%;padding:9px 12px;border-radius:14px;white-space:pre-wrap;word-wrap:break-word}\n.msg.moi{align-self:flex-end;background:var(--indigo)}\n.msg.agent-r{align-self:flex-start;background:#222866}\n.msg .qui{display:block;font-size:11px;color:var(--or);margin-bottom:3px;font-weight:600}\n.msg.attente{opacity:.7;font-style:italic}\n.vide{color:var(--doux);text-align:center;margin:auto;padding:20px}\n.raccourcis{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}\n.raccourcis button{background:transparent;border:1px solid var(--ligne);color:var(--doux);padding:5px 10px;border-radius:99px;font-size:13px}\n.raccourcis button:hover{color:var(--texte);border-color:var(--or)}\nform.saisie{display:flex;gap:8px}\nform.saisie textarea{flex:1;resize:none;height:46px;border-radius:12px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);padding:11px 12px;font:inherit}\nform.saisie button{background:var(--or);color:#1a1300;font-weight:700;padding:0 18px}\n.journal{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px}\n.ligne{border-left:3px solid var(--ligne);padding:4px 0 4px 9px;font-size:13px}\n.ligne .t{color:var(--doux);font-size:11px}\n.ligne .q{color:var(--texte)}\n.ligne .r{color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}\n.chiffre{background:var(--fond);border-radius:10px;padding:8px;text-align:center}\n.chiffre b{display:block;font-size:20px;color:var(--or)}\n.chiffre span{font-size:11px;color:var(--doux)}\ndialog{background:var(--carte);color:var(--texte);border:1px solid var(--ligne);border-radius:14px;max-width:420px;width:calc(100% - 32px)}\ndialog input{width:100%;padding:10px;border-radius:10px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);font:inherit;margin:6px 0 12px}\ndialog .actions{display:flex;gap:8px;justify-content:flex-end}\ndialog .actions button{padding:8px 14px}\n.principal{background:var(--or);color:#1a1300;font-weight:700}\n.second{background:var(--ligne);color:var(--texte)}\n@media (max-width:980px){\n  main{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto}\n  section{min-width:0}\n  .agents{flex-direction:row;overflow-x:auto;padding-bottom:4px}\n  .agent{flex:none;width:auto}\n  .agent .role,.agent .nb{display:none}\n  #zone-chat{min-height:60vh}\n  #zone-journal{max-height:50vh}\n}\n</style>\n</head>\n<body>\n<header>\n  <h1>Agent <b>Grema</b> · tableau de bord</h1>\n  <span id=\"etat\" class=\"pastille\">…</span>\n  <button class=\"icone\" id=\"btn-cle\" title=\"Clé d'accès\">🔑</button>\n</header>\n<main>\n  <section>\n    <h2>Les agents</h2>\n    <div class=\"agents\" id=\"agents\"></div>\n  </section>\n  <section id=\"zone-chat\">\n    <h2 id=\"titre-chat\">Parler à l'Agent Patron</h2>\n    <div class=\"chat\" id=\"chat\"><div class=\"vide\">Salam aleykoum GREMA 👋<br>Écris ta demande : le Patron la confie au bon agent.</div></div>\n    <div class=\"raccourcis\" id=\"raccourcis\"></div>\n    <form class=\"saisie\" id=\"form\">\n      <textarea id=\"texte\" placeholder=\"Écris ici…\" aria-label=\"Message\"></textarea>\n      <button type=\"submit\">Envoyer</button>\n    </form>\n  </section>\n  <section id=\"zone-journal\">\n    <h2>Journal du jour</h2>\n    <div class=\"chiffres\">\n      <div class=\"chiffre\"><b id=\"n-total\">0</b><span>échanges</span></div>\n      <div class=\"chiffre\"><b id=\"n-wa\">0</b><span>WhatsApp</span></div>\n      <div class=\"chiffre\"><b id=\"n-clients\">0</b><span>clients</span></div>\n    </div>\n    <div class=\"journal\" id=\"journal\"><div class=\"vide\">Rien pour l'instant.</div></div>\n  </section>\n</main>\n\n<dialog id=\"dlg\">\n  <form method=\"dialog\">\n    <h3 style=\"margin-top:0\">Clé d'accès</h3>\n    <p style=\"color:var(--doux);font-size:14px\">C'est la valeur de l'identifiant « Clé tableau de bord Grema » que tu as créé dans n8n.</p>\n    <input id=\"cle\" type=\"password\" autocomplete=\"off\" placeholder=\"Ta clé secrète\">\n    <div class=\"actions\"><button class=\"second\" value=\"annuler\">Annuler</button><button class=\"principal\" value=\"ok\" id=\"cle-ok\">Enregistrer</button></div>\n  </form>\n</dialog>\n\n<script>\n(function(){\n  // L'adresse du workflow est déduite de l'adresse de cette page :\n  //   .../webhook/grema-tableau  ->  .../webhook/agent-grema\n  var ici = (document.referrer && document.referrer.indexOf('/webhook') > -1) ? document.referrer : location.href;\n  var API = (window.API_GREMA) || ici.split(/[?#]/)[0].replace(/\\/grema-tableau\\/?$/, '/agent-grema');\n\n  var AGENTS = [\n    { id:'auto',      nom:'Agent Patron',    role:'Répartit chaque demande',          icone:'👑', couleur:'#e3a72f' },\n    { id:'whatsapp',  nom:'Agent WhatsApp',  role:'Clients et commandes',             icone:'💬', couleur:'#13785a' },\n    { id:'reseaux',   nom:'Agent Réseaux',   role:'TikTok, YouTube, Facebook',        icone:'📣', couleur:'#b34a2c' },\n    { id:'ventes',    nom:'Agent Ventes',    role:'Boutique, caisse, vendeurs',       icone:'🛍️', couleur:'#5b6be8' },\n    { id:'recherche', nom:'Agent Recherche', role:'Internet, prix, concurrents',  icone:'🔎', couleur:'#7a5bd1' },\n    { id:'rapports',  nom:'Agent Rapports',  role:'Ma journée, résumé du soir',       icone:'📋', couleur:'#b8740c' },\n    { id:'creatif',   nom:'Agent Créatif',   role:'Vidéos, livres, affiches',         icone:'🎬', couleur:'#c2408a' },\n    { id:'finances',  nom:'Agent Finances',  role:'Caisse, marges, mobile money',     icone:'💰', couleur:'#2f9e8f' }\n  ];\n  var RACCOURCIS = ['☀️ Ma journée', '📣 Plan réseaux de la semaine', '🔎 Prix du marché à Niamey aujourd\\'hui', '🎬 Idée de vidéo TikTok de 20 s', '💰 Calcule ma marge'];\n\n  var choisi = 'auto', compte = {}, envoiEnCours = false;\n\n  function lire(k){ try { return localStorage.getItem(k) || ''; } catch(e){ return window['_'+k] || ''; } }\n  function ecrire(k,v){ try { localStorage.setItem(k,v); } catch(e){ window['_'+k] = v; } }\n  function el(t,c,txt){ var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e; }\n  function etat(txt, cls){ var p=document.getElementById('etat'); p.textContent=txt; p.className='pastille '+(cls||''); }\n  function nomAgent(id){ for (var i=0;i<AGENTS.length;i++) if (AGENTS[i].id===id) return AGENTS[i].nom; return id || 'Agent'; }\n\n  function dessinerAgents(){\n    var box=document.getElementById('agents'); box.innerHTML='';\n    AGENTS.forEach(function(a){\n      var b=el('button','agent'+(a.id===choisi?' actif':''));\n      var r=el('span','rond',a.icone); r.style.background=a.couleur+'33';\n      var t=el('span'); t.appendChild(el('div','nom',a.nom)); t.appendChild(el('div','role',a.role));\n      b.appendChild(r); b.appendChild(t);\n      if (a.id!=='auto') b.appendChild(el('span','nb', String(compte[a.id]||0)));\n      b.onclick=function(){ choisi=a.id; dessinerAgents();\n        document.getElementById('titre-chat').textContent = a.id==='auto' ? \"Parler à l'Agent Patron\" : 'Parler à ' + a.nom; };\n      box.appendChild(b);\n    });\n  }\n\n  function dessinerRaccourcis(){\n    var box=document.getElementById('raccourcis');\n    RACCOURCIS.forEach(function(r){ var b=el('button',null,r); b.type='button'; b.onclick=function(){ envoyer(r); }; box.appendChild(b); });\n  }\n\n  function bulle(texte, moi, qui, attente){\n    var chat=document.getElementById('chat'); var v=chat.querySelector('.vide'); if(v) v.remove();\n    var m=el('div','msg '+(moi?'moi':'agent-r')+(attente?' attente':''));\n    if(!moi && qui) m.appendChild(el('span','qui',qui));\n    m.appendChild(document.createTextNode(texte));\n    chat.appendChild(m); chat.scrollTop=chat.scrollHeight; return m;\n  }\n\n  function appel(corps){\n    var cle=lire('cleGrema');\n    return fetch(API,{ method:'POST', headers:{'Content-Type':'application/json','X-Grema-Cle':cle}, body:JSON.stringify(corps) })\n      .then(function(r){ if(r.status===401||r.status===403) throw new Error('cle'); if(!r.ok) throw new Error('http '+r.status); return r.json(); });\n  }\n\n  function envoyer(texte){\n    texte=(texte||'').trim(); if(!texte||envoiEnCours) return;\n    if(!lire('cleGrema')){ demanderCle(); return; }\n    envoiEnCours=true; bulle(texte,true);\n    var attente=bulle('…', false, nomAgent(choisi), true);\n    appel({ action:'message', message:texte, agent: choisi==='auto' ? '' : choisi, session:'tableau-grema' })\n      .then(function(d){ attente.remove(); bulle(d.reponse||'(pas de réponse)', false, d.agent||'Agent'); etat('en ligne','ok'); chargerJournal(); })\n      .catch(function(e){ attente.remove(); bulle(e.message==='cle' ? \"Clé refusée : touche 🔑 pour la corriger.\" : \"Je n'arrive pas à joindre n8n. Vérifie que le workflow est activé.\", false, 'Système'); etat(e.message==='cle'?'clé refusée':'hors ligne','err'); })\n      .then(function(){ envoiEnCours=false; });\n  }\n\n  function chargerJournal(){\n    if(!lire('cleGrema')) { etat('clé manquante','err'); return; }\n    appel({ action:'journal' }).then(function(d){\n      etat('en ligne','ok');\n      var liste=(d.journal||[]).slice().reverse(), box=document.getElementById('journal');\n      box.innerHTML=''; compte={};\n      var auj=new Date().toISOString().slice(0,10), total=0, wa=0, clients=0;\n      (d.journal||[]).forEach(function(x){ compte[x.agentId]=(compte[x.agentId]||0)+1;\n        if((x.heure||'').slice(0,10)===auj){ total++; if(x.canal==='whatsapp') wa++; if(!x.estGrema) clients++; } });\n      document.getElementById('n-total').textContent=total;\n      document.getElementById('n-wa').textContent=wa;\n      document.getElementById('n-clients').textContent=clients;\n      if(!liste.length){ box.appendChild(el('div','vide',\"Rien pour l'instant.\")); }\n      liste.slice(0,40).forEach(function(x){\n        var l=el('div','ligne'); var a=AGENTS.filter(function(g){return g.id===x.agentId;})[0];\n        if(a) l.style.borderLeftColor=a.couleur;\n        var h=new Date(x.heure); var hh=isNaN(h)?'':h.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});\n        l.appendChild(el('div','t', hh+' · '+(x.agent||'')+' · '+(x.canal||'')+(x.estGrema?'':' · client '+(x.nom||''))));\n        l.appendChild(el('div','q', String(x.question||'').replace(/^\\[Demande pour l'agent \\w+\\]\\s*/,'')));\n        l.appendChild(el('div','r', x.reponse||''));\n        box.appendChild(l);\n      });\n      dessinerAgents();\n    }).catch(function(e){ etat(e.message==='cle'?'clé refusée':'hors ligne','err'); });\n  }\n\n  function demanderCle(){ var d=document.getElementById('dlg'); document.getElementById('cle').value=lire('cleGrema');\n    if(d.showModal) d.showModal(); else { var v=prompt('Clé d\\'accès'); if(v!=null){ ecrire('cleGrema',v.trim()); chargerJournal(); } } }\n  document.getElementById('dlg').addEventListener('close',function(){\n    if(this.returnValue==='ok'){ ecrire('cleGrema',document.getElementById('cle').value.trim()); chargerJournal(); } });\n  document.getElementById('btn-cle').onclick=demanderCle;\n  document.getElementById('form').onsubmit=function(e){ e.preventDefault(); var t=document.getElementById('texte'); envoyer(t.value); t.value=''; };\n  document.getElementById('texte').addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); document.getElementById('form').requestSubmit(); } });\n\n  // Lien avec la clé : .../grema-tableau#cle=TA_CLE (à garder en favori, la page ne peut pas toujours mémoriser la clé)\n  var m=(location.hash||'').match(/cle=([^&]+)/); if(m) ecrire('cleGrema', decodeURIComponent(m[1]));\n  dessinerAgents(); dessinerRaccourcis();\n  if(lire('cleGrema')) chargerJournal(); else { etat('clé manquante','err'); demanderCle(); }\n  setInterval(chargerJournal, 30000);\n})();\n</script>\n</body>\n</html>\n",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "a718d1b0-ab2d-4412-a000-9a90c44a7e37",
+      "name": "Afficher le tableau de bord",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -360,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "bec641b6-1c0b-428b-993b-e7f0a2b1548e",
+      "name": "💬 Chat de test",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        660
+      ],
+      "webhookId": "4b18dfa2-71c0-4fe2-9bd7-056284ef92d4"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "362a92ad-c55f-4689-92d0-55ffcd9fac80",
+              "name": "texte",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "8a41bb90-42e1-4ba9-ac02-095bbfe318b4",
+              "name": "canal",
+              "value": "chat",
+              "type": "string"
+            },
+            {
+              "id": "4b29fe5c-9d58-4b6f-8532-9b52251cdd3e",
+              "name": "expediteur",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "3fca8bed-a06f-406b-b5ae-e542f97c7505",
+              "name": "nom",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "00ec986c-c1b3-45fa-bfd3-18e02f599889",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "895c58dc-171f-41f4-9d61-b0bbf47e7ebb",
+      "name": "Lire le chat",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -360,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 7,20 * * *"
+            }
+          ]
+        }
+      },
+      "id": "fc4eac7b-24e3-406d-9cde-1df7b333979e",
+      "name": "⏰ Réveil 7 h et 20 h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -660,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d2d34a1e-ab6e-42ab-9572-089a9289d092",
+              "name": "texte",
+              "value": "={{ $now.hour < 12 ? '[Demande pour l\\'agent rapports] ☀️ Ma journée : prépare le plan du jour de GREMA en 5 points courts (priorités, une idée réseaux, une action ventes).' : '[Demande pour l\\'agent rapports] 🌙 Fais le résumé du jour pour GREMA en 5 points courts et propose 1 priorité pour demain.' }}",
+              "type": "string"
+            },
+            {
+              "id": "237977ea-6b19-4df6-b566-bbdf751633cd",
+              "name": "canal",
+              "value": "whatsapp",
+              "type": "string"
+            },
+            {
+              "id": "631ff71e-ee24-46cd-8878-560438a7655d",
+              "name": "expediteur",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "ca1dd3de-a22c-4668-abb1-8771afbb2fdb",
+              "name": "nom",
+              "value": "GREMA",
+              "type": "string"
+            },
+            {
+              "id": "0807a47f-9585-4228-9ab2-c33e68fe626d",
+              "name": "sessionId",
+              "value": "grema-rapports",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7802dbb5-8e1b-45f7-89f8-6e86d13de6fd",
+      "name": "Ma journée / résumé du soir",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -360,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d889a5eb-7b0b-48fb-86dd-fe0b79390674",
+              "name": "numeroGrema",
+              "value": "49XXXXXXXXXXX",
+              "type": "string"
+            },
+            {
+              "id": "101b5ff0-7d33-4009-b1b3-d63e6b8335e0",
+              "name": "idNumeroWhatsApp",
+              "value": "XXXXXXXXXXXXXXX",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {},
+        "includeOtherFields": true
+      },
+      "id": "3395b68b-3283-4e6c-8110-f87e883b78a0",
+      "name": "⚙️ Réglages",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        140,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "83807325-5906-483d-bbe8-a0be004e79b2",
+              "leftValue": "={{ $json.texte }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4fca6c08-aa8d-49f6-8bc0-36b4c4b69555",
+      "name": "Message vide ?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        360,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7e089bd3-55b1-4d99-93ee-d410f0cd6020",
+              "leftValue": "={{ $json.expediteur }}",
+              "rightValue": "GREMA",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2fbf88e2-c0dd-46ad-8b54-ee18a08be01b",
+              "leftValue": "={{ $json.expediteur }}",
+              "rightValue": "={{ $json.numeroGrema }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "a71eef4e-94a2-4e64-9502-b30e54d4a629",
+      "name": "C'est GREMA ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.texte }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "whatsapp",
+              "description": "Clients et commandes sur WhatsApp. Si le message commence par « [Demande pour l'agent whatsapp] », c'est cette catégorie."
+            },
+            {
+              "category": "reseaux",
+              "description": "Publications TikTok, YouTube, Facebook, Instagram. Si le message commence par « [Demande pour l'agent reseaux] », c'est cette catégorie."
+            },
+            {
+              "category": "ventes",
+              "description": "Boutique, caisse, vendeurs, RDV Pro. Si le message commence par « [Demande pour l'agent ventes] », c'est cette catégorie."
+            },
+            {
+              "category": "recherche",
+              "description": "Idées, prix, concurrents, nouvelles du Sahel. Si le message commence par « [Demande pour l'agent recherche] », c'est cette catégorie."
+            },
+            {
+              "category": "rapports",
+              "description": "Ma journée, résumé du soir, plans. Si le message commence par « [Demande pour l'agent rapports] », c'est cette catégorie."
+            },
+            {
+              "category": "creatif",
+              "description": "Scénarios vidéo, livres, dessins animés, affiches, idées d'applis. Si le message commence par « [Demande pour l'agent creatif] », c'est cette catégorie."
+            },
+            {
+              "category": "finances",
+              "description": "Caisse, prix, marges, devis, mobile money, coûts. Si le message commence par « [Demande pour l'agent finances] », c'est cette catégorie."
+            },
+            {
+              "category": "patron",
+              "description": "Discussion, conseils, tout le reste. Si le message commence par « [Demande pour l'agent patron] », c'est cette catégorie."
+            }
+          ]
+        },
+        "options": {
+          "fallback": "other",
+          "systemPromptTemplate": "Tu es l'Agent Patron de Grema 88. Classe la demande de GREMA dans la catégorie de l'agent le plus adapté. Si le message commence par « [Demande pour l'agent X] », choisis X. Une discussion, une salutation ou une question générale va à « patron »."
+        }
+      },
+      "id": "1e59f63e-de15-4e87-b3b2-54bc745234fa",
+      "name": "🧭 Agent Patron : à qui confier ?",
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        1000,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "options": {
+          "maxTokensToSample": 1500,
+          "temperature": 0.6
+        }
+      },
+      "id": "7f73b978-79df-4fa5-8b43-c857814bae6d",
+      "name": "🧠 Claude (le cerveau)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [
+        1180,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('⚙️ Réglages').item.json.sessionId }}",
+        "contextWindowLength": 20
+      },
+      "id": "e4bc2e7b-95ec-45d7-8a9e-78b002467597",
+      "name": "🗂️ Mémoire des conversations",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1380,
+        1080
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7b172b7c-e0f4-4d20-8022-167a6f2bb7b3",
+      "name": "Calculatrice",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        1080
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5da0d843-6f1e-4081-bbc9-c7c6f840b252",
+      "name": "Wikipedia",
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "toolDescription": "Cherche une information récente sur Internet (prix, actualité, concurrents, taux, nouvelles du Niger et du Sahel). Donne une question précise ; renvoie une réponse courte avec les sources.",
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "anthropicApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 1200, tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 3 }], messages: [{ role: 'user', content: 'Cherche sur Internet puis réponds en français, en 5 lignes maximum, avec les liens des sources : ' + $fromAI('question', 'La question précise à chercher sur Internet', 'string') }] }) }}",
+        "options": {}
+      },
+      "id": "24aceeac-a863-432e-a753-a0312679e3b4",
+      "name": "Recherche Internet (Claude)",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        1940,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent WhatsApp, le vendeur et service client de la boutique Grema 88. Tu réponds aux CLIENTS : produits, prix connus, commande, livraison, paiement mobile money. Pour une commande, récapitule (produit, quantité, prix si connu, ville, paiement) et dis qu'un vendeur va confirmer. Ne donne jamais d'information interne sur GREMA, l'agence ou les autres clients. Si le client est fâché ou si la demande dépasse la boutique, propose qu'un humain le rappelle.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "dcce7be7-8aab-4006-b0c1-9b0e3e25a1ad",
+      "name": "💬 Agent WhatsApp",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Réseaux. Tu écris les légendes, hashtags, idées de vidéos, plans de publication et meilleures heures (Niamey et diaspora). Toujours prêt-à-copier. Pense aux fêtes : Ramadan, Tabaski, 18 décembre, rentrée, fin d'année. Tu ne publies rien toi-même : tu proposes et GREMA valide.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "e839d277-ddf3-4762-be60-a7f3812d80ea",
+      "name": "📣 Agent Réseaux",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        -135
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Ventes. Tu suis la boutique Grema 88, les vendeurs, la caisse (additionne les ventes que GREMA te donne, en FCFA, avec la calculatrice), les offres (ex. RDV Pro : 1 mois gratuit pour les 10 premiers salons de Niamey) et tu proposes des idées pour vendre plus. Les calculs détaillés vont à l'Agent Finances.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "71b3b059-6753-471e-ab52-f772886ef5cc",
+      "name": "🛍️ Agent Ventes",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        30
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Recherche. Tu cherches sur Internet (outil Recherche Internet) et sur Wikipédia, compares, analyses un produit (prix, demande, marge, note sur 10) ou des concurrents, et tu donnes toujours la source (lien).\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "e20b9cd0-912c-4dc8-a383-ad40d567b80f",
+      "name": "🔎 Agent Recherche",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        195
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Rapports. Tu écris « ☀️ Ma journée » le matin et le résumé du soir pour GREMA : 5 points maximum, une priorité claire, un ton encourageant. Appuie-toi sur la mémoire de la conversation.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "771a41ae-feba-49a2-8399-0d432a6a306a",
+      "name": "📋 Agent Rapports",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Créatif. Tu écris des scénarios de vidéos courtes (20 s, 60 s) avec plans et sous-titres FR/EN, des histoires et chapitres de livres, des épisodes de dessin animé (comme « Le Conseil de la Savane », roi lion Kadar), des briefs d'affiches (indigo et or, motifs sahéliens) et des idées d'applications. Toujours concret et prêt à produire.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "4bc66f86-fd69-48ee-941e-b702ae0c067b",
+      "name": "🎬 Agent Créatif",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        525
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Finances. Tu calcules (avec la calculatrice) la caisse, les marges, les prix de vente, les devis, les conversions FCFA / euro (1 € = 655,957 FCFA, taux fixe), les coûts des outils (Claude, n8n, WhatsApp) et tu conseilles le paiement sécurisé par mobile money (Airtel Money, Moov Money, Orange Money, Wave). Rappelle si besoin que tout revenu de GREMA doit être déclaré à l'Agentur für Arbeit. Tu ne fais jamais de paiement.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "8ad0d534-002c-46af-9df7-e1c9fc28418b",
+      "name": "💰 Agent Finances",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        690
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('⚙️ Réglages').item.json.texte }}",
+        "options": {
+          "systemMessage": "=Tu fais partie de l'équipe d'agents IA de Grema 88 (Grema Agence 88), fondée par GREMA (Yahaya Nassirou Maman Grema, vit en Allemagne). Grema 88 : applications (RDV Pro en ligne sur rdv-pro.netlify.app, Nessa Tazo Kussa taxi-moto en prototype), livres, vidéos (dessin animé « Le Conseil de la Savane »), et une boutique de produits africains « du Sahel pour l'Afrique et le monde » (vendeurs africains, commande par WhatsApp, prix en FCFA, ex. pagne wax 12 000, miel 1 L 5 000). Paiement : Airtel Money, Moov Money, Orange Money, Wave, espèces à la livraison. Site : grema88.netlify.app. Réseaux : TikTok et YouTube « grema.11 ».\n\nRègles :\n- Réponds dans la langue du message (français par défaut ; GREMA parle aussi haoussa, zarma, allemand, anglais, arabe, italien). Il écrit souvent en phonétique : comprends-le sans le corriger.\n- Style WhatsApp : court, chaleureux, clair, quelques emojis, pas de longs pavés. Réponse longue seulement si on demande « en détail », « complet » ou « sans limite ».\n- Salue selon l'heure ; si on t'écrit « Salam aleykoum », réponds « Wa aleykoum salam ».\n- Avance seul avec le choix le plus logique, ne fais jamais répéter. Termine si utile par une question avec 2 ou 3 choix.\n- Tu PRÉPARES : tu ne prétends jamais avoir publié, payé, envoyé à un tiers ou commandé. Pour toute action réelle, propose le texte prêt et demande le « oui » de GREMA.\n- N'invente jamais un prix, un stock, un chiffre ou une date : si tu ne sais pas, dis-le et propose comment le trouver.\n- Esprit d'équipe : vous êtes une famille qui gagne ensemble ; cite le travail des collègues, jamais de critique.\n\nTon rôle : Tu es l'Agent Patron, chef d'orchestre de l'équipe (WhatsApp, Réseaux, Ventes, Recherche, Rapports, Créatif, Finances). Tu réponds toi-même aux discussions, aux questions générales sur tous les sujets, aux conseils et aux demandes qui touchent plusieurs agents (fais alors un plan court : qui fait quoi). Si tu n'es pas sûr d'un fait, cherche sur Internet. Quand GREMA veut juste parler, discute sans ramener le travail.\n\nContexte : nous sommes le {{ $now.setLocale('fr').toFormat('cccc d LLLL yyyy, HH:mm') }} (heure d'Allemagne). Tu parles à : {{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema ? 'GREMA, ton patron' : 'un client (' + ($('⚙️ Réglages').item.json.nom || 'sans nom') + ')' }}.",
+          "maxIterations": 6
+        }
+      },
+      "id": "5719ab41-3ce6-40ea-a90f-b997c1e2ddb1",
+      "name": "👑 Agent Patron",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        855
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "00130ba1-61a9-471d-8ed2-5635a6e11d87",
+              "name": "reponse",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "e539be86-afd3-4295-a842-1f53b2779d3b",
+              "name": "agent",
+              "value": "={{ $prevNode.name.replace(/^\\S+\\s/, '') }}",
+              "type": "string"
+            },
+            {
+              "id": "add724c8-9b37-4860-9152-7b496791bd6f",
+              "name": "agentId",
+              "value": "={{ ({\"💬 Agent WhatsApp\": \"whatsapp\", \"📣 Agent Réseaux\": \"reseaux\", \"🛍️ Agent Ventes\": \"ventes\", \"🔎 Agent Recherche\": \"recherche\", \"📋 Agent Rapports\": \"rapports\", \"🎬 Agent Créatif\": \"creatif\", \"💰 Agent Finances\": \"finances\", \"👑 Agent Patron\": \"patron\"})[$prevNode.name] || 'patron' }}",
+              "type": "string"
+            },
+            {
+              "id": "b7b255d5-f462-4671-a101-f0951d2c00f9",
+              "name": "question",
+              "value": "={{ $('⚙️ Réglages').item.json.texte }}",
+              "type": "string"
+            },
+            {
+              "id": "e833a7ae-10f8-40ea-8e06-fcbbad9208ac",
+              "name": "canal",
+              "value": "={{ $('⚙️ Réglages').item.json.canal }}",
+              "type": "string"
+            },
+            {
+              "id": "fcda1265-695e-4043-8fe0-fdcffb41ce84",
+              "name": "nom",
+              "value": "={{ $('⚙️ Réglages').item.json.nom }}",
+              "type": "string"
+            },
+            {
+              "id": "c3cbf141-dad1-4406-a42d-698f8c61f77b",
+              "name": "estGrema",
+              "value": "={{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' || $('⚙️ Réglages').item.json.expediteur === $('⚙️ Réglages').item.json.numeroGrema }}",
+              "type": "boolean"
+            },
+            {
+              "id": "4e1d2037-ede1-4520-8cc4-af6efd4522ec",
+              "name": "destinataire",
+              "value": "={{ $('⚙️ Réglages').item.json.expediteur === 'GREMA' ? $('⚙️ Réglages').item.json.numeroGrema : $('⚙️ Réglages').item.json.expediteur }}",
+              "type": "string"
+            },
+            {
+              "id": "460296b6-2dad-4724-9814-190c0199e6e0",
+              "name": "heure",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff2b5b8d-d22e-4624-ac03-adbf5001f8db",
+      "name": "📝 Préparer la réponse",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garde les 200 derniers échanges pour le tableau de bord (fonctionne quand le workflow est activé).\nconst memo = $getWorkflowStaticData('global');\nmemo.journal = memo.journal || [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  memo.journal.push({ heure: j.heure, agent: j.agent, agentId: j.agentId, canal: j.canal, nom: j.nom,\n    estGrema: j.estGrema, question: String(j.question || '').slice(0, 300), reponse: String(j.reponse || '').slice(0, 600) });\n}\nmemo.journal = memo.journal.slice(-200);\nreturn $input.all();"
+      },
+      "id": "21fb8436-370c-4913-b263-106284e46284",
+      "name": "🗒️ Noter dans le journal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "20755907-ea6d-4699-8450-8fe0f97157ca",
+                    "leftValue": "={{ $json.canal }}",
+                    "rightValue": "whatsapp",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "WhatsApp"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "976ae644-7004-4d18-a1ce-47b5a29e4c86",
+                    "leftValue": "={{ $json.canal }}",
+                    "rightValue": "tableau",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Tableau de bord"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c8866d2f-9672-4201-8a89-2a6688a1226c",
+                    "leftValue": "={{ $json.canal }}",
+                    "rightValue": "chat",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Chat"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4d940bf7-3038-40cb-be17-a928e0bbba09",
+      "name": "🔀 Par où répondre ?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "={{ $('⚙️ Réglages').item.json.idNumeroWhatsApp }}",
+        "recipientPhoneNumber": "={{ $json.destinataire }}",
+        "textBody": "={{ $json.reponse.slice(0, 4000) }}",
+        "additionalFields": {}
+      },
+      "id": "967e9302-1172-4214-96c9-2282310ae679",
+      "name": "📤 Répondre sur WhatsApp",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { reponse: $json.reponse, agent: $json.agent, agentId: $json.agentId } }}",
+        "options": {}
+      },
+      "id": "493021cb-02ce-4685-93a3-f810f27211f5",
+      "name": "↩️ Répondre au tableau de bord",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2940,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "afce4d13-8f71-45a0-8d1d-15fdd214be55",
+              "name": "output",
+              "value": "={{ $json.agent + ' : ' + $json.reponse }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4048ba11-2ec3-43c4-9ac3-6331bacb12d2",
+      "name": "💬 Réponse du chat",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2940,
+        480
+      ]
+    }
+  ],
+  "connections": {
+    "📱 WhatsApp : message reçu": {
+      "main": [
+        [
+          {
+            "node": "Lire le message WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌐 Tableau de bord : demande": {
+      "main": [
+        [
+          {
+            "node": "Journal demandé ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Journal demandé ?": {
+      "main": [
+        [
+          {
+            "node": "Lire le journal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Lire la demande du tableau",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire le journal": {
+      "main": [
+        [
+          {
+            "node": "↩️ Envoyer le journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🖥️ Ouvrir le tableau de bord": {
+      "main": [
+        [
+          {
+            "node": "Afficher le tableau de bord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💬 Chat de test": {
+      "main": [
+        [
+          {
+            "node": "Lire le chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏰ Réveil 7 h et 20 h": {
+      "main": [
+        [
+          {
+            "node": "Ma journée / résumé du soir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire le message WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Réglages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire la demande du tableau": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Réglages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire le chat": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Réglages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ma journée / résumé du soir": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Réglages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⚙️ Réglages": {
+      "main": [
+        [
+          {
+            "node": "Message vide ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message vide ?": {
+      "main": [
+        [
+          {
+            "node": "C'est GREMA ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "C'est GREMA ?": {
+      "main": [
+        [
+          {
+            "node": "🧭 Agent Patron : à qui confier ?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "💬 Agent WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Claude (le cerveau)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "🧭 Agent Patron : à qui confier ?",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "💬 Agent WhatsApp",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "🛍️ Agent Ventes",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "📋 Agent Rapports",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "🎬 Agent Créatif",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "💰 Agent Finances",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "👑 Agent Patron",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🗂️ Mémoire des conversations": {
+      "ai_memory": [
+        [
+          {
+            "node": "💬 Agent WhatsApp",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "🛍️ Agent Ventes",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "📋 Agent Rapports",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "🎬 Agent Créatif",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "💰 Agent Finances",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "👑 Agent Patron",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧭 Agent Patron : à qui confier ?": {
+      "main": [
+        [
+          {
+            "node": "💬 Agent WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🛍️ Agent Ventes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "📋 Agent Rapports",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "🎬 Agent Créatif",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "💰 Agent Finances",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "👑 Agent Patron",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "👑 Agent Patron",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recherche Internet (Claude)": {
+      "ai_tool": [
+        [
+          {
+            "node": "📣 Agent Réseaux",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "💰 Agent Finances",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "👑 Agent Patron",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculatrice": {
+      "ai_tool": [
+        [
+          {
+            "node": "🛍️ Agent Ventes",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "💰 Agent Finances",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "👑 Agent Patron",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "🔎 Agent Recherche",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "🎬 Agent Créatif",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "👑 Agent Patron",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💬 Agent WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📣 Agent Réseaux": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛍️ Agent Ventes": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔎 Agent Recherche": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📋 Agent Rapports": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Agent Créatif": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💰 Agent Finances": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "👑 Agent Patron": {
+      "main": [
+        [
+          {
+            "node": "📝 Préparer la réponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Préparer la réponse": {
+      "main": [
+        [
+          {
+            "node": "🗒️ Noter dans le journal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🗒️ Noter dans le journal": {
+      "main": [
+        [
+          {
+            "node": "🔀 Par où répondre ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔀 Par où répondre ?": {
+      "main": [
+        [
+          {
+            "node": "📤 Répondre sur WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "↩️ Répondre au tableau de bord",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "💬 Réponse du chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
