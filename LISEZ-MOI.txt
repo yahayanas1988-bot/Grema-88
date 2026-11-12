@@ -24,3 +24,14 @@ Espace Agent Patron :
 - Les chiffres viennent de agent-patron/agents.js. Pour l'instant ce sont des exemples ;
   modifiez ce fichier (agents, tâches, journal, canaux) puis redéposez le dossier sur Netlify.
 - La page n'est pas référencée par Google, mais toute personne qui a le lien peut la voir.
+
+Agent Serveur (relié à Claude) :
+- La fonction netlify/functions/agent-serveur.js reçoit un message et le fait traiter par Claude.
+- Dans Netlify, ouvrez votre site > Site configuration > Environment variables, et ajoutez :
+    ANTHROPIC_API_KEY  votre clé API Anthropic (les appels sont facturés sur votre compte)
+    CLAUDE_MODEL       le nom du modèle Claude à utiliser
+    AGENT_TOKEN        un mot de passe de votre choix, à garder secret
+- Ne mettez jamais ces valeurs dans les fichiers du dossier : elles seraient publiées avec le site.
+- Une fois les variables définies, un appel POST à /.netlify/functions/agent-serveur avec
+  l'en-tête x-agent-token (AGENT_TOKEN) et le corps {"message": "..."} renvoie la réponse de Claude.
+- Tant que le test réel n'a pas réussi, le tableau de bord garde l'Agent Serveur « À brancher ».
