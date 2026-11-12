@@ -1,0 +1,43 @@
+# Publie le site Grema 88 sur GitHub Pages à chaque changement sur main.
+# Une seule fois, dans le dépôt : Settings > Pages > Source : « GitHub Actions ».
+name: Publier le site (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Préparer les fichiers du site
+        # Le code de l'agent IA (agent-expert), la fonction serveur Netlify (netlify)
+        # et les fichiers GitHub ne sont pas publiés.
+        run: |
+          mkdir _site
+          tar --exclude=./.git --exclude=./.github --exclude=./agent-expert --exclude=./netlify --exclude=./_site -cf - . | tar -xf - -C _site
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploiement
+        uses: actions/deploy-pages@v4

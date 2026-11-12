@@ -11,20 +11,20 @@
 <meta name="keywords" content="Grema88, Grema Agence 88, Nessa Tazo Kussa, RDV Pro, Niger, Sahel, applications, livres, boutique, vendre en ligne, agent IA">
 <meta name="author" content="Grema Agence 88">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://grema88.netlify.app/">
+<link rel="canonical" href="https://yahayanas1988-bot.github.io/Grema-88/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grema88">
 <meta property="og:title" content="Grema88 · Applications, livres et boutique du Sahel">
 <meta property="og:description" content="Applications, livres, vidéos et produits de vendeurs africains. En français, anglais, arabe et allemand.">
-<meta property="og:url" content="https://grema88.netlify.app/">
-<meta property="og:image" content="https://grema88.netlify.app/images/partage.jpg">
+<meta property="og:url" content="https://yahayanas1988-bot.github.io/Grema-88/">
+<meta property="og:image" content="https://yahayanas1988-bot.github.io/Grema-88/images/partage.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="ar_AR">
 <meta property="og:locale:alternate" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1f2257">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Grema Agence 88","alternateName":"Grema88","url":"https://grema88.netlify.app/","logo":"https://grema88.netlify.app/images/logo.jpg","description":"Agence du Sahel : applications, livres, vidéos et boutique en ligne pour vendeurs.","knowsLanguage":["fr","en","ar","de"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Grema Agence 88","alternateName":"Grema88","url":"https://yahayanas1988-bot.github.io/Grema-88/","logo":"https://yahayanas1988-bot.github.io/Grema-88/images/logo.jpg","description":"Agence du Sahel : applications, livres, vidéos et boutique en ligne pour vendeurs.","knowsLanguage":["fr","en","ar","de"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Cinzel+Decorative:wght@700;900&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap">
@@ -509,17 +509,15 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
           <li><b><span>3</span></b><div><strong data-i18n="sellS3"></strong><p data-i18n="sellS3t"></p></div></li>
         </ol>
       </div>
-      <form class="sell-form" id="sell-form" name="vendeur" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="vendeur">
+      <form class="sell-form" id="sell-form" name="vendeur">
         <input type="hidden" name="langue" id="sf-langue" value="fr">
-        <p class="hp"><label>Ne pas remplir <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <label><span data-i18n="fName"></span><input id="sf-nom" name="nom" required autocomplete="name"></label>
         <label><span data-i18n="fWa"></span><input id="sf-wa" name="whatsapp" type="tel" required placeholder="+227 …" autocomplete="tel"></label>
         <label class="full"><span data-i18n="fProduct"></span><input id="sf-produit" name="produit" required></label>
         <label><span data-i18n="fPrice"></span><input id="sf-prix" name="prix" placeholder="5 000 FCFA"></label>
         <label><span data-i18n="fCity"></span><input id="sf-ville" name="ville"></label>
         <label class="full"><span data-i18n="fDesc"></span><textarea id="sf-desc" name="description"></textarea></label>
-        <label class="full"><span data-i18n="fPhoto"></span><input id="sf-photo" name="photo" type="file" accept="image/*"></label>
+        <p class="fine full" data-i18n="fPhotoNote"></p>
         <p class="fine" data-i18n="fFine"></p>
         <div class="full"><button class="btn btn-ink" type="submit" id="sf-send" data-i18n="fSend"></button></div>
         <p class="form-msg" id="sf-msg" role="status" hidden></p>
@@ -622,8 +620,10 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
       fName:"Votre nom ou votre boutique", fWa:"Votre WhatsApp", fProduct:"Nom du produit", fPrice:"Prix", fCity:"Ville",
       fDesc:"Description", fPhoto:"Photo du produit", fSend:"Envoyer mon produit",
       fFine:"Vos informations servent seulement à publier votre produit et à vous mettre en contact avec vos clients.",
-      fOk:"Merci ! Votre produit est bien reçu. Grema88 vous contacte sur WhatsApp avant de le publier.",
+      fOk:"Votre messagerie s'ouvre avec votre produit. Ajoutez la photo et envoyez : Grema88 vous recontacte avant de le publier.",
       fErr:"L'envoi n'a pas marché. Vérifiez votre connexion et réessayez, ou écrivez-nous sur WhatsApp.",
+      fPhotoNote:"Photo du produit : vous la joindrez au message qui va s'ouvrir.",
+      fMailIntro:"Bonjour Grema88, je voudrais vendre ce produit sur votre site :", fMailSubject:"Nouveau produit à publier",
       fSending:"Envoi en cours…",
       svcEyebrow:"Services", svcTitle:"Ce que l'agence fabrique pour vous",
       svcLead:"Vous avez une idée ? Grema88 la transforme en produit, avec les meilleurs outils d'intelligence artificielle.",
@@ -664,8 +664,10 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
       fName:"Your name or shop", fWa:"Your WhatsApp", fProduct:"Product name", fPrice:"Price", fCity:"City",
       fDesc:"Description", fPhoto:"Product photo", fSend:"Send my product",
       fFine:"Your details are only used to publish your product and connect you with customers.",
-      fOk:"Thank you! Your product has been received. Grema88 will contact you on WhatsApp before publishing it.",
+      fOk:"Your messaging app opens with your product. Add the photo and send it: Grema88 will contact you before publishing it.",
       fErr:"Sending failed. Check your connection and try again, or message us on WhatsApp.",
+      fPhotoNote:"Product photo: you will attach it to the message that opens next.",
+      fMailIntro:"Hello Grema88, I would like to sell this product on your site:", fMailSubject:"New product to publish",
       fSending:"Sending…",
       svcEyebrow:"Services", svcTitle:"What the agency builds for you",
       svcLead:"Got an idea? Grema88 turns it into a product, using the best artificial intelligence tools.",
@@ -706,8 +708,10 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
       fName:"اسمك أو اسم متجرك", fWa:"رقم واتساب", fProduct:"اسم المنتج", fPrice:"السعر", fCity:"المدينة",
       fDesc:"الوصف", fPhoto:"صورة المنتج", fSend:"أرسل منتجي",
       fFine:"تُستخدم معلوماتك فقط لنشر منتجك وربطك بالزبائن.",
-      fOk:"شكراً! وصلنا منتجك. ستتواصل معك غريما 88 عبر واتساب قبل نشره.",
+      fOk:"يُفتح تطبيق الرسائل ومعه معلومات منتجك. أضف الصورة وأرسلها، وستتواصل معك غريما 88 قبل نشره.",
       fErr:"تعذّر الإرسال. تحقّق من الاتصال وأعد المحاولة، أو راسلنا عبر واتساب.",
+      fPhotoNote:"صورة المنتج: سترفقها بالرسالة التي ستُفتح بعد ذلك.",
+      fMailIntro:"مرحباً غريما 88، أرغب في بيع هذا المنتج على موقعكم:", fMailSubject:"منتج جديد للنشر",
       fSending:"جارٍ الإرسال…",
       svcEyebrow:"الخدمات", svcTitle:"ما تصنعه الوكالة لك",
       svcLead:"لديك فكرة؟ غريما 88 تحوّلها إلى منتج بأفضل أدوات الذكاء الاصطناعي.",
@@ -748,8 +752,10 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
       fName:"Ihr Name oder Ihr Geschäft", fWa:"Ihre WhatsApp-Nummer", fProduct:"Produktname", fPrice:"Preis", fCity:"Stadt",
       fDesc:"Beschreibung", fPhoto:"Produktfoto", fSend:"Produkt senden",
       fFine:"Ihre Angaben dienen nur dazu, Ihr Produkt zu veröffentlichen und Sie mit Kunden zu verbinden.",
-      fOk:"Danke! Ihr Produkt ist angekommen. Grema88 meldet sich per WhatsApp, bevor es veröffentlicht wird.",
+      fOk:"Ihre Nachrichten-App öffnet sich mit Ihrem Produkt. Fügen Sie das Foto hinzu und senden Sie ab: Grema88 meldet sich vor der Veröffentlichung.",
       fErr:"Senden fehlgeschlagen. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut, oder schreiben Sie uns per WhatsApp.",
+      fPhotoNote:"Produktfoto: Sie hängen es an die Nachricht an, die sich gleich öffnet.",
+      fMailIntro:"Hallo Grema88, ich möchte dieses Produkt auf Ihrer Seite verkaufen:", fMailSubject:"Neues Produkt zur Veröffentlichung",
       fSending:"Wird gesendet…",
       svcEyebrow:"Leistungen", svcTitle:"Was die Agentur für Sie baut",
       svcLead:"Sie haben eine Idee? Grema88 macht daraus ein Produkt, mit den besten KI-Werkzeugen.",
@@ -954,19 +960,27 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
   });
   function selectText(el){ var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
 
-  // Formulaire vendeur (reçu dans Netlify > Forms une fois le site en ligne)
-  var sf=document.getElementById("sell-form"), sfMsg=document.getElementById("sf-msg"), sfBtn=document.getElementById("sf-send");
+  // Formulaire vendeur : ouvre WhatsApp (ou l'e-mail) de l'agence avec la fiche du produit.
+  // Le WhatsApp et l'e-mail de l'agence se règlent dans l'Espace Grema (contenu.js, « agence »).
+  var sf=document.getElementById("sell-form"), sfMsg=document.getElementById("sf-msg");
   sf.addEventListener("submit",function(e){
     e.preventDefault();
     document.getElementById("sf-langue").value = lang;
-    sfMsg.hidden=true; sfBtn.disabled=true; sfBtn.textContent=t("fSending");
-    var fd=new FormData(sf);
-    fetch("/", {method:"POST", body:fd}).then(function(r){
-      if(!r.ok) throw new Error(r.status);
-      sf.reset(); sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk");
-    }).catch(function(){
+    function champ(id){ return (document.getElementById(id).value||"").trim(); }
+    var lignes=[t("fMailIntro"), ""];
+    [["fName","sf-nom"],["fWa","sf-wa"],["fProduct","sf-produit"],["fPrice","sf-prix"],["fCity","sf-ville"],["fDesc","sf-desc"]].forEach(function(c){
+      var v=champ(c[1]); if(v) lignes.push(t(c[0])+" : "+v);
+    });
+    var texte=lignes.join("\n"), wa=waDigits(A.whatsapp), url="";
+    if(wa) url="https://wa.me/"+wa+"?text="+encodeURIComponent(texte);
+    else if(A.email) url="mailto:"+A.email+"?subject="+encodeURIComponent(t("fMailSubject")+" : "+champ("sf-produit"))+"&body="+encodeURIComponent(texte);
+    if(url){
+      window.open(url, wa ? "_blank" : "_self");
+      sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk");
+    } else {
       sfMsg.className="form-msg err"; sfMsg.textContent=t("fErr");
-    }).then(function(){ sfMsg.hidden=false; sfBtn.disabled=false; sfBtn.textContent=t("fSend"); });
+    }
+    sfMsg.hidden=false;
   });
 
   // Aujourd'hui : date, calendrier musulman, heure
@@ -1178,6 +1192,30 @@ html[lang="ar"] .hijri{font-family:var(--arabic);font-style:normal}
   addEventListener("resize",function(){ size(); draw(); });
   if(!still) requestAnimationFrame(loop);
 })();
+</script>
+
+<!-- Chat de Veronica (MyChatBot), assistante de Grema 88 : WhatsApp, Messenger et ce site. -->
+<link rel="stylesheet" href="https://storage.googleapis.com/mychatbot-widget-assets/v1/style.css">
+<div id="my-chat-widget-container"></div>
+<script src="https://storage.googleapis.com/mychatbot-widget-assets/v1/widget.js" defer></script>
+<script>
+  // Si le chat ne se charge pas (réseau, bloqueur), le reste du site fonctionne normalement.
+  addEventListener("load", function(){
+    if (!window.MyChatBot) return;
+    try {
+      MyChatBot.mount('#my-chat-widget-container', {
+        account_id: "90b3ab98-d976-4cbc-868e-7a7376b33b89",
+        widget_id: "grema88-site",
+        api_url: 'https://api.mychatbot.app',
+        assistant_name: "Veronica",
+        color: "#C8892B",
+        lang: 'en',
+        ad_widget_title: '',
+        ad_widget_description: '',
+        ad_popup_messages: []
+      });
+    } catch (e) {}
+  });
 </script>
 </body>
 </html>
