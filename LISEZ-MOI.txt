@@ -36,5 +36,20 @@ Espace Agent Patron :
 - La page n'est pas référencée par Google, mais toute personne qui a le lien peut la voir.
 
 Publication (pour information) :
-- Le fichier .github/workflows/pages.yml publie le site. Il n'envoie pas le dossier
-  agent-expert/ (code de l'agent IA), qui reste seulement sur GitHub.
+- Le fichier .github/workflows/pages.yml publie le site. Il n'envoie pas les dossiers
+  agent-expert/ (code de l'agent IA) et netlify/ (fonction serveur), qui restent seulement sur GitHub.
+
+Agent Serveur (relié à Claude) :
+- Attention : cette fonction ne tourne que sur Netlify. GitHub Pages publie seulement des pages,
+  il n'exécute pas de fonction serveur. Tant que le site est sur GitHub Pages, l'Agent Serveur
+  reste « À brancher ». Il faudra un hébergement qui exécute des fonctions (Netlify avec des
+  crédits, par exemple) pour le mettre en service.
+- La fonction netlify/functions/agent-serveur.js reçoit un message et le fait traiter par Claude.
+- Dans Netlify, ouvrez votre site > Site configuration > Environment variables, et ajoutez :
+    ANTHROPIC_API_KEY  votre clé API Anthropic (les appels sont facturés sur votre compte)
+    CLAUDE_MODEL       le nom du modèle Claude à utiliser
+    AGENT_TOKEN        un mot de passe de votre choix, à garder secret
+- Ne mettez jamais ces valeurs dans les fichiers du dossier : elles seraient publiées avec le site.
+- Une fois les variables définies, un appel POST à /.netlify/functions/agent-serveur avec
+  l'en-tête x-agent-token (AGENT_TOKEN) et le corps {"message": "..."} renvoie la réponse de Claude.
+- Tant que le test réel n'a pas réussi, le tableau de bord garde l'Agent Serveur « À brancher ».

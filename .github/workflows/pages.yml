@@ -26,10 +26,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Préparer les fichiers du site
-        # Le code de l'agent IA (agent-expert) et les fichiers GitHub ne sont pas publiés.
+        # Le code de l'agent IA (agent-expert), la fonction serveur Netlify (netlify)
+        # et les fichiers GitHub ne sont pas publiés.
         run: |
           mkdir _site
-          tar --exclude=./.git --exclude=./.github --exclude=./agent-expert --exclude=./_site -cf - . | tar -xf - -C _site
+          tar --exclude=./.git --exclude=./.github --exclude=./agent-expert --exclude=./netlify --exclude=./_site -cf - . | tar -xf - -C _site
           touch _site/.nojekyll
 
       - uses: actions/configure-pages@v5
