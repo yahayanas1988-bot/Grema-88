@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1029">
+<title>Agent Grema</title>
+<style>
+:root{
+  --fond:#0d1029; --fond2:#11153a; --carte:#161b47; --carte2:#1c2257; --ligne:#272e6e;
+  --texte:#f1f2ff; --doux:#a7acd9; --pale:#7c82b8;
+  --or:#e3a72f; --or2:#f4c86a; --indigo:#3d47b5; --ok:#35c58c; --err:#ef6a52;
+  --rayon:16px; --ombre:0 10px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fond);color:var(--texte);font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column;
+  background:radial-gradient(1200px 500px at 85% -10%,rgba(227,167,47,.10),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(61,71,181,.25),transparent 60%),var(--fond)}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;color:inherit}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+
+/* En-tête */
+header{position:relative;display:flex;align-items:center;gap:12px;padding:14px 20px 18px}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;opacity:.9;
+  background:linear-gradient(135deg,var(--or) 25%,transparent 25%) -6px 0/12px 12px,linear-gradient(225deg,var(--or) 25%,transparent 25%) -6px 0/12px 12px,linear-gradient(315deg,var(--indigo) 25%,transparent 25%) 0 0/12px 12px,linear-gradient(45deg,var(--indigo) 25%,transparent 25%) 0 0/12px 12px}
+.logo{width:40px;height:40px;flex:none;display:grid;place-items:center;transform:rotate(45deg);border-radius:9px;
+  background:linear-gradient(135deg,var(--or2),var(--or));box-shadow:0 6px 18px rgba(227,167,47,.35)}
+.logo span{transform:rotate(-45deg);font-weight:800;font-size:13px;color:#2a1c00;letter-spacing:-.02em}
+.titre{flex:1;min-width:0}
+.titre h1{font-size:19px;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.01em}
+.titre h1 b{color:var(--or)}
+.titre p{margin:2px 0 0;color:var(--doux);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pastille{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:5px 10px;border-radius:99px;background:var(--carte);color:var(--doux);border:1px solid var(--ligne);white-space:nowrap}
+.pastille::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pale)}
+.pastille.ok{color:var(--ok)} .pastille.ok::before{background:var(--ok);box-shadow:0 0 0 3px rgba(53,197,140,.2)}
+.pastille.err{color:var(--err)} .pastille.err::before{background:var(--err)}
+.icone{background:var(--carte);border:1px solid var(--ligne);width:38px;height:38px;display:grid;place-items:center;font-size:16px}
+.icone:hover{border-color:var(--or)}
+
+/* Grille */
+body{height:100vh;overflow:hidden}
+main{flex:1;display:grid;grid-template-columns:270px minmax(0,1fr) 310px;grid-template-rows:minmax(0,1fr);gap:14px;padding:14px 20px 20px;min-height:0}
+section{background:linear-gradient(180deg,var(--carte),var(--fond2));border:1px solid var(--ligne);border-radius:var(--rayon);padding:14px;min-height:0;min-width:0;display:flex;flex-direction:column;box-shadow:var(--ombre)}
+section h2{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);margin:2px 2px 12px;font-weight:650}
+
+/* Agents */
+.agents{display:flex;flex-direction:column;gap:6px;overflow:auto;margin:0 -4px;padding:0 4px}
+.agent{display:flex;align-items:center;gap:11px;padding:9px 10px;background:transparent;text-align:left;border:1px solid transparent;width:100%;transition:background .15s,border-color .15s}
+.agent:hover{background:rgba(255,255,255,.04)}
+.agent.actif{border-color:rgba(227,167,47,.6);background:rgba(227,167,47,.09)}
+.rond{position:relative;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;font-size:17px}
+.rond::after{content:"";position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--carte)}
+.agent .nom{font-weight:650;font-size:14px;line-height:1.2}
+.agent .role{font-size:12px;color:var(--doux);line-height:1.3;margin-top:2px}
+.agent .nb{margin-left:auto;font-size:12px;font-weight:650;min-width:24px;text-align:center;padding:2px 7px;border-radius:99px;background:var(--fond);color:var(--doux)}
+.agent .nb.plein{background:rgba(227,167,47,.15);color:var(--or2)}
+
+/* Chat */
+#zone-chat h2 .qui-parle{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--texte);font-weight:650}
+.chat{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:4px 6px 8px 2px;scroll-behavior:smooth}
+.msg{max-width:min(78ch,86%);padding:10px 14px;border-radius:16px;word-wrap:break-word;animation:entre .2s ease-out}
+.msg p{margin:0 0 6px} .msg p:last-child{margin:0}
+.msg ul{margin:4px 0;padding-left:18px}
+.msg a{color:var(--or2)}
+.msg.moi{align-self:flex-end;background:linear-gradient(135deg,#4b55c9,var(--indigo));border-bottom-right-radius:5px}
+.msg.agent-r{align-self:flex-start;background:var(--carte2);border:1px solid var(--ligne);border-bottom-left-radius:5px}
+.msg .entete{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--or2);margin-bottom:4px;font-weight:650}
+.msg .heure{font-size:11px;color:var(--pale);margin-top:4px;text-align:right}
+.msg.systeme{border-color:rgba(239,106,82,.5)}
+.points{display:inline-flex;gap:4px;padding:4px 0}
+.points i{width:7px;height:7px;border-radius:50%;background:var(--doux);animation:saute 1s infinite}
+.points i:nth-child(2){animation-delay:.15s}.points i:nth-child(3){animation-delay:.3s}
+@keyframes saute{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+@keyframes entre{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.accueil{margin:auto;text-align:center;max-width:420px;padding:24px 10px}
+.accueil .grand{font-size:22px;font-weight:750;margin-bottom:6px}
+.accueil p{color:var(--doux);margin:0}
+.raccourcis{display:flex;gap:8px;overflow-x:auto;margin:10px 0;padding-bottom:2px;scrollbar-width:none}
+.raccourcis::-webkit-scrollbar{display:none}
+.raccourcis button{flex:none;background:var(--fond);border:1px solid var(--ligne);color:var(--doux);padding:7px 12px;border-radius:99px;font-size:13px;transition:color .15s,border-color .15s}
+.raccourcis button:hover{color:var(--texte);border-color:var(--or)}
+form.saisie{display:flex;gap:8px;align-items:flex-end;background:var(--fond);border:1px solid var(--ligne);border-radius:16px;padding:6px}
+form.saisie:focus-within{border-color:var(--or)}
+form.saisie textarea{flex:1;resize:none;min-height:42px;max-height:140px;border:0;background:transparent;color:var(--texte);padding:10px;font:inherit;outline:none}
+form.saisie button{background:linear-gradient(135deg,var(--or2),var(--or));color:#2a1c00;font-weight:750;height:42px;padding:0 18px}
+form.saisie button:disabled{opacity:.5;cursor:default}
+
+/* Journal */
+.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.chiffre{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:10px 6px;text-align:center}
+.chiffre b{display:block;font-size:22px;line-height:1.1;color:var(--or2);font-variant-numeric:tabular-nums}
+.chiffre span{font-size:11px;color:var(--doux)}
+.filtres{display:flex;gap:6px;margin-bottom:10px}
+.filtres button{background:transparent;border:1px solid var(--ligne);color:var(--doux);font-size:12px;padding:4px 10px;border-radius:99px}
+.filtres button.on{background:var(--or);border-color:var(--or);color:#2a1c00;font-weight:650}
+.journal{flex:1;overflow:auto;display:flex;flex-direction:column;gap:6px;margin:0 -4px;padding:0 4px}
+.ligne{border-left:3px solid var(--ligne);padding:6px 4px 6px 10px;font-size:13px;border-radius:0 8px 8px 0;cursor:pointer}
+.ligne:hover{background:rgba(255,255,255,.03)}
+.ligne .t{color:var(--pale);font-size:11px}
+.ligne .q{color:var(--texte);font-weight:550}
+.ligne .r{color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ligne.ouverte .r{-webkit-line-clamp:unset;white-space:pre-wrap}
+.vide{color:var(--pale);text-align:center;margin:auto;padding:20px;font-size:14px}
+
+/* Fenêtre clé */
+dialog{background:var(--carte);color:var(--texte);border:1px solid var(--ligne);border-radius:18px;max-width:420px;width:calc(100% - 32px);box-shadow:var(--ombre)}
+dialog::backdrop{background:rgba(5,7,25,.7);backdrop-filter:blur(3px)}
+dialog input{width:100%;padding:11px;border-radius:12px;border:1px solid var(--ligne);background:var(--fond);color:var(--texte);font:inherit;margin:6px 0 14px}
+dialog .actions{display:flex;gap:8px;justify-content:flex-end}
+dialog .actions button{padding:9px 16px}
+.principal{background:linear-gradient(135deg,var(--or2),var(--or));color:#2a1c00;font-weight:750}
+.second{background:var(--ligne)}
+
+@media (max-width:1100px){ main{grid-template-columns:230px minmax(0,1fr) 270px} }
+@media (max-width:900px){
+  body{height:auto;overflow:auto}
+  main{grid-template-columns:minmax(0,1fr);grid-template-rows:none;padding:10px 12px 16px;gap:10px}
+  header{padding:12px 14px 16px}
+  .titre p{display:none}
+  section{padding:12px}
+  .agents{flex-direction:row;overflow-x:auto;scrollbar-width:none}
+  .agents::-webkit-scrollbar{display:none}
+  .agent{flex:none;width:auto;padding:7px 10px}
+  .agent .role{display:none}
+  .agent .nb{margin-left:4px}
+  #zone-chat{height:72vh}
+  #zone-journal{max-height:60vh}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" aria-hidden="true"><span>G88</span></div>
+  <div class="titre">
+    <h1>Agent <b>Grema</b></h1>
+    <p>Le Patron et ses 7 agents, propulsés par Claude</p>
+  </div>
+  <span id="etat" class="pastille">connexion…</span>
+  <button class="icone" id="btn-cle" title="Clé d'accès" aria-label="Clé d'accès">🔑</button>
+</header>
+<main>
+  <section>
+    <h2>L'équipe <span id="nb-agents"></span></h2>
+    <div class="agents" id="agents"></div>
+  </section>
+  <section id="zone-chat">
+    <h2><span class="qui-parle" id="titre-chat"></span><button class="icone" id="btn-effacer" title="Nouvelle discussion" aria-label="Nouvelle discussion" style="width:32px;height:32px;font-size:14px">🗑️</button></h2>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div class="raccourcis" id="raccourcis"></div>
+    <form class="saisie" id="form">
+      <textarea id="texte" rows="1" placeholder="Écris ta demande…" aria-label="Message"></textarea>
+      <button type="submit" id="btn-envoyer">Envoyer</button>
+    </form>
+  </section>
+  <section id="zone-journal">
+    <h2>Journal du jour <span id="maj" style="text-transform:none;letter-spacing:0;color:var(--pale)"></span></h2>
+    <div class="chiffres">
+      <div class="chiffre"><b id="n-total">0</b><span>échanges</span></div>
+      <div class="chiffre"><b id="n-wa">0</b><span>WhatsApp</span></div>
+      <div class="chiffre"><b id="n-clients">0</b><span>clients</span></div>
+    </div>
+    <div class="filtres" id="filtres">
+      <button data-f="tout" class="on">Tout</button><button data-f="clients">Clients</button><button data-f="grema">Mes demandes</button>
+    </div>
+    <div class="journal" id="journal"><div class="vide">Rien pour l'instant.</div></div>
+  </section>
+</main>
+
+<dialog id="dlg">
+  <form method="dialog">
+    <h3 style="margin:0 0 6px">🔑 Clé d'accès</h3>
+    <p style="color:var(--doux);font-size:14px;margin:0">La valeur de l'identifiant « Clé tableau de bord Grema » créé dans n8n.</p>
+    <input id="cle" type="password" autocomplete="off" placeholder="Ta clé secrète">
+    <div class="actions"><button class="second" value="annuler">Annuler</button><button class="principal" value="ok" id="cle-ok">Enregistrer</button></div>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  // Adresse du workflow déduite de cette page : .../webhook/grema-tableau -> .../webhook/agent-grema
+  var API = window.API_GREMA || location.href.split(/[?#]/)[0].replace(/\/grema-tableau\/?$/, '/agent-grema');
+
+  var AGENTS = [
+    { id:'auto',      nom:'Agent Patron',    role:'Choisit le bon agent pour chaque demande', icone:'👑', couleur:'#e3a72f' },
+    { id:'whatsapp',  nom:'Agent WhatsApp',  role:'Clients et commandes',                     icone:'💬', couleur:'#1aa37a' },
+    { id:'reseaux',   nom:'Agent Réseaux',   role:'TikTok, YouTube, Facebook',                icone:'📣', couleur:'#d0583a' },
+    { id:'ventes',    nom:'Agent Ventes',    role:'Boutique, vendeurs, offres',               icone:'🛍️', couleur:'#6b7bff' },
+    { id:'recherche', nom:'Agent Recherche', role:'Internet, prix, concurrents',              icone:'🔎', couleur:'#8f6bea' },
+    { id:'rapports',  nom:'Agent Rapports',  role:'Ma journée, résumé du soir',               icone:'📋', couleur:'#d39220' },
+    { id:'creatif',   nom:'Agent Créatif',   role:'Vidéos, livres, affiches',                 icone:'🎬', couleur:'#d24d98' },
+    { id:'finances',  nom:'Agent Finances',  role:'Caisse, marges, mobile money',             icone:'💰', couleur:'#2fb3a1' }
+  ];
+  var RACCOURCIS = {
+    auto:      ['☀️ Ma journée', '🔥 Une idée surprenante pour Grema 88', '🤝 Qui fait quoi cette semaine ?'],
+    whatsapp:  ['💬 Réponse type pour un prix', '📦 Message de confirmation de commande'],
+    reseaux:   ['📣 Plan réseaux de la semaine', '✍️ 3 légendes TikTok pour RDV Pro'],
+    ventes:    ['🛍️ Point sur les ventes', '💡 Idée pour vendre plus ce week-end'],
+    recherche: ['🔎 Prix du marché à Niamey aujourd\'hui', '🕵️ Mes concurrents en ligne'],
+    rapports:  ['☀️ Ma journée', '🌙 Résumé du jour'],
+    creatif:   ['🎬 Scénario TikTok de 20 s', '📖 Idée de livre pour enfants'],
+    finances:  ['💰 Calcule ma marge', '💶 Convertis 50 000 FCFA en euros']
+  };
+
+  var choisi = 'auto', compte = {}, journalBrut = [], filtre = 'tout', envoiEnCours = false;
+  var $ = function(id){ return document.getElementById(id); };
+
+  function lire(k){ try { return localStorage.getItem(k) || window['_'+k] || ''; } catch(e){ return window['_'+k] || ''; } }
+  function ecrire(k,v){ window['_'+k] = v; try { localStorage.setItem(k,v); } catch(e){} }
+  function el(t,c,txt){ var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e; }
+  function agent(id){ for (var i=0;i<AGENTS.length;i++) if (AGENTS[i].id===id) return AGENTS[i]; return AGENTS[0]; }
+  function etat(txt, cls){ var p=$('etat'); p.textContent=txt; p.className='pastille '+(cls||''); }
+  function heureCourte(d){ return d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}); }
+
+  // Mise en forme sûre : **gras**, listes "- ", liens, retours à la ligne.
+  function riche(texte){
+    var box=document.createDocumentFragment(), liste=null;
+    String(texte||'').split('\n').forEach(function(ligne){
+      var puce=/^\s*[-•]\s+/.test(ligne);
+      var cible;
+      if(puce){ if(!liste){ liste=el('ul'); box.appendChild(liste); } cible=el('li'); liste.appendChild(cible); ligne=ligne.replace(/^\s*[-•]\s+/,''); }
+      else { liste=null; if(!ligne.trim()) return; cible=el('p'); box.appendChild(cible); }
+      ligne.split(/(\*\*[^*]+\*\*|https?:\/\/[^\s)]+)/).forEach(function(m){
+        if(/^\*\*[^*]+\*\*$/.test(m)) cible.appendChild(el('strong',null,m.slice(2,-2)));
+        else if(/^https?:\/\//.test(m)){ var a=el('a',null,m); a.href=m; a.target='_blank'; a.rel='noopener'; cible.appendChild(a); }
+        else if(m) cible.appendChild(document.createTextNode(m));
+      });
+    });
+    return box;
+  }
+
+  function dessinerAgents(){
+    var box=$('agents'); box.innerHTML='';
+    $('nb-agents').textContent = (AGENTS.length) + ' agents';
+    AGENTS.forEach(function(a){
+      var b=el('button','agent'+(a.id===choisi?' actif':'')); b.type='button';
+      var r=el('span','rond',a.icone); r.style.background=a.couleur+'2e';
+      var t=el('span'); t.appendChild(el('div','nom',a.nom)); t.appendChild(el('div','role',a.role));
+      b.appendChild(r); b.appendChild(t);
+      var n=compte[a.id==='auto'?'patron':a.id]||0; var nb=el('span','nb'+(n?' plein':''), String(n)); nb.title='échanges aujourd\'hui'; b.appendChild(nb);
+      b.onclick=function(){ choisi=a.id; dessinerAgents(); dessinerTitre(); dessinerRaccourcis(); $('texte').focus(); };
+      box.appendChild(b);
+    });
+  }
+  function dessinerTitre(){
+    var a=agent(choisi), t=$('titre-chat'); t.innerHTML='';
+    t.appendChild(el('span',null,a.icone)); t.appendChild(el('span',null, choisi==='auto' ? 'Agent Patron (choix automatique)' : a.nom));
+  }
+  function dessinerRaccourcis(){
+    var box=$('raccourcis'); box.innerHTML='';
+    (RACCOURCIS[choisi]||RACCOURCIS.auto).forEach(function(r){ var b=el('button',null,r); b.type='button'; b.onclick=function(){ envoyer(r); }; box.appendChild(b); });
+  }
+  function accueil(){
+    var chat=$('chat'); chat.innerHTML='';
+    var h=new Date().getHours(), salut = h<5 ? 'Bonne nuit' : h<12 ? 'Bonjour' : h<18 ? 'Bon après-midi' : 'Bonsoir';
+    var a=el('div','accueil'); a.appendChild(el('div','grand', salut+' GREMA 👋'));
+    a.appendChild(el('p',null,"Écris ta demande ou touche un raccourci. Le Patron la confie au bon agent, ou choisis toi-même un agent dans l'équipe."));
+    chat.appendChild(a);
+  }
+
+  function bulle(texte, moi, qui, cls){
+    var chat=$('chat'); var acc=chat.querySelector('.accueil'); if(acc) acc.remove();
+    var m=el('div','msg '+(moi?'moi':'agent-r')+(cls?' '+cls:''));
+    if(!moi && qui){ var e=el('div','entete'); e.appendChild(el('span',null,qui.icone||'')); e.appendChild(el('span',null,qui.nom||qui)); m.appendChild(e); }
+    if(cls==='attente'){ var p=el('span','points'); p.innerHTML='<i></i><i></i><i></i>'; m.appendChild(p); }
+    else { m.appendChild(riche(texte)); m.appendChild(el('div','heure',heureCourte(new Date()))); }
+    chat.appendChild(m); chat.scrollTop=chat.scrollHeight; return m;
+  }
+
+  function appel(corps){
+    return fetch(API,{ method:'POST', headers:{'Content-Type':'application/json','X-Grema-Cle':lire('cleGrema')}, body:JSON.stringify(corps) })
+      .then(function(r){ if(r.status===401||r.status===403) throw new Error('cle'); if(!r.ok) throw new Error('http '+r.status); return r.json(); });
+  }
+
+  function envoyer(texte){
+    texte=(texte||'').trim(); if(!texte||envoiEnCours) return;
+    if(!lire('cleGrema')){ demanderCle(); return; }
+    envoiEnCours=true; $('btn-envoyer').disabled=true;
+    bulle(texte,true);
+    var attente=bulle('', false, agent(choisi), 'attente');
+    appel({ action:'message', message:texte, agent: choisi==='auto' ? '' : choisi, session: lire('sessionGrema') || 'tableau-grema' })
+      .then(function(d){ attente.remove(); var a=agent(d.agentId==='patron'?'auto':d.agentId); bulle(d.reponse||'(pas de réponse)', false, {icone:a.icone, nom:d.agent||a.nom}); etat('en ligne','ok'); chargerJournal(); })
+      .catch(function(e){ attente.remove();
+        bulle(e.message==='cle' ? "Clé refusée. Touche 🔑 pour la corriger." : "Je n'arrive pas à joindre n8n. Vérifie que le workflow est bien activé.", false, {icone:'⚠️', nom:'Système'}, 'systeme');
+        etat(e.message==='cle'?'clé refusée':'hors ligne','err'); })
+      .then(function(){ envoiEnCours=false; $('btn-envoyer').disabled=false; });
+  }
+
+  function dessinerJournal(){
+    var box=$('journal'); box.innerHTML='';
+    var liste=journalBrut.slice().reverse().filter(function(x){ return filtre==='tout' || (filtre==='clients' ? !x.estGrema : x.estGrema); });
+    if(!liste.length){ box.appendChild(el('div','vide', filtre==='clients' ? 'Aucun message client.' : "Rien pour l'instant.")); return; }
+    liste.slice(0,60).forEach(function(x){
+      var l=el('div','ligne'); var a=AGENTS.filter(function(g){return g.id===x.agentId;})[0] || AGENTS[0];
+      l.style.borderLeftColor=a.couleur;
+      var h=new Date(x.heure); var hh=isNaN(h)?'':h.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+      l.appendChild(el('div','t', hh+' · '+a.icone+' '+(x.agent||'')+' · '+(x.canal||'')+(x.estGrema?'':' · '+(x.nom||'client'))));
+      l.appendChild(el('div','q', String(x.question||'').replace(/^\[Demande pour l'agent \w+\]\s*/,'')));
+      l.appendChild(el('div','r', x.reponse||''));
+      l.onclick=function(){ l.classList.toggle('ouverte'); };
+      box.appendChild(l);
+    });
+  }
+
+  function chargerJournal(){
+    if(!lire('cleGrema')) { etat('clé manquante','err'); return; }
+    appel({ action:'journal' }).then(function(d){
+      etat('en ligne','ok'); journalBrut=d.journal||[]; compte={};
+      var auj=new Date().toDateString(), total=0, wa=0, clients=0;
+      journalBrut.forEach(function(x){ if(new Date(x.heure).toDateString()!==auj) return;
+        compte[x.agentId]=(compte[x.agentId]||0)+1; total++; if(x.canal==='whatsapp') wa++; if(!x.estGrema) clients++; });
+      $('n-total').textContent=total; $('n-wa').textContent=wa; $('n-clients').textContent=clients;
+      $('maj').textContent='mis à jour '+heureCourte(new Date());
+      dessinerJournal(); dessinerAgents();
+    }).catch(function(e){ etat(e.message==='cle'?'clé refusée':'hors ligne','err'); });
+  }
+
+  function demanderCle(){ var d=$('dlg'); $('cle').value=lire('cleGrema');
+    if(d.showModal) d.showModal(); else { var v=prompt("Clé d'accès"); if(v!=null){ ecrire('cleGrema',v.trim()); chargerJournal(); } } }
+  $('dlg').addEventListener('close',function(){ if(this.returnValue==='ok'){ ecrire('cleGrema',$('cle').value.trim()); chargerJournal(); } });
+  $('btn-cle').onclick=demanderCle;
+  $('btn-effacer').onclick=function(){ ecrire('sessionGrema','tableau-'+Date.now()); accueil(); };
+  $('filtres').onclick=function(e){ var f=e.target.getAttribute('data-f'); if(!f) return; filtre=f;
+    [].forEach.call(this.children,function(b){ b.classList.toggle('on', b===e.target); }); dessinerJournal(); };
+  $('form').onsubmit=function(e){ e.preventDefault(); var t=$('texte'); envoyer(t.value); t.value=''; t.style.height=''; };
+  $('texte').addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); $('form').requestSubmit(); } });
+  $('texte').addEventListener('input',function(){ this.style.height='auto'; this.style.height=Math.min(this.scrollHeight,140)+'px'; });
+
+  // Lien avec la clé : .../grema-tableau#cle=TA_CLE (à garder en favori)
+  var m=(location.hash||'').match(/cle=([^&]+)/); if(m) ecrire('cleGrema', decodeURIComponent(m[1]));
+  dessinerAgents(); dessinerTitre(); dessinerRaccourcis(); accueil();
+  if(lire('cleGrema')) chargerJournal(); else { etat('clé manquante','err'); demanderCle(); }
+  setInterval(chargerJournal, 30000);
+})();
+</script>
+</body>
+</html>
