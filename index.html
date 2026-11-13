@@ -11,13 +11,13 @@
 <meta name="keywords" content="Grema88, Grema Agence 88, Nessa Tazo Kussa, RDV Pro, Niger, Sahel, applications, livres, boutique, vendre en ligne, agent IA">
 <meta name="author" content="Grema Agence 88">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://grema88.netlify.app/">
+<link rel="canonical" href="https://yahayanas1988-bot.github.io/Grema-88/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grema88">
 <meta property="og:title" content="Grema88 · Applications, livres et boutique du Sahel">
 <meta property="og:description" content="Applications, livres, vidéos et produits de vendeurs africains. En français, anglais, arabe et allemand.">
-<meta property="og:url" content="https://grema88.netlify.app/">
-<meta property="og:image" content="https://grema88.netlify.app/images/partage.jpg">
+<meta property="og:url" content="https://yahayanas1988-bot.github.io/Grema-88/">
+<meta property="og:image" content="https://yahayanas1988-bot.github.io/Grema-88/images/partage.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="ar_AR">
@@ -29,7 +29,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Grema 88">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Grema Agence 88","alternateName":"Grema88","url":"https://grema88.netlify.app/","logo":"https://grema88.netlify.app/images/logo.jpg","description":"Agence du Sahel : applications, livres, vidéos et boutique en ligne pour vendeurs.","knowsLanguage":["fr","en","ar","de"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Grema Agence 88","alternateName":"Grema88","url":"https://yahayanas1988-bot.github.io/Grema-88/","logo":"https://yahayanas1988-bot.github.io/Grema-88/images/logo.jpg","description":"Agence du Sahel : applications, livres, vidéos et boutique en ligne pour vendeurs.","knowsLanguage":["fr","en","ar","de"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Cinzel+Decorative:wght@700;900&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap">
@@ -609,10 +609,8 @@ button:disabled{opacity:.6;cursor:wait}
           <li><b><span>3</span></b><div><strong data-i18n="sellS3"></strong><p data-i18n="sellS3t"></p></div></li>
         </ol>
       </div>
-      <form class="sell-form" id="sell-form" name="vendeur" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="vendeur">
+      <form class="sell-form" id="sell-form" name="vendeur">
         <input type="hidden" name="langue" id="sf-langue" value="fr">
-        <p class="hp"><label>Ne pas remplir <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <label><span data-i18n="fName"></span><input id="sf-nom" name="nom" required autocomplete="name"></label>
         <label><span data-i18n="fWa"></span><input id="sf-wa" name="whatsapp" type="tel" required placeholder="+227 …" autocomplete="tel"></label>
         <label class="full"><span data-i18n="fProduct"></span><input id="sf-produit" name="produit" required></label>
@@ -771,7 +769,7 @@ button:disabled{opacity:.6;cursor:wait}
       fName:"Votre nom ou votre boutique", fWa:"Votre WhatsApp", fProduct:"Nom du produit", fPrice:"Prix", fCity:"Ville",
       fPick:"Choisir une photo", fPickHint:"Touchez ici ou glissez une image (8 Mo maximum)", fPickRemove:"Retirer", fPickBig:"Photo trop lourde : 8 Mo maximum.", install:"Installer", installHow:"Installer sur mon ordinateur", installTitle:"Installer Grema 88", installDone:"Grema 88 est installé. Vous le trouverez avec vos applications.", installSteps:["Ouvrez le site dans Chrome ou Edge.","Cliquez sur l'icône d'installation à droite de la barre d'adresse (un écran avec une flèche).","Choisissez « Installer ». Grema 88 s'ouvre alors comme une application, même sans connexion."], fDesc:"Description", fPhoto:"Photo du produit", fSend:"Envoyer mon produit",
       fFine:"Vos informations servent seulement à publier votre produit et à vous mettre en contact avec vos clients.",
-      fOk:"Merci ! Votre produit est bien reçu. Grema 88 vous contacte sur WhatsApp avant de le publier.",
+      fOk:"Votre messagerie s'ouvre avec votre produit. Envoyez le message : Grema 88 vous recontacte avant de le publier.", fOkPhoto:"Pensez à joindre votre photo au message avant de l'envoyer.", fMailIntro:"Bonjour Grema 88, je voudrais vendre ce produit sur votre site :", fMailSubject:"Nouveau produit à publier", fNoContact:"Le contact de l'agence n'est pas encore réglé. Réessayez plus tard.",
       fErr:"L'envoi n'a pas marché. Vérifiez votre connexion et réessayez, ou écrivez-nous sur WhatsApp.",
       fSending:"Envoi en cours…",
       svcEyebrow:"Services", svcTitle:"Ce que l'agence fabrique pour vous",
@@ -819,7 +817,7 @@ button:disabled{opacity:.6;cursor:wait}
       fName:"Your name or shop", fWa:"Your WhatsApp", fProduct:"Product name", fPrice:"Price", fCity:"City",
       fPick:"Choose a photo", fPickHint:"Tap here or drop an image (8 MB max)", fPickRemove:"Remove", fPickBig:"Photo too large: 8 MB max.", install:"Install", installHow:"Install on my computer", installTitle:"Install Grema 88", installDone:"Grema 88 is installed. You will find it with your apps.", installSteps:["Open the site in Chrome or Edge.","Click the install icon on the right of the address bar (a screen with an arrow).","Choose \"Install\". Grema 88 then opens like an app, even offline."], fDesc:"Description", fPhoto:"Product photo", fSend:"Send my product",
       fFine:"Your details are only used to publish your product and connect you with customers.",
-      fOk:"Thank you! Your product has been received. Grema 88 will contact you on WhatsApp before publishing it.",
+      fOk:"Your messaging app opens with your product. Send the message: Grema 88 will contact you before publishing it.", fOkPhoto:"Remember to attach your photo to the message before sending it.", fMailIntro:"Hello Grema 88, I would like to sell this product on your site:", fMailSubject:"New product to publish", fNoContact:"The agency contact is not set yet. Please try again later.",
       fErr:"Sending failed. Check your connection and try again, or message us on WhatsApp.",
       fSending:"Sending…",
       svcEyebrow:"Services", svcTitle:"What the agency builds for you",
@@ -867,7 +865,7 @@ button:disabled{opacity:.6;cursor:wait}
       fName:"اسمك أو اسم متجرك", fWa:"رقم واتساب", fProduct:"اسم المنتج", fPrice:"السعر", fCity:"المدينة",
       fPick:"اختر صورة", fPickHint:"المس هنا أو اسحب صورة (8 ميغابايت كحدّ أقصى)", fPickRemove:"إزالة", fPickBig:"الصورة كبيرة جداً: 8 ميغابايت كحدّ أقصى.", install:"تثبيت", installHow:"التثبيت على حاسوبي", installTitle:"تثبيت غريما 88", installDone:"تمّ تثبيت غريما 88. ستجده مع تطبيقاتك.", installSteps:["افتح الموقع في كروم أو إيدج.","انقر على أيقونة التثبيت يمين شريط العنوان (شاشة عليها سهم).","اختر «تثبيت». يفتح غريما 88 كتطبيق، حتى بدون اتصال."], fDesc:"الوصف", fPhoto:"صورة المنتج", fSend:"أرسل منتجي",
       fFine:"تُستخدم معلوماتك فقط لنشر منتجك وربطك بالزبائن.",
-      fOk:"شكراً! وصلنا منتجك. ستتواصل معك غريما 88 عبر واتساب قبل نشره.",
+      fOk:"يُفتح تطبيق الرسائل ومعه معلومات منتجك. أرسل الرسالة، وستتواصل معك غريما 88 قبل نشره.", fOkPhoto:"لا تنسَ إرفاق صورتك بالرسالة قبل إرسالها.", fMailIntro:"مرحباً غريما 88، أرغب في بيع هذا المنتج على موقعكم:", fMailSubject:"منتج جديد للنشر", fNoContact:"لم يُضبط اتصال الوكالة بعد. أعد المحاولة لاحقاً.",
       fErr:"تعذّر الإرسال. تحقّق من الاتصال وأعد المحاولة، أو راسلنا عبر واتساب.",
       fSending:"جارٍ الإرسال…",
       svcEyebrow:"الخدمات", svcTitle:"ما تصنعه الوكالة لك",
@@ -915,7 +913,7 @@ button:disabled{opacity:.6;cursor:wait}
       fName:"Ihr Name oder Ihr Geschäft", fWa:"Ihre WhatsApp-Nummer", fProduct:"Produktname", fPrice:"Preis", fCity:"Stadt",
       fPick:"Foto auswählen", fPickHint:"Hier tippen oder Bild hineinziehen (max. 8 MB)", fPickRemove:"Entfernen", fPickBig:"Foto zu groß: maximal 8 MB.", install:"Installieren", installHow:"Auf meinem Computer installieren", installTitle:"Grema 88 installieren", installDone:"Grema 88 ist installiert. Sie finden es bei Ihren Apps.", installSteps:["Öffnen Sie die Website in Chrome oder Edge.","Klicken Sie rechts in der Adressleiste auf das Installationssymbol (ein Bildschirm mit Pfeil).","Wählen Sie „Installieren“. Grema 88 öffnet sich dann wie eine App, auch offline."], fDesc:"Beschreibung", fPhoto:"Produktfoto", fSend:"Produkt senden",
       fFine:"Ihre Angaben dienen nur dazu, Ihr Produkt zu veröffentlichen und Sie mit Kunden zu verbinden.",
-      fOk:"Danke! Ihr Produkt ist angekommen. Grema 88 meldet sich per WhatsApp, bevor es veröffentlicht wird.",
+      fOk:"Ihre Nachrichten-App öffnet sich mit Ihrem Produkt. Senden Sie die Nachricht ab: Grema 88 meldet sich vor der Veröffentlichung.", fOkPhoto:"Denken Sie daran, Ihr Foto an die Nachricht anzuhängen.", fMailIntro:"Hallo Grema 88, ich möchte dieses Produkt auf Ihrer Seite verkaufen:", fMailSubject:"Neues Produkt zur Veröffentlichung", fNoContact:"Der Kontakt der Agentur ist noch nicht eingerichtet. Bitte später erneut versuchen.",
       fErr:"Senden fehlgeschlagen. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut, oder schreiben Sie uns per WhatsApp.",
       fSending:"Wird gesendet…",
       svcEyebrow:"Leistungen", svcTitle:"Was die Agentur für Sie baut",
@@ -1129,7 +1127,7 @@ button:disabled{opacity:.6;cursor:wait}
   });
   function selectText(el){ var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
 
-  // Formulaire vendeur (reçu dans Netlify > Forms une fois le site en ligne)
+  // Formulaire vendeur
   var sf=document.getElementById("sell-form"), sfMsg=document.getElementById("sf-msg"), sfBtn=document.getElementById("sf-send");
 
 
@@ -1169,17 +1167,26 @@ button:disabled{opacity:.6;cursor:wait}
   sfClear.addEventListener("click",function(e){ e.preventDefault(); e.stopPropagation(); sfPhoto.value=""; photoUi(); });
   ["dragenter","dragover"].forEach(function(n){ sfDrop.addEventListener(n,function(){ sfDrop.classList.add("over"); }); });
   ["dragleave","drop"].forEach(function(n){ sfDrop.addEventListener(n,function(){ sfDrop.classList.remove("over"); }); });
+  // Envoi : ouvre WhatsApp (ou l'e-mail) de l'agence avec la fiche du produit.
+  // Sur téléphone, la photo choisie part avec le message grâce au partage du téléphone.
   sf.addEventListener("submit",function(e){
     e.preventDefault();
     document.getElementById("sf-langue").value = lang;
-    sfMsg.hidden=true; sfBtn.disabled=true; sfBtn.textContent=t("fSending");
-    var fd=new FormData(sf);
-    fetch("/", {method:"POST", body:fd}).then(function(r){
-      if(!r.ok) throw new Error(r.status);
-      sf.reset(); photoUi(); sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk");
-    }).catch(function(){
-      sfMsg.className="form-msg err"; sfMsg.textContent=t("fErr");
-    }).then(function(){ sfMsg.hidden=false; sfBtn.disabled=false; sfBtn.textContent=t("fSend"); });
+    function champ(id){ return (document.getElementById(id).value||"").trim(); }
+    var lignes=[t("fMailIntro"), ""];
+    [["fName","sf-nom"],["fWa","sf-wa"],["fProduct","sf-produit"],["fPrice","sf-prix"],["fCity","sf-ville"],["fDesc","sf-desc"]].forEach(function(c){
+      var v=champ(c[1]); if(v) lignes.push(t(c[0])+" : "+v);
+    });
+    var texte=lignes.join("\n"), wa=waDigits(A.whatsapp), photo=sfPhoto.files&&sfPhoto.files[0], url="";
+    function fini(extra){ sfMsg.className="form-msg ok"; sfMsg.textContent=t("fOk")+(extra?" "+t("fOkPhoto"):""); sfMsg.hidden=false; }
+    if(photo && navigator.canShare && navigator.canShare({files:[photo]}) && matchMedia("(pointer:coarse)").matches){
+      navigator.share({files:[photo], text:texte, title:t("fMailSubject")}).then(function(){ fini(false); sf.reset(); photoUi(); }).catch(function(){});
+      return;
+    }
+    if(wa) url="https://wa.me/"+wa+"?text="+encodeURIComponent(texte);
+    else if(A.email) url="mailto:"+A.email+"?subject="+encodeURIComponent(t("fMailSubject")+" : "+champ("sf-produit"))+"&body="+encodeURIComponent(texte);
+    if(url){ window.open(url, wa ? "_blank" : "_self"); fini(!!photo); }
+    else { sfMsg.className="form-msg err"; sfMsg.textContent=t("fNoContact"); sfMsg.hidden=false; }
   });
 
   // Aujourd'hui : date, calendrier musulman, heure

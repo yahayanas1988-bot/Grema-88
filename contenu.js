@@ -10,7 +10,7 @@ window.GREMA88 = {
     "nomComplet": "Grema Agence 88",
     "slogan": "Des applications, des livres, des produits et des histoires du Sahel, pour l'Afrique et pour le monde.",
     "whatsapp": "+4915219063059",
-    "email": "yahayanas1988@gmail.com",
+    "email": "contact.grema88@gmail.com",
     "facebook": "",
     "tiktok": "",
     "instagram": "",
