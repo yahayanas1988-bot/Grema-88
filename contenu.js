@@ -9,7 +9,7 @@ window.GREMA88 = {
     "nom": "Grema88",
     "nomComplet": "Grema Agence 88",
     "slogan": "Des applications, des livres, des produits et des histoires du Sahel, pour l'Afrique et pour le monde.",
-    "whatsapp": "",
+    "whatsapp": "+4915219063059",
     "email": "contact.grema88@gmail.com",
     "facebook": "",
     "tiktok": "",
@@ -96,89 +96,13 @@ window.GREMA88 = {
       }
     },
     {
-      "id": "exemple-tissu-wax",
-      "type": "produit",
-      "titre": "Pagne wax 6 yards",
-      "accroche": "Exemple de produit vendeur",
-      "description": "Exemple de fiche produit d'un vendeur. Le bouton ouvre WhatsApp avec le vendeur. Remplacez ou supprimez cet exemple dans l'Espace Grema.",
-      "image": "",
-      "lien": "",
-      "bouton": "",
-      "prix": "12 000 FCFA",
-      "auteur": "",
-      "vendeur": "Boutique exemple",
-      "whatsapp": "",
-      "ville": "Niamey",
-      "tags": [
-        "Tissu",
-        "Exemple"
-      ],
-      "statut": "disponible",
-      "vedette": false,
-      "traductions": {
-        "en": {
-          "titre": "Wax fabric, 6 yards",
-          "accroche": "Example seller product",
-          "description": "Example of a seller's product page. The button opens WhatsApp with the seller."
-        },
-        "ar": {
-          "titre": "قماش واكس 6 ياردات",
-          "accroche": "مثال لمنتج بائع",
-          "description": "مثال لصفحة منتج بائع. يفتح الزر واتساب مع البائع."
-        },
-        "de": {
-          "titre": "Wax-Stoff, 6 Yards",
-          "accroche": "Beispiel für ein Verkäuferprodukt",
-          "description": "Beispiel einer Produktseite eines Verkäufers. Der Button öffnet WhatsApp mit dem Verkäufer."
-        }
-      }
-    },
-    {
-      "id": "exemple-miel",
-      "type": "produit",
-      "titre": "Miel du Sahel, 1 litre",
-      "accroche": "Exemple de produit vendeur",
-      "description": "Deuxième exemple, pour voir le rendu de la boutique. Supprimez-le quand vos vrais vendeurs arrivent.",
-      "image": "",
-      "lien": "",
-      "bouton": "",
-      "prix": "5 000 FCFA",
-      "auteur": "",
-      "vendeur": "Ferme exemple",
-      "whatsapp": "",
-      "ville": "Zinder",
-      "tags": [
-        "Alimentation",
-        "Exemple"
-      ],
-      "statut": "disponible",
-      "vedette": false,
-      "traductions": {
-        "en": {
-          "titre": "Sahel honey, 1 litre",
-          "accroche": "Example seller product",
-          "description": "Second example to show how the shop looks."
-        },
-        "ar": {
-          "titre": "عسل الساحل، لتر واحد",
-          "accroche": "مثال لمنتج بائع",
-          "description": "مثال ثانٍ لعرض شكل المتجر."
-        },
-        "de": {
-          "titre": "Sahel-Honig, 1 Liter",
-          "accroche": "Beispiel für ein Verkäuferprodukt",
-          "description": "Zweites Beispiel, um den Shop zu zeigen."
-        }
-      }
-    },
-    {
       "id": "le-conseil-de-la-savane",
       "type": "autre",
       "titre": "Le Conseil de la Savane",
       "accroche": "Une fable sur le pouvoir et la stratégie",
       "description": "Dessin animé de 5 minutes. La pluie n'est pas venue, le lac rétrécit, et le roi lion Kadar réunit son conseil sur le Rocher du Soleil. La hyène veut la guerre, le renard veut mentir, la chouette propose une autre voie.",
       "image": "images/conseil-savane.jpg",
-      "lien": "videos/le-conseil-de-la-savane.mp4",
+      "lien": "",
       "bouton": "Regarder",
       "prix": "",
       "auteur": "Grema88",
@@ -190,7 +114,7 @@ window.GREMA88 = {
         "5 min",
         "Fable"
       ],
-      "statut": "disponible",
+      "statut": "bientot",
       "vedette": false,
       "traductions": {
         "en": {
@@ -214,40 +138,41 @@ window.GREMA88 = {
       }
     },
     {
-      "id": "exemple-livre-1",
+      "id": "ecoute-moi-avant-de-partir",
       "type": "livre",
-      "titre": "Le titre de votre livre",
-      "accroche": "Exemple de fiche livre",
-      "description": "Ceci est un exemple. Remplacez-le par votre vrai livre dans l'Espace Grema : titre, auteur, résumé, couverture, prix et lien d'achat ou de lecture.",
+      "titre": "Écoute-moi avant de partir",
+      "accroche": "Le récit d'une traversée",
+      "description": "Le témoignage de Yahaya, parti d'Arlit au Niger : l'Algérie, la Libye, la traversée, puis l'arrivée en Europe. Un livre écrit pour les jeunes qui pensent à partir, pour leur dire ce qui les attend et qu'on peut aussi construire sa vie chez soi.",
       "image": "",
       "lien": "",
-      "bouton": "Lire un extrait",
-      "prix": "2 500 FCFA",
-      "auteur": "Grema",
+      "bouton": "",
+      "prix": "",
+      "auteur": "Yahaya Nassirou Maman Grema",
       "vendeur": "",
       "whatsapp": "",
       "ville": "",
       "tags": [
-        "Roman",
-        "Exemple"
+        "Témoignage",
+        "Migration",
+        "Niger"
       ],
       "statut": "bientot",
       "vedette": false,
       "traductions": {
         "en": {
-          "titre": "Your book title",
-          "accroche": "Example book page",
-          "description": "This is an example book page."
+          "titre": "Listen to me before you leave",
+          "accroche": "The story of a crossing",
+          "description": "Yahaya's testimony, from Arlit in Niger: Algeria, Libya, the crossing, then arriving in Europe. A book for young people thinking of leaving, to tell them what lies ahead and that a life can also be built at home."
         },
         "ar": {
-          "titre": "عنوان كتابك",
-          "accroche": "مثال لصفحة كتاب",
-          "description": "هذه صفحة كتاب للمثال."
+          "titre": "اسمعني قبل أن ترحل",
+          "accroche": "حكاية عبور",
+          "description": "شهادة يحيى، من أرليت في النيجر: الجزائر، ليبيا، العبور، ثم الوصول إلى أوروبا. كتاب للشباب الذين يفكّرون في الرحيل، ليعرفوا ما ينتظرهم وأنّ بناء الحياة ممكن في الوطن أيضاً."
         },
         "de": {
-          "titre": "Der Titel Ihres Buches",
-          "accroche": "Beispiel einer Buchseite",
-          "description": "Dies ist eine Beispiel-Buchseite."
+          "titre": "Hör mir zu, bevor du gehst",
+          "accroche": "Die Geschichte einer Überfahrt",
+          "description": "Das Zeugnis von Yahaya aus Arlit im Niger: Algerien, Libyen, die Überfahrt, dann die Ankunft in Europa. Ein Buch für junge Menschen, die ans Weggehen denken, damit sie wissen, was sie erwartet, und dass man sein Leben auch zu Hause aufbauen kann."
         }
       }
     }
